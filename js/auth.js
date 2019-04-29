@@ -19,7 +19,7 @@ function setAuthListener() {
 
         promise.catch(ev => {
             console.log(ev.message);
-            if (ev.code === "auth/invalid-email") {
+            if (ev.code === "auth/invalid-email" || || ev.code === "The password is invalid or the user does not have a password.") {
                 alert("Check password and try again.");
             }
         })
