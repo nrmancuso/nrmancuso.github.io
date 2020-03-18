@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>HashingTest xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (C) 2017 The Guava Authors</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * in compliance with the License. You may obtain a copy of the License at</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * <a href="http://www.apache.org/licenses/LICENSE-2.0" target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.0</a></em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * Unless required by applicable law or agreed to in writing, software distributed under the</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * express or implied. See the License for the specific language governing permissions and</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * limitations under the License.</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">package</strong> com.google.common.collect;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> com.google.common.collect.Hashing.smear;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> com.google.common.annotations.GwtCompatible;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> junit.framework.TestCase;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">/** Tests for {@code Hashing}. */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  @GwtCompatible
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> HashingTest <strong class="jxr_keyword">extends</strong> TestCase {
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSmear() {
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      assertEquals(1459320713, smear(754102528));
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      assertEquals(-160560296, smear(1234567890));
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      assertEquals(-1017931171, smear(1));
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      assertEquals(-1350072884, smear(-2000000000));
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      assertEquals(-809843551, smear(2000000000));
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      assertEquals(-309370926, smear(-1155484576));
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      assertEquals(-1645495900, smear(-723955400));
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      assertEquals(766424523, smear(1033096058));
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      assertEquals(-757003149, smear(-1690734402));
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      assertEquals(-245078984, smear(-1557280266));
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      assertEquals(-1401957971, smear(1327362106));
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>      assertEquals(1398564061, smear(-1930858313));
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      assertEquals(799903031, smear(502539523));
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      assertEquals(587718043, smear(-1728529858));
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      assertEquals(1757836855, smear(-938301587));
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      assertEquals(1002498708, smear(1431162155));
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      assertEquals(52905316, smear(1085665355));
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      assertEquals(-1590037357, smear(1654374947));
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      assertEquals(-100883544, smear(-1661998771));
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      assertEquals(1312247346, smear(-65105105));
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      assertEquals(-79641824, smear(-73789608));
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      assertEquals(1739416943, smear(-518907128));
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      assertEquals(483849880, smear(99135751));
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      assertEquals(1797032732, smear(-252332814));
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      assertEquals(329701497, smear(755814641));
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      assertEquals(-1411506712, smear(1180918287));
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      assertEquals(-132448996, smear(1344049776));
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      assertEquals(51088191, smear(553609048));
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      assertEquals(-322136643, smear(1580443894));
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      assertEquals(1443704906, smear(629649304));
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      assertEquals(-553641505, smear(-1266264776));
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      assertEquals(996203724, smear(99807007));
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      assertEquals(-1135153980, smear(5955764));
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>      assertEquals(-202220609, smear(-1946737912));
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>      assertEquals(1170627357, smear(39620447));
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>      assertEquals(666671983, smear(-152527805));
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      assertEquals(830549906, smear(-1877116806));
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      assertEquals(818272619, smear(448784075));
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      assertEquals(743117554, smear(1086124775));
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      assertEquals(1631368220, smear(-1609984092));
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      assertEquals(-1030514623, smear(1227951724));
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      assertEquals(1982371623, smear(1764356251));
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      assertEquals(940948840, smear(64111306));
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      assertEquals(1789753804, smear(-960731419));
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      assertEquals(875698259, smear(-100082026));
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      assertEquals(-1958263900, smear(-39845375));
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>      assertEquals(-1953676635, smear(-1339022546));
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      assertEquals(1916180219, smear(2092649110));
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>      assertEquals(-1364581757, smear(-568315836));
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>      assertEquals(1918915654, smear(-1089884900));
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      assertEquals(938102267, smear(-81839914));
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      assertEquals(645819996, smear(-1146103148));
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>      assertEquals(-1072963524, smear(-1846688624));
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>      assertEquals(1704102819, smear(-784703072));
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      assertEquals(-1183783966, smear(55004124));
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      assertEquals(2097842757, smear(-691960657));
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>      assertEquals(-2139783994, smear(1770461755));
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>      assertEquals(1305227358, smear(-2032810463));
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      assertEquals(-863362476, smear(-1177788003));
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      assertEquals(37648593, smear(-432352882));
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>      assertEquals(1172853257, smear(-65824064));
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      assertEquals(1811397990, smear(575267217));
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>      assertEquals(-91361736, smear(-1949367821));
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>      assertEquals(770365725, smear(356750287));
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      assertEquals(522521211, smear(798819494));
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>      assertEquals(-37176651, smear(-92022521));
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      assertEquals(-645245125, smear(1318001577));
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>      assertEquals(1460094042, smear(-1192467086));
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>      assertEquals(-1713924794, smear(-1412716779));
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>      assertEquals(-587126285, smear(-1223932479));
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>      assertEquals(2124902646, smear(276053035));
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>      assertEquals(1660727203, smear(615126903));
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      assertEquals(-1851411975, smear(1542603436));
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>      assertEquals(-150321817, smear(1988388716));
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>     assertEquals(-1474601337, smear(1177882237));
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>     assertEquals(173314316, smear(19265476));
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>     assertEquals(910078796, smear(-1430871151));
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>     assertEquals(-1788757022, smear(307082914));
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>     assertEquals(-37217695, smear(-1333570194));
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>     assertEquals(-1750409108, smear(1496453452));
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>     assertEquals(-1184297296, smear(-790542135));
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>     assertEquals(1909334635, smear(1455004595));
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>     assertEquals(-626278147, smear(-1690249972));
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>     assertEquals(-1343393583, smear(-604059026));
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>     assertEquals(-72620618, smear(-290476856));
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>     assertEquals(-1721662527, smear(-122204761));
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>     assertEquals(20732956, smear(-1097539750));
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>     assertEquals(1689535747, smear(-576617062));
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>     assertEquals(-910174660, smear(-2002123957));
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>     assertEquals(-451949594, smear(-1663951485));
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>     assertEquals(-1040666441, smear(193034304));
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>     assertEquals(-568575382, smear(768747578));
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>     assertEquals(-1136854138, smear(1337360486));
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>     assertEquals(-1846303810, smear(934457803));
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>     assertEquals(560788004, smear(873612482));
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>     assertEquals(-1639693734, smear(-624972850));
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>     assertEquals(1401682479, smear(355564760));
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>     assertEquals(537840760, smear(41547336));
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>     assertEquals(822662855, smear(1781447028));
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>     assertEquals(2116379380, smear(-1321591463));
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>     assertEquals(1651021961, smear(1081281446));
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>     assertEquals(325386824, smear(-982203381));
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>     assertEquals(302543644, smear(-222544851));
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>     assertEquals(-467777650, smear(-1233998085));
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>     assertEquals(391483003, smear(-1331702554));
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>   }
+<a class="jxr_linenumber" name="L132" href="#L132">132</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
