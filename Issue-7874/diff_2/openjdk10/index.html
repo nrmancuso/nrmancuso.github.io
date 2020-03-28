@@ -1,0 +1,2290 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										<td class="c">
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">SummaryJavadoc</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												id
+												
+													<li>ImportOrderMethod1</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												id
+												
+													<li>ImportOrderMethod1</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												groups
+												
+													<li>java.awt</li>
+												
+													<li>javax.swing</li>
+												
+													<li>java.io</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod2</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												groups
+												
+													<li>java.awt</li>
+												
+													<li>javax.swing</li>
+												
+													<li>java.io</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod2</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>false</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java, /^javax?\.(awt|swing)\./</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod3</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>false</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java, /^javax?\.(awt|swing)\./</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod3</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>false</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java.awt, javax.swing, java.io, java.util</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod4</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>false</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java.awt, javax.swing, java.io, java.util</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod4</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java, org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java, org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java, javax, org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod6</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java, javax, org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod6</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>false</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java, javax, org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod7</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>false</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java, javax, org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod7</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java, javax, org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod8</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>java, javax, org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod8</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>false</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod9</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>false</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod9</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												useContainerOrderingForStatic
+												
+													<li>true</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>false</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod10</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												useContainerOrderingForStatic
+												
+													<li>true</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>false</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod10</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												id
+												
+													<li>ImportOrderMethod11</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												id
+												
+													<li>ImportOrderMethod11</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>false</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod12</li>
+												
+												<br/>
+											
+												option
+												
+													<li>under</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>false</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod12</li>
+												
+												<br/>
+											
+												option
+												
+													<li>under</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>false</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod13</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>false</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod13</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod14</li>
+												
+												<br/>
+											
+												option
+												
+													<li>above</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod14</li>
+												
+												<br/>
+											
+												option
+												
+													<li>above</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod15</li>
+												
+												<br/>
+											
+												option
+												
+													<li>inflow</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod15</li>
+												
+												<br/>
+											
+												option
+												
+													<li>inflow</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod16</li>
+												
+												<br/>
+											
+												option
+												
+													<li>under</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod16</li>
+												
+												<br/>
+											
+												option
+												
+													<li>under</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod17</li>
+												
+												<br/>
+											
+												option
+												
+													<li>inflow</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod17</li>
+												
+												<br/>
+											
+												option
+												
+													<li>inflow</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												groups
+												
+													<li>/javax/, sun, /^java/, org, /java/</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod18</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												groups
+												
+													<li>/javax/, sun, /^java/, org, /java/</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod18</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												tokens
+												
+													<li>IMPORT</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod19</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												tokens
+												
+													<li>IMPORT</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod19</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												groups
+												
+													<li>java,javax,org</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod20</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												groups
+												
+													<li>java,javax,org</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod20</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod21</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod21</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod22</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod22</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod23</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod23</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod23</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod23</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod24</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod24</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod25</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod25</li>
+												
+												<br/>
+											
+												option
+												
+													<li>bottom</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>javax, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod26</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>javax, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod26</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod27</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod27</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>false</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod28</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												sortStaticImportsAlphabetically
+												
+													<li>false</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>org, java</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod28</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												useContainerOrderingForStatic
+												
+													<li>false</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>false</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod29</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												useContainerOrderingForStatic
+												
+													<li>false</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>false</li>
+												
+												<br/>
+											
+												id
+												
+													<li>ImportOrderMethod29</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-error</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">20217</td>
+							<td id="totalBase">607244</td>
+							
+								<td id="errorSeverityNumBase">607244</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">20217</td>
+							<td id="totalPatch">607244</td>
+							
+								<td id="errorSeverityStatisticsPatch">607244</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">0 files with differences</td>
+							<td id="totalDiff">0 changes in violations</td>
+							
+								<td id="errorSeverityNumDiff">0 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>ImportOrderMethod19</th>
+								
+									<th>ImportOrderMethod18</th>
+								
+									<th>ImportOrderMethod17</th>
+								
+									<th>ImportOrderMethod12</th>
+								
+									<th>ImportOrderMethod11</th>
+								
+									<th>ImportOrderMethod10</th>
+								
+									<th>ImportOrderMethod16</th>
+								
+									<th>ImportOrderMethod15</th>
+								
+									<th>ImportOrderMethod14</th>
+								
+									<th>ImportOrderMethod13</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck</th>
+								
+									<th>ImportOrderMethod29</th>
+								
+									<th>ImportOrderMethod28</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck</th>
+								
+									<th>ImportOrderMethod23</th>
+								
+									<th>ImportOrderMethod22</th>
+								
+									<th>ImportOrderMethod21</th>
+								
+									<th>ImportOrderMethod20</th>
+								
+									<th>ImportOrderMethod27</th>
+								
+									<th>ImportOrderMethod26</th>
+								
+									<th>ImportOrderMethod25</th>
+								
+									<th>ImportOrderMethod24</th>
+								
+									<th>ImportOrderMethod1</th>
+								
+									<th>ImportOrderMethod2</th>
+								
+									<th>ImportOrderMethod3</th>
+								
+									<th>ImportOrderMethod4</th>
+								
+									<th>ImportOrderMethod6</th>
+								
+									<th>ImportOrderMethod7</th>
+								
+									<th>ImportOrderMethod8</th>
+								
+									<th>ImportOrderMethod9</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="ImportOrderMethod19ModuleNumBase">17773</td>
+								
+									<td id="ImportOrderMethod18ModuleNumBase">22936</td>
+								
+									<td id="ImportOrderMethod17ModuleNumBase">19831</td>
+								
+									<td id="ImportOrderMethod12ModuleNumBase">22949</td>
+								
+									<td id="ImportOrderMethod11ModuleNumBase">20095</td>
+								
+									<td id="ImportOrderMethod10ModuleNumBase">23774</td>
+								
+									<td id="ImportOrderMethod16ModuleNumBase">19467</td>
+								
+									<td id="ImportOrderMethod15ModuleNumBase">19831</td>
+								
+									<td id="ImportOrderMethod14ModuleNumBase">20291</td>
+								
+									<td id="ImportOrderMethod13ModuleNumBase">19271</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleNumBase">20271</td>
+								
+									<td id="ImportOrderMethod29ModuleNumBase">23550</td>
+								
+									<td id="ImportOrderMethod28ModuleNumBase">20467</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheckModuleNumBase">16425</td>
+								
+									<td id="ImportOrderMethod23ModuleNumBase">26536</td>
+								
+									<td id="ImportOrderMethod22ModuleNumBase">20373</td>
+								
+									<td id="ImportOrderMethod21ModuleNumBase">21014</td>
+								
+									<td id="ImportOrderMethod20ModuleNumBase">19397</td>
+								
+									<td id="ImportOrderMethod27ModuleNumBase">20663</td>
+								
+									<td id="ImportOrderMethod26ModuleNumBase">20157</td>
+								
+									<td id="ImportOrderMethod25ModuleNumBase">19994</td>
+								
+									<td id="ImportOrderMethod24ModuleNumBase">20373</td>
+								
+									<td id="ImportOrderMethod1ModuleNumBase">19467</td>
+								
+									<td id="ImportOrderMethod2ModuleNumBase">20159</td>
+								
+									<td id="ImportOrderMethod3ModuleNumBase">11350</td>
+								
+									<td id="ImportOrderMethod4ModuleNumBase">19895</td>
+								
+									<td id="ImportOrderMethod6ModuleNumBase">19070</td>
+								
+									<td id="ImportOrderMethod7ModuleNumBase">19360</td>
+								
+									<td id="ImportOrderMethod8ModuleNumBase">19556</td>
+								
+									<td id="ImportOrderMethod9ModuleNumBase">22949</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="ImportOrderMethod19ModuleStatisticsPatch">17773</td>
+								
+									<td id="ImportOrderMethod18ModuleStatisticsPatch">22936</td>
+								
+									<td id="ImportOrderMethod17ModuleStatisticsPatch">19831</td>
+								
+									<td id="ImportOrderMethod12ModuleStatisticsPatch">22949</td>
+								
+									<td id="ImportOrderMethod11ModuleStatisticsPatch">20095</td>
+								
+									<td id="ImportOrderMethod10ModuleStatisticsPatch">23774</td>
+								
+									<td id="ImportOrderMethod16ModuleStatisticsPatch">19467</td>
+								
+									<td id="ImportOrderMethod15ModuleStatisticsPatch">19831</td>
+								
+									<td id="ImportOrderMethod14ModuleStatisticsPatch">20291</td>
+								
+									<td id="ImportOrderMethod13ModuleStatisticsPatch">19271</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleStatisticsPatch">20271</td>
+								
+									<td id="ImportOrderMethod29ModuleStatisticsPatch">23550</td>
+								
+									<td id="ImportOrderMethod28ModuleStatisticsPatch">20467</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheckModuleStatisticsPatch">16425</td>
+								
+									<td id="ImportOrderMethod23ModuleStatisticsPatch">26536</td>
+								
+									<td id="ImportOrderMethod22ModuleStatisticsPatch">20373</td>
+								
+									<td id="ImportOrderMethod21ModuleStatisticsPatch">21014</td>
+								
+									<td id="ImportOrderMethod20ModuleStatisticsPatch">19397</td>
+								
+									<td id="ImportOrderMethod27ModuleStatisticsPatch">20663</td>
+								
+									<td id="ImportOrderMethod26ModuleStatisticsPatch">20157</td>
+								
+									<td id="ImportOrderMethod25ModuleStatisticsPatch">19994</td>
+								
+									<td id="ImportOrderMethod24ModuleStatisticsPatch">20373</td>
+								
+									<td id="ImportOrderMethod1ModuleStatisticsPatch">19467</td>
+								
+									<td id="ImportOrderMethod2ModuleStatisticsPatch">20159</td>
+								
+									<td id="ImportOrderMethod3ModuleStatisticsPatch">11350</td>
+								
+									<td id="ImportOrderMethod4ModuleStatisticsPatch">19895</td>
+								
+									<td id="ImportOrderMethod6ModuleStatisticsPatch">19070</td>
+								
+									<td id="ImportOrderMethod7ModuleStatisticsPatch">19360</td>
+								
+									<td id="ImportOrderMethod8ModuleStatisticsPatch">19556</td>
+								
+									<td id="ImportOrderMethod9ModuleStatisticsPatch">22949</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="ImportOrderMethod19ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod18ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod17ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod12ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod11ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod10ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod16ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod15ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod14ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod13ModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod29ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod28ModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheckModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod23ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod22ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod21ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod20ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod27ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod26ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod25ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod24ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod1ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod2ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod3ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod4ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod6ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod7ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod8ModuleNumDiff">0</td>
+								
+									<td id="ImportOrderMethod9ModuleNumDiff">0</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">0</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+			</div>
+		</div>
+	</body>
+</html>
