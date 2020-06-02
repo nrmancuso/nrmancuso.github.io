@@ -1,0 +1,2056 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">AvoidStarImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">AvoidStaticImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">CustomImportOrder</td>
+										
+										<td class="c">
+											
+												thirdPartyPackageRegExp
+												
+													<li>^org\.</li>
+												
+												<br/>
+											
+												separateLineBetweenGroups
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortImportsInGroupAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												specialImportsRegExp
+												
+													<li>^javax\.</li>
+												
+												<br/>
+											
+												customImportOrderRules
+												
+													<li>STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE</li>
+												
+												<br/>
+											
+												standardPackageRegExp
+												
+													<li>^java\.</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												thirdPartyPackageRegExp
+												
+													<li>^org\.</li>
+												
+												<br/>
+											
+												separateLineBetweenGroups
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortImportsInGroupAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												specialImportsRegExp
+												
+													<li>^javax\.</li>
+												
+												<br/>
+											
+												customImportOrderRules
+												
+													<li>STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE</li>
+												
+												<br/>
+											
+												standardPackageRegExp
+												
+													<li>^java\.</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">IllegalImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>/^java\./,javax,org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>/^java\./,javax,org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">RedundantImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UnusedImports</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">BooleanExpressionComplexity</td>
+										
+										<td class="c">
+											
+												max
+												
+													<li>7</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												max
+												
+													<li>7</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ClassDataAbstractionCoupling</td>
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short, void,                          Boolean, Byte, Character, Double, Float, Integer, Long, Short, Void,                          Object, Class, String, StringBuffer, StringBuilder,                          ArrayIndexOutOfBoundsException, Exception, RuntimeException,                          IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short, void,                          Boolean, Byte, Character, Double, Float, Integer, Long, Short, Void,                          Object, Class, String, StringBuffer, StringBuilder,                          ArrayIndexOutOfBoundsException, Exception, RuntimeException,                          IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ClassFanOutComplexity</td>
+										
+										<td class="c">
+											
+												max
+												
+													<li>25</li>
+												
+												<br/>
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short,                          void, Boolean, Byte, Character, Double, Float, Integer,                          Long, Short, Void, Object, Class, String, StringBuffer,                          StringBuilder, ArrayIndexOutOfBoundsException, Exception,                          RuntimeException, IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException, Log, Sets, Multimap,                          TokenStreamRecognitionException, RecognitionException,                          TokenStreamException, IOException, Override, Deprecated, SafeVarargs,                          SuppressWarnings, FunctionalInterface</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												max
+												
+													<li>25</li>
+												
+												<br/>
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short,                          void, Boolean, Byte, Character, Double, Float, Integer,                          Long, Short, Void, Object, Class, String, StringBuffer,                          StringBuilder, ArrayIndexOutOfBoundsException, Exception,                          RuntimeException, IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException, Log, Sets, Multimap,                          TokenStreamRecognitionException, RecognitionException,                          TokenStreamException, IOException, Override, Deprecated, SafeVarargs,                          SuppressWarnings, FunctionalInterface</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">CyclomaticComplexity</td>
+										
+										<td class="c">
+											
+												switchBlockAsSingleDecisionPoint
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												switchBlockAsSingleDecisionPoint
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">JavaNCSS</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">NPathComplexity</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ArrayTypeStyle</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">AvoidEscapedUnicodeCharacters</td>
+										
+										<td class="c">
+											
+												allowIfAllCharactersEscaped
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowIfAllCharactersEscaped
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">CommentsIndentation</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">DescendantToken</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">FinalParameters</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">Indentation</td>
+										
+										<td class="c">
+											
+												throwsIndent
+												
+													<li>8</li>
+												
+												<br/>
+											
+												caseIndent
+												
+													<li>4</li>
+												
+												<br/>
+											
+												basicOffset
+												
+													<li>4</li>
+												
+												<br/>
+											
+												braceAdjustment
+												
+													<li>0</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												throwsIndent
+												
+													<li>8</li>
+												
+												<br/>
+											
+												caseIndent
+												
+													<li>4</li>
+												
+												<br/>
+											
+												basicOffset
+												
+													<li>4</li>
+												
+												<br/>
+											
+												braceAdjustment
+												
+													<li>0</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">OuterTypeFilename</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TodoComment</td>
+										
+										<td class="c">
+											
+												format
+												
+													<li>(TODO)|(FIXME)</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												format
+												
+													<li>(TODO)|(FIXME)</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TodoComment</td>
+										
+										<td class="c">
+											
+												todo.match
+												
+													<li>Comment text should start with space.</li>
+												
+												<br/>
+											
+												format
+												
+													<li>^([^\s\/*])</li>
+												
+												<br/>
+											
+												id
+												
+													<li>commentStartWithSpace</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												todo.match
+												
+													<li>Comment text should start with space.</li>
+												
+												<br/>
+											
+												format
+												
+													<li>^([^\s\/*])</li>
+												
+												<br/>
+											
+												id
+												
+													<li>commentStartWithSpace</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TrailingComment</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UncommentedMain</td>
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>\.(Main|JavadocPropertiesGenerator)$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>\.(Main|JavadocPropertiesGenerator)$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UpperEll</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ClassMemberImpliedModifier</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">InterfaceMemberImpliedModifier</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ModifierOrder</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">RedundantModifier</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">750</td>
+							<td id="totalBase">3339</td>
+							
+								<td id="warningSeverityNumBase">3339</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">750</td>
+							<td id="totalPatch">3296 (43 removed)</td>
+							
+								<td id="warningSeverityStatisticsPatch">3296 (43 removed)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">2 files with differences</td>
+							<td id="totalDiff">43 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">43 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheck</th>
+								
+									<th>commentStartWithSpace</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.UpperEllCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckModuleNumBase">74</td>
+								
+									<td id="commentStartWithSpaceModuleNumBase">536</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheckModuleNumBase">164</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheckModuleNumBase">9</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheckModuleNumBase">36</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleNumBase">33</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheckModuleNumBase">2</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheckModuleNumBase">17</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheckModuleNumBase">4</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckModuleNumBase">1530</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheckModuleNumBase">9</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheckModuleNumBase">10</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckModuleNumBase">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheckModuleNumBase">76</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UpperEllCheckModuleNumBase">131</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheckModuleNumBase">155</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleNumBase">24</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleNumBase">58</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheckModuleNumBase">28</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheckModuleNumBase">53</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheckModuleNumBase">16</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheckModuleNumBase">3</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheckModuleNumBase">370</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckModuleStatisticsPatch">71 (3 removed)</td>
+								
+									<td id="commentStartWithSpaceModuleStatisticsPatch">536</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheckModuleStatisticsPatch">163 (1 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheckModuleStatisticsPatch">9</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheckModuleStatisticsPatch">36</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleStatisticsPatch">32 (1 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheckModuleStatisticsPatch">2</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheckModuleStatisticsPatch">16 (1 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheckModuleStatisticsPatch">4</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckModuleStatisticsPatch">1517 (13 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheckModuleStatisticsPatch">9</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheckModuleStatisticsPatch">10</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckModuleStatisticsPatch">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheckModuleStatisticsPatch">75 (1 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UpperEllCheckModuleStatisticsPatch">115 (16 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheckModuleStatisticsPatch">154 (1 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleStatisticsPatch">24</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleStatisticsPatch">57 (1 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheckModuleStatisticsPatch">25 (3 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheckModuleStatisticsPatch">52 (1 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheckModuleStatisticsPatch">16</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheckModuleStatisticsPatch">2 (1 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheckModuleStatisticsPatch">370</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckModuleNumDiff">3</td>
+								
+									<td id="commentStartWithSpaceModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheckModuleNumDiff">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleNumDiff">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheckModuleNumDiff">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckModuleNumDiff">13</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheckModuleNumDiff">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UpperEllCheckModuleNumDiff">16</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheckModuleNumDiff">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleNumDiff">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheckModuleNumDiff">3</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheckModuleNumDiff">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheckModuleNumDiff">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheckModuleNumDiff">0</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">43</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">0</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Wrong lexicographical order for &#39;org.orekit.utils.GenericTimeStampedCache&#39; import. Should be before &#39;org.orekit.utils.PVCoordinates&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Wrong order for &#39;org.orekit.utils.GenericTimeStampedCache&#39; import.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>ClassDataAbstractionCoupling</td>
+								<td>Class Data Abstraction Coupling is 12 (max allowed is 7) classes [AbsoluteDate, AtomicReference, ConstantsParser, DateComponents, EphemerisParser, EphemerisRawPVProvider, GenericTimeStampedCache, JPLCelestialBody, OrekitException, OrekitInternalError, TimeComponents, ZeroRawPVProvider].</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L70">70</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>RedundantModifier</td>
+								<td>Redundant &#39;final&#39; modifier.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L183">183</a></td>
+								
+								
+									
+									<td class="keepWidth">32</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 8, expected level should be 12.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L240">240</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 8, expected level should be 12.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L339">339</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>CyclomaticComplexity</td>
+								<td>Cyclomatic Complexity is 38 (max allowed is 10).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L449">449</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>NPathComplexity</td>
+								<td>NPath Complexity is 2,688 (max allowed is 200).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L449">449</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 8, expected level should be 12.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L450">450</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>BooleanExpressionComplexity</td>
+								<td>Boolean expression complexity is 21 (max allowed is 7).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L494">494</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 8, expected level should be 12.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L536">536</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 8, expected level should be 12.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L621">621</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 8, expected level should be 12.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L661">661</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L729">729</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L730">730</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L731">731</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L732">732</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L733">733</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L734">734</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L735">735</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L736">736</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>CommentsIndentation</td>
+								<td>Block comment has incorrect indentation level 7, expected is 8, indentation should be the same level as line 789.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L786">786</a></td>
+								
+								
+									
+									<td class="keepWidth">8</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 12, expected level should be 16.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L800">800</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 12, expected level should be 16.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L841">841</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>CyclomaticComplexity</td>
+								<td>Cyclomatic Complexity is 13 (max allowed is 10).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L893">893</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>NPathComplexity</td>
+								<td>NPath Complexity is 720 (max allowed is 200).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L893">893</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 12, expected level should be 16.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/main/java/org/orekit/bodies/JPLEphemeridesLoader.java.html#L894">894</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>CyclomaticComplexity</td>
+								<td>Cyclomatic Complexity is 17 (max allowed is 10).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>JavaNCSS</td>
+								<td>NCSS for this method is 58 (max allowed is 50).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>NPathComplexity</td>
+								<td>NPath Complexity is 327 (max allowed is 200).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>UncommentedMain</td>
+								<td>Uncommented main method found.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 8, expected level should be 12.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L216">216</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 8, expected level should be 12.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L300">300</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 8, expected level should be 12.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L341">341</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;throws&#39; has incorrect indentation level 8, expected level should be 12.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L388">388</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L465">465</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L466">466</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L467">467</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L468">468</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L469">469</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L470">470</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L471">471</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A43" href = "#A43">#A43</a></td>
+								<td>warning</td>
+								<td>UpperEll</td>
+								<td>Should use uppercase &#39;L&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/Orekit/src/tutorials/java/fr/cs/examples/bodies/DEFile.java.html#L472">472</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
