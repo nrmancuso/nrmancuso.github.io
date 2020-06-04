@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParenPadCheck.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">checkstyle</a> &gt; <a href="index.source.html" class="el_package">com.puppycrawl.tools.checkstyle.checks.whitespace</a> &gt; <span class="el_source">ParenPadCheck.java</span></div><h1>ParenPadCheck.java</h1><pre class="source lang-java linenums">////////////////////////////////////////////////////////////////////////////////
+// checkstyle: Checks Java source code for adherence to a set of rules.
+// Copyright (C) 2001-2020 the original author or authors.
+//
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+//
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+////////////////////////////////////////////////////////////////////////////////
+
+package com.puppycrawl.tools.checkstyle.checks.whitespace;
+
+import java.util.Arrays;
+
+import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import com.puppycrawl.tools.checkstyle.api.TokenTypes;
+import com.puppycrawl.tools.checkstyle.utils.CommonUtil;
+import com.puppycrawl.tools.checkstyle.utils.TokenUtil;
+
+/**
+ * &lt;p&gt;
+ * Checks the policy on the padding of parentheses; that is whether a space is required
+ * after a left parenthesis and before a right parenthesis, or such spaces are
+ * forbidden. No check occurs at the right parenthesis after an empty for
+ * iterator, at the left parenthesis before an empty for initialization, or at
+ * the right parenthesis of a try-with-resources resource specification where
+ * the last resource variable has a trailing semi-colon.
+ * Use Check &lt;a href=&quot;https://checkstyle.org/config_whitespace.html#EmptyForIteratorPad&quot;&gt;
+ * EmptyForIteratorPad&lt;/a&gt; to validate empty for iterators and
+ * &lt;a href=&quot;https://checkstyle.org/config_whitespace.html#EmptyForInitializerPad&quot;&gt;
+ * EmptyForInitializerPad&lt;/a&gt; to validate empty for initializers.
+ * Typecasts are also not checked, as there is
+ * &lt;a href=&quot;https://checkstyle.org/config_whitespace.html#TypecastParenPad&quot;&gt;
+ * TypecastParenPad&lt;/a&gt; to validate them.
+ * &lt;/p&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt;
+ * Property {@code option} - Specify policy on how to pad parentheses.
+ * Default value is {@code nospace}.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * Property {@code tokens} - tokens to check
+ * Default value is:
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#ANNOTATION&quot;&gt;
+ * ANNOTATION&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#ANNOTATION_FIELD_DEF&quot;&gt;
+ * ANNOTATION_FIELD_DEF&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#CTOR_CALL&quot;&gt;
+ * CTOR_CALL&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#CTOR_DEF&quot;&gt;
+ * CTOR_DEF&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#DOT&quot;&gt;
+ * DOT&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#ENUM_CONSTANT_DEF&quot;&gt;
+ * ENUM_CONSTANT_DEF&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#EXPR&quot;&gt;
+ * EXPR&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#LITERAL_CATCH&quot;&gt;
+ * LITERAL_CATCH&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#LITERAL_DO&quot;&gt;
+ * LITERAL_DO&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#LITERAL_FOR&quot;&gt;
+ * LITERAL_FOR&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#LITERAL_IF&quot;&gt;
+ * LITERAL_IF&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#LITERAL_NEW&quot;&gt;
+ * LITERAL_NEW&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#LITERAL_SWITCH&quot;&gt;
+ * LITERAL_SWITCH&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#LITERAL_SYNCHRONIZED&quot;&gt;
+ * LITERAL_SYNCHRONIZED&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#LITERAL_WHILE&quot;&gt;
+ * LITERAL_WHILE&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#METHOD_CALL&quot;&gt;
+ * METHOD_CALL&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#METHOD_DEF&quot;&gt;
+ * METHOD_DEF&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#QUESTION&quot;&gt;
+ * QUESTION&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#RESOURCE_SPECIFICATION&quot;&gt;
+ * RESOURCE_SPECIFICATION&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#SUPER_CTOR_CALL&quot;&gt;
+ * SUPER_CTOR_CALL&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#LAMBDA&quot;&gt;
+ * LAMBDA&lt;/a&gt;.
+ * &lt;/li&gt;
+ * &lt;/ul&gt;
+ * &lt;p&gt;
+ * To configure the check:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&amp;quot;ParenPad&amp;quot;/&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * class Foo {
+ *
+ *   int n;
+ *
+ *   public void fun() {  // OK
+ *     bar( 1);  // violation, space after left parenthesis
+ *   }
+ *
+ *   public void bar(int k ) {  // violation, space before right parenthesis
+ *     while (k &amp;gt; 0) {  // OK
+ *     }
+ *
+ *     Test obj = new Test(k);  // OK
+ *   }
+ *
+ *   public void fun2() {  // OK
+ *     switch( n) {  // violation, space after left parenthesis
+ *       case 2:
+ *         bar(n);  // OK
+ *       default:
+ *         break;
+ *     }
+ *   }
+ *
+ * }
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * To configure the check to require spaces for the
+ * parentheses of constructor, method, and super constructor calls:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&amp;quot;ParenPad&amp;quot;&amp;gt;
+ *   &amp;lt;property name=&amp;quot;tokens&amp;quot; value=&amp;quot;LITERAL_FOR, LITERAL_CATCH,
+ *     SUPER_CTOR_CALL&amp;quot;/&amp;gt;
+ *   &amp;lt;property name=&amp;quot;option&amp;quot; value=&amp;quot;space&amp;quot;/&amp;gt;
+ * &amp;lt;/module&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * class Foo {
+ *
+ *   int x;
+ *
+ *   public Foo(int n) {
+ *   }
+ *
+ *   public void fun() {
+ *     try {
+ *       System.out.println(x);
+ *     } catch( IOException e) {  // violation, no space before right parenthesis
+ *     } catch( Exception e ) {  // OK
+ *     }
+ *
+ *     for ( int i = 0; i &amp;lt; x; i++ ) {  // OK
+ *     }
+ *   }
+ *
+ * }
+ *
+ * class Bar extends Foo {
+ *
+ *   public Bar() {
+ *     super(1 );  // violation, no space after left parenthesis
+ *   }
+ *
+ *   public Bar(int k) {
+ *     super( k ); // OK
+ *
+ *     for ( int i = 0; i &amp;lt; k; i++) {  // violation, no space before right parenthesis
+ *     }
+ *   }
+ *
+ * }
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * The following cases are not checked:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * for ( ; i &amp;lt; j; i++, j--) // no check after left parenthesis
+ * for (Iterator it = xs.iterator(); it.hasNext(); ) // no check before right parenthesis
+ * try (Closeable resource = acquire(); ) // no check before right parenthesis
+ * &lt;/pre&gt;
+ *
+ * @since 3.0
+ */
+public class ParenPadCheck extends AbstractParenPadCheck {
+
+    /**
+     * The array of Acceptable Tokens.
+     */
+    private final int[] acceptableTokens;
+
+    /**
+     * Initializes and sorts acceptableTokens to make binary search over it possible.
+     */
+<span class="fc" id="L204">    public ParenPadCheck() {</span>
+<span class="fc" id="L205">        acceptableTokens = makeAcceptableTokens();</span>
+<span class="fc" id="L206">        Arrays.sort(acceptableTokens);</span>
+<span class="fc" id="L207">    }</span>
+
+    @Override
+    public int[] getDefaultTokens() {
+<span class="fc" id="L211">        return makeAcceptableTokens();</span>
+    }
+
+    @Override
+    public int[] getAcceptableTokens() {
+<span class="fc" id="L216">        return makeAcceptableTokens();</span>
+    }
+
+    @Override
+    public int[] getRequiredTokens() {
+<span class="fc" id="L221">        return CommonUtil.EMPTY_INT_ARRAY;</span>
+    }
+
+    @Override
+    public void visitToken(DetailAST ast) {
+<span class="fc bfc" id="L226" title="All 6 branches covered.">        switch (ast.getType()) {</span>
+            case TokenTypes.METHOD_CALL:
+<span class="fc" id="L228">                processLeft(ast);</span>
+<span class="fc" id="L229">                processRight(ast.findFirstToken(TokenTypes.RPAREN));</span>
+<span class="fc" id="L230">                break;</span>
+            case TokenTypes.DOT:
+            case TokenTypes.EXPR:
+            case TokenTypes.QUESTION:
+<span class="fc" id="L234">                processExpression(ast);</span>
+<span class="fc" id="L235">                break;</span>
+            case TokenTypes.LITERAL_FOR:
+<span class="fc" id="L237">                visitLiteralFor(ast);</span>
+<span class="fc" id="L238">                break;</span>
+            case TokenTypes.ANNOTATION:
+            case TokenTypes.ENUM_CONSTANT_DEF:
+            case TokenTypes.LITERAL_NEW:
+            case TokenTypes.LITERAL_SYNCHRONIZED:
+            case TokenTypes.LAMBDA:
+<span class="fc" id="L244">                visitTokenWithOptionalParentheses(ast);</span>
+<span class="fc" id="L245">                break;</span>
+            case TokenTypes.RESOURCE_SPECIFICATION:
+<span class="fc" id="L247">                visitResourceSpecification(ast);</span>
+<span class="fc" id="L248">                break;</span>
+            default:
+<span class="fc" id="L250">                processLeft(ast.findFirstToken(TokenTypes.LPAREN));</span>
+<span class="fc" id="L251">                processRight(ast.findFirstToken(TokenTypes.RPAREN));</span>
+        }
+<span class="fc" id="L253">    }</span>
+
+    /**
+     * Checks parens in token which may not contain parens, e.g.
+     * {@link TokenTypes#ENUM_CONSTANT_DEF}, {@link TokenTypes#ANNOTATION}
+     * {@link TokenTypes#LITERAL_SYNCHRONIZED}, {@link TokenTypes#LITERAL_NEW} and
+     * {@link TokenTypes#LAMBDA}.
+     *
+     * @param ast the token to check.
+     */
+    private void visitTokenWithOptionalParentheses(DetailAST ast) {
+<span class="fc" id="L264">        final DetailAST parenAst = ast.findFirstToken(TokenTypes.LPAREN);</span>
+<span class="fc bfc" id="L265" title="All 2 branches covered.">        if (parenAst != null) {</span>
+<span class="fc" id="L266">            processLeft(parenAst);</span>
+<span class="fc" id="L267">            processRight(ast.findFirstToken(TokenTypes.RPAREN));</span>
+        }
+<span class="fc" id="L269">    }</span>
+
+    /**
+     * Checks parens in {@link TokenTypes#RESOURCE_SPECIFICATION}.
+     *
+     * @param ast the token to check.
+     */
+    private void visitResourceSpecification(DetailAST ast) {
+<span class="fc" id="L277">        processLeft(ast.findFirstToken(TokenTypes.LPAREN));</span>
+<span class="fc" id="L278">        final DetailAST rparen = ast.findFirstToken(TokenTypes.RPAREN);</span>
+<span class="fc bfc" id="L279" title="All 2 branches covered.">        if (!hasPrecedingSemiColon(rparen)) {</span>
+<span class="fc" id="L280">            processRight(rparen);</span>
+        }
+<span class="fc" id="L282">    }</span>
+
+    /**
+     * Checks that a token is preceded by a semi-colon.
+     *
+     * @param ast the token to check
+     * @return whether a token is preceded by a semi-colon
+     */
+    private static boolean hasPrecedingSemiColon(DetailAST ast) {
+<span class="fc bfc" id="L291" title="All 2 branches covered.">        return ast.getPreviousSibling().getType() == TokenTypes.SEMI;</span>
+    }
+
+    /**
+     * Checks parens in {@link TokenTypes#LITERAL_FOR}.
+     *
+     * @param ast the token to check.
+     */
+    private void visitLiteralFor(DetailAST ast) {
+<span class="fc" id="L300">        final DetailAST lparen = ast.findFirstToken(TokenTypes.LPAREN);</span>
+<span class="fc bfc" id="L301" title="All 2 branches covered.">        if (!isPrecedingEmptyForInit(lparen)) {</span>
+<span class="fc" id="L302">            processLeft(lparen);</span>
+        }
+<span class="fc" id="L304">        final DetailAST rparen = ast.findFirstToken(TokenTypes.RPAREN);</span>
+<span class="fc bfc" id="L305" title="All 2 branches covered.">        if (!isFollowsEmptyForIterator(rparen)) {</span>
+<span class="fc" id="L306">            processRight(rparen);</span>
+        }
+<span class="fc" id="L308">    }</span>
+
+    /**
+     * Checks parens inside {@link TokenTypes#EXPR}, {@link TokenTypes#QUESTION}
+     * and {@link TokenTypes#METHOD_CALL}.
+     *
+     * @param ast the token to check.
+     */
+    private void processExpression(DetailAST ast) {
+<span class="fc" id="L317">        DetailAST childAst = ast.getFirstChild();</span>
+<span class="fc bfc" id="L318" title="All 2 branches covered.">        while (childAst != null) {</span>
+<span class="fc bfc" id="L319" title="All 2 branches covered.">            if (childAst.getType() == TokenTypes.LPAREN) {</span>
+<span class="fc" id="L320">                processLeft(childAst);</span>
+            }
+<span class="fc bfc" id="L322" title="All 4 branches covered.">            else if (childAst.getType() == TokenTypes.RPAREN &amp;&amp; !isInTypecast(childAst)) {</span>
+<span class="fc" id="L323">                processRight(childAst);</span>
+            }
+<span class="fc bfc" id="L325" title="All 2 branches covered.">            else if (!isAcceptableToken(childAst)) {</span>
+                // Traverse all subtree tokens which will never be configured
+                // to be launched in visitToken()
+<span class="fc" id="L328">                processExpression(childAst);</span>
+            }
+<span class="fc" id="L330">            childAst = childAst.getNextSibling();</span>
+        }
+<span class="fc" id="L332">    }</span>
+
+    /**
+     * Checks whether AcceptableTokens contains the given ast.
+     *
+     * @param ast the token to check.
+     * @return true if the ast is in AcceptableTokens.
+     */
+    private boolean isAcceptableToken(DetailAST ast) {
+<span class="fc" id="L341">        boolean result = false;</span>
+<span class="fc bfc" id="L342" title="All 2 branches covered.">        if (Arrays.binarySearch(acceptableTokens, ast.getType()) &gt;= 0) {</span>
+<span class="fc" id="L343">            result = true;</span>
+        }
+<span class="fc" id="L345">        return result;</span>
+    }
+
+    /**
+     * Returns array of acceptable tokens.
+     *
+     * @return acceptableTokens.
+     */
+    private static int[] makeAcceptableTokens() {
+<span class="fc" id="L354">        return new int[] {TokenTypes.ANNOTATION,</span>
+            TokenTypes.ANNOTATION_FIELD_DEF,
+            TokenTypes.CTOR_CALL,
+            TokenTypes.CTOR_DEF,
+            TokenTypes.DOT,
+            TokenTypes.ENUM_CONSTANT_DEF,
+            TokenTypes.EXPR,
+            TokenTypes.LITERAL_CATCH,
+            TokenTypes.LITERAL_DO,
+            TokenTypes.LITERAL_FOR,
+            TokenTypes.LITERAL_IF,
+            TokenTypes.LITERAL_NEW,
+            TokenTypes.LITERAL_SWITCH,
+            TokenTypes.LITERAL_SYNCHRONIZED,
+            TokenTypes.LITERAL_WHILE,
+            TokenTypes.METHOD_CALL,
+            TokenTypes.METHOD_DEF,
+            TokenTypes.QUESTION,
+            TokenTypes.RESOURCE_SPECIFICATION,
+            TokenTypes.SUPER_CTOR_CALL,
+            TokenTypes.LAMBDA,
+        };
+    }
+
+    /**
+     * Checks whether {@link TokenTypes#RPAREN} is a closing paren
+     * of a {@link TokenTypes#TYPECAST}.
+     *
+     * @param ast of a {@link TokenTypes#RPAREN} to check.
+     * @return true if ast is a closing paren of a {@link TokenTypes#TYPECAST}.
+     */
+    private static boolean isInTypecast(DetailAST ast) {
+<span class="fc" id="L386">        boolean result = false;</span>
+<span class="fc bfc" id="L387" title="All 2 branches covered.">        if (ast.getParent().getType() == TokenTypes.TYPECAST) {</span>
+<span class="fc" id="L388">            final DetailAST firstRparen = ast.getParent().findFirstToken(TokenTypes.RPAREN);</span>
+<span class="fc bfc" id="L389" title="All 2 branches covered.">            if (TokenUtil.areOnSameLine(firstRparen, ast)</span>
+<span class="fc bfc" id="L390" title="All 2 branches covered.">                    &amp;&amp; firstRparen.getColumnNo() == ast.getColumnNo()) {</span>
+<span class="fc" id="L391">                result = true;</span>
+            }
+        }
+<span class="fc" id="L394">        return result;</span>
+    }
+
+    /**
+     * Checks that a token follows an empty for iterator.
+     *
+     * @param ast the token to check
+     * @return whether a token follows an empty for iterator
+     */
+    private static boolean isFollowsEmptyForIterator(DetailAST ast) {
+<span class="fc" id="L404">        boolean result = false;</span>
+<span class="fc" id="L405">        final DetailAST parent = ast.getParent();</span>
+        // Only traditional for statements are examined, not for-each statements
+<span class="fc bfc" id="L407" title="All 2 branches covered.">        if (parent.findFirstToken(TokenTypes.FOR_EACH_CLAUSE) == null) {</span>
+<span class="fc" id="L408">            final DetailAST forIterator =</span>
+<span class="fc" id="L409">                parent.findFirstToken(TokenTypes.FOR_ITERATOR);</span>
+<span class="fc bfc" id="L410" title="All 2 branches covered.">            result = !forIterator.hasChildren();</span>
+        }
+<span class="fc" id="L412">        return result;</span>
+    }
+
+    /**
+     * Checks that a token precedes an empty for initializer.
+     *
+     * @param ast the token to check
+     * @return whether a token precedes an empty for initializer
+     */
+    private static boolean isPrecedingEmptyForInit(DetailAST ast) {
+<span class="fc" id="L422">        boolean result = false;</span>
+<span class="fc" id="L423">        final DetailAST parent = ast.getParent();</span>
+        // Only traditional for statements are examined, not for-each statements
+<span class="fc bfc" id="L425" title="All 2 branches covered.">        if (parent.findFirstToken(TokenTypes.FOR_EACH_CLAUSE) == null) {</span>
+<span class="fc" id="L426">            final DetailAST forIterator =</span>
+<span class="fc" id="L427">                    parent.findFirstToken(TokenTypes.FOR_INIT);</span>
+<span class="fc bfc" id="L428" title="All 2 branches covered.">            result = !forIterator.hasChildren();</span>
+        }
+<span class="fc" id="L430">        return result;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

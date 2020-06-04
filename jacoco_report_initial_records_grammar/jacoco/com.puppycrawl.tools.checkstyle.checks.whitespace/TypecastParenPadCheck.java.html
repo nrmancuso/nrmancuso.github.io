@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TypecastParenPadCheck.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">checkstyle</a> &gt; <a href="index.source.html" class="el_package">com.puppycrawl.tools.checkstyle.checks.whitespace</a> &gt; <span class="el_source">TypecastParenPadCheck.java</span></div><h1>TypecastParenPadCheck.java</h1><pre class="source lang-java linenums">////////////////////////////////////////////////////////////////////////////////
+// checkstyle: Checks Java source code for adherence to a set of rules.
+// Copyright (C) 2001-2020 the original author or authors.
+//
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+//
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+////////////////////////////////////////////////////////////////////////////////
+
+package com.puppycrawl.tools.checkstyle.checks.whitespace;
+
+import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import com.puppycrawl.tools.checkstyle.api.TokenTypes;
+
+/**
+ * &lt;p&gt;
+ * Checks the policy on the padding of parentheses for typecasts. That is, whether a space
+ * is required after a left parenthesis and before a right parenthesis, or such
+ * spaces are forbidden.
+ * &lt;/p&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt;
+ * Property {@code option} - Specify policy on how to pad parentheses.
+ * Default value is {@code nospace}.
+ * &lt;/li&gt;
+ * &lt;/ul&gt;
+ * &lt;p&gt;
+ * To configure the check:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&amp;quot;TypecastParenPad&amp;quot;/&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * class Foo {
+ *
+ *   float f1 = 3.14f;
+ *
+ *   int n = ( int ) f1; // violation, space after left parenthesis and before right parenthesis
+ *
+ *   double d = 1.234567;
+ *
+ *   float f2 = (float ) d; // violation, space before right parenthesis
+ *
+ *   float f3 = (float) d; // OK
+ *
+ *   float f4 = ( float) d; // violation, space after left parenthesis
+ *
+ * }
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * To configure the check to require spaces:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&amp;quot;TypecastParenPad&amp;quot;&amp;gt;
+ *   &amp;lt;property name=&amp;quot;option&amp;quot; value=&amp;quot;space&amp;quot;/&amp;gt;
+ * &amp;lt;/module&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * class Bar {
+ *
+ *   double d1 = 3.14;
+ *
+ *   int n = ( int ) d1; // OK
+ *
+ *   int m = (int ) d1; // violation, no space after left parenthesis
+ *
+ *   double d2 = 9.8;
+ *
+ *   int x = (int) d2; // violation, no space after left parenthesis and before right parenthesis
+ *
+ *   int y = ( int) d2; // violation, no space before right parenthesis
+ *
+ * }
+ * &lt;/pre&gt;
+ *
+ * @since 3.2
+ */
+<span class="fc" id="L94">public class TypecastParenPadCheck extends AbstractParenPadCheck {</span>
+
+    @Override
+    public int[] getRequiredTokens() {
+<span class="fc" id="L98">        return new int[] {TokenTypes.RPAREN, TokenTypes.TYPECAST};</span>
+    }
+
+    @Override
+    public int[] getDefaultTokens() {
+<span class="fc" id="L103">        return getRequiredTokens();</span>
+    }
+
+    @Override
+    public int[] getAcceptableTokens() {
+<span class="fc" id="L108">        return getRequiredTokens();</span>
+    }
+
+    @Override
+    public void visitToken(DetailAST ast) {
+        // Strange logic in this method to guard against checking RPAREN tokens
+        // that are not associated with a TYPECAST token.
+<span class="fc bfc" id="L115" title="All 2 branches covered.">        if (ast.getType() == TokenTypes.TYPECAST) {</span>
+<span class="fc" id="L116">            processLeft(ast);</span>
+        }
+<span class="fc bfc" id="L118" title="All 2 branches covered.">        else if (ast.getParent().getType() == TokenTypes.TYPECAST</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">                 &amp;&amp; ast.getParent().findFirstToken(TokenTypes.RPAREN) == ast) {</span>
+<span class="fc" id="L120">            processRight(ast);</span>
+        }
+<span class="fc" id="L122">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
