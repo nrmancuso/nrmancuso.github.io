@@ -1,0 +1,4019 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">AvoidStarImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">AvoidStaticImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">CustomImportOrder</td>
+										
+										<td class="c">
+											
+												thirdPartyPackageRegExp
+												
+													<li>^org\.</li>
+												
+												<br/>
+											
+												separateLineBetweenGroups
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortImportsInGroupAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												specialImportsRegExp
+												
+													<li>^javax\.</li>
+												
+												<br/>
+											
+												customImportOrderRules
+												
+													<li>STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE</li>
+												
+												<br/>
+											
+												standardPackageRegExp
+												
+													<li>^java\.</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												thirdPartyPackageRegExp
+												
+													<li>^org\.</li>
+												
+												<br/>
+											
+												separateLineBetweenGroups
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortImportsInGroupAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												specialImportsRegExp
+												
+													<li>^javax\.</li>
+												
+												<br/>
+											
+												customImportOrderRules
+												
+													<li>STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE</li>
+												
+												<br/>
+											
+												standardPackageRegExp
+												
+													<li>^java\.</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">IllegalImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>/^java\./,javax,org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>/^java\./,javax,org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">RedundantImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UnusedImports</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">BooleanExpressionComplexity</td>
+										
+										<td class="c">
+											
+												max
+												
+													<li>7</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												max
+												
+													<li>7</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ClassDataAbstractionCoupling</td>
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short, void,                          Boolean, Byte, Character, Double, Float, Integer, Long, Short, Void,                          Object, Class, String, StringBuffer, StringBuilder,                          ArrayIndexOutOfBoundsException, Exception, RuntimeException,                          IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short, void,                          Boolean, Byte, Character, Double, Float, Integer, Long, Short, Void,                          Object, Class, String, StringBuffer, StringBuilder,                          ArrayIndexOutOfBoundsException, Exception, RuntimeException,                          IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ClassFanOutComplexity</td>
+										
+										<td class="c">
+											
+												max
+												
+													<li>25</li>
+												
+												<br/>
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short,                          void, Boolean, Byte, Character, Double, Float, Integer,                          Long, Short, Void, Object, Class, String, StringBuffer,                          StringBuilder, ArrayIndexOutOfBoundsException, Exception,                          RuntimeException, IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException, Log, Sets, Multimap,                          TokenStreamRecognitionException, RecognitionException,                          TokenStreamException, IOException, Override, Deprecated, SafeVarargs,                          SuppressWarnings, FunctionalInterface</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												max
+												
+													<li>25</li>
+												
+												<br/>
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short,                          void, Boolean, Byte, Character, Double, Float, Integer,                          Long, Short, Void, Object, Class, String, StringBuffer,                          StringBuilder, ArrayIndexOutOfBoundsException, Exception,                          RuntimeException, IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException, Log, Sets, Multimap,                          TokenStreamRecognitionException, RecognitionException,                          TokenStreamException, IOException, Override, Deprecated, SafeVarargs,                          SuppressWarnings, FunctionalInterface</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">CyclomaticComplexity</td>
+										
+										<td class="c">
+											
+												switchBlockAsSingleDecisionPoint
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												switchBlockAsSingleDecisionPoint
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">JavaNCSS</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">NPathComplexity</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ArrayTypeStyle</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">AvoidEscapedUnicodeCharacters</td>
+										
+										<td class="c">
+											
+												allowIfAllCharactersEscaped
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowIfAllCharactersEscaped
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">CommentsIndentation</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">DescendantToken</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">FinalParameters</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">Indentation</td>
+										
+										<td class="c">
+											
+												throwsIndent
+												
+													<li>8</li>
+												
+												<br/>
+											
+												caseIndent
+												
+													<li>4</li>
+												
+												<br/>
+											
+												basicOffset
+												
+													<li>4</li>
+												
+												<br/>
+											
+												braceAdjustment
+												
+													<li>0</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												throwsIndent
+												
+													<li>8</li>
+												
+												<br/>
+											
+												caseIndent
+												
+													<li>4</li>
+												
+												<br/>
+											
+												basicOffset
+												
+													<li>4</li>
+												
+												<br/>
+											
+												braceAdjustment
+												
+													<li>0</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">OuterTypeFilename</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TodoComment</td>
+										
+										<td class="c">
+											
+												format
+												
+													<li>(TODO)|(FIXME)</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												format
+												
+													<li>(TODO)|(FIXME)</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TodoComment</td>
+										
+										<td class="c">
+											
+												todo.match
+												
+													<li>Comment text should start with space.</li>
+												
+												<br/>
+											
+												format
+												
+													<li>^([^\s\/*])</li>
+												
+												<br/>
+											
+												id
+												
+													<li>commentStartWithSpace</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												todo.match
+												
+													<li>Comment text should start with space.</li>
+												
+												<br/>
+											
+												format
+												
+													<li>^([^\s\/*])</li>
+												
+												<br/>
+											
+												id
+												
+													<li>commentStartWithSpace</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TrailingComment</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UncommentedMain</td>
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>\.(Main|JavadocPropertiesGenerator)$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>\.(Main|JavadocPropertiesGenerator)$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UpperEll</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ClassMemberImpliedModifier</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">InterfaceMemberImpliedModifier</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ModifierOrder</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">RedundantModifier</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+								<th>Severity-error</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">2419</td>
+							<td id="totalBase">30636</td>
+							
+								<td id="warningSeverityNumBase">30631</td>
+							
+								<td id="errorSeverityNumBase">5</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">2419</td>
+							<td id="totalPatch">30644 (64 removed, 72 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">30639 (64 removed, 72 added)</td>
+							
+								<td id="errorSeverityStatisticsPatch">5</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">27 files with differences</td>
+							<td id="totalDiff">136 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">136 changes in violations</td>
+							
+								<td id="errorSeverityNumDiff">0 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.UpperEllCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheck</th>
+								
+									<th>commentStartWithSpace</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.Checker</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckModuleNumBase">96</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheckModuleNumBase">3</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheckModuleNumBase">130</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheckModuleNumBase">251</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheckModuleNumBase">45</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheckModuleNumBase">54</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheckModuleNumBase">141</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckModuleNumBase">6548</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheckModuleNumBase">31</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UpperEllCheckModuleNumBase">44</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheckModuleNumBase">324</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheckModuleNumBase">7</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheckModuleNumBase">925</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheckModuleNumBase">41</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheckModuleNumBase">9203</td>
+								
+									<td id="commentStartWithSpaceModuleNumBase">9442</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheckModuleNumBase">569</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleNumBase">447</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheckModuleNumBase">12</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheckModuleNumBase">76</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckModuleNumBase">11</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheckModuleNumBase">19</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleNumBase">1373</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleNumBase">770</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleNumBase">5</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheckModuleNumBase">69</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckModuleStatisticsPatch">96</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheckModuleStatisticsPatch">3</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheckModuleStatisticsPatch">130</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheckModuleStatisticsPatch">251</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheckModuleStatisticsPatch">46 (1 added)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheckModuleStatisticsPatch">54</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheckModuleStatisticsPatch">141</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckModuleStatisticsPatch">6548</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheckModuleStatisticsPatch">31</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UpperEllCheckModuleStatisticsPatch">44</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheckModuleStatisticsPatch">324</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheckModuleStatisticsPatch">7</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheckModuleStatisticsPatch">928 (3 added)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheckModuleStatisticsPatch">41</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheckModuleStatisticsPatch">9203</td>
+								
+									<td id="commentStartWithSpaceModuleStatisticsPatch">9444 (2 added)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheckModuleStatisticsPatch">571 (2 added)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleStatisticsPatch">511 (64 added)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheckModuleStatisticsPatch">12</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheckModuleStatisticsPatch">76</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckModuleStatisticsPatch">11</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheckModuleStatisticsPatch">19</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleStatisticsPatch">1373</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleStatisticsPatch">706 (64 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleStatisticsPatch">5</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheckModuleStatisticsPatch">69</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheckModuleNumDiff">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UpperEllCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheckModuleNumDiff">3</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheckModuleNumDiff">0</td>
+								
+									<td id="commentStartWithSpaceModuleNumDiff">2</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheckModuleNumDiff">2</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleNumDiff">64</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleNumDiff">64</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheckModuleNumDiff">0</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">64</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">72</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources-noncompilable/org/checkstyle/checks/imports/importorder/InputFromAndroid.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;androidx.annotation.RestrictTo.Scope.LIBRARY&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources-noncompilable/org/checkstyle/checks/imports/importorder/InputFromAndroid.java.html#L22">22</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;androidx.annotation.RestrictTo.Scope.LIBRARY&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources-noncompilable/org/checkstyle/checks/imports/importorder/InputFromAndroid.java.html#L22">22</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder2.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;com.google.common.reflect.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder2.java.html#L16">16</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;com.google.common.reflect.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder2.java.html#L16">16</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder4.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;javax.swing.WindowConstants.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder4.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;javax.swing.WindowConstants.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder4.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.StringTokenizer&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder4.java.html#L15">15</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.StringTokenizer&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder4.java.html#L15">15</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.concurrent.AbstractExecutorService&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder4.java.html#L17">17</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.concurrent.AbstractExecutorService&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder4.java.html#L17">17</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder5.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;javax.swing.WindowConstants.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder5.java.html#L9">9</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;javax.swing.WindowConstants.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder5.java.html#L9">9</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.StringTokenizer&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder5.java.html#L21">21</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.StringTokenizer&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder5.java.html#L21">21</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.concurrent.AbstractExecutorService&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder5.java.html#L25">25</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.concurrent.AbstractExecutorService&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/com/google/checkstyle/test/chapter3filestructure/rule333orderingandspacing/InputCustomImportOrder5.java.html#L25">25</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/org/checkstyle/suppressionxpathfilter/customimportorder/SuppressionXpathRegressionCustomImportOrderThree.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Math.PI&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/org/checkstyle/suppressionxpathfilter/customimportorder/SuppressionXpathRegressionCustomImportOrderThree.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Math.PI&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/org/checkstyle/suppressionxpathfilter/customimportorder/SuppressionXpathRegressionCustomImportOrderThree.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/org/checkstyle/suppressionxpathfilter/importorder/SuppressionXpathRegressionImportOrderTwo.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.Set&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/org/checkstyle/suppressionxpathfilter/importorder/SuppressionXpathRegressionImportOrderTwo.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.Set&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/it/resources/org/checkstyle/suppressionxpathfilter/importorder/SuppressionXpathRegressionImportOrderTwo.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderEclipseDefaultPositive.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;sun.tools.java.ArrayType&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderEclipseDefaultPositive.java.html#L21">21</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;sun.tools.java.ArrayType&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderEclipseDefaultPositive.java.html#L21">21</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderNoPackage.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderNoPackage.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderNoPackage.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.HashMap&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderNoPackage.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.HashMap&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderNoPackage.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;javax.net.SocketFactory&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderNoPackage.java.html#L14">14</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;javax.net.SocketFactory&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderNoPackage.java.html#L14">14</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial.java.html#L13">13</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial.java.html#L13">13</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;javax.swing.WindowConstants.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L8">8</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;javax.swing.WindowConstants.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L8">8</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.awt.Dialog&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L15">15</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.awt.Dialog&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L15">15</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;org.apache.commons.collections.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L27">27</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;org.apache.commons.collections.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L27">27</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;com.puppycrawl.tools.checkstyle.checks.imports.AbstractImportRule&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L32">32</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;com.puppycrawl.tools.checkstyle.checks.imports.AbstractImportRule&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L32">32</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L34">34</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L34">34</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.Token&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.Token&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A43" href = "#A43">#A43</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.collections.AST&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L40">40</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A44" href = "#A44">#A44</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.collections.AST&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderThirdPartyAndSpecial2.java.html#L40">40</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrderStaticGroupsTopSeparated.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A45" href = "#A45">#A45</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;androidx.annotation.RestrictTo.Scope.LIBRARY&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrderStaticGroupsTopSeparated.java.html#L22">22</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A46" href = "#A46">#A46</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;androidx.annotation.RestrictTo.Scope.LIBRARY&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrderStaticGroupsTopSeparated.java.html#L22">22</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrder_EclipseDefaultPositive.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A47" href = "#A47">#A47</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;sun.tools.java.ArrayType&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrder_EclipseDefaultPositive.java.html#L21">21</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A48" href = "#A48">#A48</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;sun.tools.java.ArrayType&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrder_EclipseDefaultPositive.java.html#L21">21</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/java14/InputJava14Records.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A49" href = "#A49">#A49</a></td>
+								<td>warning</td>
+								<td>commentStartWithSpace</td>
+								<td>Comment text should start with space.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/java14/InputJava14Records.java.html#L1">1</a></td>
+								
+								
+									
+									<td class="keepWidth">3</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A50" href = "#A50">#A50</a></td>
+								<td>warning</td>
+								<td>UnusedImports</td>
+								<td>Unused import - java.time.LocalDateTime.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/java14/InputJava14Records.java.html#L4">4</a></td>
+								
+								
+									
+									<td class="keepWidth">8</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A51" href = "#A51">#A51</a></td>
+								<td>warning</td>
+								<td>UnusedImports</td>
+								<td>Unused import - java.util.Objects.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/java14/InputJava14Records.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">8</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A52" href = "#A52">#A52</a></td>
+								<td>warning</td>
+								<td>UnusedImports</td>
+								<td>Unused import - org.w3c.dom.Node.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/java14/InputJava14Records.java.html#L9">9</a></td>
+								
+								
+									
+									<td class="keepWidth">8</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A53" href = "#A53">#A53</a></td>
+								<td>warning</td>
+								<td>RedundantModifier</td>
+								<td>Redundant &#39;public&#39; modifier.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/java14/InputJava14Records.java.html#L21">21</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A54" href = "#A54">#A54</a></td>
+								<td>warning</td>
+								<td>RedundantModifier</td>
+								<td>Redundant &#39;public&#39; modifier.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/java14/InputJava14Records.java.html#L22">22</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A55" href = "#A55">#A55</a></td>
+								<td>warning</td>
+								<td>commentStartWithSpace</td>
+								<td>Comment text should start with space.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/java14/InputJava14Records.java.html#L25">25</a></td>
+								
+								
+									
+									<td class="keepWidth">7</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A56" href = "#A56">#A56</a></td>
+								<td>warning</td>
+								<td>UncommentedMain</td>
+								<td>Uncommented main method found.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/java14/InputJava14Records.java.html#L99">99</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/header/regexpheader/InputRegexpHeaderIgnoreLinesSorted.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A57" href = "#A57">#A57</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.awt.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/header/regexpheader/InputRegexpHeaderIgnoreLinesSorted.java.html#L6">6</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A58" href = "#A58">#A58</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.awt.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/header/regexpheader/InputRegexpHeaderIgnoreLinesSorted.java.html#L6">6</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A59" href = "#A59">#A59</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.awt.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/header/regexpheader/InputRegexpHeaderIgnoreLinesSorted.java.html#L9">9</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A60" href = "#A60">#A60</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.awt.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/header/regexpheader/InputRegexpHeaderIgnoreLinesSorted.java.html#L9">9</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderEmptyRule.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A61" href = "#A61">#A61</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.List&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderEmptyRule.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A62" href = "#A62">#A62</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.List&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderEmptyRule.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderFindBetterPatternMatch.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A63" href = "#A63">#A63</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;com.google.common.collect.HashMultimap&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderFindBetterPatternMatch.java.html#L10">10</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A64" href = "#A64">#A64</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;com.google.common.collect.HashMultimap&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderFindBetterPatternMatch.java.html#L10">10</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSingleLine.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A65" href = "#A65">#A65</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSingleLine.java.html#L13">13</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A66" href = "#A66">#A66</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSingleLine.java.html#L13">13</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSpanMultipleLines.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A67" href = "#A67">#A67</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.BitSet&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSpanMultipleLines.java.html#L18">18</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A68" href = "#A68">#A68</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.BitSet&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSpanMultipleLines.java.html#L18">18</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A69" href = "#A69">#A69</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.HashSet&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSpanMultipleLines.java.html#L33">33</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A70" href = "#A70">#A70</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.HashSet&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSpanMultipleLines.java.html#L33">33</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A71" href = "#A71">#A71</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSpanMultipleLines.java.html#L46">46</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A72" href = "#A72">#A72</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSpanMultipleLines.java.html#L46">46</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A73" href = "#A73">#A73</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.Token&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSpanMultipleLines.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A74" href = "#A74">#A74</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;antlr.Token&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrderSpanMultipleLines.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrder_OverlappingPatterns.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A75" href = "#A75">#A75</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocNodeImpl&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrder_OverlappingPatterns.java.html#L9">9</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A76" href = "#A76">#A76</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocNodeImpl&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrder_OverlappingPatterns.java.html#L9">9</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A77" href = "#A77">#A77</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheck&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrder_OverlappingPatterns.java.html#L13">13</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A78" href = "#A78">#A78</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheck&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrder_OverlappingPatterns.java.html#L13">13</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A79" href = "#A79">#A79</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;com.puppycrawl.tools.checkstyle.checks.javadoc.InvalidJavadocTag&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrder_OverlappingPatterns.java.html#L19">19</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A80" href = "#A80">#A80</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;com.puppycrawl.tools.checkstyle.checks.javadoc.InvalidJavadocTag&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrder_OverlappingPatterns.java.html#L19">19</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A81" href = "#A81">#A81</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;com.puppycrawl.tools.checkstyle.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrder_OverlappingPatterns.java.html#L23">23</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A82" href = "#A82">#A82</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;com.puppycrawl.tools.checkstyle.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/customimportorder/InputCustomImportOrder_OverlappingPatterns.java.html#L23">23</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrderStaticGroupSeparated.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A83" href = "#A83">#A83</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Math.cos&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrderStaticGroupSeparated.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A84" href = "#A84">#A84</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Math.cos&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrderStaticGroupSeparated.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A85" href = "#A85">#A85</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;org.junit.Assert.assertEquals&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrderStaticGroupSeparated.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A86" href = "#A86">#A86</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;org.junit.Assert.assertEquals&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrderStaticGroupSeparated.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrder_Bottom.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A87" href = "#A87">#A87</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.io.IOException&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrder_Bottom.java.html#L8">8</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A88" href = "#A88">#A88</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.io.IOException&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/importorder/InputImportOrder_Bottom.java.html#L8">8</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/unusedimports/InputUnusedImportsFromJavaLang.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A89" href = "#A89">#A89</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.annotation.Annotation&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/unusedimports/InputUnusedImportsFromJavaLang.java.html#L15">15</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A90" href = "#A90">#A90</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.annotation.Annotation&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/unusedimports/InputUnusedImportsFromJavaLang.java.html#L15">15</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A91" href = "#A91">#A91</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/unusedimports/InputUnusedImportsFromJavaLang.java.html#L19">19</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A92" href = "#A92">#A92</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/imports/unusedimports/InputUnusedImportsFromJavaLang.java.html#L19">19</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/indentation/indentation/InputIndentationSeparatedStatements.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A93" href = "#A93">#A93</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/indentation/indentation/InputIndentationSeparatedStatements.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A94" href = "#A94">#A94</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/indentation/indentation/InputIndentationSeparatedStatements.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorMultipleEmptyLines.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A95" href = "#A95">#A95</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.io.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorMultipleEmptyLines.java.html#L26">26</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A96" href = "#A96">#A96</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.io.*&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorMultipleEmptyLines.java.html#L26">26</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorMultipleImportEmptyClass.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A97" href = "#A97">#A97</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.Calendar&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorMultipleImportEmptyClass.java.html#L3">3</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A98" href = "#A98">#A98</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.util.Calendar&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorMultipleImportEmptyClass.java.html#L3">3</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A99" href = "#A99">#A99</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Class&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A100" href = "#A100">#A100</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Class&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A101" href = "#A101">#A101</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Long&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L8">8</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A102" href = "#A102">#A102</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Long&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L8">8</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A103" href = "#A103">#A103</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Double&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L13">13</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A104" href = "#A104">#A104</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Double&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L13">13</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A105" href = "#A105">#A105</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Object&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L19">19</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A106" href = "#A106">#A106</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Object&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L19">19</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A107" href = "#A107">#A107</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Boolean&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L23">23</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A108" href = "#A108">#A108</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Boolean&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L23">23</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A109" href = "#A109">#A109</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Short&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L29">29</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A110" href = "#A110">#A110</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Short&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorNoViolationOnEmptyLineBeforeComments.java.html#L29">29</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A111" href = "#A111">#A111</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Class&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L29">29</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A112" href = "#A112">#A112</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Class&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L29">29</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A113" href = "#A113">#A113</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Integer&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L33">33</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A114" href = "#A114">#A114</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Integer&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L33">33</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A115" href = "#A115">#A115</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Long&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L36">36</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A116" href = "#A116">#A116</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Long&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L36">36</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A117" href = "#A117">#A117</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Float&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L42">42</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A118" href = "#A118">#A118</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Float&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L42">42</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A119" href = "#A119">#A119</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Double&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L47">47</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A120" href = "#A120">#A120</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Double&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L47">47</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A121" href = "#A121">#A121</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Character&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L53">53</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A122" href = "#A122">#A122</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Character&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L53">53</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A123" href = "#A123">#A123</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.String&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L58">58</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A124" href = "#A124">#A124</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.String&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L58">58</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A125" href = "#A125">#A125</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Object&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L64">64</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A126" href = "#A126">#A126</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Object&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L64">64</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A127" href = "#A127">#A127</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Boolean&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L69">69</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A128" href = "#A128">#A128</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Boolean&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L69">69</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A129" href = "#A129">#A129</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Short&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L75">75</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A130" href = "#A130">#A130</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Short&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L75">75</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A131" href = "#A131">#A131</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Number&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L80">80</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A132" href = "#A132">#A132</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Number&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L80">80</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A133" href = "#A133">#A133</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Runnable&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L83">83</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A134" href = "#A134">#A134</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.Runnable&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L83">83</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A135" href = "#A135">#A135</a></td>
+								<td>warning</td>
+								<td>CustomImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.StringBuilder&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L90">90</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A136" href = "#A136">#A136</a></td>
+								<td>warning</td>
+								<td>ImportOrder</td>
+								<td>Extra separation in import group before &#39;java.lang.StringBuilder&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources/com/puppycrawl/tools/checkstyle/checks/whitespace/emptylineseparator/InputEmptyLineSeparatorWithComments.java.html#L90">90</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
