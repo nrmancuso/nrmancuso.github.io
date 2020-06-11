@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UnusedImportsCheck.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">checkstyle</a> &gt; <a href="index.source.html" class="el_package">com.puppycrawl.tools.checkstyle.checks.imports</a> &gt; <span class="el_source">UnusedImportsCheck.java</span></div><h1>UnusedImportsCheck.java</h1><pre class="source lang-java linenums">////////////////////////////////////////////////////////////////////////////////
+// checkstyle: Checks Java source code for adherence to a set of rules.
+// Copyright (C) 2001-2020 the original author or authors.
+//
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+//
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+////////////////////////////////////////////////////////////////////////////////
+
+package com.puppycrawl.tools.checkstyle.checks.imports;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.puppycrawl.tools.checkstyle.FileStatefulCheck;
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import com.puppycrawl.tools.checkstyle.api.FileContents;
+import com.puppycrawl.tools.checkstyle.api.FullIdent;
+import com.puppycrawl.tools.checkstyle.api.TextBlock;
+import com.puppycrawl.tools.checkstyle.api.TokenTypes;
+import com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTag;
+import com.puppycrawl.tools.checkstyle.utils.CommonUtil;
+import com.puppycrawl.tools.checkstyle.utils.JavadocUtil;
+
+/**
+ * &lt;p&gt;
+ * Checks for unused import statements. Checkstyle uses a simple but very
+ * reliable algorithm to report on unused import statements. An import statement
+ * is considered unused if:
+ * &lt;/p&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt;
+ * It is not referenced in the file. The algorithm does not support wild-card
+ * imports like {@code import java.io.*;}. Most IDE's provide very sophisticated
+ * checks for imports that handle wild-card imports.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * It is a duplicate of another import. This is when a class is imported more
+ * than once.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * The class imported is from the {@code java.lang} package. For example
+ * importing {@code java.lang.String}.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * The class imported is from the same package.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * &lt;b&gt;Optionally:&lt;/b&gt; it is referenced in Javadoc comments. This check is on by
+ * default, but it is considered bad practice to introduce a compile time
+ * dependency for documentation purposes only. As an example, the import
+ * {@code java.util.List} would be considered referenced with the Javadoc
+ * comment {@code {@link List}}. The alternative to avoid introducing a compile
+ * time dependency would be to write the Javadoc comment as {@code {&amp;#64;link java.util.List}}.
+ * &lt;/li&gt;
+ * &lt;/ul&gt;
+ * &lt;p&gt;
+ * The main limitation of this check is handling the case where an imported type
+ * has the same name as a declaration, such as a member variable.
+ * &lt;/p&gt;
+ * &lt;p&gt;
+ * For example, in the following case the import {@code java.awt.Component}
+ * will not be flagged as unused:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * import java.awt.Component;
+ * class FooBar {
+ *   private Object Component; // a bad practice in my opinion
+ *   ...
+ * }
+ * &lt;/pre&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt;
+ * Property {@code processJavadoc} - Control whether to process Javadoc comments.
+ * Default value is {@code true}.
+ * &lt;/li&gt;
+ * &lt;/ul&gt;
+ * &lt;p&gt;
+ * To configure the check:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&quot;UnusedImports&quot;/&amp;gt;
+ * &lt;/pre&gt;
+ *
+ * @since 3.0
+ */
+@FileStatefulCheck
+<span class="fc" id="L103">public class UnusedImportsCheck extends AbstractCheck {</span>
+
+    /**
+     * A key is pointing to the warning message text in &quot;messages.properties&quot;
+     * file.
+     */
+    public static final String MSG_KEY = &quot;import.unused&quot;;
+
+    /** Regex to match class names. */
+<span class="fc" id="L112">    private static final Pattern CLASS_NAME = CommonUtil.createPattern(</span>
+           &quot;((:?[\\p{L}_$][\\p{L}\\p{N}_$]*\\.)*[\\p{L}_$][\\p{L}\\p{N}_$]*)&quot;);
+    /** Regex to match the first class name. */
+<span class="fc" id="L115">    private static final Pattern FIRST_CLASS_NAME = CommonUtil.createPattern(</span>
+           &quot;^&quot; + CLASS_NAME);
+    /** Regex to match argument names. */
+<span class="fc" id="L118">    private static final Pattern ARGUMENT_NAME = CommonUtil.createPattern(</span>
+<span class="fc" id="L119">           &quot;[(,]\\s*&quot; + CLASS_NAME.pattern());</span>
+
+    /** Regexp pattern to match java.lang package. */
+<span class="fc" id="L122">    private static final Pattern JAVA_LANG_PACKAGE_PATTERN =</span>
+<span class="fc" id="L123">        CommonUtil.createPattern(&quot;^java\\.lang\\.[a-zA-Z]+$&quot;);</span>
+
+    /** Suffix for the star import. */
+    private static final String STAR_IMPORT_SUFFIX = &quot;.*&quot;;
+
+    /** Set of the imports. */
+<span class="fc" id="L129">    private final Set&lt;FullIdent&gt; imports = new HashSet&lt;&gt;();</span>
+
+    /** Set of references - possibly to imports or other things. */
+<span class="fc" id="L132">    private final Set&lt;String&gt; referenced = new HashSet&lt;&gt;();</span>
+
+    /** Flag to indicate when time to start collecting references. */
+    private boolean collect;
+    /** Control whether to process Javadoc comments. */
+<span class="fc" id="L137">    private boolean processJavadoc = true;</span>
+
+    /**
+     * Setter to control whether to process Javadoc comments.
+     *
+     * @param value Flag for processing Javadoc comments.
+     */
+    public void setProcessJavadoc(boolean value) {
+<span class="fc" id="L145">        processJavadoc = value;</span>
+<span class="fc" id="L146">    }</span>
+
+    @Override
+    public void beginTree(DetailAST rootAST) {
+<span class="fc" id="L150">        collect = false;</span>
+<span class="fc" id="L151">        imports.clear();</span>
+<span class="fc" id="L152">        referenced.clear();</span>
+<span class="fc" id="L153">    }</span>
+
+    @Override
+    public void finishTree(DetailAST rootAST) {
+        // loop over all the imports to see if referenced.
+<span class="fc" id="L158">        imports.stream()</span>
+<span class="fc" id="L159">            .filter(imprt -&gt; isUnusedImport(imprt.getText()))</span>
+<span class="fc" id="L160">            .forEach(imprt -&gt; log(imprt.getDetailAst(), MSG_KEY, imprt.getText()));</span>
+<span class="fc" id="L161">    }</span>
+
+    @Override
+    public int[] getDefaultTokens() {
+<span class="fc" id="L165">        return getRequiredTokens();</span>
+    }
+
+    @Override
+    public int[] getRequiredTokens() {
+<span class="fc" id="L170">        return new int[] {</span>
+            TokenTypes.IDENT,
+            TokenTypes.IMPORT,
+            TokenTypes.STATIC_IMPORT,
+            // Definitions that may contain Javadoc...
+            TokenTypes.PACKAGE_DEF,
+            TokenTypes.ANNOTATION_DEF,
+            TokenTypes.ANNOTATION_FIELD_DEF,
+            TokenTypes.ENUM_DEF,
+            TokenTypes.ENUM_CONSTANT_DEF,
+            TokenTypes.CLASS_DEF,
+            TokenTypes.INTERFACE_DEF,
+            TokenTypes.METHOD_DEF,
+            TokenTypes.CTOR_DEF,
+            TokenTypes.VARIABLE_DEF,
+        };
+    }
+
+    @Override
+    public int[] getAcceptableTokens() {
+<span class="fc" id="L190">        return getRequiredTokens();</span>
+    }
+
+    @Override
+    public void visitToken(DetailAST ast) {
+<span class="fc bfc" id="L195" title="All 2 branches covered.">        if (ast.getType() == TokenTypes.IDENT) {</span>
+<span class="fc bfc" id="L196" title="All 2 branches covered.">            if (collect) {</span>
+<span class="fc" id="L197">                processIdent(ast);</span>
+            }
+        }
+<span class="fc bfc" id="L200" title="All 2 branches covered.">        else if (ast.getType() == TokenTypes.IMPORT) {</span>
+<span class="fc" id="L201">            processImport(ast);</span>
+        }
+<span class="fc bfc" id="L203" title="All 2 branches covered.">        else if (ast.getType() == TokenTypes.STATIC_IMPORT) {</span>
+<span class="fc" id="L204">            processStaticImport(ast);</span>
+        }
+        else {
+<span class="fc" id="L207">            collect = true;</span>
+<span class="fc bfc" id="L208" title="All 2 branches covered.">            if (processJavadoc) {</span>
+<span class="fc" id="L209">                collectReferencesFromJavadoc(ast);</span>
+            }
+        }
+<span class="fc" id="L212">    }</span>
+
+    /**
+     * Checks whether an import is unused.
+     *
+     * @param imprt an import.
+     * @return true if an import is unused.
+     */
+    private boolean isUnusedImport(String imprt) {
+<span class="fc" id="L221">        final Matcher javaLangPackageMatcher = JAVA_LANG_PACKAGE_PATTERN.matcher(imprt);</span>
+<span class="fc bfc" id="L222" title="All 2 branches covered.">        return !referenced.contains(CommonUtil.baseClassName(imprt))</span>
+<span class="fc bfc" id="L223" title="All 2 branches covered.">            || javaLangPackageMatcher.matches();</span>
+    }
+
+    /**
+     * Collects references made by IDENT.
+     *
+     * @param ast the IDENT node to process
+     */
+    private void processIdent(DetailAST ast) {
+<span class="fc" id="L232">        final DetailAST parent = ast.getParent();</span>
+<span class="fc" id="L233">        final int parentType = parent.getType();</span>
+<span class="fc bfc" id="L234" title="All 6 branches covered.">        if (parentType != TokenTypes.DOT</span>
+            &amp;&amp; parentType != TokenTypes.METHOD_DEF
+            || parentType == TokenTypes.DOT
+<span class="fc bfc" id="L237" title="All 2 branches covered.">                &amp;&amp; ast.getNextSibling() != null) {</span>
+<span class="fc" id="L238">            referenced.add(ast.getText());</span>
+        }
+<span class="fc" id="L240">    }</span>
+
+    /**
+     * Collects the details of imports.
+     *
+     * @param ast node containing the import details
+     */
+    private void processImport(DetailAST ast) {
+<span class="fc" id="L248">        final FullIdent name = FullIdent.createFullIdentBelow(ast);</span>
+<span class="fc bfc" id="L249" title="All 2 branches covered.">        if (!name.getText().endsWith(STAR_IMPORT_SUFFIX)) {</span>
+<span class="fc" id="L250">            imports.add(name);</span>
+        }
+<span class="fc" id="L252">    }</span>
+
+    /**
+     * Collects the details of static imports.
+     *
+     * @param ast node containing the static import details
+     */
+    private void processStaticImport(DetailAST ast) {
+<span class="fc" id="L260">        final FullIdent name =</span>
+<span class="fc" id="L261">            FullIdent.createFullIdent(</span>
+<span class="fc" id="L262">                ast.getFirstChild().getNextSibling());</span>
+<span class="fc bfc" id="L263" title="All 2 branches covered.">        if (!name.getText().endsWith(STAR_IMPORT_SUFFIX)) {</span>
+<span class="fc" id="L264">            imports.add(name);</span>
+        }
+<span class="fc" id="L266">    }</span>
+
+    /**
+     * Collects references made in Javadoc comments.
+     *
+     * @param ast node to inspect for Javadoc
+     */
+    private void collectReferencesFromJavadoc(DetailAST ast) {
+<span class="fc" id="L274">        final FileContents contents = getFileContents();</span>
+<span class="fc" id="L275">        final int lineNo = ast.getLineNo();</span>
+<span class="fc" id="L276">        final TextBlock textBlock = contents.getJavadocBefore(lineNo);</span>
+<span class="fc bfc" id="L277" title="All 2 branches covered.">        if (textBlock != null) {</span>
+<span class="fc" id="L278">            referenced.addAll(collectReferencesFromJavadoc(textBlock));</span>
+        }
+<span class="fc" id="L280">    }</span>
+
+    /**
+     * Process a javadoc {@link TextBlock} and return the set of classes
+     * referenced within.
+     *
+     * @param textBlock The javadoc block to parse
+     * @return a set of classes referenced in the javadoc block
+     */
+    private static Set&lt;String&gt; collectReferencesFromJavadoc(TextBlock textBlock) {
+<span class="fc" id="L290">        final List&lt;JavadocTag&gt; tags = new ArrayList&lt;&gt;();</span>
+        // gather all the inline tags, like @link
+        // INLINE tags inside BLOCKs get hidden when using ALL
+<span class="fc" id="L293">        tags.addAll(getValidTags(textBlock, JavadocUtil.JavadocTagType.INLINE));</span>
+        // gather all the block-level tags, like @throws and @see
+<span class="fc" id="L295">        tags.addAll(getValidTags(textBlock, JavadocUtil.JavadocTagType.BLOCK));</span>
+
+<span class="fc" id="L297">        final Set&lt;String&gt; references = new HashSet&lt;&gt;();</span>
+
+<span class="fc" id="L299">        tags.stream()</span>
+<span class="fc" id="L300">            .filter(JavadocTag::canReferenceImports)</span>
+<span class="fc" id="L301">            .forEach(tag -&gt; references.addAll(processJavadocTag(tag)));</span>
+<span class="fc" id="L302">        return references;</span>
+    }
+
+    /**
+     * Returns the list of valid tags found in a javadoc {@link TextBlock}.
+     *
+     * @param cmt The javadoc block to parse
+     * @param tagType The type of tags we're interested in
+     * @return the list of tags
+     */
+    private static List&lt;JavadocTag&gt; getValidTags(TextBlock cmt,
+            JavadocUtil.JavadocTagType tagType) {
+<span class="fc" id="L314">        return JavadocUtil.getJavadocTags(cmt, tagType).getValidTags();</span>
+    }
+
+    /**
+     * Returns a list of references found in a javadoc {@link JavadocTag}.
+     *
+     * @param tag The javadoc tag to parse
+     * @return A list of references found in this tag
+     */
+    private static Set&lt;String&gt; processJavadocTag(JavadocTag tag) {
+<span class="fc" id="L324">        final Set&lt;String&gt; references = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L325">        final String identifier = tag.getFirstArg().trim();</span>
+<span class="fc bfc" id="L326" title="All 2 branches covered.">        for (Pattern pattern : new Pattern[]</span>
+        {FIRST_CLASS_NAME, ARGUMENT_NAME}) {
+<span class="fc" id="L328">            references.addAll(matchPattern(identifier, pattern));</span>
+        }
+<span class="fc" id="L330">        return references;</span>
+    }
+
+    /**
+     * Extracts a list of texts matching a {@link Pattern} from a
+     * {@link String}.
+     *
+     * @param identifier The String to match the pattern against
+     * @param pattern The Pattern used to extract the texts
+     * @return A list of texts which matched the pattern
+     */
+    private static Set&lt;String&gt; matchPattern(String identifier, Pattern pattern) {
+<span class="fc" id="L342">        final Set&lt;String&gt; references = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L343">        final Matcher matcher = pattern.matcher(identifier);</span>
+<span class="fc bfc" id="L344" title="All 2 branches covered.">        while (matcher.find()) {</span>
+<span class="fc" id="L345">            references.add(topLevelType(matcher.group(1)));</span>
+        }
+<span class="fc" id="L347">        return references;</span>
+    }
+
+    /**
+     * If the given type string contains &quot;.&quot; (e.g. &quot;Map.Entry&quot;), returns the
+     * top level type (e.g. &quot;Map&quot;), as that is what must be imported for the
+     * type to resolve. Otherwise, returns the type as-is.
+     *
+     * @param type A possibly qualified type name
+     * @return The simple name of the top level type
+     */
+    private static String topLevelType(String type) {
+        final String topLevelType;
+<span class="fc" id="L360">        final int dotIndex = type.indexOf('.');</span>
+<span class="fc bfc" id="L361" title="All 2 branches covered.">        if (dotIndex == -1) {</span>
+<span class="fc" id="L362">            topLevelType = type;</span>
+        }
+        else {
+<span class="fc" id="L365">            topLevelType = type.substring(0, dotIndex);</span>
+        }
+<span class="fc" id="L367">        return topLevelType;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
