@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>/home/ubuntu/checkstyle/contribution/checkstyle-tester/repositories/infinispan/spring/spring/src/main/java/org/infinispan/spring/provider/package-info.java xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_javadoccomment"> * &lt;h1&gt;Spring Infinispan - An implementation of Spring 3.2's Cache SPI based on JBoss Infinispan.&lt;/h1&gt;</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_javadoccomment"> * Spring 3.1 introduces caching capabilities a user may comfortably utilize via a set of custom annotations, thus telling</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment"> * the Spring runtime which objects to cache under which circumstances.&lt;/br&gt;</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_javadoccomment"> * Out of the box, Spring ships with &lt;a href=""&gt;EHCache&lt;/a&gt; as the caching provider to delegate to. It defines, however, a</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment"> * simple SPI vendors may implement for their own caching solution, thus enabling Spring users to swap out the default</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> * EHCache for another cache of their choosing. This SPI comprises two interfaces:</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> * &lt;ul&gt;</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> *   &lt;li&gt;</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> *     {@link org.springframework.cache.Cache &lt;code&gt;Cache&lt;/code&gt;}, Spring's cache abstraction itself, and</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment"> *   &lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment"> *   &lt;li&gt;</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment"> *     {@link org.springframework.cache.CacheManager &lt;code&gt;CacheManager&lt;/code&gt;}, a service for creating &lt;code&gt;Cache&lt;/code&gt;</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> *     instances</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment"> *   &lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> * &lt;/ul&gt;</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> * &lt;em&gt;Spring Infinispan&lt;/em&gt; implements this SPI for JBoss Infinispan.</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment"> * While &lt;em&gt;Spring Infinispan&lt;/em&gt; offers only one implementation of &lt;code&gt;org.springframework.cache.Cache&lt;/code&gt;, namely</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment"> * {@link org.infinispan.spring.provider.SpringCache &lt;code&gt;org.infinispan.spring.provider.SpringCache&lt;/code&gt;}, there are two implementations</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment"> * of &lt;code&gt;org.springframework.cache.CacheManager&lt;/code&gt;:</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment"> * &lt;ol&gt;</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment"> *   &lt;li&gt;</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment"> *     {@link org.infinispan.spring.provider.SpringEmbeddedCacheManager &lt;code&gt;org.infinispan.spring.provider.SpringEmbeddedCacheManager&lt;/code&gt;}</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment"> *     and</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> *   &lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment"> *   &lt;li&gt;</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment"> *     {@link org.infinispan.spring.provider.SpringRemoteCacheManager &lt;code&gt;org.infinispan.spring.provider.SpringRemoteCacheManager&lt;/code&gt;}.</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment"> *   &lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment"> * &lt;/ol&gt;</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment"> * These two implementations cover two distinct use cases:</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment"> * &lt;ol&gt;</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment"> *   &lt;li&gt;</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> *     &lt;strong&gt;Embedded&lt;/strong&gt;: Embed your Spring-powered application into the same JVM running an Infinispan node, i.e. every</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment"> *     communication between application code and Infinispan is in-process. Infinispan supports this use case via the interface</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment"> *     {@link org.infinispan.manager.EmbeddedCacheManager &lt;code&gt;org.infinispan.manager.EmbeddedCacheManager&lt;/code&gt;} and its default</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment"> *     implementation {@link org.infinispan.manager.DefaultCacheManager &lt;code&gt;org.infinispan.manager.DefaultCacheManager&lt;/code&gt;}. The</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment"> *     latter backs {@link org.infinispan.spring.provider.SpringEmbeddedCacheManager &lt;code&gt;SpringEmbeddedCacheManager&lt;/code&gt;}.</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment"> *   &lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment"> *   &lt;li&gt;</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment"> *     &lt;strong&gt;Remote&lt;/strong&gt;: Application code accesses Infinispan nodes remotely using Infinispan's own &lt;em&gt;hotrod&lt;/em&gt;</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment"> *     protocol. Infinispan supports this use case via {@link org.infinispan.client.hotrod.RemoteCacheManager</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment"> *     &lt;code&gt;org.infinispan.client.hotrod.RemoteCacheManager&lt;/code&gt;}. {@link org.infinispan.spring.provider.SpringRemoteCacheManager</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment"> *     &lt;code&gt;SpringRemoteCacheManager&lt;/code&gt;} delegates to it.</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment"> *   &lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment"> * &lt;/ol&gt;</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_javadoccomment"> * &lt;strong&gt;Usage&lt;/strong&gt;</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <em class="jxr_javadoccomment"> * Using &lt;em&gt;Spring Infinispan&lt;/em&gt; as a Spring Cache provider may be divided into two broad areas:</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <em class="jxr_javadoccomment"> * &lt;ol&gt;</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_javadoccomment"> *   &lt;li&gt;</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_javadoccomment"> *     Telling the Spring runtime to use &lt;em&gt;Spring Infinispan&lt;/em&gt; and therefore Infinispan as its caching provider.</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_javadoccomment"> *   &lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_javadoccomment"> *   &lt;li&gt;</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_javadoccomment"> *     Using Spring's caching annotations in you application code.</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_javadoccomment"> *   &lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_javadoccomment"> * &lt;/ol&gt;</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_javadoccomment"> * &lt;em&gt;Register Spring Infinispan with the Spring runtime&lt;/em&gt;</em>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_javadoccomment"> * Suppose we want to use &lt;em&gt;Spring Infinispan&lt;/em&gt; running in embedded mode as our caching provider, and suppose further that </em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_javadoccomment"> * we want to create two named cache instances, &amp;quot;cars&amp;quot; and &amp;quot;planes&amp;quot;. To that end, we put</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment"> * &lt;pre&gt;</em>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_javadoccomment"> * &amp;lt;beans xmlns="<a href="http://www.springframework.org/schema/beans"" target="alexandria_uri">http://www.springframework.org/schema/beans"</a></em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  <em class="jxr_javadoccomment"> *        xmlns:xsi="<a href="http://www.w3.org/2001/XMLSchema-instance"" target="alexandria_uri">http://www.w3.org/2001/XMLSchema-instance"</a></em>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  <em class="jxr_javadoccomment"> *        xmlns:cache="<a href="http://www.springframework.org/schema/cache"" target="alexandria_uri">http://www.springframework.org/schema/cache"</a></em>
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  <em class="jxr_javadoccomment"> *        xmlns:p="<a href="http://www.springframework.org/schema/p"" target="alexandria_uri">http://www.springframework.org/schema/p"</a></em>
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  <em class="jxr_javadoccomment"> *        xsi:schemaLocation="<a href="http://www.springframework.org/schema/beans" target="alexandria_uri">http://www.springframework.org/schema/beans</a> <a href="http://www.springframework.org/schema/beans" target="alexandria_uri">http://www.springframework.org/schema/beans</a>/spring-beans.xsd</em>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  <em class="jxr_javadoccomment"> *               <a href="http://www.springframework.org/schema/cache" target="alexandria_uri">http://www.springframework.org/schema/cache</a> <a href="http://www.springframework.org/schema/cache" target="alexandria_uri">http://www.springframework.org/schema/cache</a>/spring-cache.xsd"&amp;gt;</em>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  <em class="jxr_javadoccomment"> *     &amp;lt;cache:annotation-driven /&amp;gt;</em>
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  <em class="jxr_javadoccomment"> *     &amp;lt;bean id="cacheManager" class="org.infinispan.spring.SpringEmbeddedCacheManagerFactoryBean"</em>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  <em class="jxr_javadoccomment"> *              p:configuration-file-location="classpath:/org/infinispan/spring/embedded/example/infinispan-sample-config.xml"/&amp;gt;</em>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  <em class="jxr_javadoccomment"> * &amp;lt;/beans&amp;gt;</em>
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  <em class="jxr_javadoccomment"> * &lt;/pre&gt;</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  <em class="jxr_javadoccomment"> * in our Spring application context. It is important to note that &lt;code&gt;classpath:/org/infinispan/spring/embedded/example/infinispan-sample-config.xml&lt;/code&gt;</em>
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  <em class="jxr_javadoccomment"> * points to a configuration file in the standard Infinispan configuration format that includes sections for two named caches</em>
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  <em class="jxr_javadoccomment"> * &amp;quot;cars&amp;quot; and &amp;quot;planes&amp;quot;. If those sections are missing the above application context will still work, yet the</em>
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  <em class="jxr_javadoccomment"> * two caches &amp;quot;cars&amp;quot; and &amp;quot;planes&amp;quot; will be configured using the default settings defined in</em>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  <em class="jxr_javadoccomment"> * &lt;code&gt;classpath:/org/infinispan/spring/embedded/example/infinispan-sample-config.xml&lt;/code&gt;.&lt;br/&gt;</em>
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  <em class="jxr_javadoccomment"> * To further simplify our setup we may omit the reference to an Infinispan configuration file in which case the underlying</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  <em class="jxr_javadoccomment"> * {@link org.infinispan.manager.EmbeddedCacheManager &lt;code&gt;org.infinispan.manager.EmbeddedCacheManager&lt;/code&gt;} will use Infinispan's</em>
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  <em class="jxr_javadoccomment"> * default settings. </em>
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  <em class="jxr_javadoccomment"> * For more advanced ways to configure the underlying Infinispan &lt;code&gt;EmbeddedCacheManager&lt;/code&gt; see </em>
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  <em class="jxr_javadoccomment"> * {@link org.infinispan.spring.provider.SpringEmbeddedCacheManagerFactoryBean &lt;code&gt;org.infinispan.spring.provider.SpringEmbeddedCacheManagerFactoryBean&lt;/code&gt;}.</em>
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  <em class="jxr_javadoccomment"> * If running Infinispan in remote mode the above configuration changes to</em>
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  <em class="jxr_javadoccomment"> * &lt;pre&gt;</em>
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  <em class="jxr_javadoccomment"> * &amp;lt;beans xmlns="<a href="http://www.springframework.org/schema/beans"" target="alexandria_uri">http://www.springframework.org/schema/beans"</a></em>
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>  <em class="jxr_javadoccomment"> *        xmlns:xsi="<a href="http://www.w3.org/2001/XMLSchema-instance"" target="alexandria_uri">http://www.w3.org/2001/XMLSchema-instance"</a></em>
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  <em class="jxr_javadoccomment"> *        xmlns:cache="<a href="http://www.springframework.org/schema/cache"" target="alexandria_uri">http://www.springframework.org/schema/cache"</a></em>
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> <em class="jxr_javadoccomment"> *        xmlns:p="<a href="http://www.springframework.org/schema/p"" target="alexandria_uri">http://www.springframework.org/schema/p"</a></em>
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> <em class="jxr_javadoccomment"> *        xsi:schemaLocation="<a href="http://www.springframework.org/schema/beans" target="alexandria_uri">http://www.springframework.org/schema/beans</a> <a href="http://www.springframework.org/schema/beans" target="alexandria_uri">http://www.springframework.org/schema/beans</a>/spring-beans.xsd</em>
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_javadoccomment"> *               <a href="http://www.springframework.org/schema/cache" target="alexandria_uri">http://www.springframework.org/schema/cache</a> <a href="http://www.springframework.org/schema/cache" target="alexandria_uri">http://www.springframework.org/schema/cache</a>/spring-cache.xsd"&amp;gt;</em>
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment"> *     &amp;lt;cache:annotation-driven /&amp;gt;</em>
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_javadoccomment"> *     &amp;lt;bean id="cacheManager" class="org.infinispan.spring.SpringEmbeddedCacheManagerFactoryBean"</em>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_javadoccomment"> *              p:configuration-properties-file-location="classpath:/org/infinispan/spring/remote/example/hotrod-client-sample.properties"/&amp;gt;</em>
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_javadoccomment"> * &amp;lt;/beans&amp;gt;</em>
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> <em class="jxr_javadoccomment"> * &lt;/pre&gt;</em>
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> <em class="jxr_javadoccomment"> * For more advanced ways to configure the underlying Infinispan &lt;code&gt;RemoteCacheManager&lt;/code&gt; see </em>
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> <em class="jxr_javadoccomment"> * {@link org.infinispan.spring.provider.SpringRemoteCacheManagerFactoryBean &lt;code&gt;org.infinispan.spring.provider.SpringRemoteCacheManagerFactoryBean&lt;/code&gt;}.</em>
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> <em class="jxr_javadoccomment"> * &lt;em&gt;Using Spring's caching annotations in application code&lt;/em&gt;</em>
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> <em class="jxr_javadoccomment"> * A detailed discussion about how to use Spring's caching annotations {@link org.springframework.cache.annotation.Cacheable &lt;code&gt;@Cacheable&lt;/code&gt;}</em>
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> <em class="jxr_javadoccomment"> * and {@link org.springframework.cache.annotation.CacheEvict &lt;code&gt;@CacheEvict&lt;/code&gt;} is beyond this documentation's scope. A simple example may</em>
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> <em class="jxr_javadoccomment"> * serve as a starting point:</em>
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> <em class="jxr_javadoccomment"> * &lt;pre&gt;</em>
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> <em class="jxr_javadoccomment"> * import org.springframework.cache.annotation.CacheEvict;</em>
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> <em class="jxr_javadoccomment"> * import org.springframework.cache.annotation.Cacheable;</em>
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> <em class="jxr_javadoccomment"> * import org.springframework.stereotype.Repository;</em>
+<a class="jxr_linenumber" name="L124" href="#L124">124</a> <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> <em class="jxr_javadoccomment"> * &amp;#064;Repository</em>
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> <em class="jxr_javadoccomment"> * public class CarRepository {</em>
+<a class="jxr_linenumber" name="L127" href="#L127">127</a> <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L128" href="#L128">128</a> <em class="jxr_javadoccomment"> *   &amp;#064;Cacheable("cars")</em>
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> <em class="jxr_javadoccomment"> *   public Car getCar(Long carId){</em>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> <em class="jxr_javadoccomment"> *       ...</em>
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> <em class="jxr_javadoccomment"> *   }</em>
+<a class="jxr_linenumber" name="L132" href="#L132">132</a> <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L133" href="#L133">133</a> <em class="jxr_javadoccomment"> *   &amp;#064;CacheEvict(value="cars", key="car.id")</em>
+<a class="jxr_linenumber" name="L134" href="#L134">134</a> <em class="jxr_javadoccomment"> *   public void saveCar(Car car){</em>
+<a class="jxr_linenumber" name="L135" href="#L135">135</a> <em class="jxr_javadoccomment"> *       ...</em>
+<a class="jxr_linenumber" name="L136" href="#L136">136</a> <em class="jxr_javadoccomment"> *   }</em>
+<a class="jxr_linenumber" name="L137" href="#L137">137</a> <em class="jxr_javadoccomment"> * }</em>
+<a class="jxr_linenumber" name="L138" href="#L138">138</a> <em class="jxr_javadoccomment"> * &lt;/pre&gt;</em>
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> <em class="jxr_javadoccomment"> * In both &lt;code&gt;&amp;#064;Cache("cars")&lt;/code&gt; and &lt;code&gt;&amp;#064;CacheEvict(value="cars", key="car.id")&lt;/code&gt; &amp;quot;cars&amp;quot; refers to the name of the cache to either</em>
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> <em class="jxr_javadoccomment"> * store the returned &lt;code&gt;Car&lt;/code&gt; instance in or to evict the saved/updated &lt;code&gt;Car&lt;/code&gt; instance from. For a more detailed explanation of</em>
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_javadoccomment"> * how to use &lt;code&gt;&amp;#064;Cacheable&lt;/code&gt; and &lt;code&gt;&amp;#064;CacheEvict&lt;/code&gt; see the relevant reference documentation </em>
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> <em class="jxr_javadoccomment"> * &lt;a href="<a href="http://docs.spring.io/spring/docs/3.2.9.RELEASE/spring-framework-reference/html/cache.html" target="alexandria_uri">http://docs.spring.io/spring/docs/3.2.9.RELEASE/spring-framework-reference/html/cache.html</a>"&gt;chapter&lt;/a&gt;.</em>
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> <strong class="jxr_keyword">package</strong> org.infinispan.spring.provider;
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> 
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
