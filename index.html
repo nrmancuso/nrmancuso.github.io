@@ -1,0 +1,375 @@
+
+<html>
+    <head>
+        <title>
+            Test Report
+        </title>
+        <style type="text/css">
+
+        .test-result-table {
+
+            border: 1px solid black;
+            width: 800px;
+        }
+
+        .test-result-table-header-cell {
+
+            border-bottom: 1px solid black;
+            background-color: silver;
+        }
+
+        .test-result-step-command-cell {
+
+            border-bottom: 1px solid gray;
+        }
+
+        .test-result-step-description-cell {
+
+            border-bottom: 1px solid gray;
+        }
+
+        .test-result-step-result-cell-ok {
+
+            border-bottom: 1px solid gray;
+            background-color: green;
+        }
+
+        .test-result-step-result-cell-failure {
+
+            border-bottom: 1px solid gray;
+            background-color: red;
+        }
+
+        .test-result-step-result-cell-notperformed {
+
+            border-bottom: 1px solid gray;
+            background-color: white;
+        }
+
+        .test-result-describe-cell {
+            background-color: whitesmoke;
+            font-style: italic;
+            border-style: solid;
+            border-width: thin;
+            font-size: small;
+        }
+
+        .test-cast-status-box-ok {
+            border: 1px solid black;
+            float: left;
+            margin-right: 10px;
+            width: 45px;
+            height: 25px;
+            background-color: green;
+        }
+
+        </style>
+    </head>
+    <body>
+        <h1 class="test-results-header">
+            Test Report
+        </h1>
+
+        <table class="test-result-table" cellspacing="0">
+            <thead>
+                <tr>
+                    <td class="test-result-table-header-cell">
+                        Description
+                    </td>
+                    <td class="test-result-table-header-cell">
+                        Test Case
+                    </td>
+                    <td class="test-result-table-header-cell">
+                        Grep'ed AST result
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="test-result-describe-cell">
+                    <td class="test-result-describe-cell">
+                        Usage of enhanced for loop variable in scope of loop.
+                    </td>
+                    <td class="test-result-describe-cell">
+                        <code>        String [] strings = {"string"};<br>
+                            for(String s : strings) {<br>
+                                String newString = s;<br>
+                                s = s.toUpperCase();<br>
+                                s.equals(s);<br>
+                            }</code>
+                    </td>
+                    <td class="test-result-describe-cell">
+                        <code>    |       |--LITERAL_FOR -> for <br>
+                            |       |   |--LPAREN -> ( <br>
+                            |       |   |--FOR_EACH_CLAUSE -> FOR_EACH_CLAUSE <br>
+                            |       |   |   |--VARIABLE_DEF -> VARIABLE_DEF <br>
+                            |       |   |   |   |--MODIFIERS -> MODIFIERS <br>
+                            |       |   |   |   |--TYPE -> TYPE <br>
+                            |       |   |   |   |   `--IDENT -> String <br>
+                            |       |   |   |   `--IDENT -> s <br>
+                            |       |   |   |--COLON -> : <br>
+                            |       |   |   `--EXPR -> EXPR <br>
+                            |       |   |       `--IDENT -> strings <br>
+                            |       |   |--RPAREN -> ) <br>
+                            |       |   `--SLIST -> { <br>
+                            |       |       |--VARIABLE_DEF -> VARIABLE_DEF <br>
+                            |       |       |   |--MODIFIERS -> MODIFIERS <br>
+                            |       |       |   |--TYPE -> TYPE <br>
+                            |       |       |   |   `--IDENT -> String <br>
+                            |       |       |   |--IDENT -> newString <br>
+                            |       |       |   `--ASSIGN -> = <br>
+                            |       |       |       `--EXPR -> EXPR <br>
+                            |       |       |           `--IDENT -> s <br>
+                            |       |       |--SEMI -> ; <br>
+                            |       |       |--EXPR -> EXPR <br>
+                            |       |       |   `--ASSIGN -> = <br>
+                            |       |       |       |--IDENT -> s <br>
+                            |       |       |       `--METHOD_CALL -> ( <br>
+                            |       |       |           |--DOT -> . <br>
+                            |       |       |           |   |--IDENT -> s <br>
+                            |       |       |           |   `--IDENT -> toUpperCase <br>
+                            |       |       |           |--ELIST -> ELIST <br>
+                            |       |       |           `--RPAREN -> ) <br>
+                            |       |       |--SEMI -> ; <br>
+                            |       |       |--EXPR -> EXPR <br>
+                            |       |       |   `--METHOD_CALL -> ( <br>
+                            |       |       |       |--DOT -> . <br>
+                            |       |       |       |   |--IDENT -> s <br>
+                            |       |       |       |   `--IDENT -> equals <br>
+                            |       |       |       |--ELIST -> ELIST <br>
+                            |       |       |       |   `--EXPR -> EXPR <br>
+                            |       |       |       |       `--IDENT -> s <br>
+                            |       |       |       `--RPAREN -> ) <br>
+                            |       |       |--SEMI -> ; <br>
+                            |       |       `--RCURLY -> } </code>
+                    </td>
+                </tr>
+                <tr class="test-result-describe-cell">
+                    <td class="test-result-describe-cell">
+                        Usage of regular for loop variable in loop.
+                    </td>
+                    <td class="test-result-describe-cell">
+                        <code>        for (int i =0, j; i< 10; i++) {<br>
+                            j = i;<br>
+                            i += 2;<br>
+                            i = i - 2;<br>
+                            i = j;<br>
+                        }</code>
+                    </td>
+                    <td class="test-result-describe-cell">
+                        <code>    |       |   |--FOR_INIT -> FOR_INIT <br>
+                            |       |   |   |--VARIABLE_DEF -> VARIABLE_DEF <br>
+                            |       |   |   |   |--MODIFIERS -> MODIFIERS <br>
+                            |       |   |   |   |--TYPE -> TYPE <br>
+                            |       |   |   |   |   `--LITERAL_INT -> int <br>
+                            |       |   |   |   |--IDENT -> i <br>
+                            |       |   |   |   `--ASSIGN -> = <br>
+                            |       |   |   |       `--EXPR -> EXPR <br>
+                            |       |   |   |           `--NUM_INT -> 0 <br>
+                            |       |   |   |--COMMA -> , <br>
+                            |       |   |   `--VARIABLE_DEF -> VARIABLE_DEF <br>
+                            |       |   |       |--MODIFIERS -> MODIFIERS <br>
+                            |       |   |       |--TYPE -> TYPE <br>
+                            |       |   |       |   `--LITERAL_INT -> int <br>
+                            |       |   |       `--IDENT -> j <br>
+                            |       |   |--SEMI -> ; <br>
+                            |       |   |--FOR_CONDITION -> FOR_CONDITION <br>
+                            |       |   |   `--EXPR -> EXPR <br>
+                            |       |   |       `--LT -> < <br>
+                            |       |   |           |--IDENT -> i <br>
+                            |       |   |           `--NUM_INT -> 10 <br>
+                            |       |   |--SEMI -> ; <br>
+                            |       |   |--FOR_ITERATOR -> FOR_ITERATOR <br>
+                            |       |   |   `--ELIST -> ELIST <br>
+                            |       |   |       `--EXPR -> EXPR <br>
+                            |       |   |           `--POST_INC -> ++ <br>
+                            |       |   |               `--IDENT -> i <br>
+...<br>
+                    </td>
+                </tr>
+                <tr class="test-result-describe-cell">
+                    <td class="test-result-describe-cell">
+                        Usage of exception thrown in try/catch.
+                    </td>
+                    <td class="test-result-describe-cell">
+                        <code>        try {<br>
+                            System.out.println("trying");<br>
+                        }<br>
+                        catch(Exception e) {<br>
+                            System.out.println(e.toString());<br>
+                            if (e instanceof NullPointerException ) {<br>
+                                e.getCause();<br>
+                                System.out.println(e);<br>
+                            }<br>
+                            else if (e instanceof IOException) {<br>
+                                e.addSuppressed(e);<br>
+                            }<br>
+                        }</code>
+                    </td>
+                    <td class="test-result-describe-cell">
+                        <code>
+    |       |--LITERAL_TRY -> try  |       |--LITERAL_TRY -> try <br>
+...<br>
+    |       |   `--LITERAL_CATCH -> catch <br>
+    |       |       |--LPAREN -> ( <br>
+    |       |       |--PARAMETER_DEF -> PARAMETER_DEF <br>
+    |       |       |   |--MODIFIERS -> MODIFIERS <br>
+    |       |       |   |--TYPE -> TYPE <br>
+    |       |       |   |   `--IDENT -> Exception <br>
+    |       |       |   `--IDENT -> e <br>
+    |       |       |--RPAREN -> ) <br>
+    |       |       `--SLIST -> { <br>
+    |       |           |--EXPR -> EXPR <br>
+    |       |           |   `--METHOD_CALL -> ( <br>
+...<br>
+    |       |           |       |   `--EXPR -> EXPR <br>
+    |       |           |       |       `--METHOD_CALL -> ( <br>
+    |       |           |       |           |--DOT -> . <br>
+    |       |           |       |           |   |--IDENT -> e <br>
+    |       |           |       |           |   `--IDENT -> toString <br>
+    |       |           |       |           |--ELIST -> ELIST <br>
+    |       |           |       |           `--RPAREN -> ) <br>
+    |       |           |       `--RPAREN -> ) <br>
+    |       |           |--SEMI -> ; <br>
+    |       |           |--LITERAL_IF -> if <br>
+    |       |           |   |--LPAREN -> ( <br>
+    |       |           |   |--EXPR -> EXPR <br>
+    |       |           |   |   `--LITERAL_INSTANCEOF -> instanceof <br>
+    |       |           |   |       |--IDENT -> e <br>
+    |       |           |   |       `--TYPE -> TYPE <br>
+    |       |           |   |           `--IDENT -> NullPointerException <br>
+    |       |           |   |--RPAREN -> ) <br>
+    |       |           |   |--SLIST -> { <br>
+    |       |           |   |   |--EXPR -> EXPR <br>
+    |       |           |   |   |   `--METHOD_CALL -> ( <br>
+    |       |           |   |   |       |--DOT -> . <br>
+    |       |           |   |   |       |   |--IDENT -> e <br>
+    |       |           |   |   |       |   `--IDENT -> getCause <br>
+    |       |           |   |   |       |--ELIST -> ELIST <br>
+    |       |           |   |   |       `--RPAREN -> ) <br>
+    |       |           |   |   |--SEMI -> ; <br>
+    |       |           |   |   |--EXPR -> EXPR <br>
+...<br>
+    |       |           |   |   |       |--ELIST -> ELIST <br>
+    |       |           |   |   |       |   `--EXPR -> EXPR <br>
+    |       |           |   |   |       |       `--IDENT -> e <br>
+    |       |           |   |   |       `--RPAREN -> ) <br>
+    |       |           |   |   |--SEMI -> ; <br>
+    |       |           |   |   `--RCURLY -> } <br>
+    |       |           |   `--LITERAL_ELSE -> else <br>
+    |       |           |       `--LITERAL_IF -> if <br>
+    |       |           |           |--LPAREN -> ( <br>
+    |       |           |           |--EXPR -> EXPR <br>
+    |       |           |           |   `--LITERAL_INSTANCEOF -> instanceof <br>
+    |       |           |           |       |--IDENT -> e <br>
+    |       |           |           |       `--TYPE -> TYPE <br>
+    |       |           |           |           `--IDENT -> IOException <br>
+    |       |           |           |--RPAREN -> ) <br>
+    |       |           |           `--SLIST -> { <br>
+    |       |           |               |--EXPR -> EXPR <br>
+    |       |           |               |   `--METHOD_CALL -> ( <br>
+    |       |           |               |       |--DOT -> . <br>
+    |       |           |               |       |   |--IDENT -> e <br>
+    |       |           |               |       |   `--IDENT -> addSuppressed <br>
+    |       |           |               |       |--ELIST -> ELIST <br>
+    |       |           |               |       |   `--EXPR -> EXPR <br>
+    |       |           |               |       |       `--IDENT -> e <br>
+
+</code>
+                    </td>
+                </tr>
+                <tr class="test-result-describe-cell">
+                    <td class="test-result-describe-cell">
+                        Use of paramenters in method.
+                    </td>
+                    <td class="test-result-describe-cell">
+                        <code>    private static void useParameters(Object x, Object y) {<br>
+                            if (x instanceof Integer) {<br>
+                                System.out.println(x);<br>
+                            }<br>
+                            else if (x instanceof String && y instanceof Integer) {<br>
+                                String newString = ((String) x).toLowerCase();<br>
+                            }<br>
+                        }</code>
+
+                    </td>
+                    <td class="test-result-describe-cell">
+                        <code>    |--METHOD_DEF -> METHOD_DEF <br>
+                            |   |--MODIFIERS -> MODIFIERS <br>
+                            |   |   |--LITERAL_PRIVATE -> private <br>
+                            |   |   `--LITERAL_STATIC -> static <br>
+                            |   |--TYPE -> TYPE <br>
+                            |   |   `--LITERAL_VOID -> void <br>
+                            |   |--IDENT -> useParameters <br>
+                            |   |--LPAREN -> ( <br>
+                            |   |--PARAMETERS -> PARAMETERS <br>
+                            |   |   |--PARAMETER_DEF -> PARAMETER_DEF <br>
+                            |   |   |   |--MODIFIERS -> MODIFIERS <br>
+                            |   |   |   |--TYPE -> TYPE <br>
+                            |   |   |   |   `--IDENT -> Object <br>
+                            |   |   |   `--IDENT -> x <br>
+                            |   |   |--COMMA -> , <br>
+                            |   |   `--PARAMETER_DEF -> PARAMETER_DEF <br>
+                            |   |       |--MODIFIERS -> MODIFIERS <br>
+                            |   |       |--TYPE -> TYPE <br>
+                            |   |       |   `--IDENT -> Object <br>
+                            |   |       `--IDENT -> y <br>
+                            |   |--RPAREN -> ) <br>
+                            |   `--SLIST -> { <br>
+                            |       |--LITERAL_IF -> if <br>
+                            |       |   |--LPAREN -> ( <br>
+                            |       |   |--EXPR -> EXPR <br>
+                            |       |   |   `--LITERAL_INSTANCEOF -> instanceof <br>
+                            |       |   |       |--IDENT -> x <br>
+                            |       |   |       `--TYPE -> TYPE <br>
+                            |       |   |           `--IDENT -> Integer <br>
+                            |       |   |--RPAREN -> ) <br>
+                            |       |   |--SLIST -> { <br>
+                            |       |   |   |--EXPR -> EXPR <br>
+                            |       |   |   |   `--METHOD_CALL -> ( <br>
+                            |       |   |   |       |--DOT -> . <br>
+                            |       |   |   |       |   |--DOT -> . <br>
+                            |       |   |   |       |   |   |--IDENT -> System <br>
+                            |       |   |   |       |   |   `--IDENT -> out <br>
+                            |       |   |   |       |   `--IDENT -> println <br>
+                            |       |   |   |       |--ELIST -> ELIST <br>
+                            |       |   |   |       |   `--EXPR -> EXPR <br>
+                            |       |   |   |       |       `--IDENT -> x <br>
+                            ...<br>
+
+                            |       |       `--LITERAL_IF -> if <br>
+                            |       |           |--LPAREN -> ( <br>
+                            |       |           |--EXPR -> EXPR <br>
+                            |       |           |   `--LAND -> && <br>
+                            |       |           |       |--LITERAL_INSTANCEOF -> instanceof <br>
+                            |       |           |       |   |--IDENT -> x <br>
+                            |       |           |       |   `--TYPE -> TYPE <br>
+                            |       |           |       |       `--IDENT -> String <br>
+                            |       |           |       `--LITERAL_INSTANCEOF -> instanceof <br>
+                            |       |           |           |--IDENT -> y <br>
+                            |       |           |           `--TYPE -> TYPE <br>
+                            |       |           |               `--IDENT -> Integer <br>
+                            |       |           |--RPAREN -> ) <br>
+                            |       |           `--SLIST -> { <br>
+                            |       |               |--VARIABLE_DEF -> VARIABLE_DEF <br>
+...<br>
+                            |       |               |   |   `--IDENT -> String <br>
+                            |       |               |   |--IDENT -> newString <br>
+                            |       |               |   `--ASSIGN -> = <br>
+                            |       |               |       `--EXPR -> EXPR <br>
+                            |       |               |           `--METHOD_CALL -> ( <br>
+                            |       |               |               |--DOT -> . <br>
+                            |       |               |               |   |--LPAREN -> ( <br>
+                            |       |               |               |   |--TYPECAST -> ( <br>
+                            |       |               |               |   |   |--TYPE -> TYPE <br>
+                            |       |               |               |   |   |   `--IDENT -> String <br>
+                            |       |               |               |   |   |--RPAREN -> ) <br>
+                            |       |               |               |   |   `--IDENT -> x <br>
+
+...<br></code>
+                    </td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
