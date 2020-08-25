@@ -1614,7 +1614,11 @@ public void needsLotsOfParameters(int a,
 <h3><a name="Description"></a>Description</h3>
         
 <p>
-          Checks the number of record components in the header of a record definition.
+          Checks the number of record components in the
+          <a class="externalLink" href="http://cr.openjdk.java.net/~gbierman/jep359/jep359-20191031/specs/records-jls.html">
+          header
+          </a>
+          of a record definition.
         </p>
       </section>
 
@@ -1643,7 +1647,8 @@ public void needsLotsOfParameters(int a,
 <td>max</td>
               
 <td>
-                Specify the maximum number of components allowed in record definition headers.
+                Specify the maximum number of components allowed in the header
+                of a record definition.
               </td>
               
 <td><a href="property_types.html#int">int</a></td>
@@ -1684,6 +1689,24 @@ public void needsLotsOfParameters(int a,
 <div class="source">
 <pre>
 &lt;module name=&quot;RecordComponentNumber&quot;/&gt;
+        </pre></div>
+        
+<p>
+          Java code example:
+        </p>
+        
+<div class="source">
+<pre>
+ public record MyRecord1(int x, int y) { // ok, 2 components
+     ...
+ }
+
+ record MyRecord2(int x, int y, String str,
+                           Node node, Order order, Data data
+                           String location, Date date, Image image) { // violation, 9 components
+     ...
+ }
+
         </pre></div>
         
 <p>

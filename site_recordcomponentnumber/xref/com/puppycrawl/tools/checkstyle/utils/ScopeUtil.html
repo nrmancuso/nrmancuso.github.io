@@ -50,9 +50,9 @@
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a name="Scope" href="../../../../../com/puppycrawl/tools/checkstyle/api/Scope.html#Scope">Scope</a> getScopeFromMods(<a name="DetailAST" href="../../../../../com/puppycrawl/tools/checkstyle/api/DetailAST.html#DetailAST">DetailAST</a> aMods) {
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>          <em class="jxr_comment">// default scope</em>
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>          <a name="Scope" href="../../../../../com/puppycrawl/tools/checkstyle/api/Scope.html#Scope">Scope</a> returnValue = Scope.PACKAGE;
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <strong class="jxr_keyword">for</strong> (<a name="DetailAST" href="../../../../../com/puppycrawl/tools/checkstyle/api/DetailAST.html#DetailAST">DetailAST</a> token = aMods.getFirstChild();
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>                   token != <strong class="jxr_keyword">null</strong> &amp;&amp; returnValue == Scope.PACKAGE;
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>                   token = token.getNextSibling()) {
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <strong class="jxr_keyword">for</strong> (<a name="DetailAST" href="../../../../../com/puppycrawl/tools/checkstyle/api/DetailAST.html#DetailAST">DetailAST</a> token = aMods.getFirstChild(); token != <strong class="jxr_keyword">null</strong>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>                  &amp;&amp; returnValue == Scope.PACKAGE;
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>                  token = token.getNextSibling()) {
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>              <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"public"</span>.equals(token.getText())) {
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>                  returnValue = Scope.PUBLIC;
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>              }
