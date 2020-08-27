@@ -1462,7 +1462,7 @@ class MyClass {
               </td>
               
 <td>
-                <code>&quot;(?i)^(?!(record|yield|var)$).+$&quot;</code>
+                <code>&quot;(?i)^(?!(record|yield|var|_.+)$).+$&quot;</code>
               </td>
               
 <td>8.36</td>
@@ -1594,7 +1594,7 @@ class MyClass {
         
 <div class="source">
 <pre>
-          &lt;module name=&quot;IllegalIdentifierName&quot;/&gt;
+&lt;module name=&quot;IllegalIdentifierName&quot;/&gt;
         </pre></div>
         
 <p>Example:</p>
@@ -1614,6 +1614,7 @@ public class TestClass {
         String yieldString = &quot;yieldString&quot;; // ok, part of another word
         record MyRecord(){} // ok, part of another word
         var variable = 2; // ok, part of another word
+        String _string; // violation, begins with underscore
     }
 }
         </pre></div>
@@ -1627,9 +1628,9 @@ public class TestClass {
         
 <div class="source">
 <pre>
-          &lt;module name=&quot;IllegalIdentifierName&quot;&gt;
-          &lt;property name=&quot;format&quot; value=&quot;(?i)^(?!(record|yield|var|open|transitive)$).+$&quot;/&gt;
-          &lt;/module&gt;
+&lt;module name=&quot;IllegalIdentifierName&quot;&gt;
+    &lt;property name=&quot;format&quot; value=&quot;(?i)^(?!(record|yield|var|open|transitive|_.+)$).+$&quot;/&gt;
+&lt;/module&gt;
         </pre></div>
         
 <p>Example:</p>
