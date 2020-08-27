@@ -1424,10 +1424,11 @@ class MyClass {
         
 <p>
           Checks identifiers for a set of illegal names, such as those that are restricted or
-          contextual keywords. Examples include &quot;yield&quot;, &quot;record&quot;, and &quot;var&quot;. Please read more at
+          contextual keywords. Examples include &quot;yield&quot;, &quot;record&quot;, &quot;_&quot;, and &quot;var&quot;. Please read
+          more at
           <a class="externalLink" href="https://docs.oracle.com/javase/specs/jls/se14/html/jls-3.html#jls-3.9">
           Java Language Specification
-          </a> to get to know more about restricted keywords.
+          </a>to get to know more about restricted keywords.
         </p>
       </section>
 
@@ -1462,7 +1463,7 @@ class MyClass {
               </td>
               
 <td>
-                <code>&quot;(?i)^(?!(record|yield|var|_.+)$).+$&quot;</code>
+                <code>&quot;(?i)^(?!(record|yield|var|_)$).+$&quot;</code>
               </td>
               
 <td>8.36</td>
@@ -1614,7 +1615,7 @@ public class TestClass {
         String yieldString = &quot;yieldString&quot;; // ok, part of another word
         record MyRecord(){} // ok, part of another word
         var variable = 2; // ok, part of another word
-        String _string; // violation, begins with underscore
+        String _; // violation, underscore should not be used as an identifier.
     }
 }
         </pre></div>
@@ -1629,7 +1630,7 @@ public class TestClass {
 <div class="source">
 <pre>
 &lt;module name=&quot;IllegalIdentifierName&quot;&gt;
-    &lt;property name=&quot;format&quot; value=&quot;(?i)^(?!(record|yield|var|open|transitive|_.+)$).+$&quot;/&gt;
+    &lt;property name=&quot;format&quot; value=&quot;(?i)^(?!(record|yield|var|open|transitive|_)$).+$&quot;/&gt;
 &lt;/module&gt;
         </pre></div>
         

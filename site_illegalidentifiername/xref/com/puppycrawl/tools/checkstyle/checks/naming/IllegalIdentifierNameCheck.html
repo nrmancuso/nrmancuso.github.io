@@ -35,7 +35,7 @@
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment"> * Checks identifiers for a set of illegal names, such as those that are restricted or contextual</em>
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment"> * keywords. Examples include "yield", "record", and "var". Please read more at</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment"> * keywords. Examples include "yield", "record", "_", and "var". Please read more at</em>
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment"> * &lt;a href="<a href="https://docs.oracle.com/javase/specs/jls/se14/html/jls-3.html" target="alexandria_uri">https://docs.oracle.com/javase/specs/jls/se14/html/jls-3.html</a>#jls-3.9"&gt;</em>
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment"> * Java Language Specification&lt;/a&gt; to get to know more about restricted keywords.</em>
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
@@ -43,7 +43,7 @@
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment"> * &lt;li&gt;</em>
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> * Property {@code format} - Specifies valid identifiers.</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment"> * Type is {@code java.util.regex.Pattern}.</em>
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment"> * Default value is {@code "(?i)^(?!(record|yield|var|_.+)$).+$"}.</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment"> * Default value is {@code "(?i)^(?!(record|yield|var|_)$).+$"}.</em>
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment"> * &lt;/li&gt;</em>
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment"> * &lt;li&gt;</em>
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment"> * Property {@code tokens} - tokens to check</em>
@@ -100,7 +100,7 @@
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>  <em class="jxr_javadoccomment"> *         String yieldString = "yieldString"; // ok, part of another word</em>
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  <em class="jxr_javadoccomment"> *         record MyRecord(){} // ok, part of another word</em>
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  <em class="jxr_javadoccomment"> *         var variable = 2; // ok, part of another word</em>
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>  <em class="jxr_javadoccomment"> *         String _string; // violation, begins with underscore</em>
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  <em class="jxr_javadoccomment"> *         String _; // violation, underscore should not be used as an identifier.</em>
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>  <em class="jxr_javadoccomment"> *     }</em>
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>  <em class="jxr_javadoccomment"> * }</em>
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>  <em class="jxr_javadoccomment"> * &lt;/pre&gt;</em>
@@ -110,7 +110,7 @@
 <a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_javadoccomment"> * &lt;p&gt;Configuration:&lt;/p&gt;</em>
 <a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment"> * &lt;pre&gt;</em>
 <a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment"> * &amp;lt;module name="IllegalIdentifierName"&amp;gt;</em>
-<a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_javadoccomment"> *     &amp;lt;property name="format" value="(?i)^(?!(record|yield|var|open|transitive|_.+)$).+$"/&amp;gt;</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_javadoccomment"> *     &amp;lt;property name="format" value="(?i)^(?!(record|yield|var|open|transitive|_)$).+$"/&amp;gt;</em>
 <a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_javadoccomment"> * &amp;lt;/module&amp;gt;</em>
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_javadoccomment"> * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_javadoccomment"> * &lt;p&gt;Example:&lt;/p&gt;</em>
@@ -148,7 +148,7 @@
 <a class="jxr_linenumber" name="L140" href="#L140">140</a> <em class="jxr_javadoccomment">     * Creates a new {@code IllegalIdentifierNameCheck} instance.</em>
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>     <strong class="jxr_keyword">public</strong> <a name="IllegalIdentifierNameCheck" href="../../../../../../com/puppycrawl/tools/checkstyle/checks/naming/IllegalIdentifierNameCheck.html#IllegalIdentifierNameCheck">IllegalIdentifierNameCheck</a>() {
-<a class="jxr_linenumber" name="L143" href="#L143">143</a>         <strong class="jxr_keyword">super</strong>(<span class="jxr_string">"(?i)^(?!(record|yield|var|_.+)$).+$"</span>);
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>         <strong class="jxr_keyword">super</strong>(<span class="jxr_string">"(?i)^(?!(record|yield|var|_)$).+$"</span>);
 <a class="jxr_linenumber" name="L144" href="#L144">144</a>     }
 <a class="jxr_linenumber" name="L145" href="#L145">145</a> 
 <a class="jxr_linenumber" name="L146" href="#L146">146</a>     @Override

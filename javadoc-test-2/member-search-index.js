@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"<Unnamed>","c":"MyRecord","l":"equals(Object)","url":"equals(java.lang.Object)"},{"p":"<Unnamed>","c":"MyRecord","l":"hashCode()"},{"p":"<Unnamed>","c":"MyRecord","l":"MyRecord()","url":"%3Cinit%3E()"},{"p":"<Unnamed>","c":"MyRecord","l":"toString()"}]

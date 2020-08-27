@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"<Unnamed>","l":"MyClass"},{"p":"<Unnamed>","l":"MyClass.MyEnum"},{"p":"<Unnamed>","l":"MyClass.MyInnerClass"},{"p":"<Unnamed>","l":"MyClass.MyInterface"},{"p":"<Unnamed>","l":"MyClass.MyRecord"}]
