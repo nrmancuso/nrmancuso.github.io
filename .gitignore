@@ -67,3 +67,9 @@ fabric.properties
 
 #Added for James
 .DS_Store
+/.idea/modules.xml
+/.idea/misc.xml
+/.idea/nmancus1.github.io.iml
+/.idea/vcs.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore
