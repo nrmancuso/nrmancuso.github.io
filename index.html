@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
     
     <!-- github calendar css -->
-    <link rel="stylesheet" href="assets/plugins/github-calendar/dist/github-calendar.css">
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
     <!-- github activity css -->    
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
     <link rel="stylesheet" href="assets/plugins/github-activity/github-activity-0.1.5.min.css">
@@ -177,16 +177,22 @@
                 <section class="github section">
                     <div class="section-inner shadow-sm rounded">
                         <h2 class="heading">My GitHub</h2>
-                        <p>You can embed your GitHub contribution graph calendar using IonicaBizau's <a href="https://github.com/IonicaBizau/github-calendar" target="_blank">GitHub Calendar</a> widget. 
-                        
-                        <div id="github-graph" class="github-graph">
-
-                        </div><!--//github-graph-->
+                        <div class="calendar">
+                            <img src="https://github.githubassets.com/images/spinners/octocat-spinner-128.gif"
+                                 class="spinner"/>
+                            <p class="spinner-text monospace">Crunching <a href="https://github.com/nmancus1">@nmancus1</a>'s
+                                contributions just for you.</p>
+                        </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/3.0.2/es6-promise.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
+                        <script src="assets/plugins/_github-calendar/dist/github-calendar.min.js"></script>
+                        <script>GitHubCalendar(".calendar", "nmancus1", { responsive: true });</script>
 
                         <p>You can also embed your GitHub activities using Casey Scarborough's <a href="https://github.com/caseyscarborough/github-activity" target="_blank">GitHub Activity Stream</a> widget.        
                         <!--//Usage: https://caseyscarborough.com/projects/github-activity/ -->                       
                         <div id="ghfeed" class="ghfeed">
-                        </div><!--//ghfeed-->
+                        </div><!--//ghfeed-->'
+
                         
                     </div><!--//secton-inner-->
                 </section><!--//section-->
@@ -244,39 +250,6 @@
                                         <li>MPI/PThread parallel programming</li>
                                     </ul>
                                 </div><!--//content-->
-                                <!--
-                                                                <div class="item">
-                                                                    <h3 class="level-title">Java<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Expert</span></h3>
-                                                                    <div class="level-bar">
-                                                                        <div class="level-bar-inner" data-level="60%">
-                                                                        </div>
-                                                                    </div>&lt;!&ndash;//level-bar&ndash;&gt;
-                                                                </div>&lt;!&ndash;//item&ndash;&gt;
-
-                                                                <div class="item">
-                                                                    <h3 class="level-title">Linux and BASH<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Expert</span></h3>
-                                                                    <div class="level-bar">
-                                                                        <div class="level-bar-inner" data-level="80%">
-                                                                        </div>
-                                                                    </div>&lt;!&ndash;//level-bar&ndash;&gt;
-                                                                </div>&lt;!&ndash;//item&ndash;&gt;
-
-                                                                <div class="item">
-                                                                    <h3 class="level-title">Maven<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Expert</span></h3>
-                                                                    <div class="level-bar">
-                                                                        <div class="level-bar-inner" data-level="60%">
-                                                                        </div>
-                                                                    </div>&lt;!&ndash;//level-bar&ndash;&gt;
-                                                                </div>&lt;!&ndash;//item&ndash;&gt;
-
-                                                                <div class="item">
-                                                                    <h3 class="level-title">Ruby on Rails<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Pro</span></h3>
-                                                                    <div class="level-bar">
-                                                                        <div class="level-bar-inner" data-level="85%">
-                                                                        </div>
-                                                                    </div>&lt;!&ndash;//level-bar&ndash;&gt;
-                                                                </div>&lt;!&ndash;//item&ndash;&gt;
-                                                                -->
                             </div>
                         </div><!--//content-->  
                     </div><!--//section-inner-->                 
@@ -323,7 +296,6 @@
                                 <li><i class="fas fa-headphones"></i> <a href="https://open.spotify.com/playlist/37i9dQZF1DX6GJXiuZRisr?si=DPfm2r8gRcSxNIFAjiom5A">Night Rider Radio on Spotify</a></li>
                                 <li><i class="fas fa-headphones"></i> <a href="https://www.di.fm/chillhop">ChillHop on DI.FM</a></li>
                                 <li><i class="fas fa-headphones"></i> <a href="https://www.di.fm/deephouse">DeepHouse on DI.FM</a></li>
-
                                 <li><i class="fas fa-headphones"></i> <a href="https://open.spotify.com/playlist/5YWaMPjdBhPvvWVU9T8mLI?si=Rac0Vr3rSzuv_t3I8616xw">Miles Davis Radio on Spotify</a></li>
                                 <li><i class="fas fa-headphones"></i> <a href="https://open.spotify.com/playlist/37i9dQZF1E4uQRLFyynE1O?si=kf2vVjIASfqZBHarsIus0A">Particle Radio on Spotify</a></li>
                             </ul>
