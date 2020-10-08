@@ -21,10 +21,9 @@
     
     <!-- github calendar css -->
     <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
-    <!-- github activity css -->    
+    <!-- github activity css -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
     <link rel="stylesheet" href="assets/plugins/github-activity/github-activity-0.1.5.min.css">
-    
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
     
@@ -145,8 +144,6 @@
                                 <p class="summary">Contributed fixes for several bugs, namely a multithreading and map collision issue in the full text downloader.</p>
                                 <p><a class="more-link" href="https://github.com/search?q=is%3Apr+author%3Anmancus1+archived%3Afalse+jabref" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
                             </div><!--//item-->
-
-                            
                             <a class="btn btn-cta-secondary" href="https://github.com/nmancus1">More on GitHub <i class="fas fa-chevron-right pt-1"></i></a>
                             
                         </div><!--//content-->  
@@ -183,17 +180,7 @@
                             <p class="spinner-text monospace">Crunching <a href="https://github.com/nmancus1">@nmancus1</a>'s
                                 contributions just for you.</p>
                         </div>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/3.0.2/es6-promise.min.js"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
-                        <script src="assets/plugins/_github-calendar/dist/github-calendar.min.js"></script>
-                        <script>GitHubCalendar(".calendar", "nmancus1", { responsive: true });</script>
-
-                        <p>You can also embed your GitHub activities using Casey Scarborough's <a href="https://github.com/caseyscarborough/github-activity" target="_blank">GitHub Activity Stream</a> widget.        
-                        <!--//Usage: https://caseyscarborough.com/projects/github-activity/ -->                       
-                        <div id="ghfeed" class="ghfeed">
-                        </div><!--//ghfeed-->'
-
-                        
+                        <div id="feed"></div><!--//ghfeed-->'
                     </div><!--//secton-inner-->
                 </section><!--//section-->
             </div><!--//primary-->
@@ -279,6 +266,7 @@
                             <div class="item">                      
                                 <h3 class="title"><i class="fas fa-graduation-cap"></i> AAS Computing and Information Science</h3>
                                 <h4 class="university">Delaware Technical Community College<span class="year">(2017-2019)</span></h4>
+                                <h4 class="university"><span class="year">Summa Cum Laude</span></h4>
                             </div><!--//item-->
                             <div class="item">
                                 <h3 class="title"><i class="fas fa-graduation-cap"></i> BS Computer Science</h3>
@@ -290,7 +278,7 @@
                 
                 <aside class="list music aside section">
                     <div class="section-inner shadow-sm rounded">
-                        <h2 class="heading">Favourite coding music</h2>
+                        <h2 class="heading">Favorite coding music</h2>
                         <div class="content">
                             <ul class="list-unstyled">
                                 <li><i class="fas fa-headphones"></i> <a href="https://open.spotify.com/playlist/37i9dQZF1DX6GJXiuZRisr?si=DPfm2r8gRcSxNIFAjiom5A">Night Rider Radio on Spotify</a></li>
@@ -322,9 +310,14 @@
     <script type="text/javascript" src="assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script> 
     <!-- github calendar plugin -->
     <script type="text/javascript" src="assets/plugins/github-calendar/dist/github-calendar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/3.0.2/es6-promise.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
+    <script src="assets/plugins/_github-calendar/dist/github-calendar.min.js"></script>
+    <script>GitHubCalendar(".calendar", "nmancus1", { responsive: true });</script>
     <!-- github activity plugin -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
     <script type="text/javascript" src="assets/plugins/github-activity/github-activity-0.1.5.min.js"></script>
+    <script>GitHubActivity.feed({username: "nmancus1", selector: "#feed",limit: 10});</script>
     <!-- custom js -->
     <script type="text/javascript" src="assets/js/main.js"></script>            
 </body>
