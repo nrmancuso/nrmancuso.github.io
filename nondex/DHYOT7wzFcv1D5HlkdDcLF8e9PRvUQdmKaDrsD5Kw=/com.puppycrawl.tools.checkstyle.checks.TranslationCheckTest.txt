@@ -1,0 +1,84 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest
+-------------------------------------------------------------------------------
+Tests run: 24, Failures: 0, Errors: 20, Skipped: 0, Time elapsed: 0.144 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest
+testFileExtensions  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testFileExtensions(TranslationCheckTest.java:479)
+
+testLogOutput  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testLogOutput(TranslationCheckTest.java:177)
+
+testBaseNameWithSeparatorDefaultTranslationIsMissing  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testBaseNameWithSeparatorDefaultTranslationIsMissing(TranslationCheckTest.java:341)
+
+testLogIllegalArgumentException  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testLogIllegalArgumentException(TranslationCheckTest.java:279)
+
+testBundlesWithSameNameButDifferentPaths  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testBundlesWithSameNameButDifferentPaths(TranslationCheckTest.java:588)
+
+testRegexpToMatchPartOfBaseName  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testRegexpToMatchPartOfBaseName(TranslationCheckTest.java:565)
+
+testOnePropertyFileSet  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testOnePropertyFileSet(TranslationCheckTest.java:214)
+
+testTranslationFileWithLanguageCountryVariantArePresent  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testTranslationFileWithLanguageCountryVariantArePresent(TranslationCheckTest.java:421)
+
+testDefaultTranslationFileIsMissing  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testDefaultTranslationFileIsMissing(TranslationCheckTest.java:300)
+
+testBaseNameOption  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testBaseNameOption(TranslationCheckTest.java:448)
+
+testDifferentBases  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testDifferentBases(TranslationCheckTest.java:103)
+
+testDifferentPaths  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testDifferentPaths(TranslationCheckTest.java:126)
+
+testFileExtension  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testFileExtension(TranslationCheckTest.java:166)
+
+testIsNotMessagesBundle  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testIsNotMessagesBundle(TranslationCheckTest.java:380)
+
+testEqualBaseNamesButDifferentExtensions  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testEqualBaseNamesButDifferentExtensions(TranslationCheckTest.java:510)
+
+testTranslationFileWithLanguageCountryVariantIsMissing  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testTranslationFileWithLanguageCountryVariantIsMissing(TranslationCheckTest.java:402)
+
+testTranslationFilesAreMissing  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testTranslationFilesAreMissing(TranslationCheckTest.java:321)
+
+testEqualBaseNamesButDifferentExtensions2  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testEqualBaseNamesButDifferentExtensions2(TranslationCheckTest.java:540)
+
+testTranslation  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testTranslation(TranslationCheckTest.java:84)
+
+testBaseNameWithSeparatorTranslationsAreMissing  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.TranslationCheckTest.testBaseNameWithSeparatorTranslationsAreMissing(TranslationCheckTest.java:362)
+

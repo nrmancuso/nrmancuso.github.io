@@ -1,0 +1,40 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.023 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest
+testGeneralLogic  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest.testGeneralLogic(VariableDeclarationUsageDistanceCheckTest.java:86)
+
+testAnonymousClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest.testAnonymousClass(VariableDeclarationUsageDistanceCheckTest.java:268)
+
+testValidateBetweenScopesOption  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest.testValidateBetweenScopesOption(VariableDeclarationUsageDistanceCheckTest.java:184)
+
+testVariableDeclarationUsageDistanceSwitchExpressions  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest.testVariableDeclarationUsageDistanceSwitchExpressions(VariableDeclarationUsageDistanceCheckTest.java:303)
+
+testIgnoreFinalOption  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest.testIgnoreFinalOption(VariableDeclarationUsageDistanceCheckTest.java:231)
+
+testDefaultConfiguration  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest.testDefaultConfiguration(VariableDeclarationUsageDistanceCheckTest.java:257)
+
+testDistance  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest.testDistance(VariableDeclarationUsageDistanceCheckTest.java:108)
+
+testVariableRegExp  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest.testVariableRegExp(VariableDeclarationUsageDistanceCheckTest.java:147)
+
+testLabels  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheckTest.testLabels(VariableDeclarationUsageDistanceCheckTest.java:278)
+

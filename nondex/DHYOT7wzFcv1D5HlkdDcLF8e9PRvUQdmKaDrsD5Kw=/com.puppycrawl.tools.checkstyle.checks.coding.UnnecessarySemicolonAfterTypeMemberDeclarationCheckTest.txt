@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonAfterTypeMemberDeclarationCheckTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonAfterTypeMemberDeclarationCheckTest
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonAfterTypeMemberDeclarationCheckTest.testDefault(UnnecessarySemicolonAfterTypeMemberDeclarationCheckTest.java:63)
+
+testUnnecessarySemicolonAfterTypeMemberDeclarationRecords  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonAfterTypeMemberDeclarationCheckTest.testUnnecessarySemicolonAfterTypeMemberDeclarationRecords(UnnecessarySemicolonAfterTypeMemberDeclarationCheckTest.java:82)
+

@@ -1,0 +1,100 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest
+-------------------------------------------------------------------------------
+Tests run: 28, Failures: 0, Errors: 24, Skipped: 0, Time elapsed: 0.066 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest
+testImmutableStarImportNoWarn  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testImmutableStarImportNoWarn(VisibilityModifierCheckTest.java:276)
+
+testImmutableStarImportFalseNegative  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testImmutableStarImportFalseNegative(VisibilityModifierCheckTest.java:265)
+
+testAllowPublicFinalFieldsInNonFinalClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testAllowPublicFinalFieldsInNonFinalClass(VisibilityModifierCheckTest.java:202)
+
+testIgnoreAnnotationSameName  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testIgnoreAnnotationSameName(VisibilityModifierCheckTest.java:354)
+
+testImmutableValueSameTypeName  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testImmutableValueSameTypeName(VisibilityModifierCheckTest.java:254)
+
+testPublicImmutableFieldsNotAllowed  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testPublicImmutableFieldsNotAllowed(VisibilityModifierCheckTest.java:380)
+
+testAllowPublicFinalFieldsInImmutableClassWithNonCanonicalClasses  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testAllowPublicFinalFieldsInImmutableClassWithNonCanonicalClasses(VisibilityModifierCheckTest.java:165)
+
+testInner  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testInner(VisibilityModifierCheckTest.java:77)
+
+testDefaultAnnotationPatterns  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testDefaultAnnotationPatterns(VisibilityModifierCheckTest.java:292)
+
+testStrictJavadoc  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testStrictJavadoc(VisibilityModifierCheckTest.java:121)
+
+testPublicFinalFieldsNotAllowed  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testPublicFinalFieldsNotAllowed(VisibilityModifierCheckTest.java:394)
+
+testAllowPublicFinalFieldsInImmutableClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testAllowPublicFinalFieldsInImmutableClass(VisibilityModifierCheckTest.java:138)
+
+testCustomAnnotationPatterns  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testCustomAnnotationPatterns(VisibilityModifierCheckTest.java:317)
+
+testIgnoreAccess  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testIgnoreAccess(VisibilityModifierCheckTest.java:92)
+
+testVisibilityModifiersOfGenericFields  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testVisibilityModifiersOfGenericFields(VisibilityModifierCheckTest.java:476)
+
+testPackageClassName  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testPackageClassName(VisibilityModifierCheckTest.java:509)
+
+testUserSpecifiedImmutableClassesList  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testUserSpecifiedImmutableClassesList(VisibilityModifierCheckTest.java:222)
+
+testDisAllowPublicFinalAndImmutableFieldsInImmutableClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testDisAllowPublicFinalAndImmutableFieldsInImmutableClass(VisibilityModifierCheckTest.java:189)
+
+testIgnoreAnnotationNoPattern  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testIgnoreAnnotationNoPattern(VisibilityModifierCheckTest.java:343)
+
+testImmutableSpecifiedSameTypeName  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testImmutableSpecifiedSameTypeName(VisibilityModifierCheckTest.java:239)
+
+testNullModifiers  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testNullModifiers(VisibilityModifierCheckTest.java:442)
+
+testSimple  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testSimple(VisibilityModifierCheckTest.java:108)
+
+testPublicFinalFieldInEnum  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testPublicFinalFieldInEnum(VisibilityModifierCheckTest.java:416)
+
+testPublicFinalFieldsAllowed  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheckTest.testPublicFinalFieldsAllowed(VisibilityModifierCheckTest.java:405)
+

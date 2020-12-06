@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheckTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheckTest
+testItIgnoreEmptyAndComspace  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheckTest.testItIgnoreEmptyAndComspace(MultipleStringLiteralsCheckTest.java:110)
+
+testMultipleStringLiteralsTextBlocks  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheckTest.testMultipleStringLiteralsTextBlocks(MultipleStringLiteralsCheckTest.java:199)
+
+testIt  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheckTest.testIt(MultipleStringLiteralsCheckTest.java:56)
+
+testMultipleInputs  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheckTest.testMultipleInputs(MultipleStringLiteralsCheckTest.java:94)
+
+testDefaultConfiguration  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheckTest.testDefaultConfiguration(MultipleStringLiteralsCheckTest.java:149)
+
+testIgnores  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheckTest.testIgnores(MultipleStringLiteralsCheckTest.java:165)
+
+testItWithoutIgnoringAnnotations  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheckTest.testItWithoutIgnoringAnnotations(MultipleStringLiteralsCheckTest.java:126)
+
+testItIgnoreEmpty  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheckTest.testItIgnoreEmpty(MultipleStringLiteralsCheckTest.java:72)
+

@@ -1,0 +1,72 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest
+-------------------------------------------------------------------------------
+Tests run: 19, Failures: 0, Errors: 17, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest
+testIncorrectAllTokens  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testIncorrectAllTokens(AnnotationLocationCheckTest.java:119)
+
+testAnnotationParameterized  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testAnnotationParameterized(AnnotationLocationCheckTest.java:298)
+
+testAnnotationMultiple  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testAnnotationMultiple(AnnotationLocationCheckTest.java:280)
+
+testClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testClass(AnnotationLocationCheckTest.java:221)
+
+testPackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testPackage(AnnotationLocationCheckTest.java:258)
+
+testEnum  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testEnum(AnnotationLocationCheckTest.java:234)
+
+testAnnotationInForEachLoopParameterAndVariableDef  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testAnnotationInForEachLoopParameterAndVariableDef(AnnotationLocationCheckTest.java:270)
+
+testIncorrect  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testIncorrect(AnnotationLocationCheckTest.java:84)
+
+testAnnotationSingleParameterless  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testAnnotationSingleParameterless(AnnotationLocationCheckTest.java:316)
+
+testWithMultipleAnnotations  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testWithMultipleAnnotations(AnnotationLocationCheckTest.java:183)
+
+testAllTokens  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testAllTokens(AnnotationLocationCheckTest.java:193)
+
+testWithParameters  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testWithParameters(AnnotationLocationCheckTest.java:171)
+
+testAnnotationLocationRecordsAndCompactCtors  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testAnnotationLocationRecordsAndCompactCtors(AnnotationLocationCheckTest.java:332)
+
+testCorrect  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testCorrect(AnnotationLocationCheckTest.java:52)
+
+testInterface  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testInterface(AnnotationLocationCheckTest.java:247)
+
+testWithoutAnnotations  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testWithoutAnnotations(AnnotationLocationCheckTest.java:147)
+
+testAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheckTest.testAnnotation(AnnotationLocationCheckTest.java:206)
+

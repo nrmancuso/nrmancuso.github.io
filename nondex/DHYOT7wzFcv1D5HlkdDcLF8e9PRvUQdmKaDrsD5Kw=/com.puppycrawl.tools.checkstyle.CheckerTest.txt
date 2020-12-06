@@ -1,0 +1,88 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.CheckerTest
+-------------------------------------------------------------------------------
+Tests run: 46, Failures: 0, Errors: 21, Skipped: 0, Time elapsed: 0.15 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.CheckerTest
+testFileExtensions  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testFileExtensions(CheckerTest.java:296)
+
+testTabViolationDefault  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testTabViolationDefault(CheckerTest.java:1236)
+
+testIgnoredFileExtensions  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testIgnoredFileExtensions(CheckerTest.java:332)
+
+testClearCache  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testClearCache(CheckerTest.java:633)
+
+testWithCacheWithNoViolation  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testWithCacheWithNoViolation(CheckerTest.java:552)
+
+testClearLazyLoadCacheInDetailAST  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testClearLazyLoadCacheInDetailAST(CheckerTest.java:901)
+
+testTabViolation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testTabViolation(CheckerTest.java:1250)
+
+testCacheAndCheckWhichDoesNotImplementExternalResourceHolderInterface  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testCacheAndCheckWhichDoesNotImplementExternalResourceHolderInterface(CheckerTest.java:524)
+
+testHaltOnException  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testHaltOnException(CheckerTest.java:938)
+
+testExceptionWithCache  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testExceptionWithCache(CheckerTest.java:963)
+
+testExceptionWithCacheAndNoFileName  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testExceptionWithCacheAndNoFileName(CheckerTest.java:1182)
+
+testDuplicatedModule  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testDuplicatedModule(CheckerTest.java:1407)
+
+testHaltOnExceptionOff  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testHaltOnExceptionOff(CheckerTest.java:1225)
+
+testClearExistingCache  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testClearExistingCache(CheckerTest.java:586)
+
+testCacheOnViolationSuppression  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testCacheOnViolationSuppression(CheckerTest.java:921)
+
+testCacheAndCheckWhichAddsNewResourceLocationButKeepsSameCheckerInstance  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testCacheAndCheckWhichAddsNewResourceLocationButKeepsSameCheckerInstance(CheckerTest.java:833)
+
+testFileSetCheckInitWhenAddedAsChild  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testFileSetCheckInitWhenAddedAsChild(CheckerTest.java:1335)
+
+testSetupChildInvalidProperty  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testSetupChildInvalidProperty(CheckerTest.java:453)
+
+testCatchErrorWithCacheWithNoFileName  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testCatchErrorWithCacheWithNoFileName(CheckerTest.java:1085)
+
+testCatchErrorWithCache  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testCatchErrorWithCache(CheckerTest.java:1025)
+
+testCacheAndFilterWhichDoesNotImplementExternalResourceHolderInterface  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.CheckerTest.testCacheAndFilterWhichDoesNotImplementExternalResourceHolderInterface(CheckerTest.java:780)
+

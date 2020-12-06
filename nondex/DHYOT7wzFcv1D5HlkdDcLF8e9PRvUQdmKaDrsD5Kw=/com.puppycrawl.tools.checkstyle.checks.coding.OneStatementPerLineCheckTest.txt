@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheckTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheckTest
+testResourcesIgnored  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheckTest.testResourcesIgnored(OneStatementPerLineCheckTest.java:119)
+
+testWithMultilineStatements  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheckTest.testWithMultilineStatements(OneStatementPerLineCheckTest.java:79)
+
+testResourceReferenceVariableIgnored  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheckTest.testResourceReferenceVariableIgnored(OneStatementPerLineCheckTest.java:110)
+
+oneStatementNonCompilableInputTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheckTest.oneStatementNonCompilableInputTest(OneStatementPerLineCheckTest.java:96)
+
+testMultiCaseClass  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheckTest.testMultiCaseClass(OneStatementPerLineCheckTest.java:51)
+

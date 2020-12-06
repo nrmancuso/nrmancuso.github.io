@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.api.AbstractCheckTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.api.AbstractCheckTest
+testCheck  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.api.AbstractCheckTest.testCheck(AbstractCheckTest.java:321)
+

@@ -1,0 +1,76 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest
+-------------------------------------------------------------------------------
+Tests run: 19, Failures: 0, Errors: 18, Skipped: 0, Time elapsed: 0.048 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest
+testLambdaAssignment  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testLambdaAssignment(ParenPadCheckTest.java:367)
+
+testTryWithResources  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testTryWithResources(ParenPadCheckTest.java:466)
+
+testNospaceWithComplexInput  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testNospaceWithComplexInput(ParenPadCheckTest.java:291)
+
+testSpace  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testSpace(ParenPadCheckTest.java:113)
+
+testParenPadCheckRecordsWithSpace  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testParenPadCheckRecordsWithSpace(ParenPadCheckTest.java:511)
+
+testLambdaCheckDisabledWithSpace  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testLambdaCheckDisabledWithSpace(ParenPadCheckTest.java:411)
+
+testLambdaCheckOnlyWithSpace1  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testLambdaCheckOnlyWithSpace1(ParenPadCheckTest.java:456)
+
+test1322879  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.test1322879(ParenPadCheckTest.java:159)
+
+testConfigureTokens  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testConfigureTokens(ParenPadCheckTest.java:327)
+
+testLambdaCheckDisabled  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testLambdaCheckDisabled(ParenPadCheckTest.java:399)
+
+testLambdaCheckOnlyWithSpace  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testLambdaCheckOnlyWithSpace(ParenPadCheckTest.java:446)
+
+testInvalidOption  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testInvalidOption(ParenPadCheckTest.java:338)
+
+testLambdaCheckOnly  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testLambdaCheckOnly(ParenPadCheckTest.java:428)
+
+testLambdaAssignmentWithSpace  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testLambdaAssignmentWithSpace(ParenPadCheckTest.java:386)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testDefault(ParenPadCheckTest.java:67)
+
+testParenPadCheckRecords  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testParenPadCheckRecords(ParenPadCheckTest.java:488)
+
+testSpaceEmptyForIterator  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testSpaceEmptyForIterator(ParenPadCheckTest.java:150)
+
+testDefaultForIterator  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheckTest.testDefaultForIterator(ParenPadCheckTest.java:130)
+

@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.internal.powermock.TreeWalkerPowerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.114 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.internal.powermock.TreeWalkerPowerTest
+testBehaviourWithOnlyCommentChecks  Time elapsed: 1.094 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.internal.powermock.TreeWalkerPowerTest.testBehaviourWithOnlyCommentChecks(TreeWalkerPowerTest.java:92)
+
+testBehaviourWithOnlyOrdinaryChecks  Time elapsed: 0.012 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.internal.powermock.TreeWalkerPowerTest.testBehaviourWithOnlyOrdinaryChecks(TreeWalkerPowerTest.java:70)
+

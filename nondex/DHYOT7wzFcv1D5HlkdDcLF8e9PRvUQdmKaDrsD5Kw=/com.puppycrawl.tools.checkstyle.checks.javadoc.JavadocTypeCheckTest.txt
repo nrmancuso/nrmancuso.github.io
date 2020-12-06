@@ -1,0 +1,124 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest
+-------------------------------------------------------------------------------
+Tests run: 32, Failures: 0, Errors: 30, Skipped: 0, Time elapsed: 0.068 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest
+testAllowedAnnotationsAllowed  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testAllowedAnnotationsAllowed(JavadocTypeCheckTest.java:385)
+
+testAllowedAnnotationsNotAllowed  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testAllowedAnnotationsNotAllowed(JavadocTypeCheckTest.java:397)
+
+testPkg  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testPkg(JavadocTypeCheckTest.java:131)
+
+testInner  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testInner(JavadocTypeCheckTest.java:79)
+
+testDontAllowUnusedParameterTag  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testDontAllowUnusedParameterTag(JavadocTypeCheckTest.java:325)
+
+testTags  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testTags(JavadocTypeCheckTest.java:71)
+
+testJavadocTypeRecordComponents  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testJavadocTypeRecordComponents(JavadocTypeCheckTest.java:427)
+
+testVersionRegularExError  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testVersionRegularExError(JavadocTypeCheckTest.java:236)
+
+testVersionRequired  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testVersionRequired(JavadocTypeCheckTest.java:199)
+
+testProtest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testProtest(JavadocTypeCheckTest.java:116)
+
+testExcludeScope  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testExcludeScope(JavadocTypeCheckTest.java:285)
+
+testJavadocTypeRecordComponents2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testJavadocTypeRecordComponents2(JavadocTypeCheckTest.java:453)
+
+testJavadocTypeRecords  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testJavadocTypeRecords(JavadocTypeCheckTest.java:414)
+
+testProtected  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testProtected(JavadocTypeCheckTest.java:96)
+
+testAllowedAnnotationsWithFullyQualifiedName  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testAllowedAnnotationsWithFullyQualifiedName(JavadocTypeCheckTest.java:373)
+
+testAuthorRequired  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testAuthorRequired(JavadocTypeCheckTest.java:153)
+
+testVersionRegularEx  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testVersionRegularEx(JavadocTypeCheckTest.java:213)
+
+testAllowedAnnotationsDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testAllowedAnnotationsDefault(JavadocTypeCheckTest.java:359)
+
+testAllowMissingTypeParameters  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testAllowMissingTypeParameters(JavadocTypeCheckTest.java:314)
+
+testAuthorRegularExError  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testAuthorRegularExError(JavadocTypeCheckTest.java:187)
+
+testBadTagSuppress  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testBadTagSuppress(JavadocTypeCheckTest.java:348)
+
+testLimitViolationsBySpecifyingTokens  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testLimitViolationsBySpecifyingTokens(JavadocTypeCheckTest.java:258)
+
+testBadTag  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testBadTag(JavadocTypeCheckTest.java:337)
+
+testAuthorRegularEx  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testAuthorRegularEx(JavadocTypeCheckTest.java:167)
+
+testScopes2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testScopes2(JavadocTypeCheckTest.java:271)
+
+testPublic  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testPublic(JavadocTypeCheckTest.java:105)
+
+testScopes  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testScopes(JavadocTypeCheckTest.java:247)
+
+testStrict  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testStrict(JavadocTypeCheckTest.java:87)
+
+testEclipse  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testEclipse(JavadocTypeCheckTest.java:142)
+
+testTypeParameters  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheckTest.testTypeParameters(JavadocTypeCheckTest.java:301)
+

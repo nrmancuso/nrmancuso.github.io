@@ -1,0 +1,132 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest
+-------------------------------------------------------------------------------
+Tests run: 33, Failures: 0, Errors: 32, Skipped: 0, Time elapsed: 0.083 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest
+testNullPointerException  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testNullPointerException(RightCurlyCheckTest.java:204)
+
+testRightCurlyIsAloneLambda  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testRightCurlyIsAloneLambda(RightCurlyCheckTest.java:453)
+
+testAloneOrSingleLine  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testAloneOrSingleLine(RightCurlyCheckTest.java:337)
+
+testNewTokensSame  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testNewTokensSame(RightCurlyCheckTest.java:645)
+
+testNewTokensAlone  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testNewTokensAlone(RightCurlyCheckTest.java:622)
+
+testAlone  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testAlone(RightCurlyCheckTest.java:122)
+
+testNewTokensAloneOrSingleLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testNewTokensAloneOrSingleLine(RightCurlyCheckTest.java:634)
+
+testSame  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testSame(RightCurlyCheckTest.java:82)
+
+testWithAnnotations  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testWithAnnotations(RightCurlyCheckTest.java:286)
+
+testOptionAlone  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testOptionAlone(RightCurlyCheckTest.java:505)
+
+testSingleLineClass  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testSingleLineClass(RightCurlyCheckTest.java:357)
+
+testSameDoesNotComplainForNonMultilineConstructs  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testSameDoesNotComplainForNonMultilineConstructs(RightCurlyCheckTest.java:101)
+
+testRightCurlyIsAloneOrSinglelineLambda  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testRightCurlyIsAloneOrSinglelineLambda(RightCurlyCheckTest.java:462)
+
+testTryWithResourceAlone  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testTryWithResourceAlone(RightCurlyCheckTest.java:420)
+
+testRightCurlySameAndLiteralDo  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testRightCurlySameAndLiteralDo(RightCurlyCheckTest.java:390)
+
+testSameOmitOneLiners  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testSameOmitOneLiners(RightCurlyCheckTest.java:90)
+
+testShouldStartLine2  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testShouldStartLine2(RightCurlyCheckTest.java:170)
+
+testBlocksEndingWithSemiOptionAlone  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testBlocksEndingWithSemiOptionAlone(RightCurlyCheckTest.java:583)
+
+testInvalidOption  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testInvalidOption(RightCurlyCheckTest.java:368)
+
+testTryWithResourceSame  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testTryWithResourceSame(RightCurlyCheckTest.java:403)
+
+testTryWithResourceAloneSingle  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testTryWithResourceAloneSingle(RightCurlyCheckTest.java:433)
+
+testBlocksEndingWithSemiOptionSame  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testBlocksEndingWithSemiOptionSame(RightCurlyCheckTest.java:552)
+
+testRightCurlyIsSameLambda  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testRightCurlyIsSameLambda(RightCurlyCheckTest.java:471)
+
+testDefault  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testDefault(RightCurlyCheckTest.java:62)
+
+testForceLineBreakBefore  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testForceLineBreakBefore(RightCurlyCheckTest.java:186)
+
+testBlocksEndingWithSemiOptionAloneOrSingleLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testBlocksEndingWithSemiOptionAloneOrSingleLine(RightCurlyCheckTest.java:608)
+
+testNewLine  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testNewLine(RightCurlyCheckTest.java:149)
+
+testBracePolicyAloneAndSinglelineIfBlocks  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testBracePolicyAloneAndSinglelineIfBlocks(RightCurlyCheckTest.java:445)
+
+testCatchWithoutFinally  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testCatchWithoutFinally(RightCurlyCheckTest.java:346)
+
+testRightCurlyRecordsAndCompactCtors  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testRightCurlyRecordsAndCompactCtors(RightCurlyCheckTest.java:663)
+
+testForceLineBreakBefore2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testForceLineBreakBefore2(RightCurlyCheckTest.java:193)
+
+testOptionAloneOrSingleLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckTest.testOptionAloneOrSingleLine(RightCurlyCheckTest.java:527)
+

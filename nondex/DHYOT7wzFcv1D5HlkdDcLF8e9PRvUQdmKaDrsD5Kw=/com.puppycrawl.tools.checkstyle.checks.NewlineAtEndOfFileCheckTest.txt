@@ -1,0 +1,48 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest
+testFileWithEmptyLineOnlyWithLfCrCrlf  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testFileWithEmptyLineOnlyWithLfCrCrlf(NewlineAtEndOfFileCheckTest.java:204)
+
+testSetLineSeparatorFailure  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testSetLineSeparatorFailure(NewlineAtEndOfFileCheckTest.java:160)
+
+testFileWithEmptyLineOnly  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testFileWithEmptyLineOnly(NewlineAtEndOfFileCheckTest.java:192)
+
+testEmptyFileFile  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testEmptyFileFile(NewlineAtEndOfFileCheckTest.java:180)
+
+testNewlineCrlfAtEndOfFile  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testNewlineCrlfAtEndOfFile(NewlineAtEndOfFileCheckTest.java:88)
+
+testNoNewlineLfAtEndOfFile  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testNoNewlineLfAtEndOfFile(NewlineAtEndOfFileCheckTest.java:134)
+
+testNewlineLfAtEndOfFileLfNotOverlapWithCrLf  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testNewlineLfAtEndOfFileLfNotOverlapWithCrLf(NewlineAtEndOfFileCheckTest.java:76)
+
+testNewlineCrAtEndOfFile  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testNewlineCrAtEndOfFile(NewlineAtEndOfFileCheckTest.java:100)
+
+testNewlineLfAtEndOfFile  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testNewlineLfAtEndOfFile(NewlineAtEndOfFileCheckTest.java:62)
+
+testNoNewlineAtEndOfFile  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testNoNewlineAtEndOfFile(NewlineAtEndOfFileCheckTest.java:148)
+
+testAnyNewlineAtEndOfFile  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheckTest.testAnyNewlineAtEndOfFile(NewlineAtEndOfFileCheckTest.java:112)
+

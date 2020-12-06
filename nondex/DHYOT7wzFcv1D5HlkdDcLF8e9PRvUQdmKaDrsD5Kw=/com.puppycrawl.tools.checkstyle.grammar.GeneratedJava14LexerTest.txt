@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.grammar.GeneratedJava14LexerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.grammar.GeneratedJava14LexerTest
+testSemicolonBetweenImports  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.GeneratedJava14LexerTest.testSemicolonBetweenImports(GeneratedJava14LexerTest.java:72)
+
+testUnexpectedChar  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.GeneratedJava14LexerTest.testUnexpectedChar(GeneratedJava14LexerTest.java:64)
+

@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.sizes.OuterTypeNumberCheckTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.sizes.OuterTypeNumberCheckTest
+testMax30  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.OuterTypeNumberCheckTest.testMax30(OuterTypeNumberCheckTest.java:85)
+
+testWithInnerClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.OuterTypeNumberCheckTest.testWithInnerClass(OuterTypeNumberCheckTest.java:94)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.OuterTypeNumberCheckTest.testDefault(OuterTypeNumberCheckTest.java:76)
+
+testWithRecords  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.OuterTypeNumberCheckTest.testWithRecords(OuterTypeNumberCheckTest.java:109)
+

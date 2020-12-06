@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheckTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheckTest
+testAccessTuning  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheckTest.testAccessTuning(StaticVariableNameCheckTest.java:74)
+
+testSpecified  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheckTest.testSpecified(StaticVariableNameCheckTest.java:60)
+
+testInterfaceOrAnnotationBlock  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheckTest.testInterfaceOrAnnotationBlock(StaticVariableNameCheckTest.java:83)
+

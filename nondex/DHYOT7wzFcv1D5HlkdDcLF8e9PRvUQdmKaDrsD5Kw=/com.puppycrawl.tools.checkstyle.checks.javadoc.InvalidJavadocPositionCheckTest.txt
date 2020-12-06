@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.javadoc.InvalidJavadocPositionCheckTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.javadoc.InvalidJavadocPositionCheckTest
+testPackageInfoComment  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.InvalidJavadocPositionCheckTest.testPackageInfoComment(InvalidJavadocPositionCheckTest.java:105)
+
+testPackageInfo  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.InvalidJavadocPositionCheckTest.testPackageInfo(InvalidJavadocPositionCheckTest.java:96)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.InvalidJavadocPositionCheckTest.testDefault(InvalidJavadocPositionCheckTest.java:87)
+

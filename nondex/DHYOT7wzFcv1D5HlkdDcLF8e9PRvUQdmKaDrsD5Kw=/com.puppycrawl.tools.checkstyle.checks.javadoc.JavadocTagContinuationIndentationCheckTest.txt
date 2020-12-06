@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheckTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheckTest
+testCheck  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheckTest.testCheck(JavadocTagContinuationIndentationCheckTest.java:79)
+
+testFp  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheckTest.testFp(JavadocTagContinuationIndentationCheckTest.java:54)
+
+testCheckWithDescription  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheckTest.testCheckWithDescription(JavadocTagContinuationIndentationCheckTest.java:108)
+
+testCheckWithOffset3  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheckTest.testCheckWithOffset3(JavadocTagContinuationIndentationCheckTest.java:92)
+

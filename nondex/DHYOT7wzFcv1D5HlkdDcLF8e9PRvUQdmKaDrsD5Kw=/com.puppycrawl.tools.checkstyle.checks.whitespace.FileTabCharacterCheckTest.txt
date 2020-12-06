@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheckTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheckTest
+testBadFile  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheckTest.testBadFile(FileTabCharacterCheckTest.java:85)
+
+testVerbose  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheckTest.testVerbose(FileTabCharacterCheckTest.java:67)
+
+testDefault  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheckTest.testDefault(FileTabCharacterCheckTest.java:48)
+

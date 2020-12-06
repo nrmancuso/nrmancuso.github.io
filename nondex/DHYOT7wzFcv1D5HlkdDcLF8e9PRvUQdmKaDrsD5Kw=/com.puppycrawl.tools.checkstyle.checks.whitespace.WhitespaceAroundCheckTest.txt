@@ -1,0 +1,108 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest
+-------------------------------------------------------------------------------
+Tests run: 28, Failures: 0, Errors: 26, Skipped: 0, Time elapsed: 0.073 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest
+testSimpleInput  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testSimpleInput(WhitespaceAroundCheckTest.java:109)
+
+testEmptyLoops  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testEmptyLoops(WhitespaceAroundCheckTest.java:255)
+
+testEmptyTypes  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testEmptyTypes(WhitespaceAroundCheckTest.java:235)
+
+testWhitespaceAroundLambda  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testWhitespaceAroundLambda(WhitespaceAroundCheckTest.java:432)
+
+testSwitchWhitespaceAround  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testSwitchWhitespaceAround(WhitespaceAroundCheckTest.java:265)
+
+allowEmptyMethods  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.allowEmptyMethods(WhitespaceAroundCheckTest.java:282)
+
+testNotAllowEmptyLambdaExpressionsByDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testNotAllowEmptyLambdaExpressionsByDefault(WhitespaceAroundCheckTest.java:407)
+
+testWhitespaceAroundAllTokens  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testWhitespaceAroundAllTokens(WhitespaceAroundCheckTest.java:556)
+
+testAllowEmptyTypesIsSetToFalseAndNonEmptyClasses  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testAllowEmptyTypesIsSetToFalseAndNonEmptyClasses(WhitespaceAroundCheckTest.java:371)
+
+testWhitespaceAroundRecordsAllowEmptyTypes  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testWhitespaceAroundRecordsAllowEmptyTypes(WhitespaceAroundCheckTest.java:526)
+
+testWhitespaceAroundEmptyCatchBlock  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testWhitespaceAroundEmptyCatchBlock(WhitespaceAroundCheckTest.java:440)
+
+testGenericsTokensAreFlagged  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testGenericsTokensAreFlagged(WhitespaceAroundCheckTest.java:186)
+
+testAllowEmptyLambdaExpressionsWithAllowEmptyLambdaParameter  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testAllowEmptyLambdaExpressionsWithAllowEmptyLambdaParameter(WhitespaceAroundCheckTest.java:421)
+
+testIgnoreEnhancedForColon  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testIgnoreEnhancedForColon(WhitespaceAroundCheckTest.java:219)
+
+testDoWhileWhitespaceAround  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testDoWhileWhitespaceAround(WhitespaceAroundCheckTest.java:274)
+
+testArrayInitialization  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testArrayInitialization(WhitespaceAroundCheckTest.java:175)
+
+testWhitespaceAroundAllowEmptyCompactCtors  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testWhitespaceAroundAllowEmptyCompactCtors(WhitespaceAroundCheckTest.java:515)
+
+testWhitespaceAroundVarargs  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testWhitespaceAroundVarargs(WhitespaceAroundCheckTest.java:458)
+
+testBraces  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testBraces(WhitespaceAroundCheckTest.java:140)
+
+testAllowEmptyTypesIsSetToTrueAndNonEmptyClasses  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testAllowEmptyTypesIsSetToTrueAndNonEmptyClasses(WhitespaceAroundCheckTest.java:392)
+
+testStartOfTheLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testStartOfTheLine(WhitespaceAroundCheckTest.java:119)
+
+test1322879And1649038  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.test1322879And1649038(WhitespaceAroundCheckTest.java:193)
+
+testKeywordsAndOperators  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testKeywordsAndOperators(WhitespaceAroundCheckTest.java:94)
+
+testAllowDoubleBraceInitialization  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testAllowDoubleBraceInitialization(WhitespaceAroundCheckTest.java:208)
+
+testWhitespaceAroundRecords  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testWhitespaceAroundRecords(WhitespaceAroundCheckTest.java:488)
+
+testBracesInMethodsAndConstructors  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckTest.testBracesInMethodsAndConstructors(WhitespaceAroundCheckTest.java:157)
+

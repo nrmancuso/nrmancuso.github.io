@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.modifier.ClassMemberImpliedModifierCheckTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.023 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.modifier.ClassMemberImpliedModifierCheckTest
+testMethodsOnClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.ClassMemberImpliedModifierCheckTest.testMethodsOnClass(ClassMemberImpliedModifierCheckTest.java:55)
+
+testMethodsOnClassNoViolationsChecked  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.ClassMemberImpliedModifierCheckTest.testMethodsOnClassNoViolationsChecked(ClassMemberImpliedModifierCheckTest.java:106)
+
+testClassMemberImpliedModifierNoViolationRecords  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.ClassMemberImpliedModifierCheckTest.testClassMemberImpliedModifierNoViolationRecords(ClassMemberImpliedModifierCheckTest.java:154)
+
+testMethodsOnInterface  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.ClassMemberImpliedModifierCheckTest.testMethodsOnInterface(ClassMemberImpliedModifierCheckTest.java:122)
+
+testMethodsOnClassNoImpliedStaticEnum  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.ClassMemberImpliedModifierCheckTest.testMethodsOnClassNoImpliedStaticEnum(ClassMemberImpliedModifierCheckTest.java:81)
+
+testMethodsOnClassNoImpliedStaticInterface  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.ClassMemberImpliedModifierCheckTest.testMethodsOnClassNoImpliedStaticInterface(ClassMemberImpliedModifierCheckTest.java:95)
+
+testClassMemberImpliedModifierRecords  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.ClassMemberImpliedModifierCheckTest.testClassMemberImpliedModifierRecords(ClassMemberImpliedModifierCheckTest.java:138)
+

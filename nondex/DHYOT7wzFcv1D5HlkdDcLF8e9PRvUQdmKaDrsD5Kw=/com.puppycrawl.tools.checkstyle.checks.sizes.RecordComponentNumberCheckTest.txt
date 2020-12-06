@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.sizes.RecordComponentNumberCheckTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.sizes.RecordComponentNumberCheckTest
+testRecordComponentNumberMax1  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.RecordComponentNumberCheckTest.testRecordComponentNumberMax1(RecordComponentNumberCheckTest.java:136)
+
+testRecordComponentNumberMax20  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.RecordComponentNumberCheckTest.testRecordComponentNumberMax20(RecordComponentNumberCheckTest.java:147)
+
+testRecordComponentNumberTopLevel1  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.RecordComponentNumberCheckTest.testRecordComponentNumberTopLevel1(RecordComponentNumberCheckTest.java:94)
+
+testRecordComponentNumberTopLevel2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.RecordComponentNumberCheckTest.testRecordComponentNumberTopLevel2(RecordComponentNumberCheckTest.java:106)
+
+testRecordComponentNumberPrivateModifier  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.RecordComponentNumberCheckTest.testRecordComponentNumberPrivateModifier(RecordComponentNumberCheckTest.java:165)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.RecordComponentNumberCheckTest.testDefault(RecordComponentNumberCheckTest.java:79)
+

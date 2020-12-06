@@ -1,0 +1,40 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.027 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest
+testCatch  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest.testCatch(ParameterNameCheckTest.java:55)
+
+testIsOverriddenNoNullPointerException  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest.testIsOverriddenNoNullPointerException(ParameterNameCheckTest.java:167)
+
+testSpecified  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest.testSpecified(ParameterNameCheckTest.java:72)
+
+testSkipMethodsWithOverrideAnnotationFalse  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest.testSkipMethodsWithOverrideAnnotationFalse(ParameterNameCheckTest.java:136)
+
+testPublicAccessModifier  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest.testPublicAccessModifier(ParameterNameCheckTest.java:157)
+
+testReceiverParameter  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest.testReceiverParameter(ParameterNameCheckTest.java:174)
+
+testLambdaParameterNoViolationAtAll  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest.testLambdaParameterNoViolationAtAll(ParameterNameCheckTest.java:181)
+
+testSkipMethodsWithOverrideAnnotationTrue  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest.testSkipMethodsWithOverrideAnnotationTrue(ParameterNameCheckTest.java:113)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheckTest.testDefault(ParameterNameCheckTest.java:81)
+

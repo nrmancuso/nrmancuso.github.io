@@ -1,0 +1,92 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest
+-------------------------------------------------------------------------------
+Tests run: 26, Failures: 0, Errors: 22, Skipped: 0, Time elapsed: 0.088 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest
+testRegexpHeader  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeader(RegexpHeaderCheckTest.java:146)
+
+testIgnoreLinesSorted  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testIgnoreLinesSorted(RegexpHeaderCheckTest.java:321)
+
+testRegexpHeaderMulti52  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeaderMulti52(RegexpHeaderCheckTest.java:311)
+
+testRegexpHeaderSmallHeader  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeaderSmallHeader(RegexpHeaderCheckTest.java:288)
+
+testEmptyFilename  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testEmptyFilename(RegexpHeaderCheckTest.java:127)
+
+testNoWarningIfSingleLinedLeft  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testNoWarningIfSingleLinedLeft(RegexpHeaderCheckTest.java:345)
+
+testFailureForMultilineRegexp  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testFailureForMultilineRegexp(RegexpHeaderCheckTest.java:177)
+
+testInlineRegexpHeaderConsecutiveNewlines  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testInlineRegexpHeaderConsecutiveNewlines(RegexpHeaderCheckTest.java:196)
+
+testRegexpHeaderIgnore  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeaderIgnore(RegexpHeaderCheckTest.java:216)
+
+testEmptyMultiline  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testEmptyMultiline(RegexpHeaderCheckTest.java:300)
+
+testRegexpHeaderMulti1  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeaderMulti1(RegexpHeaderCheckTest.java:226)
+
+testRegexpHeaderMulti2  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeaderMulti2(RegexpHeaderCheckTest.java:236)
+
+testRegexpHeaderMulti3  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeaderMulti3(RegexpHeaderCheckTest.java:246)
+
+testRegexpHeaderMulti4  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeaderMulti4(RegexpHeaderCheckTest.java:256)
+
+testRegexpHeaderMulti5  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeaderMulti5(RegexpHeaderCheckTest.java:268)
+
+testRegexpHeaderMulti6  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeaderMulti6(RegexpHeaderCheckTest.java:278)
+
+testNoHeaderMissingErrorInCaseHeaderSizeEqualToFileSize  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testNoHeaderMissingErrorInCaseHeaderSizeEqualToFileSize(RegexpHeaderCheckTest.java:356)
+
+testDefaultConfiguration  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testDefaultConfiguration(RegexpHeaderCheckTest.java:117)
+
+testInlineRegexpHeaderConsecutiveNewlinesThroughConfigFile  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testInlineRegexpHeaderConsecutiveNewlinesThroughConfigFile(RegexpHeaderCheckTest.java:207)
+
+testRegexpHeaderUrl  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testRegexpHeaderUrl(RegexpHeaderCheckTest.java:157)
+
+testInlineRegexpHeader  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testInlineRegexpHeader(RegexpHeaderCheckTest.java:168)
+
+testHeaderWithInvalidRegexp  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.header.RegexpHeaderCheckTest.testHeaderWithInvalidRegexp(RegexpHeaderCheckTest.java:331)
+

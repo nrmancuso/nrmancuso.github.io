@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheckTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheckTest
+testOwnPattern  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheckTest.testOwnPattern(FallThroughCheckTest.java:156)
+
+testTryWithResources  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheckTest.testTryWithResources(FallThroughCheckTest.java:76)
+
+testOwnPatternTryWithResources  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheckTest.testOwnPatternTryWithResources(FallThroughCheckTest.java:174)
+
+testLastCaseGroup  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheckTest.testLastCaseGroup(FallThroughCheckTest.java:107)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheckTest.testDefault(FallThroughCheckTest.java:67)
+
+testFallThroughNoElse  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheckTest.testFallThroughNoElse(FallThroughCheckTest.java:201)
+

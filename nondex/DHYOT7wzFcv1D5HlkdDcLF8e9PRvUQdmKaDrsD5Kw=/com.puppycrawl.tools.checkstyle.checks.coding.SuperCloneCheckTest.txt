@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.SuperCloneCheckTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.SuperCloneCheckTest
+testMethodReference  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.SuperCloneCheckTest.testMethodReference(SuperCloneCheckTest.java:77)
+
+testIt  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.SuperCloneCheckTest.testIt(SuperCloneCheckTest.java:58)
+
+testAnotherInputFile  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.SuperCloneCheckTest.testAnotherInputFile(SuperCloneCheckTest.java:69)
+

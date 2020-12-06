@@ -1,0 +1,56 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0.035 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest
+testGoodAnnotationOverrideJ5Compatible  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testGoodAnnotationOverrideJ5Compatible(MissingOverrideCheckTest.java:233)
+
+testGoodOverrideFromOther  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testGoodOverrideFromOther(MissingOverrideCheckTest.java:194)
+
+testGoodAnnotationOverride  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testGoodAnnotationOverride(MissingOverrideCheckTest.java:220)
+
+testBadOverrideFromObject  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testBadOverrideFromObject(MissingOverrideCheckTest.java:57)
+
+testBadOverrideFromObjectJ5Compatible  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testBadOverrideFromObjectJ5Compatible(MissingOverrideCheckTest.java:76)
+
+testNotOverride  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testNotOverride(MissingOverrideCheckTest.java:154)
+
+testBadAnnotationOverrideJ5Compatible  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testBadAnnotationOverrideJ5Compatible(MissingOverrideCheckTest.java:140)
+
+testGoodOverrideFromOtherJ5Compatible  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testGoodOverrideFromOtherJ5Compatible(MissingOverrideCheckTest.java:208)
+
+testBadOverrideFromOtherJ5Compatible  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testBadOverrideFromOtherJ5Compatible(MissingOverrideCheckTest.java:110)
+
+testGoodOverrideFromObject  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testGoodOverrideFromObject(MissingOverrideCheckTest.java:168)
+
+testBadOverrideFromOther  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testBadOverrideFromOther(MissingOverrideCheckTest.java:96)
+
+testBadAnnotationOverride  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testBadAnnotationOverride(MissingOverrideCheckTest.java:127)
+
+testGoodOverrideFromObjectJ5Compatible  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheckTest.testGoodOverrideFromObjectJ5Compatible(MissingOverrideCheckTest.java:182)
+

@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheckTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheckTest
+testOpWrapEol  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheckTest.testOpWrapEol(OperatorWrapCheckTest.java:66)
+
+testNonDefOpsDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheckTest.testNonDefOpsDefault(OperatorWrapCheckTest.java:77)
+
+testNonDefOpsWrapEol  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheckTest.testNonDefOpsWrapEol(OperatorWrapCheckTest.java:90)
+
+testInvalidOption  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheckTest.testInvalidOption(OperatorWrapCheckTest.java:113)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheckTest.testDefault(OperatorWrapCheckTest.java:53)
+
+testAssignEol  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheckTest.testAssignEol(OperatorWrapCheckTest.java:102)
+

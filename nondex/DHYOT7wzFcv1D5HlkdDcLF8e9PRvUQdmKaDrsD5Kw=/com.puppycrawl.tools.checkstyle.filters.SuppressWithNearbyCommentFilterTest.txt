@@ -1,0 +1,112 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest
+-------------------------------------------------------------------------------
+Tests run: 25, Failures: 0, Errors: 19, Skipped: 0, Time elapsed: 0.177 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest
+testInvalidCheckFormat  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testInvalidCheckFormat(SuppressWithNearbyCommentFilterTest.java:417)
+
+tesSuppressByCheckAndMessage  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.tesSuppressByCheckAndMessage(SuppressWithNearbyCommentFilterTest.java:722)
+
+testCheckCpp  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testCheckCpp(SuppressWithNearbyCommentFilterTest.java:216)
+
+tesSuppressByIdAndMessage  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.tesSuppressByIdAndMessage(SuppressWithNearbyCommentFilterTest.java:680)
+
+testVariableCheckOnVariableNumberOfLines  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testVariableCheckOnVariableNumberOfLines(SuppressWithNearbyCommentFilterTest.java:301)
+
+testSuppressByCheck  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testSuppressByCheck(SuppressWithNearbyCommentFilterTest.java:517)
+
+testNone  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testNone(SuppressWithNearbyCommentFilterTest.java:145)
+
+testInfluenceFormat  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testInfluenceFormat(SuppressWithNearbyCommentFilterTest.java:406)
+
+testUsingTagMessageRegexp  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testUsingTagMessageRegexp(SuppressWithNearbyCommentFilterTest.java:478)
+
+testUsingVariableCheckOnPreviousLine  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testUsingVariableCheckOnPreviousLine(SuppressWithNearbyCommentFilterTest.java:277)
+
+testInvalidInfluenceFormat  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testInvalidInfluenceFormat(SuppressWithNearbyCommentFilterTest.java:363)
+
+testUsingVariableMessage  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testUsingVariableMessage(SuppressWithNearbyCommentFilterTest.java:235)
+
+testSuppressByCheckAndId  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testSuppressByCheckAndId(SuppressWithNearbyCommentFilterTest.java:600)
+
+testUsingNonMatchingVariableMessage  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testUsingNonMatchingVariableMessage(SuppressWithNearbyCommentFilterTest.java:247)
+
+testDefault  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testDefault(SuppressWithNearbyCommentFilterTest.java:175)
+
+testCheckC  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testCheckC(SuppressWithNearbyCommentFilterTest.java:191)
+
+testSuppressByCheckAndNonMatchingId  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testSuppressByCheckAndNonMatchingId(SuppressWithNearbyCommentFilterTest.java:638)
+
+testUsingVariableCheckOnNextLine  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:319)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testUsingVariableCheckOnNextLine(SuppressWithNearbyCommentFilterTest.java:262)
+
+testSuppressById  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.verifySuppressed(SuppressWithNearbyCommentFilterTest.java:344)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithNearbyCommentFilterTest.testSuppressById(SuppressWithNearbyCommentFilterTest.java:558)
+

@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.grammar.comments.AllBlockCommentsTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.grammar.comments.AllBlockCommentsTest
+testAllBlockComments  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.comments.AllBlockCommentsTest.testAllBlockComments(AllBlockCommentsTest.java:58)
+

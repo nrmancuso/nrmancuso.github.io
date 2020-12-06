@@ -1,0 +1,168 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest
+-------------------------------------------------------------------------------
+Tests run: 44, Failures: 0, Errors: 41, Skipped: 0, Time elapsed: 0.102 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest
+testDefaultPackage2  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testDefaultPackage2(CustomImportOrderCheckTest.java:332)
+
+testWithoutLineSeparator2  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testWithoutLineSeparator2(CustomImportOrderCheckTest.java:272)
+
+testInputCustomImportOrderSingleLine2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testInputCustomImportOrderSingleLine2(CustomImportOrderCheckTest.java:861)
+
+testNoImports  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testNoImports(CustomImportOrderCheckTest.java:652)
+
+testStaticStandardThird  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testStaticStandardThird(CustomImportOrderCheckTest.java:128)
+
+testInputCustomImportOrderSingleLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testInputCustomImportOrderSingleLine(CustomImportOrderCheckTest.java:838)
+
+testSamePackageDepthLongerThenActualPackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testSamePackageDepthLongerThenActualPackage(CustomImportOrderCheckTest.java:532)
+
+testBeginTreeClear  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testBeginTreeClear(CustomImportOrderCheckTest.java:409)
+
+testWithoutThirdPartyPackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testWithoutThirdPartyPackage(CustomImportOrderCheckTest.java:346)
+
+testWithoutLineSeparator  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testWithoutLineSeparator(CustomImportOrderCheckTest.java:253)
+
+testInputCustomImportOrderMultipleViolationsSameLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testInputCustomImportOrderMultipleViolationsSameLine(CustomImportOrderCheckTest.java:913)
+
+testUnsupportedRule  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testUnsupportedRule(CustomImportOrderCheckTest.java:603)
+
+testSamePackageDepthNegative  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testSamePackageDepthNegative(CustomImportOrderCheckTest.java:548)
+
+testSamePackageDepth2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testSamePackageDepth2(CustomImportOrderCheckTest.java:481)
+
+testSamePackageDepth3  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testSamePackageDepth3(CustomImportOrderCheckTest.java:501)
+
+testSamePackageDepth4  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testSamePackageDepth4(CustomImportOrderCheckTest.java:518)
+
+testNoPackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testNoPackage(CustomImportOrderCheckTest.java:772)
+
+testDefaultConfiguration  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testDefaultConfiguration(CustomImportOrderCheckTest.java:660)
+
+testPossibleIndexOutOfBoundsException  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testPossibleIndexOutOfBoundsException(CustomImportOrderCheckTest.java:302)
+
+testThirdPartyAndSpecialImports  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testThirdPartyAndSpecialImports(CustomImportOrderCheckTest.java:362)
+
+testRulesWithOverlappingPatterns  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testRulesWithOverlappingPatterns(CustomImportOrderCheckTest.java:696)
+
+testSamePackageDepthZero  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testSamePackageDepthZero(CustomImportOrderCheckTest.java:576)
+
+testSamePackageDepthNotInt  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testSamePackageDepthNotInt(CustomImportOrderCheckTest.java:629)
+
+testMultiplePatternMatchesFirstPatternHasEarlierPosition  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testMultiplePatternMatchesFirstPatternHasEarlierPosition(CustomImportOrderCheckTest.java:739)
+
+testMultiplePatternMatchesFirstPatternHasLaterPosition  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testMultiplePatternMatchesFirstPatternHasLaterPosition(CustomImportOrderCheckTest.java:724)
+
+testNonSpecifiedImports  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testNonSpecifiedImports(CustomImportOrderCheckTest.java:157)
+
+testInputCustomImportOrderSpanMultipleLines  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testInputCustomImportOrderSpanMultipleLines(CustomImportOrderCheckTest.java:938)
+
+testOrderRuleWithOneGroup  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testOrderRuleWithOneGroup(CustomImportOrderCheckTest.java:199)
+
+testStaticSamePackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testStaticSamePackage(CustomImportOrderCheckTest.java:225)
+
+testNoPackage2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testNoPackage2(CustomImportOrderCheckTest.java:792)
+
+testNoPackage3  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testNoPackage3(CustomImportOrderCheckTest.java:814)
+
+testCustom  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testCustom(CustomImportOrderCheckTest.java:98)
+
+testCompareImports  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testCompareImports(CustomImportOrderCheckTest.java:379)
+
+testImportsContainingJava  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testImportsContainingJava(CustomImportOrderCheckTest.java:429)
+
+testMultiplePatternMultipleImportFirstPatternHasLaterPosition  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testMultiplePatternMultipleImportFirstPatternHasLaterPosition(CustomImportOrderCheckTest.java:754)
+
+testOrderRuleEmpty  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testOrderRuleEmpty(CustomImportOrderCheckTest.java:169)
+
+testFindBetterPatternMatch  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testFindBetterPatternMatch(CustomImportOrderCheckTest.java:397)
+
+testNoValid  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testNoValid(CustomImportOrderCheckTest.java:286)
+
+testInputCustomImportOrderThirdPartyAndSpecial2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testInputCustomImportOrderThirdPartyAndSpecial2(CustomImportOrderCheckTest.java:881)
+
+testMultiplePatternMatchesSecondPatternIsLonger  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testMultiplePatternMatchesSecondPatternIsLonger(CustomImportOrderCheckTest.java:709)
+
+testInputCustomImportOrderEclipseDefaultPositive  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckTest.testInputCustomImportOrderEclipseDefaultPositive(CustomImportOrderCheckTest.java:964)
+

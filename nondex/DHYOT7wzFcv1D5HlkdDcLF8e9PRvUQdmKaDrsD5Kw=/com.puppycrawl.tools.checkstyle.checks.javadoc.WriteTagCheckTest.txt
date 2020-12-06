@@ -1,0 +1,64 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest
+-------------------------------------------------------------------------------
+Tests run: 15, Failures: 0, Errors: 15, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest
+testSeverity  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testSeverity(WriteTagCheckTest.java:151)
+
+testTagIncomplete  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testTagIncomplete(WriteTagCheckTest.java:91)
+
+testTag  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testTag(WriteTagCheckTest.java:69)
+
+testDefaultSettings  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testDefaultSettings(WriteTagCheckTest.java:58)
+
+testMissingTag  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testMissingTag(WriteTagCheckTest.java:124)
+
+testIgnoreMissing  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testIgnoreMissing(WriteTagCheckTest.java:161)
+
+testDoubleTag  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testDoubleTag(WriteTagCheckTest.java:103)
+
+testNoJavadocs  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testNoJavadocs(WriteTagCheckTest.java:213)
+
+testMissingFormat  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testMissingFormat(WriteTagCheckTest.java:79)
+
+testWriteTagRecordsAndCompactCtors  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testWriteTagRecordsAndCompactCtors(WriteTagCheckTest.java:239)
+
+testRegularExError  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testRegularExError(WriteTagCheckTest.java:183)
+
+testRegularEx  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testRegularEx(WriteTagCheckTest.java:171)
+
+testMethod  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testMethod(WriteTagCheckTest.java:139)
+
+testEmptyTag  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testEmptyTag(WriteTagCheckTest.java:114)
+
+testEnumsAndAnnotations  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheckTest.testEnumsAndAnnotations(WriteTagCheckTest.java:204)
+

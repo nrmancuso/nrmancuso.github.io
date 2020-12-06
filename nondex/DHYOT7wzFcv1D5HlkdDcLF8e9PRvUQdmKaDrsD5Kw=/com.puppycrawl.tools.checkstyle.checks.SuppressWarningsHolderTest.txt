@@ -1,0 +1,40 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest
+-------------------------------------------------------------------------------
+Tests run: 27, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.091 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest
+testAll  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest.testAll(SuppressWarningsHolderTest.java:135)
+
+testOnComplexAnnotationsNonConstant  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest.testOnComplexAnnotationsNonConstant(SuppressWarningsHolderTest.java:102)
+
+testEmptyAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest.testEmptyAnnotation(SuppressWarningsHolderTest.java:274)
+
+testSuppressWarningsTextBlocks  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest.testSuppressWarningsTextBlocks(SuppressWarningsHolderTest.java:465)
+
+testAnnotationWithFullName  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest.testAnnotationWithFullName(SuppressWarningsHolderTest.java:386)
+
+testSuppressWarningsAsAnnotationProperty  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest.testSuppressWarningsAsAnnotationProperty(SuppressWarningsHolderTest.java:395)
+
+testAnnotationInTry  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest.testAnnotationInTry(SuppressWarningsHolderTest.java:265)
+
+testOnComplexAnnotations  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest.testOnComplexAnnotations(SuppressWarningsHolderTest.java:93)
+
+testCustomAnnotation  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolderTest.testCustomAnnotation(SuppressWarningsHolderTest.java:112)
+

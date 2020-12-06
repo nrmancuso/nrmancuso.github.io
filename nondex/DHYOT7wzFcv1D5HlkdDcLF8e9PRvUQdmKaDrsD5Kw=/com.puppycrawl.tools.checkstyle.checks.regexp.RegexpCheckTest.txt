@@ -1,0 +1,108 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest
+-------------------------------------------------------------------------------
+Tests run: 28, Failures: 0, Errors: 26, Skipped: 0, Time elapsed: 0.057 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest
+testIgnoreCommentsNoSpaces  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsNoSpaces(RegexpCheckTest.java:352)
+
+testIllegalFailBelowErrorLimit  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIllegalFailBelowErrorLimit(RegexpCheckTest.java:138)
+
+testStopEarly  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testStopEarly(RegexpCheckTest.java:123)
+
+testRequiredNoDuplicatesFail  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testRequiredNoDuplicatesFail(RegexpCheckTest.java:102)
+
+testRequiredNoDuplicatesPass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testRequiredNoDuplicatesPass(RegexpCheckTest.java:81)
+
+testIgnoreCommentsMultiLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsMultiLine(RegexpCheckTest.java:303)
+
+testIgnoreCommentsFalseBlockStyle  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsFalseBlockStyle(RegexpCheckTest.java:280)
+
+testIgnoreCaseFalse  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCaseFalse(RegexpCheckTest.java:222)
+
+testIgnoreCommentsInlineMiddle  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsInlineMiddle(RegexpCheckTest.java:340)
+
+testRequiredFail  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testRequiredFail(RegexpCheckTest.java:71)
+
+testRequiredPass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testRequiredPass(RegexpCheckTest.java:60)
+
+testIgnoreCommentsFalseCppStyle  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsFalseCppStyle(RegexpCheckTest.java:255)
+
+testOnFileStartingWithEmptyLine  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testOnFileStartingWithEmptyLine(RegexpCheckTest.java:359)
+
+testIllegalFailAboveErrorLimit  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIllegalFailAboveErrorLimit(RegexpCheckTest.java:154)
+
+testIgnoreCommentsInlineStart  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsInlineStart(RegexpCheckTest.java:314)
+
+testMessagePropertyBad  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testMessagePropertyBad(RegexpCheckTest.java:182)
+
+testMessagePropertyBad2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testMessagePropertyBad2(RegexpCheckTest.java:196)
+
+testMessagePropertyGood  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testMessagePropertyGood(RegexpCheckTest.java:168)
+
+testSetDuplicatesTrue  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testSetDuplicatesTrue(RegexpCheckTest.java:90)
+
+testIgnoreCommentsMultipleBlockStyle  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsMultipleBlockStyle(RegexpCheckTest.java:292)
+
+testIgnoreCommentsBlockStyle  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsBlockStyle(RegexpCheckTest.java:267)
+
+testIgnoreCommentsCppStyle  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsCppStyle(RegexpCheckTest.java:241)
+
+testIgnoreCommentsCppStyleWithIllegalPatternFalse  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsCppStyleWithIllegalPatternFalse(RegexpCheckTest.java:373)
+
+testIgnoreCommentsInlineEnd  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCommentsInlineEnd(RegexpCheckTest.java:327)
+
+testIllegalPass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIllegalPass(RegexpCheckTest.java:112)
+
+testIgnoreCaseTrue  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.regexp.RegexpCheckTest.testIgnoreCaseTrue(RegexpCheckTest.java:209)
+

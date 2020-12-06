@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.grammar.Java7StringSwitchTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.grammar.Java7StringSwitchTest
+testCanParse  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.Java7StringSwitchTest.testCanParse(Java7StringSwitchTest.java:46)
+

@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.NoCodeInFileCheckTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.NoCodeInFileCheckTest
+testBlank  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NoCodeInFileCheckTest.testBlank(NoCodeInFileCheckTest.java:60)
+
+testBothSingleLineAndMultiLineComment  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NoCodeInFileCheckTest.testBothSingleLineAndMultiLineComment(NoCodeInFileCheckTest.java:94)
+
+testSingleLineComment  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NoCodeInFileCheckTest.testSingleLineComment(NoCodeInFileCheckTest.java:69)
+
+testMultiLineComment  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NoCodeInFileCheckTest.testMultiLineComment(NoCodeInFileCheckTest.java:78)
+
+testFileContainingCode  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NoCodeInFileCheckTest.testFileContainingCode(NoCodeInFileCheckTest.java:84)
+
+testFileWithNoLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.NoCodeInFileCheckTest.testFileWithNoLine(NoCodeInFileCheckTest.java:103)
+

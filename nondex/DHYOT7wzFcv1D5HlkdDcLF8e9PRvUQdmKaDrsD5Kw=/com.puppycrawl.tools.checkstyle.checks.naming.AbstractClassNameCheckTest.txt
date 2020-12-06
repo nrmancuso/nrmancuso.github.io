@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheckTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheckTest
+testAllVariants  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheckTest.testAllVariants(AbstractClassNameCheckTest.java:113)
+
+testIllegalClassType  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheckTest.testIllegalClassType(AbstractClassNameCheckTest.java:91)
+
+testFalsePositive  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheckTest.testFalsePositive(AbstractClassNameCheckTest.java:124)
+
+testIllegalAbstractClassName  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheckTest.testIllegalAbstractClassName(AbstractClassNameCheckTest.java:57)
+
+testCustomFormat  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheckTest.testCustomFormat(AbstractClassNameCheckTest.java:77)
+

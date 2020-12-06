@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheckTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheckTest
+testWithReturnOnlyAsTokens  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheckTest.testWithReturnOnlyAsTokens(ReturnCountCheckTest.java:120)
+
+testMethodsOnly  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheckTest.testMethodsOnly(ReturnCountCheckTest.java:112)
+
+testMaxForVoid  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheckTest.testMaxForVoid(ReturnCountCheckTest.java:159)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheckTest.testDefault(ReturnCountCheckTest.java:60)
+
+testMethodsAndLambdas  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheckTest.testMethodsAndLambdas(ReturnCountCheckTest.java:89)
+
+testFormat  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheckTest.testFormat(ReturnCountCheckTest.java:75)
+
+testLambdasOnly  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheckTest.testLambdasOnly(ReturnCountCheckTest.java:99)
+

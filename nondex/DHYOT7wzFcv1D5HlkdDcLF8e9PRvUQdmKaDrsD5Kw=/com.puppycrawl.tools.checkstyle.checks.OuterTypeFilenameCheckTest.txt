@@ -1,0 +1,52 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest
+testPublicClassIsNotFirst  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testPublicClassIsNotFirst(OuterTypeFilenameCheckTest.java:110)
+
+testPackageAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testPackageAnnotation(OuterTypeFilenameCheckTest.java:144)
+
+testGood1  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testGood1(OuterTypeFilenameCheckTest.java:58)
+
+testGood2  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testGood2(OuterTypeFilenameCheckTest.java:66)
+
+testFineDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testFineDefault(OuterTypeFilenameCheckTest.java:126)
+
+testOuterTypeFilenameRecordsMethodRecordDef  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testOuterTypeFilenameRecordsMethodRecordDef(OuterTypeFilenameCheckTest.java:165)
+
+testFinePublic  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testFinePublic(OuterTypeFilenameCheckTest.java:103)
+
+testOuterTypeFilenameRecords  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testOuterTypeFilenameRecords(OuterTypeFilenameCheckTest.java:154)
+
+testNoPublicClasses  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testNoPublicClasses(OuterTypeFilenameCheckTest.java:119)
+
+testWrongDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testWrongDefault(OuterTypeFilenameCheckTest.java:135)
+
+testNestedClass2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testNestedClass2(OuterTypeFilenameCheckTest.java:96)
+
+testNestedClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheckTest.testNestedClass(OuterTypeFilenameCheckTest.java:87)
+

@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckTest
+testSwitchBlockAsSingleDecisionPointSetToFalse  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckTest.testSwitchBlockAsSingleDecisionPointSetToFalse(CyclomaticComplexityCheckTest.java:65)
+
+testSwitchBlockAsSingleDecisionPointSetToTrue  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckTest.testSwitchBlockAsSingleDecisionPointSetToTrue(CyclomaticComplexityCheckTest.java:51)
+
+testCyclomaticComplexityRecords  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckTest.testCyclomaticComplexityRecords(CyclomaticComplexityCheckTest.java:119)
+
+test  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckTest.test(CyclomaticComplexityCheckTest.java:99)
+
+testEqualsMaxComplexity  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckTest.testEqualsMaxComplexity(CyclomaticComplexityCheckTest.java:76)
+
+testHighMax  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckTest.testHighMax(CyclomaticComplexityCheckTest.java:170)
+

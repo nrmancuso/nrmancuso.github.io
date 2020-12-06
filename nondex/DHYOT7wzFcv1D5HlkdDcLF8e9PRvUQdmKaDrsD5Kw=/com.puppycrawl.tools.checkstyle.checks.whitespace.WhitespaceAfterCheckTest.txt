@@ -1,0 +1,56 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0.035 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest
+testCast  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testCast(WhitespaceAfterCheckTest.java:66)
+
+testSemi  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testSemi(WhitespaceAfterCheckTest.java:92)
+
+testTypeArgumentAndParameterCommas  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testTypeArgumentAndParameterCommas(WhitespaceAfterCheckTest.java:187)
+
+testLiteralWhile  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testLiteralWhile(WhitespaceAfterCheckTest.java:104)
+
+testLiteralDo  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testLiteralDo(WhitespaceAfterCheckTest.java:152)
+
+testLiteralIf  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testLiteralIf(WhitespaceAfterCheckTest.java:116)
+
+test1322879  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.test1322879(WhitespaceAfterCheckTest.java:195)
+
+testMultilineCast  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testMultilineCast(WhitespaceAfterCheckTest.java:78)
+
+testLiteralElse  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testLiteralElse(WhitespaceAfterCheckTest.java:128)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testDefault(WhitespaceAfterCheckTest.java:54)
+
+testDoWhile  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testDoWhile(WhitespaceAfterCheckTest.java:164)
+
+testLiteralFor  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testLiteralFor(WhitespaceAfterCheckTest.java:140)
+
+testEmptyForIterator  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckTest.testEmptyForIterator(WhitespaceAfterCheckTest.java:175)
+

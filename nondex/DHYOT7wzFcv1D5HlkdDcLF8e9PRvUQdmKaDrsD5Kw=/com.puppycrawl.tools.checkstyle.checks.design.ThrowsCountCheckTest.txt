@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.design.ThrowsCountCheckTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.design.ThrowsCountCheckTest
+testMax  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.ThrowsCountCheckTest.testMax(ThrowsCountCheckTest.java:65)
+
+testMethodWithAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.ThrowsCountCheckTest.testMethodWithAnnotation(ThrowsCountCheckTest.java:117)
+
+testNotIgnorePrivateMethod  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.ThrowsCountCheckTest.testNotIgnorePrivateMethod(ThrowsCountCheckTest.java:108)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.design.ThrowsCountCheckTest.testDefault(ThrowsCountCheckTest.java:53)
+

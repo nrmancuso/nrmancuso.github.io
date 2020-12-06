@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.sizes.AnonInnerLengthCheckTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.sizes.AnonInnerLengthCheckTest
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.AnonInnerLengthCheckTest.testDefault(AnonInnerLengthCheckTest.java:66)
+
+testNonDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.AnonInnerLengthCheckTest.testNonDefault(AnonInnerLengthCheckTest.java:78)
+

@@ -1,0 +1,92 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest
+-------------------------------------------------------------------------------
+Tests run: 24, Failures: 0, Errors: 22, Skipped: 0, Time elapsed: 0.063 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest
+testFieldsOnInterfaceNoImpliedPublicStaticFinal  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testFieldsOnInterfaceNoImpliedPublicStaticFinal(InterfaceMemberImpliedModifierCheckTest.java:173)
+
+testMethodsOnInterfaceNoImpliedAbstractAllowImpliedPublic  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testMethodsOnInterfaceNoImpliedAbstractAllowImpliedPublic(InterfaceMemberImpliedModifierCheckTest.java:82)
+
+testNestedOnClassNestedNoImpliedPublicStatic  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testNestedOnClassNestedNoImpliedPublicStatic(InterfaceMemberImpliedModifierCheckTest.java:360)
+
+testMethodsOnInterfaceAllowImpliedPublicAbstract  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testMethodsOnInterfaceAllowImpliedPublicAbstract(InterfaceMemberImpliedModifierCheckTest.java:108)
+
+testPackageScopeInterface  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testPackageScopeInterface(InterfaceMemberImpliedModifierCheckTest.java:392)
+
+testFieldsOnInterfaceAllowImpliedPublicStaticFinal  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testFieldsOnInterfaceAllowImpliedPublicStaticFinal(InterfaceMemberImpliedModifierCheckTest.java:242)
+
+testFieldsOnInterfaceNoImpliedStaticFinalAllowImpliedPublic  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testFieldsOnInterfaceNoImpliedStaticFinalAllowImpliedPublic(InterfaceMemberImpliedModifierCheckTest.java:230)
+
+testNestedOnInterfaceNoImpliedPublicAllowImpliedStatic  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testNestedOnInterfaceNoImpliedPublicAllowImpliedStatic(InterfaceMemberImpliedModifierCheckTest.java:307)
+
+testPrivateMethodsOnInterface  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testPrivateMethodsOnInterface(InterfaceMemberImpliedModifierCheckTest.java:402)
+
+testNestedOnClassIgnored  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testNestedOnClassIgnored(InterfaceMemberImpliedModifierCheckTest.java:327)
+
+testMethodsOnClassIgnored  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testMethodsOnClassIgnored(InterfaceMemberImpliedModifierCheckTest.java:117)
+
+testMethodsOnClassNestedNoImpliedPublicAbstract  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testMethodsOnClassNestedNoImpliedPublicAbstract(InterfaceMemberImpliedModifierCheckTest.java:151)
+
+testMethodsOnInterfaceNoImpliedPublicAbstract  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testMethodsOnInterfaceNoImpliedPublicAbstract(InterfaceMemberImpliedModifierCheckTest.java:55)
+
+testFieldsOnClassIgnored  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testFieldsOnClassIgnored(InterfaceMemberImpliedModifierCheckTest.java:251)
+
+testNestedOnInterfaceNestedNoImpliedPublicStatic  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testNestedOnInterfaceNestedNoImpliedPublicStatic(InterfaceMemberImpliedModifierCheckTest.java:343)
+
+testMethodsOnInterfaceNoImpliedPublicAllowImpliedAbstract  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testMethodsOnInterfaceNoImpliedPublicAllowImpliedAbstract(InterfaceMemberImpliedModifierCheckTest.java:97)
+
+testFieldsOnInterfaceNoImpliedPublicStaticAllowImpliedFinal  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testFieldsOnInterfaceNoImpliedPublicStaticAllowImpliedFinal(InterfaceMemberImpliedModifierCheckTest.java:192)
+
+testNestedOnInterfaceNoImpliedStaticAllowImpliedPublic  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testNestedOnInterfaceNoImpliedStaticAllowImpliedPublic(InterfaceMemberImpliedModifierCheckTest.java:290)
+
+testNestedOnInterfaceNoImpliedPublicStatic  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testNestedOnInterfaceNoImpliedPublicStatic(InterfaceMemberImpliedModifierCheckTest.java:273)
+
+testNestedOnInterfaceAllowImpliedPublicStatic  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testNestedOnInterfaceAllowImpliedPublicStatic(InterfaceMemberImpliedModifierCheckTest.java:318)
+
+testFieldsOnInterfaceNoImpliedPublicFinalAllowImpliedStatic  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testFieldsOnInterfaceNoImpliedPublicFinalAllowImpliedStatic(InterfaceMemberImpliedModifierCheckTest.java:211)
+
+testMethodsOnInterfaceNestedNoImpliedPublicAbstract  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheckTest.testMethodsOnInterfaceNestedNoImpliedPublicAbstract(InterfaceMemberImpliedModifierCheckTest.java:133)
+

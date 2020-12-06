@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheckTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.023 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheckTest
+testAvoidDuplicatesForStaticFinalFields  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheckTest.testAvoidDuplicatesForStaticFinalFields(DeclarationOrderCheckTest.java:223)
+
+testOnlyConstructors  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheckTest.testOnlyConstructors(DeclarationOrderCheckTest.java:94)
+
+testDeclarationOrderRecordsAndCompactCtors  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheckTest.testDeclarationOrderRecordsAndCompactCtors(DeclarationOrderCheckTest.java:203)
+
+testForwardReference  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheckTest.testForwardReference(DeclarationOrderCheckTest.java:190)
+
+testVariableAccess  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheckTest.testVariableAccess(DeclarationOrderCheckTest.java:214)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheckTest.testDefault(DeclarationOrderCheckTest.java:75)
+
+testOnlyModifiers  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheckTest.testOnlyModifiers(DeclarationOrderCheckTest.java:125)
+

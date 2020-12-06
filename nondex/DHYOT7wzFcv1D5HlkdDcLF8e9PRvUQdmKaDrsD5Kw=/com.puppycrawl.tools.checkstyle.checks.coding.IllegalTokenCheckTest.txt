@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenCheckTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenCheckTest
+testCommentContentToken  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenCheckTest.testCommentContentToken(IllegalTokenCheckTest.java:101)
+
+testCheckWithDefaultSettings  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenCheckTest.testCheckWithDefaultSettings(IllegalTokenCheckTest.java:50)
+
+testSingleLineCommentToken  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenCheckTest.testSingleLineCommentToken(IllegalTokenCheckTest.java:141)
+
+testBlockCommentBeginToken  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenCheckTest.testBlockCommentBeginToken(IllegalTokenCheckTest.java:114)
+
+testPreviouslyIllegalTokens  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenCheckTest.testPreviouslyIllegalTokens(IllegalTokenCheckTest.java:64)
+
+testNative  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenCheckTest.testNative(IllegalTokenCheckTest.java:75)
+
+testBlockCommentEndToken  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenCheckTest.testBlockCommentEndToken(IllegalTokenCheckTest.java:127)
+

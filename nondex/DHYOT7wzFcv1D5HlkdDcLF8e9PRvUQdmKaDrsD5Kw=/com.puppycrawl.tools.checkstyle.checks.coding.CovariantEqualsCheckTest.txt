@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.CovariantEqualsCheckTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.CovariantEqualsCheckTest
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.CovariantEqualsCheckTest.testDefault(CovariantEqualsCheckTest.java:51)
+
+testCovariantEqualsRecords  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.CovariantEqualsCheckTest.testCovariantEqualsRecords(CovariantEqualsCheckTest.java:63)
+

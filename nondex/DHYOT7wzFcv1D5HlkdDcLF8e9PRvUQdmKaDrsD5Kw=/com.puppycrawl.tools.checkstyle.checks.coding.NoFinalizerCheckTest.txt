@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheckTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheckTest
+testHasFinalizer  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheckTest.testHasFinalizer(NoFinalizerCheckTest.java:62)
+
+testHasNoFinalizer  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheckTest.testHasNoFinalizer(NoFinalizerCheckTest.java:71)
+
+testHasNoFinalizerTryWithResource  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheckTest.testHasNoFinalizerTryWithResource(NoFinalizerCheckTest.java:80)
+

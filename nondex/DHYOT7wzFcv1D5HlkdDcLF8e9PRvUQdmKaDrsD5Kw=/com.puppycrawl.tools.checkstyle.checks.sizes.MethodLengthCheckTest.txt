@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheckTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheckTest
+testAbstract  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheckTest.testAbstract(MethodLengthCheckTest.java:98)
+
+testCountEmpty  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheckTest.testCountEmpty(MethodLengthCheckTest.java:78)
+
+testWithComments  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheckTest.testWithComments(MethodLengthCheckTest.java:90)
+
+testIt  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheckTest.testIt(MethodLengthCheckTest.java:68)
+
+testRecordsAndCompactCtors  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheckTest.testRecordsAndCompactCtors(MethodLengthCheckTest.java:119)
+

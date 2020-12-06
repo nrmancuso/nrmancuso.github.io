@@ -1,0 +1,94 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest
+-------------------------------------------------------------------------------
+Tests run: 22, Failures: 0, Errors: 18, Skipped: 0, Time elapsed: 0.103 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest
+testInvalidCheckFormat  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testInvalidCheckFormat(SuppressWithPlainTextCommentFilterTest.java:246)
+
+testSuppressByModuleIdWithNullModuleId  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testSuppressByModuleIdWithNullModuleId(SuppressWithPlainTextCommentFilterTest.java:579)
+
+testSuppressByCheck  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testSuppressByCheck(SuppressWithPlainTextCommentFilterTest.java:409)
+
+testInvalidMessageFormatInSqlFile  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testInvalidMessageFormatInSqlFile(SuppressWithPlainTextCommentFilterTest.java:337)
+
+testSuppressByModuleId  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testSuppressByModuleId(SuppressWithPlainTextCommentFilterTest.java:454)
+
+testSuppressByCheckAndNonMatchingModuleId  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testSuppressByCheckAndNonMatchingModuleId(SuppressWithPlainTextCommentFilterTest.java:534)
+
+testChangeOffAndOnFormat  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testChangeOffAndOnFormat(SuppressWithPlainTextCommentFilterTest.java:112)
+
+testSuppressionCommentsInSqlFile  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testSuppressionCommentsInSqlFile(SuppressWithPlainTextCommentFilterTest.java:193)
+
+testSuppressionCommentsInXmlFile  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testSuppressionCommentsInXmlFile(SuppressWithPlainTextCommentFilterTest.java:138)
+
+testSuppressionCommentsInJavaScriptFile  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testSuppressionCommentsInJavaScriptFile(SuppressWithPlainTextCommentFilterTest.java:219)
+
+testFilterWithCustomMessageFormat  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testFilterWithCustomMessageFormat(SuppressWithPlainTextCommentFilterTest.java:643)
+
+testInvalidMessageFormat  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testInvalidMessageFormat(SuppressWithPlainTextCommentFilterTest.java:305)
+
+testSuppressionCommentsInPropertiesFile  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testSuppressionCommentsInPropertiesFile(SuppressWithPlainTextCommentFilterTest.java:167)
+
+testFilterWithCheckAndCustomMessageFormat  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testFilterWithCheckAndCustomMessageFormat(SuppressWithPlainTextCommentFilterTest.java:711)
+
+testSuppressByCheckAndModuleId  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testSuppressByCheckAndModuleId(SuppressWithPlainTextCommentFilterTest.java:495)
+
+testFilterWithIdAndCustomMessageFormat  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testFilterWithIdAndCustomMessageFormat(SuppressWithPlainTextCommentFilterTest.java:677)
+
+testFilterWithDefaultConfig  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testFilterWithDefaultConfig(SuppressWithPlainTextCommentFilterTest.java:81)
+
+testInvalidIdFormat  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.verifySuppressed(SuppressWithPlainTextCommentFilterTest.java:737)
+	at com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilterTest.testInvalidIdFormat(SuppressWithPlainTextCommentFilterTest.java:272)
+

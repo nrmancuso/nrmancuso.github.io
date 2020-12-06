@@ -1,0 +1,84 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest
+-------------------------------------------------------------------------------
+Tests run: 20, Failures: 0, Errors: 20, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest
+testMinimumDepth  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testMinimumDepth(DescendantTokenCheckTest.java:102)
+
+testMaximumNumber  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testMaximumNumber(DescendantTokenCheckTest.java:60)
+
+testWithSumLessThenMinCustomMsg  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testWithSumLessThenMinCustomMsg(DescendantTokenCheckTest.java:348)
+
+testMaxTokenTypeReverseOrder  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testMaxTokenTypeReverseOrder(DescendantTokenCheckTest.java:378)
+
+testWithSumLessThenMinDefMsg  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testWithSumLessThenMinDefMsg(DescendantTokenCheckTest.java:326)
+
+testNoSum  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testNoSum(DescendantTokenCheckTest.java:266)
+
+testWithSumDefaultMsg  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testWithSumDefaultMsg(DescendantTokenCheckTest.java:305)
+
+testMaxTokenType  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testMaxTokenType(DescendantTokenCheckTest.java:363)
+
+testMinimumNumber  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testMinimumNumber(DescendantTokenCheckTest.java:89)
+
+testReturnFromFinally  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testReturnFromFinally(DescendantTokenCheckTest.java:252)
+
+testWithSumCustomMsg  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testWithSumCustomMsg(DescendantTokenCheckTest.java:286)
+
+testMissingSwitchDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testMissingSwitchDefault(DescendantTokenCheckTest.java:165)
+
+testMessage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testMessage(DescendantTokenCheckTest.java:75)
+
+testEmptyStatements  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testEmptyStatements(DescendantTokenCheckTest.java:148)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testDefault(DescendantTokenCheckTest.java:46)
+
+testStringLiteralEquality  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testStringLiteralEquality(DescendantTokenCheckTest.java:184)
+
+testIllegalTokenDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testIllegalTokenDefault(DescendantTokenCheckTest.java:202)
+
+testIllegalTokenNative  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testIllegalTokenNative(DescendantTokenCheckTest.java:218)
+
+testMaximumDepth  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testMaximumDepth(DescendantTokenCheckTest.java:115)
+
+testReturnFromCatch  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheckTest.testReturnFromCatch(DescendantTokenCheckTest.java:235)
+

@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheckTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheckTest
+testDot  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheckTest.testDot(NoWhitespaceBeforeCheckTest.java:71)
+
+testMethodReference  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheckTest.testMethodReference(NoWhitespaceBeforeCheckTest.java:95)
+
+testEmptyForLoop  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheckTest.testEmptyForLoop(NoWhitespaceBeforeCheckTest.java:128)
+
+testDotAllowLineBreaks  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheckTest.testDotAllowLineBreaks(NoWhitespaceBeforeCheckTest.java:84)
+
+testDotAtTheStartOfTheLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheckTest.testDotAtTheStartOfTheLine(NoWhitespaceBeforeCheckTest.java:105)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheckTest.testDefault(NoWhitespaceBeforeCheckTest.java:56)
+
+testNoWhitespaceBeforeTextBlocksWithTabIndent  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheckTest.testNoWhitespaceBeforeTextBlocksWithTabIndent(NoWhitespaceBeforeCheckTest.java:137)
+
+testMethodRefAtTheStartOfTheLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheckTest.testMethodRefAtTheStartOfTheLine(NoWhitespaceBeforeCheckTest.java:116)
+

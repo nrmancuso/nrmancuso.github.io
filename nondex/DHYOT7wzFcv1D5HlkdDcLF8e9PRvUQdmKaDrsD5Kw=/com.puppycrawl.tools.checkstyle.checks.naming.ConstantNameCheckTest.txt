@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheckTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheckTest
+testIntoInterface  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheckTest.testIntoInterface(ConstantNameCheckTest.java:144)
+
+testStaticMethodInInterface  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheckTest.testStaticMethodInInterface(ConstantNameCheckTest.java:163)
+
+testIllegalRegexp  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheckTest.testIllegalRegexp(ConstantNameCheckTest.java:59)
+
+testIntoInterfaceExcludePublic  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheckTest.testIntoInterfaceExcludePublic(ConstantNameCheckTest.java:154)
+
+testInterfaceAndAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheckTest.testInterfaceAndAnnotation(ConstantNameCheckTest.java:115)
+
+testAccessControlTuning  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheckTest.testAccessControlTuning(ConstantNameCheckTest.java:100)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheckTest.testDefault(ConstantNameCheckTest.java:83)
+
+testDefault1  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheckTest.testDefault1(ConstantNameCheckTest.java:124)
+

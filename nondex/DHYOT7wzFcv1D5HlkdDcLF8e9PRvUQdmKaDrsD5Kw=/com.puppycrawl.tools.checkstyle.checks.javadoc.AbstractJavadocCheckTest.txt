@@ -1,0 +1,88 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest
+-------------------------------------------------------------------------------
+Tests run: 22, Failures: 0, Errors: 21, Skipped: 0, Time elapsed: 0.085 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest
+testRequiredTokenIsNotInDefaultTokens  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testRequiredTokenIsNotInDefaultTokens(AbstractJavadocCheckTest.java:294)
+
+testCustomTag  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testCustomTag(AbstractJavadocCheckTest.java:124)
+
+testAcceptableTokensFail  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testAcceptableTokensFail(AbstractJavadocCheckTest.java:262)
+
+testAcceptableTokensPass  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testAcceptableTokensPass(AbstractJavadocCheckTest.java:282)
+
+testJavadocTagsWithoutArgs  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testJavadocTagsWithoutArgs(AbstractJavadocCheckTest.java:107)
+
+testWithMultipleChecks  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testWithMultipleChecks(AbstractJavadocCheckTest.java:146)
+
+testNonTightHtmlTagIntolerantCheckVisitCount  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testNonTightHtmlTagIntolerantCheckVisitCount(AbstractJavadocCheckTest.java:416)
+
+testNoWsBeforeDescriptionInJavadocTags  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testNoWsBeforeDescriptionInJavadocTags(AbstractJavadocCheckTest.java:346)
+
+testParsingErrors{Capturable}  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testParsingErrors(AbstractJavadocCheckTest.java:134)
+
+testVisitCountForCheckAcceptingJavadocWithNonTightHtml  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testVisitCountForCheckAcceptingJavadocWithNonTightHtml(AbstractJavadocCheckTest.java:468)
+
+testNonTightHtmlTagIntolerantCheckReportingNoViolation  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testNonTightHtmlTagIntolerantCheckReportingNoViolation(AbstractJavadocCheckTest.java:389)
+
+testVisitLeaveToken  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testVisitLeaveToken(AbstractJavadocCheckTest.java:312)
+
+testCheckReuseAfterParseErrorWithFollowingAntlrErrorInSingleFile  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testCheckReuseAfterParseErrorWithFollowingAntlrErrorInSingleFile(AbstractJavadocCheckTest.java:189)
+
+testAntlrError{Capturable}  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testAntlrError(AbstractJavadocCheckTest.java:156)
+
+testNonTightHtmlTagIntolerantCheck  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testNonTightHtmlTagIntolerantCheck(AbstractJavadocCheckTest.java:381)
+
+testNumberFormatException  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testNumberFormatException(AbstractJavadocCheckTest.java:117)
+
+testWrongSingletonTagInJavadoc  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testWrongSingletonTagInJavadoc(AbstractJavadocCheckTest.java:360)
+
+testPosition  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testPosition(AbstractJavadocCheckTest.java:199)
+
+testPositionWithSinglelineComments  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testPositionWithSinglelineComments(AbstractJavadocCheckTest.java:209)
+
+testPositionOnlyComments  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testPositionOnlyComments(AbstractJavadocCheckTest.java:220)
+
+testCheckReuseAfterParseErrorWithFollowingAntlrErrorInTwoFiles{Capturable}  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.AbstractJavadocCheckTest.testCheckReuseAfterParseErrorWithFollowingAntlrErrorInTwoFiles(AbstractJavadocCheckTest.java:173)
+

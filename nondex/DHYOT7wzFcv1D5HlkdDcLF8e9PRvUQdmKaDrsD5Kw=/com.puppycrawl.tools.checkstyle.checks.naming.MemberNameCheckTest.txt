@@ -1,0 +1,44 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest
+testSpecified  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest.testSpecified(MemberNameCheckTest.java:60)
+
+testProtectedOnly  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest.testProtectedOnly(MemberNameCheckTest.java:141)
+
+testInnerClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest.testInnerClass(MemberNameCheckTest.java:74)
+
+testPackageOnly  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest.testPackageOnly(MemberNameCheckTest.java:158)
+
+memberNameExtended  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest.memberNameExtended(MemberNameCheckTest.java:236)
+
+testPublicOnly  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest.testPublicOnly(MemberNameCheckTest.java:124)
+
+testPrivateOnly  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest.testPrivateOnly(MemberNameCheckTest.java:175)
+
+testDefaults  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest.testDefaults(MemberNameCheckTest.java:90)
+
+testUnderlined  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest.testUnderlined(MemberNameCheckTest.java:107)
+
+testNotPrivate  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheckTest.testNotPrivate(MemberNameCheckTest.java:191)
+

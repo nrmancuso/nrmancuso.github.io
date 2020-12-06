@@ -1,0 +1,52 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest
+testSimpleTypeAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testSimpleTypeAnnotation(AnnotationTest.java:42)
+
+testClassCastTypeAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testClassCastTypeAnnotation(AnnotationTest.java:60)
+
+testAnnotationInGeneric  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testAnnotationInGeneric(AnnotationTest.java:87)
+
+testAnnotationInTypeParameters  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testAnnotationInTypeParameters(AnnotationTest.java:132)
+
+testAnnotationOnConstructorCall  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testAnnotationOnConstructorCall(AnnotationTest.java:96)
+
+testAnnotationInCatchParameters  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testAnnotationInCatchParameters(AnnotationTest.java:123)
+
+testAnnotationOnWildcards  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testAnnotationOnWildcards(AnnotationTest.java:114)
+
+testAnnotationOnClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testAnnotationOnClass(AnnotationTest.java:51)
+
+testAnnotationNestedCall  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testAnnotationNestedCall(AnnotationTest.java:105)
+
+testAnnotationOnVarargs  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testAnnotationOnVarargs(AnnotationTest.java:141)
+
+testMethodParametersTypeAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testMethodParametersTypeAnnotation(AnnotationTest.java:69)
+
+testAnnotationInThrows  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.grammar.java8.AnnotationTest.testAnnotationInThrows(AnnotationTest.java:78)
+

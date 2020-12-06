@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.354" tests="104" errors="100" skipped="0" failures="0">
+  <properties>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="nondexStart" value="0"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/nick/IdeaProjects/checkstyle/target/test-classes:/home/nick/IdeaProjects/checkstyle/target/classes:/home/nick/.m2/repository/com/tngtech/archunit/archunit-junit5/0.14.1/archunit-junit5-0.14.1.jar:/home/nick/.m2/repository/com/tngtech/archunit/archunit-junit5-api/0.14.1/archunit-junit5-api-0.14.1.jar:/home/nick/.m2/repository/com/tngtech/archunit/archunit/0.14.1/archunit-0.14.1.jar:/home/nick/.m2/repository/com/tngtech/archunit/archunit-junit5-engine/0.14.1/archunit-junit5-engine-0.14.1.jar:/home/nick/.m2/repository/com/tngtech/archunit/archunit-junit5-engine-api/0.14.1/archunit-junit5-engine-api-0.14.1.jar:/home/nick/.m2/repository/info/picocli/picocli/4.5.2/picocli-4.5.2.jar:/home/nick/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/nick/.m2/repository/org/antlr/antlr4-runtime/4.8-1/antlr4-runtime-4.8-1.jar:/home/nick/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/home/nick/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/nick/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/home/nick/.m2/repository/com/google/guava/guava/30.0-jre/guava-30.0-jre.jar:/home/nick/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/nick/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/nick/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/nick/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/home/nick/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/home/nick/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/home/nick/.m2/repository/org/apache/ant/ant/1.10.9/ant-1.10.9.jar:/home/nick/.m2/repository/org/apache/ant/ant-launcher/1.10.9/ant-launcher-1.10.9.jar:/usr/lib/jvm/java-8-openjdk/jre/../lib/tools.jar:/home/nick/.m2/repository/org/reflections/reflections/0.9.12/reflections-0.9.12.jar:/home/nick/.m2/repository/org/javassist/javassist/3.26.0-GA/javassist-3.26.0-GA.jar:/home/nick/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.7.0/junit-jupiter-api-5.7.0.jar:/home/nick/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/nick/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/nick/.m2/repository/org/junit/platform/junit-platform-commons/1.7.0/junit-platform-commons-1.7.0.jar:/home/nick/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.7.0/junit-jupiter-engine-5.7.0.jar:/home/nick/.m2/repository/org/junit/platform/junit-platform-engine/1.7.0/junit-platform-engine-1.7.0.jar:/home/nick/.m2/repository/org/itsallcode/junit5-system-extensions/1.1.0/junit5-system-extensions-1.1.0.jar:/home/nick/.m2/repository/org/junit-pioneer/junit-pioneer/1.1.0/junit-pioneer-1.1.0.jar:/home/nick/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.5.2/junit-jupiter-params-5.5.2.jar:/home/nick/.m2/repository/org/junit/platform/junit-platform-launcher/1.5.2/junit-platform-launcher-1.5.2.jar:/home/nick/.m2/repository/org/junit/vintage/junit-vintage-engine/5.7.0/junit-vintage-engine-5.7.0.jar:/home/nick/.m2/repository/junit/junit/4.13/junit-4.13.jar:/home/nick/.m2/repository/com/google/truth/truth/1.1/truth-1.1.jar:/home/nick/.m2/repository/com/google/auto/value/auto-value-annotations/1.7.4/auto-value-annotations-1.7.4.jar:/home/nick/.m2/repository/org/ow2/asm/asm/9.0/asm-9.0.jar:/home/nick/.m2/repository/com/github/stefanbirkner/system-rules/1.19.0/system-rules-1.19.0.jar:/home/nick/.m2/repository/nl/jqno/equalsverifier/equalsverifier/3.5/equalsverifier-3.5.jar:/home/nick/.m2/repository/org/powermock/powermock-api-mockito2/2.0.9/powermock-api-mockito2-2.0.9.jar:/home/nick/.m2/repository/org/powermock/powermock-api-support/2.0.9/powermock-api-support-2.0.9.jar:/home/nick/.m2/repository/org/powermock/powermock-reflect/2.0.9/powermock-reflect-2.0.9.jar:/home/nick/.m2/repository/net/bytebuddy/byte-buddy/1.10.14/byte-buddy-1.10.14.jar:/home/nick/.m2/repository/net/bytebuddy/byte-buddy-agent/1.10.14/byte-buddy-agent-1.10.14.jar:/home/nick/.m2/repository/org/powermock/powermock-core/2.0.9/powermock-core-2.0.9.jar:/home/nick/.m2/repository/org/mockito/mockito-core/3.3.3/mockito-core-3.3.3.jar:/home/nick/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/nick/.m2/repository/org/powermock/powermock-module-junit4/2.0.9/powermock-module-junit4-2.0.9.jar:/home/nick/.m2/repository/org/powermock/powermock-module-junit4-common/2.0.9/powermock-module-junit4-common-2.0.9.jar:/home/nick/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/nick/.m2/repository/commons-io/commons-io/2.8.0/commons-io-2.8.0.jar:/home/nick/.m2/repository/org/eclipse/jgit/org.eclipse.jgit/5.9.0.202009080501-r/org.eclipse.jgit-5.9.0.202009080501-r.jar:/home/nick/.m2/repository/com/googlecode/javaewah/JavaEWAH/1.1.7/JavaEWAH-1.1.7.jar:/home/nick/.m2/repository/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar:/home/nick/.m2/repository/org/slf4j/slf4j-simple/1.7.30/slf4j-simple-1.7.30.jar:/home/nick/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar:/home/nick/.m2/repository/net/sf/saxon/Saxon-HE/10.3/Saxon-HE-10.3.jar:src/test/resources-noncompilable:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="nondexPrintstack" value="false"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk/jre/lib/amd64"/>
+    <property name="nondexLogging" value="CONFIG"/>
+    <property name="sun.java.command" value="/home/nick/IdeaProjects/checkstyle/target/surefire/surefirebooter1560171087238395147.jar /home/nick/IdeaProjects/checkstyle/target/surefire 2020-12-06T07-37-31_157-jvmRun1 surefire4225990892717741897tmp surefire_18934206220142730645tmp"/>
+    <property name="surefire.test.class.path" value="/home/nick/IdeaProjects/checkstyle/target/test-classes:/home/nick/IdeaProjects/checkstyle/target/classes:/home/nick/.m2/repository/com/tngtech/archunit/archunit-junit5/0.14.1/archunit-junit5-0.14.1.jar:/home/nick/.m2/repository/com/tngtech/archunit/archunit-junit5-api/0.14.1/archunit-junit5-api-0.14.1.jar:/home/nick/.m2/repository/com/tngtech/archunit/archunit/0.14.1/archunit-0.14.1.jar:/home/nick/.m2/repository/com/tngtech/archunit/archunit-junit5-engine/0.14.1/archunit-junit5-engine-0.14.1.jar:/home/nick/.m2/repository/com/tngtech/archunit/archunit-junit5-engine-api/0.14.1/archunit-junit5-engine-api-0.14.1.jar:/home/nick/.m2/repository/info/picocli/picocli/4.5.2/picocli-4.5.2.jar:/home/nick/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/nick/.m2/repository/org/antlr/antlr4-runtime/4.8-1/antlr4-runtime-4.8-1.jar:/home/nick/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/home/nick/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/nick/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/home/nick/.m2/repository/com/google/guava/guava/30.0-jre/guava-30.0-jre.jar:/home/nick/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/nick/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/nick/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/nick/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/home/nick/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/home/nick/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/home/nick/.m2/repository/org/apache/ant/ant/1.10.9/ant-1.10.9.jar:/home/nick/.m2/repository/org/apache/ant/ant-launcher/1.10.9/ant-launcher-1.10.9.jar:/usr/lib/jvm/java-8-openjdk/jre/../lib/tools.jar:/home/nick/.m2/repository/org/reflections/reflections/0.9.12/reflections-0.9.12.jar:/home/nick/.m2/repository/org/javassist/javassist/3.26.0-GA/javassist-3.26.0-GA.jar:/home/nick/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.7.0/junit-jupiter-api-5.7.0.jar:/home/nick/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/nick/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/nick/.m2/repository/org/junit/platform/junit-platform-commons/1.7.0/junit-platform-commons-1.7.0.jar:/home/nick/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.7.0/junit-jupiter-engine-5.7.0.jar:/home/nick/.m2/repository/org/junit/platform/junit-platform-engine/1.7.0/junit-platform-engine-1.7.0.jar:/home/nick/.m2/repository/org/itsallcode/junit5-system-extensions/1.1.0/junit5-system-extensions-1.1.0.jar:/home/nick/.m2/repository/org/junit-pioneer/junit-pioneer/1.1.0/junit-pioneer-1.1.0.jar:/home/nick/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.5.2/junit-jupiter-params-5.5.2.jar:/home/nick/.m2/repository/org/junit/platform/junit-platform-launcher/1.5.2/junit-platform-launcher-1.5.2.jar:/home/nick/.m2/repository/org/junit/vintage/junit-vintage-engine/5.7.0/junit-vintage-engine-5.7.0.jar:/home/nick/.m2/repository/junit/junit/4.13/junit-4.13.jar:/home/nick/.m2/repository/com/google/truth/truth/1.1/truth-1.1.jar:/home/nick/.m2/repository/com/google/auto/value/auto-value-annotations/1.7.4/auto-value-annotations-1.7.4.jar:/home/nick/.m2/repository/org/ow2/asm/asm/9.0/asm-9.0.jar:/home/nick/.m2/repository/com/github/stefanbirkner/system-rules/1.19.0/system-rules-1.19.0.jar:/home/nick/.m2/repository/nl/jqno/equalsverifier/equalsverifier/3.5/equalsverifier-3.5.jar:/home/nick/.m2/repository/org/powermock/powermock-api-mockito2/2.0.9/powermock-api-mockito2-2.0.9.jar:/home/nick/.m2/repository/org/powermock/powermock-api-support/2.0.9/powermock-api-support-2.0.9.jar:/home/nick/.m2/repository/org/powermock/powermock-reflect/2.0.9/powermock-reflect-2.0.9.jar:/home/nick/.m2/repository/net/bytebuddy/byte-buddy/1.10.14/byte-buddy-1.10.14.jar:/home/nick/.m2/repository/net/bytebuddy/byte-buddy-agent/1.10.14/byte-buddy-agent-1.10.14.jar:/home/nick/.m2/repository/org/powermock/powermock-core/2.0.9/powermock-core-2.0.9.jar:/home/nick/.m2/repository/org/mockito/mockito-core/3.3.3/mockito-core-3.3.3.jar:/home/nick/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/nick/.m2/repository/org/powermock/powermock-module-junit4/2.0.9/powermock-module-junit4-2.0.9.jar:/home/nick/.m2/repository/org/powermock/powermock-module-junit4-common/2.0.9/powermock-module-junit4-common-2.0.9.jar:/home/nick/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/nick/.m2/repository/commons-io/commons-io/2.8.0/commons-io-2.8.0.jar:/home/nick/.m2/repository/org/eclipse/jgit/org.eclipse.jgit/5.9.0.202009080501-r/org.eclipse.jgit-5.9.0.202009080501-r.jar:/home/nick/.m2/repository/com/googlecode/javaewah/JavaEWAH/1.1.7/JavaEWAH-1.1.7.jar:/home/nick/.m2/repository/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar:/home/nick/.m2/repository/org/slf4j/slf4j-simple/1.7.30/slf4j-simple-1.7.30.jar:/home/nick/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar:/home/nick/.m2/repository/net/sf/saxon/Saxon-HE/10.3/Saxon-HE-10.3.jar:src/test/resources-noncompilable:"/>
+    <property name="nondexExecid" value="DHYOT7wzFcv1D5HlkdDcLF8e9PRvUQdmKaDrsD5Kw="/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/nick"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-openjdk/jre"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/nick/IdeaProjects/checkstyle"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="nondexEnd" value="9223372036854775807"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="nondexFilter" value=".*"/>
+    <property name="nondexSeed" value="933178"/>
+    <property name="surefire.real.class.path" value="/home/nick/IdeaProjects/checkstyle/target/surefire/surefirebooter1560171087238395147.jar"/>
+    <property name="sun.boot.class.path" value="/home/nick/IdeaProjects/checkstyle/.nondex/nondex-instr.jar:/home/nick/.m2/repository/edu/illinois/nondex-common/1.1.2/nondex-common-1.1.2.jar:/home/nick/.m2/repository/edu/illinois/nondex-annotations/1.1.2/nondex-annotations-1.1.2.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_265-b01"/>
+    <property name="user.name" value="nick"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="5.4.74-1-MANJARO"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/nick/.m2/repository"/>
+    <property name="nondexDir" value="/home/nick/IdeaProjects/checkstyle/.nondex"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="nondexJarDir" value="/home/nick/IdeaProjects/checkstyle/.nondex"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="1.8.0_265"/>
+    <property name="user.dir" value="/home/nick/IdeaProjects/checkstyle"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="nondexMode" value="FULL"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="25.265-b01"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="jacoco-agent.destfile" value="/home/nick/IdeaProjects/checkstyle/target/jacoco.exec"/>
+  </properties>
+  <testcase name="testInvalidDoWhileWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.004">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidDoWhileWithChecker(IndentationCheckTest.java:1461)
+</error>
+  </testcase>
+  <testcase name="testNewChildren" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testNewChildren(IndentationCheckTest.java:897)
+</error>
+  </testcase>
+  <testcase name="testValidMethodWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.005">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidMethodWithChecker(IndentationCheckTest.java:630)
+</error>
+  </testcase>
+  <testcase name="test15Extensions" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.test15Extensions(IndentationCheckTest.java:1738)
+</error>
+  </testcase>
+  <testcase name="testThrowsIndentationLevel2" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.004">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testThrowsIndentationLevel2(IndentationCheckTest.java:1633)
+</error>
+  </testcase>
+  <testcase name="testValidClassDefWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidClassDefWithChecker(IndentationCheckTest.java:1518)
+</error>
+  </testcase>
+  <testcase name="testIndentationSwitchExpression" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.004">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testIndentationSwitchExpression(IndentationCheckTest.java:2330)
+</error>
+  </testcase>
+  <testcase name="testStrictCondition" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testStrictCondition(IndentationCheckTest.java:221)
+</error>
+  </testcase>
+  <testcase name="testIndentationRecordsAndCompactCtors" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.004">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testIndentationRecordsAndCompactCtors(IndentationCheckTest.java:2395)
+</error>
+  </testcase>
+  <testcase name="testEmptyArray" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testEmptyArray(IndentationCheckTest.java:2270)
+</error>
+  </testcase>
+  <testcase name="testInputAnnotationDefIndentationCheck" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.005">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInputAnnotationDefIndentationCheck(IndentationCheckTest.java:2166)
+</error>
+  </testcase>
+  <testcase name="testSeparatedStatements" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testSeparatedStatements(IndentationCheckTest.java:2035)
+</error>
+  </testcase>
+  <testcase name="testForWithNoCurly" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testForWithNoCurly(IndentationCheckTest.java:831)
+</error>
+  </testcase>
+  <testcase name="testArgumentOrderOfErrorMessages" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003"/>
+  <testcase name="testAnnotations" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.005">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testAnnotations(IndentationCheckTest.java:373)
+</error>
+  </testcase>
+  <testcase name="testAnnotationIncorrect" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testAnnotationIncorrect(IndentationCheckTest.java:2109)
+</error>
+  </testcase>
+  <testcase name="testMultipleAnnotationsWithWrappedLines" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testMultipleAnnotationsWithWrappedLines(IndentationCheckTest.java:2076)
+</error>
+  </testcase>
+  <testcase name="testInvalidAssignWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidAssignWithChecker(IndentationCheckTest.java:1694)
+</error>
+  </testcase>
+  <testcase name="testInvalidClassDefWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.005">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidClassDefWithChecker(IndentationCheckTest.java:1104)
+</error>
+  </testcase>
+  <testcase name="testValidBlockWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidBlockWithChecker(IndentationCheckTest.java:1479)
+</error>
+  </testcase>
+  <testcase name="testValidWhileWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidWhileWithChecker(IndentationCheckTest.java:1497)
+</error>
+  </testcase>
+  <testcase name="testDifficultAnnotations" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testDifficultAnnotations(IndentationCheckTest.java:319)
+</error>
+  </testcase>
+  <testcase name="testIndentationRecords" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testIndentationRecords(IndentationCheckTest.java:2377)
+</error>
+  </testcase>
+  <testcase name="testTabs" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testTabs(IndentationCheckTest.java:1572)
+</error>
+  </testcase>
+  <testcase name="testInvalidMethodWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.005">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidMethodWithChecker(IndentationCheckTest.java:684)
+</error>
+  </testcase>
+  <testcase name="testAnonClassesFromGuava" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testAnonClassesFromGuava(IndentationCheckTest.java:357)
+</error>
+  </testcase>
+  <testcase name="testNewKeyword" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testNewKeyword(IndentationCheckTest.java:884)
+</error>
+  </testcase>
+  <testcase name="testValidLabel" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidLabel(IndentationCheckTest.java:572)
+</error>
+  </testcase>
+  <testcase name="testIndentationYieldStatement" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testIndentationYieldStatement(IndentationCheckTest.java:2348)
+</error>
+  </testcase>
+  <testcase name="testValidIfWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidIfWithChecker(IndentationCheckTest.java:591)
+</error>
+  </testcase>
+  <testcase name="testTryResourcesNotStrict" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testTryResourcesNotStrict(IndentationCheckTest.java:2228)
+</error>
+  </testcase>
+  <testcase name="testIndentationSwitchExpressionCorrect" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testIndentationSwitchExpressionCorrect(IndentationCheckTest.java:2358)
+</error>
+  </testcase>
+  <testcase name="testValidForWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidForWithChecker(IndentationCheckTest.java:1407)
+</error>
+  </testcase>
+  <testcase name="testValidCommaWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidCommaWithChecker(IndentationCheckTest.java:1554)
+</error>
+  </testcase>
+  <testcase name="testLambda1" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testLambda1(IndentationCheckTest.java:1917)
+</error>
+  </testcase>
+  <testcase name="testLambda2" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testLambda2(IndentationCheckTest.java:1927)
+</error>
+  </testcase>
+  <testcase name="testLambda3" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testLambda3(IndentationCheckTest.java:1944)
+</error>
+  </testcase>
+  <testcase name="testLambda4" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testLambda4(IndentationCheckTest.java:1954)
+</error>
+  </testcase>
+  <testcase name="testLambda5" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testLambda5(IndentationCheckTest.java:1965)
+</error>
+  </testcase>
+  <testcase name="testInvalidBlockWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidBlockWithChecker(IndentationCheckTest.java:1169)
+</error>
+  </testcase>
+  <testcase name="testInvalidWhileWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidWhileWithChecker(IndentationCheckTest.java:1320)
+</error>
+  </testcase>
+  <testcase name="testLambdaTrueForceStrictCondition" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testLambdaTrueForceStrictCondition(IndentationCheckTest.java:2013)
+</error>
+  </testcase>
+  <testcase name="testValidSwitchWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidSwitchWithChecker(IndentationCheckTest.java:871)
+</error>
+  </testcase>
+  <testcase name="testBraceAdjustment" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testBraceAdjustment(IndentationCheckTest.java:1673)
+</error>
+  </testcase>
+  <testcase name="testPackageDeclaration2" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testPackageDeclaration2(IndentationCheckTest.java:1877)
+</error>
+  </testcase>
+  <testcase name="testPackageDeclaration3" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testPackageDeclaration3(IndentationCheckTest.java:1886)
+</error>
+  </testcase>
+  <testcase name="testPackageDeclaration4" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testPackageDeclaration4(IndentationCheckTest.java:1897)
+</error>
+  </testcase>
+  <testcase name="testGetRequiredTokens" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.004"/>
+  <testcase name="testZeroCaseLevel" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testZeroCaseLevel(IndentationCheckTest.java:254)
+</error>
+  </testcase>
+  <testcase name="testAnnotationClosingParenthesisEndsInSameIndentationAsOpening" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testAnnotationClosingParenthesisEndsInSameIndentationAsOpening(IndentationCheckTest.java:338)
+</error>
+  </testcase>
+  <testcase name="testInvalidForWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidForWithChecker(IndentationCheckTest.java:1389)
+</error>
+  </testcase>
+  <testcase name="testAndroidStyle" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testAndroidStyle(IndentationCheckTest.java:279)
+</error>
+  </testcase>
+  <testcase name="forbidOldStyle" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.forbidOldStyle(IndentationCheckTest.java:239)
+</error>
+  </testcase>
+  <testcase name="testSynchronizedMethod" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testSynchronizedMethod(IndentationCheckTest.java:1805)
+</error>
+  </testcase>
+  <testcase name="testIndentationLevel" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testIndentationLevel(IndentationCheckTest.java:1590)
+</error>
+  </testcase>
+  <testcase name="testIndentationSwitchExpressionNewLine" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testIndentationSwitchExpressionNewLine(IndentationCheckTest.java:2409)
+</error>
+  </testcase>
+  <testcase name="testValidArrayInitDefaultIndentWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidArrayInitDefaultIndentWithChecker(IndentationCheckTest.java:915)
+</error>
+  </testcase>
+  <testcase name="testCtorCall" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testCtorCall(IndentationCheckTest.java:493)
+</error>
+  </testcase>
+  <testcase name="testTryResourcesStrict" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testTryResourcesStrict(IndentationCheckTest.java:2201)
+</error>
+  </testcase>
+  <testcase name="testInvalidLabelWithWhileLoop" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidLabelWithWhileLoop(IndentationCheckTest.java:555)
+</error>
+  </testcase>
+  <testcase name="testDoWhileWithoutCurly" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testDoWhileWithoutCurly(IndentationCheckTest.java:853)
+</error>
+  </testcase>
+  <testcase name="testThrowsIndentationLevel" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testThrowsIndentationLevel(IndentationCheckTest.java:1606)
+</error>
+  </testcase>
+  <testcase name="testAnonymousClassInMethodWithCurlyOnNewLine" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testAnonymousClassInMethodWithCurlyOnNewLine(IndentationCheckTest.java:1848)
+</error>
+  </testcase>
+  <testcase name="testAnonymousClassInMethod" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testAnonymousClassInMethod(IndentationCheckTest.java:1826)
+</error>
+  </testcase>
+  <testcase name="testInputAnnotationScopeIndentationCheck" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInputAnnotationScopeIndentationCheck(IndentationCheckTest.java:2122)
+</error>
+  </testcase>
+  <testcase name="testMembers" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testMembers(IndentationCheckTest.java:513)
+</error>
+  </testcase>
+  <testcase name="testNewHandler" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testNewHandler(IndentationCheckTest.java:2283)
+</error>
+  </testcase>
+  <testcase name="testAlternativeGoogleStyleSwitchCaseAndEnums" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testAlternativeGoogleStyleSwitchCaseAndEnums(IndentationCheckTest.java:708)
+</error>
+  </testcase>
+  <testcase name="testMethodChaining" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testMethodChaining(IndentationCheckTest.java:2064)
+</error>
+  </testcase>
+  <testcase name="testValidInterfaceDefWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidInterfaceDefWithChecker(IndentationCheckTest.java:1536)
+</error>
+  </testcase>
+  <testcase name="testInvalidSwitchWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidSwitchWithChecker(IndentationCheckTest.java:756)
+</error>
+  </testcase>
+  <testcase name="testIfElseWithNoCurly" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testIfElseWithNoCurly(IndentationCheckTest.java:781)
+</error>
+  </testcase>
+  <testcase name="testValidDotWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidDotWithChecker(IndentationCheckTest.java:609)
+</error>
+  </testcase>
+  <testcase name="testAnnotationDefinition" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testAnnotationDefinition(IndentationCheckTest.java:1857)
+</error>
+  </testcase>
+  <testcase name="testInvalidArrayInitWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidArrayInitWithChecker(IndentationCheckTest.java:986)
+</error>
+  </testcase>
+  <testcase name="testValidDoWhileWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidDoWhileWithChecker(IndentationCheckTest.java:1425)
+</error>
+  </testcase>
+  <testcase name="testAnonymousClasses" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testAnonymousClasses(IndentationCheckTest.java:412)
+</error>
+  </testcase>
+  <testcase name="testValidTryWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidTryWithChecker(IndentationCheckTest.java:1004)
+</error>
+  </testcase>
+  <testcase name="testLambdaFalseForceStrictCondition" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testLambdaFalseForceStrictCondition(IndentationCheckTest.java:1984)
+</error>
+  </testcase>
+  <testcase name="testLambdaOddConditions" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testLambdaOddConditions(IndentationCheckTest.java:2026)
+</error>
+  </testcase>
+  <testcase name="testInvalidIfWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.003">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidIfWithChecker(IndentationCheckTest.java:1269)
+</error>
+  </testcase>
+  <testcase name="testMethodCallLineWrap" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testMethodCallLineWrap(IndentationCheckTest.java:299)
+</error>
+  </testcase>
+  <testcase name="testInvalidImportIndent" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidImportIndent(IndentationCheckTest.java:1706)
+</error>
+  </testcase>
+  <testcase name="testArrays" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testArrays(IndentationCheckTest.java:428)
+</error>
+  </testcase>
+  <testcase name="testInvalidInvalidAnonymousClass" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidInvalidAnonymousClass(IndentationCheckTest.java:1337)
+</error>
+  </testcase>
+  <testcase name="testCaseLevel" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testCaseLevel(IndentationCheckTest.java:1651)
+</error>
+  </testcase>
+  <testcase name="testClassesAndMethods" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testClassesAndMethods(IndentationCheckTest.java:460)
+</error>
+  </testcase>
+  <testcase name="testChainedMethodWithBracketOnNewLine" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testChainedMethodWithBracketOnNewLine(IndentationCheckTest.java:2307)
+</error>
+  </testcase>
+  <testcase name="testLabels" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testLabels(IndentationCheckTest.java:444)
+</error>
+  </testcase>
+  <testcase name="testGetAcceptableTokens" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002"/>
+  <testcase name="testInvalidLabel" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidLabel(IndentationCheckTest.java:536)
+</error>
+  </testcase>
+  <testcase name="testTwoStatementsPerLine" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testTwoStatementsPerLine(IndentationCheckTest.java:2054)
+</error>
+  </testcase>
+  <testcase name="testInvalidTryWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testInvalidTryWithChecker(IndentationCheckTest.java:1051)
+</error>
+  </testcase>
+  <testcase name="testCorrectIfAndParameters" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testCorrectIfAndParameters(IndentationCheckTest.java:396)
+</error>
+  </testcase>
+  <testcase name="testSwitchCustom" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testSwitchCustom(IndentationCheckTest.java:1771)
+</error>
+  </testcase>
+  <testcase name="testSynchronizedStatement" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testSynchronizedStatement(IndentationCheckTest.java:1790)
+</error>
+  </testcase>
+  <testcase name="testValidArrayInitWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidArrayInitWithChecker(IndentationCheckTest.java:933)
+</error>
+  </testcase>
+  <testcase name="testPackageDeclaration" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testPackageDeclaration(IndentationCheckTest.java:1867)
+</error>
+  </testcase>
+  <testcase name="testSeparatedLineWithJustSpaces" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testSeparatedLineWithJustSpaces(IndentationCheckTest.java:2044)
+</error>
+  </testcase>
+  <testcase name="testThrowsIndentProperty" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0"/>
+  <testcase name="testValidAssignWithChecker" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testValidAssignWithChecker(IndentationCheckTest.java:1722)
+</error>
+  </testcase>
+  <testcase name="testWhileWithNoCurly" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.002">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testWhileWithNoCurly(IndentationCheckTest.java:805)
+</error>
+  </testcase>
+  <testcase name="testMethodPrecedeByAnnotationsWithParameterOnSeparateLine" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testMethodPrecedeByAnnotationsWithParameterOnSeparateLine(IndentationCheckTest.java:2092)
+</error>
+  </testcase>
+  <testcase name="testTryResources" classname="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest" time="0.001">
+    <error message="java/util/WeakHashMap$HashIterator$HashIteratorShuffler" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verify(IndentationCheckTest.java:164)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.verifyWarns(IndentationCheckTest.java:157)
+	at com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckTest.testTryResources(IndentationCheckTest.java:1754)
+</error>
+  </testcase>
+</testsuite>

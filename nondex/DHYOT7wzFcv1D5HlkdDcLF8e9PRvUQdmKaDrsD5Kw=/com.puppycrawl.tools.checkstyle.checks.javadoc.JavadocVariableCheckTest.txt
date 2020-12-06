@@ -1,0 +1,48 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.027 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest
+testDoNotIgnoreAnythingWhenIgnoreNamePatternIsEmpty  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testDoNotIgnoreAnythingWhenIgnoreNamePatternIsEmpty(JavadocVariableCheckTest.java:334)
+
+testAnother  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testAnother(JavadocVariableCheckTest.java:88)
+
+testExcludeScope  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testExcludeScope(JavadocVariableCheckTest.java:235)
+
+testAnother2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testAnother2(JavadocVariableCheckTest.java:98)
+
+testAnother3  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testAnother3(JavadocVariableCheckTest.java:115)
+
+testAnother4  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testAnother4(JavadocVariableCheckTest.java:127)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testDefault(JavadocVariableCheckTest.java:75)
+
+testScopes2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testScopes2(JavadocVariableCheckTest.java:189)
+
+testScopes  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testScopes(JavadocVariableCheckTest.java:173)
+
+testLambdaLocalVariablesDoNotNeedJavadoc  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testLambdaLocalVariablesDoNotNeedJavadoc(JavadocVariableCheckTest.java:345)
+
+testIgnoredVariableNames  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheckTest.testIgnoredVariableNames(JavadocVariableCheckTest.java:284)
+

@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheckTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheckTest
+testDefaultTokensLineWrapping  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheckTest.testDefaultTokensLineWrapping(NoLineWrapCheckTest.java:53)
+
+testCaseWithoutLineWrapping  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheckTest.testCaseWithoutLineWrapping(NoLineWrapCheckTest.java:42)
+
+testCustomTokensLineWrapping  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheckTest.testCustomTokensLineWrapping(NoLineWrapCheckTest.java:69)
+
+testNoLineWrapRecordsAndCompactCtors  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheckTest.testNoLineWrapRecordsAndCompactCtors(NoLineWrapCheckTest.java:90)
+

@@ -1,0 +1,80 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest
+-------------------------------------------------------------------------------
+Tests run: 21, Failures: 0, Errors: 19, Skipped: 0, Time elapsed: 0.045 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest
+testScopeProtected  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testScopeProtected(JavadocStyleCheckTest.java:258)
+
+testHtmlComment  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testHtmlComment(JavadocStyleCheckTest.java:197)
+
+packageInfoValid  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.packageInfoValid(JavadocStyleCheckTest.java:401)
+
+testHtml  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testHtml(JavadocStyleCheckTest.java:187)
+
+testDefaultSettings  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testDefaultSettings(JavadocStyleCheckTest.java:107)
+
+testEmptyJavadoc  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testEmptyJavadoc(JavadocStyleCheckTest.java:308)
+
+testJavadocStyleRecordsAndCompactCtors  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testJavadocStyleRecordsAndCompactCtors(JavadocStyleCheckTest.java:445)
+
+testFirstSentenceFormat  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testFirstSentenceFormat(JavadocStyleCheckTest.java:161)
+
+testRestrictedTokenSet  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testRestrictedTokenSet(JavadocStyleCheckTest.java:420)
+
+testExcludeScope  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testExcludeScope(JavadocStyleCheckTest.java:339)
+
+packageInfoMissing  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.packageInfoMissing(JavadocStyleCheckTest.java:390)
+
+testFirstSentence  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testFirstSentence(JavadocStyleCheckTest.java:132)
+
+testScopePackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testScopePackage(JavadocStyleCheckTest.java:291)
+
+packageInfoInvalid  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.packageInfoInvalid(JavadocStyleCheckTest.java:364)
+
+packageInfoAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.packageInfoAnnotation(JavadocStyleCheckTest.java:376)
+
+testScopePublic  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testScopePublic(JavadocStyleCheckTest.java:230)
+
+testOnInputWithNoJavadoc  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testOnInputWithNoJavadoc(JavadocStyleCheckTest.java:205)
+
+testNeverEndingXmlCommentInsideJavadoc  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.testNeverEndingXmlCommentInsideJavadoc(JavadocStyleCheckTest.java:463)
+
+packageInfoInheritDoc  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheckTest.packageInfoInheritDoc(JavadocStyleCheckTest.java:350)
+

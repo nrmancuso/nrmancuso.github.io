@@ -1,0 +1,132 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest
+-------------------------------------------------------------------------------
+Tests run: 34, Failures: 0, Errors: 32, Skipped: 0, Time elapsed: 0.095 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest
+testNonPackageInfoWithJavadocBeforePackage  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testNonPackageInfoWithJavadocBeforePackage(EmptyLineSeparatorCheckTest.java:350)
+
+testAllowMultipleFieldInClass  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testAllowMultipleFieldInClass(EmptyLineSeparatorCheckTest.java:125)
+
+testImportSeparatedFromPackage  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testImportSeparatedFromPackage(EmptyLineSeparatorCheckTest.java:145)
+
+testBlockCommentNotSeparatedFromPackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testBlockCommentNotSeparatedFromPackage(EmptyLineSeparatorCheckTest.java:155)
+
+testPrePreviousLineIsEmpty  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testPrePreviousLineIsEmpty(EmptyLineSeparatorCheckTest.java:250)
+
+testAllowPackageAnnotation  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testAllowPackageAnnotation(EmptyLineSeparatorCheckTest.java:308)
+
+testBlockCommentSeparatedFromPackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testBlockCommentSeparatedFromPackage(EmptyLineSeparatorCheckTest.java:198)
+
+testClassDefinitionNotSeparatedFromPackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testClassDefinitionNotSeparatedFromPackage(EmptyLineSeparatorCheckTest.java:177)
+
+testIgnoreEmptyLinesBeforeCommentsWhenItIsAllowed  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testIgnoreEmptyLinesBeforeCommentsWhenItIsAllowed(EmptyLineSeparatorCheckTest.java:421)
+
+testEmptyLineSeparatorRecordsAndCompactCtors  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testEmptyLineSeparatorRecordsAndCompactCtors(EmptyLineSeparatorCheckTest.java:455)
+
+testDisAllowBlockCommentBeforePackage  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testDisAllowBlockCommentBeforePackage(EmptyLineSeparatorCheckTest.java:328)
+
+testFormerArrayIndexOutOfBounds  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testFormerArrayIndexOutOfBounds(EmptyLineSeparatorCheckTest.java:116)
+
+testDisAllowMultipleEmptyLinesInsideClassMembers  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testDisAllowMultipleEmptyLinesInsideClassMembers(EmptyLineSeparatorCheckTest.java:281)
+
+testPrePreviousLineEmptiness  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testPrePreviousLineEmptiness(EmptyLineSeparatorCheckTest.java:239)
+
+testClassDefinitionAndCommentNotSeparatedFromPackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testClassDefinitionAndCommentNotSeparatedFromPackage(EmptyLineSeparatorCheckTest.java:191)
+
+testEmptyLineSeparatorRecordsAndCompactCtorsNoEmptyLines  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testEmptyLineSeparatorRecordsAndCompactCtorsNoEmptyLines(EmptyLineSeparatorCheckTest.java:471)
+
+testAllowJavadocBeforePackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testAllowJavadocBeforePackage(EmptyLineSeparatorCheckTest.java:317)
+
+testClassOnly  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testClassOnly(EmptyLineSeparatorCheckTest.java:363)
+
+testSingleCommentSeparatedFromPackage  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testSingleCommentSeparatedFromPackage(EmptyLineSeparatorCheckTest.java:207)
+
+testAllowSingleLineCommentPackage  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testAllowSingleLineCommentPackage(EmptyLineSeparatorCheckTest.java:339)
+
+testSingleCommentNotSeparatedFromPackage  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testSingleCommentNotSeparatedFromPackage(EmptyLineSeparatorCheckTest.java:166)
+
+testAllowMultipleImportSeparatedFromPackage  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testAllowMultipleImportSeparatedFromPackage(EmptyLineSeparatorCheckTest.java:135)
+
+testDefault  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testDefault(EmptyLineSeparatorCheckTest.java:65)
+
+testNoViolationsOnEmptyLinesBeforeComments  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testNoViolationsOnEmptyLinesBeforeComments(EmptyLineSeparatorCheckTest.java:428)
+
+testAllowMultipleEmptyLinesInsideClassMembers  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testAllowMultipleEmptyLinesInsideClassMembers(EmptyLineSeparatorCheckTest.java:292)
+
+testLineSeparationBeforeComments  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testLineSeparationBeforeComments(EmptyLineSeparatorCheckTest.java:411)
+
+testPreviousLineEmptiness  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testPreviousLineEmptiness(EmptyLineSeparatorCheckTest.java:264)
+
+testHeader  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testHeader(EmptyLineSeparatorCheckTest.java:92)
+
+testMultipleEmptyLinesBetweenClassMembers  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testMultipleEmptyLinesBetweenClassMembers(EmptyLineSeparatorCheckTest.java:108)
+
+testImportsAndStaticImports  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testImportsAndStaticImports(EmptyLineSeparatorCheckTest.java:301)
+
+testAllowNoEmptyLineBetweenFields  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testAllowNoEmptyLineBetweenFields(EmptyLineSeparatorCheckTest.java:83)
+
+testEmptyLineSeparatorMultipleSingleTypeVariables  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheckTest.testEmptyLineSeparatorMultipleSingleTypeVariables(EmptyLineSeparatorCheckTest.java:484)
+

@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.naming.IllegalIdentifierNameCheckTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.naming.IllegalIdentifierNameCheckTest
+testIllegalIdentifierNameDefault  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.IllegalIdentifierNameCheckTest.testIllegalIdentifierNameDefault(IllegalIdentifierNameCheckTest.java:94)
+
+testIllegalIdentifierNameParameterReceiver  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.IllegalIdentifierNameCheckTest.testIllegalIdentifierNameParameterReceiver(IllegalIdentifierNameCheckTest.java:133)
+
+testIllegalIdentifierNameOpenTransitive  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.IllegalIdentifierNameCheckTest.testIllegalIdentifierNameOpenTransitive(IllegalIdentifierNameCheckTest.java:122)
+
+testIllegalIdentifierNameUnderscore  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.naming.IllegalIdentifierNameCheckTest.testIllegalIdentifierNameUnderscore(IllegalIdentifierNameCheckTest.java:147)
+

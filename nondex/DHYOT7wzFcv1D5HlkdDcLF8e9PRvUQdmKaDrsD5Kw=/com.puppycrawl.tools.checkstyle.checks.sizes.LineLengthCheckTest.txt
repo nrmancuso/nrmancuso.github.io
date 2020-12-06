@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheckTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheckTest
+countUnicodePointsOnce  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheckTest.countUnicodePointsOnce(LineLengthCheckTest.java:117)
+
+shouldNotLogLongLinks  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheckTest.shouldNotLogLongLinks(LineLengthCheckTest.java:100)
+
+shouldNotLogLongPackageStatements  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheckTest.shouldNotLogLongPackageStatements(LineLengthCheckTest.java:86)
+
+shouldNotLogLongImportStatements  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheckTest.shouldNotLogLongImportStatements(LineLengthCheckTest.java:75)
+
+testSimple  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheckTest.testSimple(LineLengthCheckTest.java:49)
+
+shouldLogActualLineLength  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheckTest.shouldLogActualLineLength(LineLengthCheckTest.java:64)
+

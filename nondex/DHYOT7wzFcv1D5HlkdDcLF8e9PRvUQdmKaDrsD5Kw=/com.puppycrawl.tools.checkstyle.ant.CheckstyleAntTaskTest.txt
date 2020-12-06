@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.ant.CheckstyleAntTaskTest
+-------------------------------------------------------------------------------
+Tests run: 36, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.299 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.ant.CheckstyleAntTaskTest
+testFailureProperty  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.ant.CheckstyleAntTaskTest.testFailureProperty(CheckstyleAntTaskTest.java:320)
+
+testCreateListenerExceptionWithXmlLogger  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.ant.CheckstyleAntTaskTest.testCreateListenerExceptionWithXmlLogger(CheckstyleAntTaskTest.java:540)
+
+testXmlOutput  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.ant.CheckstyleAntTaskTest.testXmlOutput(CheckstyleAntTaskTest.java:495)
+
+testConfigurationByUrl  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.ant.CheckstyleAntTaskTest.testConfigurationByUrl(CheckstyleAntTaskTest.java:408)
+
+testCreateListenerException  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.ant.CheckstyleAntTaskTest.testCreateListenerException(CheckstyleAntTaskTest.java:519)
+
+testConfigurationByResource  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.ant.CheckstyleAntTaskTest.testConfigurationByResource(CheckstyleAntTaskTest.java:431)
+
+testExecuteIgnoredModules  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.ant.CheckstyleAntTaskTest.testExecuteIgnoredModules(CheckstyleAntTaskTest.java:362)
+
+testMaxWarningExceeded  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.ant.CheckstyleAntTaskTest.testMaxWarningExceeded(CheckstyleAntTaskTest.java:286)
+

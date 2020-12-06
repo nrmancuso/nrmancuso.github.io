@@ -1,0 +1,56 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest
+testPackageSingleLineJavadocPresent  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testPackageSingleLineJavadocPresent(MissingJavadocPackageCheckTest.java:50)
+
+testSinglelineCommentInsteadOfJavadoc  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testSinglelineCommentInsteadOfJavadoc(MissingJavadocPackageCheckTest.java:91)
+
+testPackageJavadocMissingWithAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testPackageJavadocMissingWithAnnotation(MissingJavadocPackageCheckTest.java:109)
+
+testPackageJavadocPresent  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testPackageJavadocPresent(MissingJavadocPackageCheckTest.java:43)
+
+testPackageJavadocPresentWithHeader  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testPackageJavadocPresentWithHeader(MissingJavadocPackageCheckTest.java:134)
+
+testPackageJavadocMissingWithBlankLines  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testPackageJavadocMissingWithBlankLines(MissingJavadocPackageCheckTest.java:143)
+
+testBlockCommentInsteadOfJavadoc  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testBlockCommentInsteadOfJavadoc(MissingJavadocPackageCheckTest.java:82)
+
+testPackageJavadocPresentWithAnnotation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testPackageJavadocPresentWithAnnotation(MissingJavadocPackageCheckTest.java:57)
+
+testPackageJavadocMissing  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testPackageJavadocMissing(MissingJavadocPackageCheckTest.java:73)
+
+testPackageJavadocMissingDetachedJavadoc  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testPackageJavadocMissingDetachedJavadoc(MissingJavadocPackageCheckTest.java:127)
+
+testPackageJavadocPresentWithBlankLines  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testPackageJavadocPresentWithBlankLines(MissingJavadocPackageCheckTest.java:64)
+
+testPackageJavadocMissingWithAnnotationAndBlockComment  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testPackageJavadocMissingWithAnnotationAndBlockComment(MissingJavadocPackageCheckTest.java:118)
+
+testSinglelineCommentInsteadOfJavadoc2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheckTest.testSinglelineCommentInsteadOfJavadoc2(MissingJavadocPackageCheckTest.java:100)
+

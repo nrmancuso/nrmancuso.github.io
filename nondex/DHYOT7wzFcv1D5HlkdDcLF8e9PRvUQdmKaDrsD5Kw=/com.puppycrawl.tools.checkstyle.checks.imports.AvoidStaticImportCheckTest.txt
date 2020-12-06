@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckTest
+testDefaultOperation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckTest.testDefaultOperation(AvoidStaticImportCheckTest.java:67)
+
+testBogusMemberExcludes  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckTest.testBogusMemberExcludes(AvoidStaticImportCheckTest.java:139)
+
+testMemberExcludes  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckTest.testMemberExcludes(AvoidStaticImportCheckTest.java:110)
+
+testStarExcludes  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckTest.testStarExcludes(AvoidStaticImportCheckTest.java:88)
+
+testInnerClassMemberExcludesStar  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
+	at com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckTest.testInnerClassMemberExcludesStar(AvoidStaticImportCheckTest.java:165)
+
