@@ -1,0 +1,11 @@
+nondexFilter=.*
+nondexMode=FULL
+nondexSeed=1737735724
+nondexStart=0
+nondexEnd=946
+nondexPrintstack=false
+nondexDir=/home/nick/IdeaProjects/checkstyle/.nondex
+nondexJarDir=/home/nick/IdeaProjects/checkstyle/.nondex
+nondexExecid=MC3e0Hzj02QNt6npeX7bXGsoCX0+CB9c7uFKnmhbEj4=
+nondexLogging=CONFIG
+test=com.puppycrawl.tools.checkstyle.api.FileContentsTest#testHasIntersectionEarlyOut

@@ -1,0 +1,11 @@
+nondexFilter=.*
+nondexMode=FULL
+nondexSeed=1016066
+nondexStart=0
+nondexEnd=0
+nondexPrintstack=true
+nondexDir=/home/nick/IdeaProjects/checkstyle/.nondex
+nondexJarDir=/home/nick/IdeaProjects/checkstyle/.nondex
+nondexExecid=F05L9tq1BtsdOjNY5Az5AlztrwUAEFFhAIC34Z5aw=
+nondexLogging=CONFIG
+test=com.puppycrawl.tools.checkstyle.JavadocPropertiesGeneratorTest#testNonExistentArgument{Capturable,

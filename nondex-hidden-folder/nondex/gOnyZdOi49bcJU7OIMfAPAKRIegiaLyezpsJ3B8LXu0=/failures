@@ -1,0 +1,2 @@
+com.puppycrawl.tools.checkstyle.JavadocPropertiesGeneratorTest#testNonExistentArgument{Capturable, Capturable}
+com.puppycrawl.tools.checkstyle.api.FileContentsTest#testHasIntersectionEarlyOut

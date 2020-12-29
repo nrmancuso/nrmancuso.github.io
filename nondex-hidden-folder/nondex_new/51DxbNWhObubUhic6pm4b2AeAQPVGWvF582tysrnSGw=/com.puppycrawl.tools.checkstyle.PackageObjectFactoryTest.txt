@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.PackageObjectFactoryTest
+-------------------------------------------------------------------------------
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.574 s - in com.puppycrawl.tools.checkstyle.PackageObjectFactoryTest

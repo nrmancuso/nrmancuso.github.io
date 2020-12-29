@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.puppycrawl.tools.checkstyle.api.FileContentsTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.063 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.api.FileContentsTest
+testHasIntersectionEarlyOut  Time elapsed: 0.047 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.puppycrawl.tools.checkstyle.api.FileContentsTest.testHasIntersectionEarlyOut(FileContentsTest.java:285)
+
