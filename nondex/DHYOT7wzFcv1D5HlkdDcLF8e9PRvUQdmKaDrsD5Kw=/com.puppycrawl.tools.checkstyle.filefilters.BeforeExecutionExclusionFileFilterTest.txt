@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.puppycrawl.tools.checkstyle.filefilters.BeforeExecutionExclusionFileFilterTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.filefilters.BeforeExecutionExclusionFileFilterTest
-testRejectBadFile  Time elapsed: 0.002 s  <<< ERROR!
-java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
-	at com.puppycrawl.tools.checkstyle.filefilters.BeforeExecutionExclusionFileFilterTest.testRejectBadFile(BeforeExecutionExclusionFileFilterTest.java:82)
-

@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.puppycrawl.tools.checkstyle.DetailAstImplTest
--------------------------------------------------------------------------------
-Tests run: 22, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.148 s <<< FAILURE! - in com.puppycrawl.tools.checkstyle.DetailAstImplTest
-testManyComments  Time elapsed: 0.012 s  <<< ERROR!
-java.lang.NoClassDefFoundError: java/util/WeakHashMap$HashIterator$HashIteratorShuffler
-	at com.puppycrawl.tools.checkstyle.DetailAstImplTest.testManyComments(DetailAstImplTest.java:491)
-

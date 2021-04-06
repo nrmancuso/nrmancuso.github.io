@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.puppycrawl.tools.checkstyle.utils.AnnotationUtilTest
--------------------------------------------------------------------------------
-Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in com.puppycrawl.tools.checkstyle.utils.AnnotationUtilTest
