@@ -1,0 +1,2350 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">AvoidStarImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">AvoidStaticImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">CustomImportOrder</td>
+										
+										<td class="c">
+											
+												thirdPartyPackageRegExp
+												
+													<li>^org\.</li>
+												
+												<br/>
+											
+												separateLineBetweenGroups
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortImportsInGroupAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												specialImportsRegExp
+												
+													<li>^javax\.</li>
+												
+												<br/>
+											
+												customImportOrderRules
+												
+													<li>STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE</li>
+												
+												<br/>
+											
+												standardPackageRegExp
+												
+													<li>^java\.</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												thirdPartyPackageRegExp
+												
+													<li>^org\.</li>
+												
+												<br/>
+											
+												separateLineBetweenGroups
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortImportsInGroupAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												specialImportsRegExp
+												
+													<li>^javax\.</li>
+												
+												<br/>
+											
+												customImportOrderRules
+												
+													<li>STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE</li>
+												
+												<br/>
+											
+												standardPackageRegExp
+												
+													<li>^java\.</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">IllegalImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>/^java\./,javax,org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>/^java\./,javax,org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">RedundantImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UnusedImports</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">BooleanExpressionComplexity</td>
+										
+										<td class="c">
+											
+												max
+												
+													<li>7</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												max
+												
+													<li>7</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ClassDataAbstractionCoupling</td>
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short, void,                          Boolean, Byte, Character, Double, Float, Integer, Long, Short, Void,                          Object, Class, String, StringBuffer, StringBuilder,                          ArrayIndexOutOfBoundsException, Exception, RuntimeException,                          IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short, void,                          Boolean, Byte, Character, Double, Float, Integer, Long, Short, Void,                          Object, Class, String, StringBuffer, StringBuilder,                          ArrayIndexOutOfBoundsException, Exception, RuntimeException,                          IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ClassFanOutComplexity</td>
+										
+										<td class="c">
+											
+												max
+												
+													<li>25</li>
+												
+												<br/>
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short,                          void, Boolean, Byte, Character, Double, Float, Integer,                          Long, Short, Void, Object, Class, String, StringBuffer,                          StringBuilder, ArrayIndexOutOfBoundsException, Exception,                          RuntimeException, IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException, Log, Sets, Multimap,                          TokenStreamRecognitionException, RecognitionException,                          TokenStreamException, IOException, Override, Deprecated, SafeVarargs,                          SuppressWarnings, FunctionalInterface</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												max
+												
+													<li>25</li>
+												
+												<br/>
+											
+												excludedClasses
+												
+													<li>boolean, byte, char, double, float, int, long, short,                          void, Boolean, Byte, Character, Double, Float, Integer,                          Long, Short, Void, Object, Class, String, StringBuffer,                          StringBuilder, ArrayIndexOutOfBoundsException, Exception,                          RuntimeException, IllegalArgumentException, IllegalStateException,                          IndexOutOfBoundsException, NullPointerException, Throwable,                          SecurityException, UnsupportedOperationException, List, ArrayList,                          Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map,                          HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException,                          UnsupportedEncodingException, BuildException, ConversionException,                          FileNotFoundException, TestException, Log, Sets, Multimap,                          TokenStreamRecognitionException, RecognitionException,                          TokenStreamException, IOException, Override, Deprecated, SafeVarargs,                          SuppressWarnings, FunctionalInterface</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">CyclomaticComplexity</td>
+										
+										<td class="c">
+											
+												switchBlockAsSingleDecisionPoint
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												switchBlockAsSingleDecisionPoint
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">JavaNCSS</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">NPathComplexity</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ArrayTypeStyle</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">AvoidEscapedUnicodeCharacters</td>
+										
+										<td class="c">
+											
+												allowIfAllCharactersEscaped
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowIfAllCharactersEscaped
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">CommentsIndentation</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">DescendantToken</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">FinalParameters</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">Indentation</td>
+										
+										<td class="c">
+											
+												throwsIndent
+												
+													<li>8</li>
+												
+												<br/>
+											
+												caseIndent
+												
+													<li>4</li>
+												
+												<br/>
+											
+												basicOffset
+												
+													<li>4</li>
+												
+												<br/>
+											
+												braceAdjustment
+												
+													<li>0</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												throwsIndent
+												
+													<li>8</li>
+												
+												<br/>
+											
+												caseIndent
+												
+													<li>4</li>
+												
+												<br/>
+											
+												basicOffset
+												
+													<li>4</li>
+												
+												<br/>
+											
+												braceAdjustment
+												
+													<li>0</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">OuterTypeFilename</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TodoComment</td>
+										
+										<td class="c">
+											
+												format
+												
+													<li>(TODO)|(FIXME)</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												format
+												
+													<li>(TODO)|(FIXME)</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TodoComment</td>
+										
+										<td class="c">
+											
+												todo.match
+												
+													<li>Comment text should start with space.</li>
+												
+												<br/>
+											
+												format
+												
+													<li>^([^\s\/*])</li>
+												
+												<br/>
+											
+												id
+												
+													<li>commentStartWithSpace</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												todo.match
+												
+													<li>Comment text should start with space.</li>
+												
+												<br/>
+											
+												format
+												
+													<li>^([^\s\/*])</li>
+												
+												<br/>
+											
+												id
+												
+													<li>commentStartWithSpace</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TrailingComment</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UncommentedMain</td>
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>\.(Main|JavadocPropertiesGenerator)$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												excludedClasses
+												
+													<li>\.(Main|JavadocPropertiesGenerator)$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UpperEll</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ClassMemberImpliedModifier</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">InterfaceMemberImpliedModifier</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ModifierOrder</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">RedundantModifier</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">3054</td>
+							<td id="totalBase">192920</td>
+							
+								<td id="warningSeverityNumBase">192920</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">3054</td>
+							<td id="totalPatch">192877 (43 removed)</td>
+							
+								<td id="warningSeverityStatisticsPatch">192877 (43 removed)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">27 files with differences</td>
+							<td id="totalDiff">43 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">43 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheck</th>
+								
+									<th>commentStartWithSpace</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckModuleNumBase">43</td>
+								
+									<td id="commentStartWithSpaceModuleNumBase">337</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheckModuleNumBase">106</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleNumBase">271</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheckModuleNumBase">8</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheckModuleNumBase">13</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckModuleNumBase">185175</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheckModuleNumBase">80</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheckModuleNumBase">228</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleNumBase">2086</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleNumBase">3517</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheckModuleNumBase">31</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheckModuleNumBase">13</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheckModuleNumBase">25</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheckModuleNumBase">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheckModuleNumBase">986</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckModuleStatisticsPatch">43</td>
+								
+									<td id="commentStartWithSpaceModuleStatisticsPatch">337</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheckModuleStatisticsPatch">106</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleStatisticsPatch">271</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheckModuleStatisticsPatch">8</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheckModuleStatisticsPatch">13</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckModuleStatisticsPatch">185132 (43 removed)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheckModuleStatisticsPatch">80</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheckModuleStatisticsPatch">228</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleStatisticsPatch">2086</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleStatisticsPatch">3517</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheckModuleStatisticsPatch">31</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheckModuleStatisticsPatch">13</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheckModuleStatisticsPatch">25</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheckModuleStatisticsPatch">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheckModuleStatisticsPatch">986</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheckModuleNumDiff">0</td>
+								
+									<td id="commentStartWithSpaceModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheckModuleNumDiff">43</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheckModuleNumDiff">0</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">43</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">0</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Aggregator.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Aggregator.java.html#L111">111</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/BridgeFrom.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/BridgeFrom.java.html#L76">76</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/BridgeTo.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/BridgeTo.java.html#L83">83</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Filter.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Filter.java.html#L86">86</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Filter.java.html#L134">134</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Gateway.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Gateway.java.html#L126">126</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/IdempotentReceiver.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/IdempotentReceiver.java.html#L44">44</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/InboundChannelAdapter.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/InboundChannelAdapter.java.html#L93">93</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/IntegrationComponentScan.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/IntegrationComponentScan.java.html#L74">74</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/IntegrationComponentScan.java.html#L98">98</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/IntegrationComponentScan.java.html#L106">106</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/MessagingGateway.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/MessagingGateway.java.html#L124">124</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Router.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Router.java.html#L74">74</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Router.java.html#L157">157</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/ServiceActivator.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/ServiceActivator.java.html#L81">81</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/ServiceActivator.java.html#L128">128</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Splitter.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Splitter.java.html#L83">83</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Splitter.java.html#L122">122</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Transformer.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Transformer.java.html#L59">59</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/annotation/Transformer.java.html#L98">98</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/config/EnableMessageHistory.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/config/EnableMessageHistory.java.html#L46">46</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/config/GlobalChannelInterceptor.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/main/java/org/springframework/integration/config/GlobalChannelInterceptor.java.html#L54">54</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/test/java/org/springframework/integration/configuration/EnableIntegrationTests.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 16, expected level should be 8.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/test/java/org/springframework/integration/configuration/EnableIntegrationTests.java.html#L1503">1503</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 16, expected level should be 8.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/test/java/org/springframework/integration/configuration/EnableIntegrationTests.java.html#L1509">1509</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 16, expected level should be 8.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/test/java/org/springframework/integration/configuration/EnableIntegrationTests.java.html#L1522">1522</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 16, expected level should be 8.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/test/java/org/springframework/integration/configuration/EnableIntegrationTests.java.html#L1528">1528</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 16, expected level should be 8.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/test/java/org/springframework/integration/configuration/EnableIntegrationTests.java.html#L1634">1634</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 16, expected level should be 8.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/test/java/org/springframework/integration/configuration/EnableIntegrationTests.java.html#L1667">1667</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/test/java/org/springframework/integration/splitter/MethodInvokingSplitterTests.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;method def modifier&#39; has incorrect indentation level 16, expected level should be 8.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-core/src/test/java/org/springframework/integration/splitter/MethodInvokingSplitterTests.java.html#L658">658</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-file/src/main/java/org/springframework/integration/file/remote/RemoteFileOperations.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;method def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-file/src/main/java/org/springframework/integration/file/remote/RemoteFileOperations.java.html#L126">126</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-file/src/main/java/org/springframework/integration/file/remote/session/Session.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;method def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-file/src/main/java/org/springframework/integration/file/remote/session/Session.java.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;method def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-file/src/main/java/org/springframework/integration/file/remote/session/Session.java.html#L80">80</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-http/src/main/java/org/springframework/integration/http/config/EnableIntegrationGraphController.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-http/src/main/java/org/springframework/integration/http/config/EnableIntegrationGraphController.java.html#L72">72</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-jmx/src/main/java/org/springframework/integration/jmx/config/EnableIntegrationMBeanExport.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-jmx/src/main/java/org/springframework/integration/jmx/config/EnableIntegrationMBeanExport.java.html#L85">85</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-mail/src/main/java/org/springframework/integration/mail/MailReceiver.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;method def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-mail/src/main/java/org/springframework/integration/mail/MailReceiver.java.html#L27">27</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-redis/src/main/java/org/springframework/integration/redis/outbound/ArgumentsStrategy.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;method def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-redis/src/main/java/org/springframework/integration/redis/outbound/ArgumentsStrategy.java.html#L28">28</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-rsocket/src/main/java/org/springframework/integration/rsocket/IntegrationRSocketEndpoint.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;method def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-rsocket/src/main/java/org/springframework/integration/rsocket/IntegrationRSocketEndpoint.java.html#L40">40</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-security/src/main/java/org/springframework/integration/security/channel/SecuredChannel.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-security/src/main/java/org/springframework/integration/security/channel/SecuredChannel.java.html#L42">42</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-security/src/main/java/org/springframework/integration/security/channel/SecuredChannel.java.html#L44">44</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-security/src/main/java/org/springframework/integration/security/channel/SecuredChannel.java.html#L46">46</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-test-support/src/main/java/org/springframework/integration/test/condition/LogLevels.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-test-support/src/main/java/org/springframework/integration/test/condition/LogLevels.java.html#L46">46</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-test-support/src/main/java/org/springframework/integration/test/condition/LogLevels.java.html#L52">52</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-test/src/main/java/org/springframework/integration/test/context/SpringIntegrationTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A43" href = "#A43">#A43</a></td>
+								<td>warning</td>
+								<td>Indentation</td>
+								<td>&#39;annotation field def modifier&#39; has incorrect indentation level 8, expected level should be 4.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spring-integration/spring-integration-test/src/main/java/org/springframework/integration/test/context/SpringIntegrationTest.java.html#L74">74</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

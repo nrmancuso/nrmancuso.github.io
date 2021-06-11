@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>InputIndentationZeroArrayInit.tree xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   BLOCK_COMMENT_BEGIN -&gt; <em class="jxr_comment">/* [1:0]</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment">|--COMMENT_CONTENT -&gt;  Config:                                                                    //indent:0 exp:0\n * This test-input is intended to be checked using following configuration:   //indent:1 exp:1\n *                                                                            //indent:1 exp:1\n * arrayInitIndent = 0                                                        //indent:1 exp:1\n * basicOffset = 4                                                            //indent:1 exp:1\n * braceAdjustment = 0                                                        //indent:1 exp:1\n * caseIndent = 4                                                             //indent:1 exp:1\n * forceStrictCondition = false                                               //indent:1 exp:1\n * lineWrappingIndentation = 4                                                //indent:1 exp:1\n * tabWidth = 4                                                               //indent:1 exp:1\n * throwsIndent = 4                                                           //indent:1 exp:1\n *                                                                            //indent:1 exp:1\n *                                                                            //indent:1 exp:1\n  [1:2]</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment">`--BLOCK_COMMENT_END -&gt; */</em> [14:1]
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [14:78]</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   `--COMMENT_CONTENT -&gt; indent:1 exp:1\n [14:80]
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   PACKAGE_DEF -&gt; <strong class="jxr_keyword">package</strong> [16:0]
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   |--ANNOTATIONS -&gt; ANNOTATIONS [16:58]
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   |--DOT -&gt; . [16:58]
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   |   |--DOT -&gt; . [16:46]
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  |   |   |--DOT -&gt; . [16:39]
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  |   |   |   |--DOT -&gt; . [16:28]
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  |   |   |   |   |--DOT -&gt; . [16:22]
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  |   |   |   |   |   |--DOT -&gt; . [16:11]
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  |   |   |   |   |   |   |--IDENT -&gt; com [16:8]
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  |   |   |   |   |   |   `--IDENT -&gt; puppycrawl [16:12]
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  |   |   |   |   |   `--IDENT -&gt; tools [16:23]
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  |   |   |   |   `--IDENT -&gt; checkstyle [16:29]
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  |   |   |   `--IDENT -&gt; checks [16:40]
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  |   |   `--IDENT -&gt; indentation [16:47]
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  |   `--IDENT -&gt; indentation [16:59]
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  `--SEMI -&gt; ; [16:70]
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  CLASS_DEF -&gt; CLASS_DEF [18:0]
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  |--MODIFIERS -&gt; MODIFIERS [18:0]
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  |   |--SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [16:72]</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  |   |   `--COMMENT_CONTENT -&gt; indent:0 exp:0\n [16:74]
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  |   `--LITERAL_PUBLIC -&gt; <strong class="jxr_keyword">public</strong> [18:0]
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  |--LITERAL_CLASS -&gt; <strong class="jxr_keyword">class</strong> [18:7]
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  |--IDENT -&gt; InputIndentationZeroArrayInit [18:13]
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  `--OBJBLOCK -&gt; OBJBLOCK [18:43]
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      |--LCURLY -&gt; { [18:43]
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      |--INTERFACE_DEF -&gt; INTERFACE_DEF [19:4]
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      |   |--MODIFIERS -&gt; MODIFIERS [19:4]
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      |   |--SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [18:45]</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      |   |   `--COMMENT_CONTENT -&gt; indent:0 exp:0\n [18:47]
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      |   |--LITERAL_INTERFACE -&gt; <strong class="jxr_keyword">interface</strong> [19:4]
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      |   |--IDENT -&gt; MyInterface [19:14]
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>      |   `--OBJBLOCK -&gt; OBJBLOCK [19:26]
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      |       |--LCURLY -&gt; { [19:26]
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      |       |--ANNOTATION_DEF -&gt; ANNOTATION_DEF [20:8]
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      |       |   |--MODIFIERS -&gt; MODIFIERS [20:8]
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      |       |   |--SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [19:28]</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      |       |   |   `--COMMENT_CONTENT -&gt; indent:4 exp:4\n [19:30]
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      |       |   |--AT -&gt; @ [20:8]
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      |       |   |--LITERAL_INTERFACE -&gt; <strong class="jxr_keyword">interface</strong> [20:9]
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      |       |   |--IDENT -&gt; SomeAnnotation [20:19]
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      |       |   `--OBJBLOCK -&gt; OBJBLOCK [20:34]
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      |       |       |--LCURLY -&gt; { [20:34]
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      |       |       |--ANNOTATION_FIELD_DEF -&gt; ANNOTATION_FIELD_DEF [20:36]
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      |       |       |   |--MODIFIERS -&gt; MODIFIERS [20:36]
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      |       |       |   |--TYPE -&gt; TYPE [20:36]
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      |       |       |   |   |--IDENT -&gt; String [20:36]
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      |       |       |   |   `--ARRAY_DECLARATOR -&gt; [ [20:42]
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      |       |       |   |       `--RBRACK -&gt; ] [20:43]
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      |       |       |   |--IDENT -&gt; values [20:45]
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      |       |       |   |--LPAREN -&gt; ( [20:51]
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      |       |       |   |--RPAREN -&gt; ) [20:52]
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      |       |       |   `--SEMI -&gt; ; [20:53]
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      |       |       `--RCURLY -&gt; } [20:55]
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>      |       |--METHOD_DEF -&gt; METHOD_DEF [21:8]
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>      |       |   |--MODIFIERS -&gt; MODIFIERS [21:8]
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>      |       |   |   `--ANNOTATION -&gt; ANNOTATION [21:8]
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      |       |   |       |--SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [20:57]</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      |       |   |       |   `--COMMENT_CONTENT -&gt; indent:8 exp:8\n [20:59]
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      |       |   |       |--AT -&gt; @ [21:8]
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      |       |   |       |--IDENT -&gt; SomeAnnotation [21:9]
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      |       |   |       |--LPAREN -&gt; ( [21:23]
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      |       |   |       |--ANNOTATION_MEMBER_VALUE_PAIR -&gt; ANNOTATION_MEMBER_VALUE_PAIR [21:24]
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      |       |   |       |   |--IDENT -&gt; values [21:24]
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      |       |   |       |   |--ASSIGN -&gt; = [21:31]
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      |       |   |       |   `--ANNOTATION_ARRAY_INIT -&gt; { [21:33]
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      |       |   |       |       |--EXPR -&gt; EXPR [22:11]
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>      |       |   |       |       |   |--SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [21:35]</em>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      |       |   |       |       |   |   `--COMMENT_CONTENT -&gt; indent:8 exp:8\n [21:37]
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>      |       |   |       |       |   `--STRING_LITERAL -&gt; <span class="jxr_string">"Hello"</span> [22:11]
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>      |       |   |       |       |--SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [22:18]</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      |       |   |       |       |   `--COMMENT_CONTENT -&gt; indent:11 exp:8,12,35,37 warn\n [22:20]
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      |       |   |       |       `--RCURLY -&gt; } [23:8]
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>      |       |   |       `--RPAREN -&gt; ) [23:9]
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>      |       |   |--TYPE -&gt; TYPE [24:8]
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      |       |   |   |--SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [23:11]</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      |       |   |   |   `--COMMENT_CONTENT -&gt; indent:8 exp:8\n [23:13]
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>      |       |   |   `--LITERAL_VOID -&gt; <strong class="jxr_keyword">void</strong> [24:8]
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>      |       |   |--IDENT -&gt; works [24:13]
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      |       |   |--LPAREN -&gt; ( [24:18]
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      |       |   |--PARAMETERS -&gt; PARAMETERS [24:19]
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>      |       |   |--RPAREN -&gt; ) [24:19]
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      |       |   `--SEMI -&gt; ; [24:20]
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>      |       |--SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [24:22]</em>
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>      |       |   `--COMMENT_CONTENT -&gt; indent:8 exp:8\n [24:24]
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      |       `--RCURLY -&gt; } [25:4]
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>      |--SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [25:6]</em>
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      |   `--COMMENT_CONTENT -&gt; indent:4 exp:4\n [25:8]
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>      |--RCURLY -&gt; } [26:0]
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>      `--SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [26:2]</em>
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          `--COMMENT_CONTENT -&gt; indent:0 exp:0\n [26:4]
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
