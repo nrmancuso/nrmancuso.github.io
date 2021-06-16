@@ -1,0 +1,4854 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										<td class="c">
+											
+												tabWidth
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												tabWidth
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">SuppressionCommentFilter</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressWithNearbyCommentFilter</td>
+										
+										<td class="c">
+											
+												checkFormat
+												
+													<li>$1</li>
+												
+												<br/>
+											
+												commentFormat
+												
+													<li>-@cs\[(\w{8,})\] \w[\(\)\-\.\&#39;\`\,\:\;\w ]{10,}</li>
+												
+												<br/>
+											
+												influenceFormat
+												
+													<li>3</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checkFormat
+												
+													<li>$1</li>
+												
+												<br/>
+											
+												commentFormat
+												
+													<li>-@cs\[(\w{8,})\] \w[\(\)\-\.\&#39;\`\,\:\;\w ]{10,}</li>
+												
+												<br/>
+											
+												influenceFormat
+												
+													<li>3</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheck</td>
+										
+										<td class="c">
+											
+												annotationName
+												
+													<li>Test</li>
+												
+												<br/>
+											
+												forbiddenElementValueRegexp
+												
+													<li>.*</li>
+												
+												<br/>
+											
+												elementName
+												
+													<li>expected</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												annotationName
+												
+													<li>Test</li>
+												
+												<br/>
+											
+												forbiddenElementValueRegexp
+												
+													<li>.*</li>
+												
+												<br/>
+											
+												elementName
+												
+													<li>expected</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck</td>
+										
+										<td class="c">
+											
+												annotationTargets
+												
+													<li>METHOD_DEF</li>
+												
+												<br/>
+											
+												annotationNames
+												
+													<li>Ignore, VisibleForTesting</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												annotationTargets
+												
+													<li>METHOD_DEF</li>
+												
+												<br/>
+											
+												annotationNames
+												
+													<li>Ignore, VisibleForTesting</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.RequiredParameterForAnnotationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.RequiredParameterForAnnotationCheck</td>
+										
+										<td class="c">
+											
+												requiredParameters
+												
+													<li>value</li>
+												
+												<br/>
+											
+												annotationName
+												
+													<li>Generated</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												requiredParameters
+												
+													<li>value</li>
+												
+												<br/>
+											
+												annotationName
+												
+													<li>Generated</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheck</td>
+										
+										<td class="c">
+											
+												collectionList
+												
+													<li>AbstractCollection AbstractList AbstractQueue AbstractSequentialList AbstractSet ArrayBlockingQueue ArrayDeque ArrayList AttributeList BeanContextServicesSupport BeanContextSupport ConcurrentLinkedDeque ConcurrentLinkedQueue ConcurrentSkipListSet CopyOnWriteArrayList CopyOnWriteArraySet DelayQueue EnumSet HashSet JobStateReasons LinkedBlockingDeque LinkedBlockingQueue LinkedHashSet LinkedList LinkedTransferQueue PriorityBlockingQueue PriorityQueue RoleList RoleUnresolvedList Stack SynchronousQueue TreeSet Vector Collection List Map Set</li>
+												
+												<br/>
+											
+												searchThroughMethodBody
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												collectionList
+												
+													<li>AbstractCollection AbstractList AbstractQueue AbstractSequentialList AbstractSet ArrayBlockingQueue ArrayDeque ArrayList AttributeList BeanContextServicesSupport BeanContextSupport ConcurrentLinkedDeque ConcurrentLinkedQueue ConcurrentSkipListSet CopyOnWriteArrayList CopyOnWriteArraySet DelayQueue EnumSet HashSet JobStateReasons LinkedBlockingDeque LinkedBlockingQueue LinkedHashSet LinkedList LinkedTransferQueue PriorityBlockingQueue PriorityQueue RoleList RoleUnresolvedList Stack SynchronousQueue TreeSet Vector Collection List Map Set</li>
+												
+												<br/>
+											
+												searchThroughMethodBody
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck</td>
+										
+										<td class="c">
+											
+												customDeclarationOrder
+												
+													<li>Field(public) ### Field(protected) ### Field(private) ### CTOR(.*) ### Method(.*)### InnerClass()</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												fieldPrefix
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												customDeclarationOrder
+												
+													<li>Field(public) ### Field(protected) ### Field(private) ### CTOR(.*) ### Method(.*)### InnerClass()</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												fieldPrefix
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck</td>
+										
+										<td class="c">
+											
+												allowedDuplicates
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreOccurrenceContext
+												
+													<li>ANNOTATION</li>
+												
+												<br/>
+											
+												ignoreStringsRegexp
+												
+													<li>^&quot;&quot;$</li>
+												
+												<br/>
+											
+												highlightAllDuplicates
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowedDuplicates
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreOccurrenceContext
+												
+													<li>ANNOTATION</li>
+												
+												<br/>
+											
+												ignoreStringsRegexp
+												
+													<li>^&quot;&quot;$</li>
+												
+												<br/>
+											
+												highlightAllDuplicates
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck</td>
+										
+										<td class="c">
+											
+												allowPartialImplementation
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowPartialImplementation
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheck</td>
+										
+										<td class="c">
+											
+												ignoreThrowInElse
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNullCaseInIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreSequentialIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreInnerIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												multiplyFactorForElseBlocks
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreThrowInElse
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNullCaseInIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreSequentialIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreInnerIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												multiplyFactorForElseBlocks
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCertainImportsCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidModifiersForTypesCheck</td>
+										
+										<td class="c">
+											
+												forbiddenClassesRegexpFinal
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpStatic
+												
+													<li>ULC.+</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpVolatile
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpAnnotation
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPackagePrivate
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPublic
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpProtected
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpTransient
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPrivate
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												forbiddenClassesRegexpFinal
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpStatic
+												
+													<li>ULC.+</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpVolatile
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpAnnotation
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPackagePrivate
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPublic
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpProtected
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpTransient
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPrivate
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck</td>
+										
+										<td class="c">
+											
+												argumentCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												methodName
+												
+													<li>assert(True|False)</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												argumentCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												methodName
+												
+													<li>assert(True|False)</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheck</td>
+										
+										<td class="c">
+											
+												matchMethodsByArgCount
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkCloneMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkReadObjectMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												matchMethodsByArgCount
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkCloneMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkReadObjectMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheck</td>
+										
+										<td class="c">
+											
+												ignoreMethods
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCycles
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreMethods
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCycles
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheck</td>
+										
+										<td class="c">
+											
+												loggingMethodNames
+												
+													<li>error, warn, info, debug</li>
+												
+												<br/>
+											
+												loggerFullyQualifiedClassName
+												
+													<li>org.slf4j.Logger</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												loggingMethodNames
+												
+													<li>error, warn, info, debug</li>
+												
+												<br/>
+											
+												loggerFullyQualifiedClassName
+												
+													<li>org.slf4j.Logger</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck</td>
+										
+										<td class="c">
+											
+												allowRethrow
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowThrow
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowRethrow
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowThrow
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheck</td>
+										
+										<td class="c">
+											
+												ignoreEmptyReturns
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreMethodsNames
+												
+													<li>equals</li>
+												
+												<br/>
+											
+												minIgnoreReturnDepth
+												
+													<li>4</li>
+												
+												<br/>
+											
+												maxReturnCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreMethodLinesCount
+												
+													<li>20</li>
+												
+												<br/>
+											
+												topLinesToIgnoreCount
+												
+													<li>5</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreEmptyReturns
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreMethodsNames
+												
+													<li>equals</li>
+												
+												<br/>
+											
+												minIgnoreReturnDepth
+												
+													<li>4</li>
+												
+												<br/>
+											
+												maxReturnCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreMethodLinesCount
+												
+													<li>20</li>
+												
+												<br/>
+											
+												topLinesToIgnoreCount
+												
+													<li>5</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheck</td>
+										
+										<td class="c">
+											
+												ignoreCalculationOfBooleanVariablesWithAssert
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariables
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariablesWithReturn
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreCalculationOfBooleanVariablesWithAssert
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariables
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariablesWithReturn
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidInstantiationCheck</td>
+										
+										<td class="c">
+											
+												forbiddenClasses
+												
+													<li>java.lang.NullPointerExceptionCheck</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												forbiddenClasses
+												
+													<li>java.lang.NullPointerExceptionCheck</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheck</td>
+										
+										<td class="c">
+											
+												targetConstantTypes
+												
+													<li>LITERAL_NULL,LITERAL_TRUE,LITERAL_FALSE,NUM_INT,NUM_DOUBLE,NUM_LONG,NUM_FLOAT</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												targetConstantTypes
+												
+													<li>LITERAL_NULL,LITERAL_TRUE,LITERAL_FALSE,NUM_INT,NUM_DOUBLE,NUM_LONG,NUM_FLOAT</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidThrowAnonymousExceptionsCheck</td>
+										
+										<td class="c">
+											
+												exceptionClassNameRegex
+												
+													<li>^.*Exception</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												exceptionClassNameRegex
+												
+													<li>^.*Exception</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MapIterationInForEachLoopCheck</td>
+										
+										<td class="c">
+											
+												proposeKeySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeEntrySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeValuesUsage
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												proposeKeySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeEntrySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeValuesUsage
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheck</td>
+										
+										<td class="c">
+											
+												ignoreTernaryOperatorsInBraces
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreIsolatedTernaryOnLine
+												
+													<li>true</li>
+												
+												<br/>
+											
+												maxTernaryPerExpressionCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreTernaryOperatorsInBraces
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreIsolatedTernaryOnLine
+												
+													<li>true</li>
+												
+												<br/>
+											
+												maxTernaryPerExpressionCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheck</td>
+										
+										<td class="c">
+											
+												allowReturnInEmptyMethodsAndConstructors
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowReturnInEmptyMethodsAndConstructors
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheck</td>
+										
+										<td class="c">
+											
+												maxDecimalSymbolsUntilUnderscore
+												
+													<li>3</li>
+												
+												<br/>
+											
+												minHexSymbolLength
+												
+													<li>5</li>
+												
+												<br/>
+											
+												minBinarySymbolLength
+												
+													<li>9</li>
+												
+												<br/>
+											
+												minDecimalSymbolLength
+												
+													<li>7</li>
+												
+												<br/>
+											
+												maxHexSymbolsUntilUnderscore
+												
+													<li>4</li>
+												
+												<br/>
+											
+												ignoreFieldNamePattern
+												
+													<li>serialVersionUID</li>
+												
+												<br/>
+											
+												maxBinarySymbolsUntilUnderscore
+												
+													<li>8</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												maxDecimalSymbolsUntilUnderscore
+												
+													<li>3</li>
+												
+												<br/>
+											
+												minHexSymbolLength
+												
+													<li>5</li>
+												
+												<br/>
+											
+												minBinarySymbolLength
+												
+													<li>9</li>
+												
+												<br/>
+											
+												minDecimalSymbolLength
+												
+													<li>7</li>
+												
+												<br/>
+											
+												maxHexSymbolsUntilUnderscore
+												
+													<li>4</li>
+												
+												<br/>
+											
+												ignoreFieldNamePattern
+												
+													<li>serialVersionUID</li>
+												
+												<br/>
+											
+												maxBinarySymbolsUntilUnderscore
+												
+													<li>8</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.NameConventionForJunit4TestClassesCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.Jsr305AnnotationsCheck</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+												excludePackages
+												
+													<li>com.github.sevntu.checkstyle.checks.sizes,com.github.sevntu.checkstyle.checks.design</li>
+												
+												<br/>
+											
+												allowOverridingParameter
+												
+													<li>false</li>
+												
+												<br/>
+											
+												packages
+												
+													<li>com.github.sevntu.checkstyle.checks.naming,com.github.sevntu.checkstyle.checks.coding</li>
+												
+												<br/>
+											
+												allowOverridingReturnValue
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+												excludePackages
+												
+													<li>com.github.sevntu.checkstyle.checks.sizes,com.github.sevntu.checkstyle.checks.design</li>
+												
+												<br/>
+											
+												allowOverridingParameter
+												
+													<li>false</li>
+												
+												<br/>
+											
+												packages
+												
+													<li>com.github.sevntu.checkstyle.checks.naming,com.github.sevntu.checkstyle.checks.coding</li>
+												
+												<br/>
+											
+												allowOverridingReturnValue
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">19945</td>
+							<td id="totalBase">168014</td>
+							
+								<td id="warningSeverityNumBase">168014</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">19945</td>
+							<td id="totalPatch">168014 (58 removed, 58 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">168014 (58 removed, 58 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">44 files with differences</td>
+							<td id="totalDiff">116 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">116 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ForbidThrowAnonymousExceptionsCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.NameConventionForJunit4TestClassesCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ForbidInstantiationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheckModuleNumBase">8</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheckModuleNumBase">2916</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheckModuleNumBase">1862</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheckModuleNumBase">22007</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheckModuleNumBase">2029</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidThrowAnonymousExceptionsCheckModuleNumBase">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NameConventionForJunit4TestClassesCheckModuleNumBase">299</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheckModuleNumBase">9099</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheckModuleNumBase">44</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheckModuleNumBase">9</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheckModuleNumBase">10157</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheckModuleNumBase">10617</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheckModuleNumBase">469</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheckModuleNumBase">32535</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheckModuleNumBase">62</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheckModuleNumBase">4554</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheckModuleNumBase">142</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheckModuleNumBase">876</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheckModuleNumBase">556</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheckModuleNumBase">2415</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheckModuleNumBase">43</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheckModuleNumBase">46039</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheckModuleNumBase">2302</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheckModuleNumBase">1515</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheckModuleNumBase">6288</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidInstantiationCheckModuleNumBase">5</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheckModuleNumBase">109</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheckModuleNumBase">286</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheckModuleNumBase">838</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheckModuleNumBase">1740</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheckModuleNumBase">17</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheckModuleNumBase">888</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheckModuleNumBase">4061</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheckModuleNumBase">2298</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheckModuleNumBase">394</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheckModuleNumBase">534</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheckModuleStatisticsPatch">8</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheckModuleStatisticsPatch">2916</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheckModuleStatisticsPatch">1862</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheckModuleStatisticsPatch">22007 (2 removed, 2 added)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheckModuleStatisticsPatch">2029</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidThrowAnonymousExceptionsCheckModuleStatisticsPatch">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NameConventionForJunit4TestClassesCheckModuleStatisticsPatch">299</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheckModuleStatisticsPatch">9099</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheckModuleStatisticsPatch">44</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheckModuleStatisticsPatch">9</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheckModuleStatisticsPatch">10157</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheckModuleStatisticsPatch">10617</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheckModuleStatisticsPatch">469</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheckModuleStatisticsPatch">32535</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheckModuleStatisticsPatch">62</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheckModuleStatisticsPatch">4554</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheckModuleStatisticsPatch">142</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheckModuleStatisticsPatch">876</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheckModuleStatisticsPatch">556</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheckModuleStatisticsPatch">2415 (5 removed, 5 added)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheckModuleStatisticsPatch">43</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheckModuleStatisticsPatch">46039</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheckModuleStatisticsPatch">2302</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheckModuleStatisticsPatch">1515</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheckModuleStatisticsPatch">6288</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidInstantiationCheckModuleStatisticsPatch">5</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheckModuleStatisticsPatch">109</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheckModuleStatisticsPatch">286</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheckModuleStatisticsPatch">838</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheckModuleStatisticsPatch">1740</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheckModuleStatisticsPatch">17</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheckModuleStatisticsPatch">888</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheckModuleStatisticsPatch">4061</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheckModuleStatisticsPatch">2298 (51 removed, 51 added)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheckModuleStatisticsPatch">394</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheckModuleStatisticsPatch">534</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheckModuleNumDiff">4</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidThrowAnonymousExceptionsCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NameConventionForJunit4TestClassesCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheckModuleNumDiff">10</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidInstantiationCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheckModuleNumDiff">102</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheckModuleNumDiff">0</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">58</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">58</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/cldrconverter/CLDRConverter.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;data&#39; can be moved inside the block at line &#39;637&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/cldrconverter/CLDRConverter.java.html#L635">635</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;data&#39; can be moved inside the block at line &#39;637&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/cldrconverter/CLDRConverter.java.html#L635">635</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/generatecharacter/SpecialCaseMap.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;tokens&#39; can be moved inside the block at line &#39;96&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/generatecharacter/SpecialCaseMap.java.html#L95">95</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;tokens&#39; can be moved inside the block at line &#39;96&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/generatecharacter/SpecialCaseMap.java.html#L95">95</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;spec&#39; can be moved inside the block at line &#39;345&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/generatecharacter/SpecialCaseMap.java.html#L344">344</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;spec&#39; can be moved inside the block at line &#39;345&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/generatecharacter/SpecialCaseMap.java.html#L344">344</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/generatecharacter/UnicodeSpec.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;spec&#39; can be moved inside the block at line &#39;758&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/generatecharacter/UnicodeSpec.java.html#L757">757</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;spec&#39; can be moved inside the block at line &#39;758&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/make/src/classes/build/tools/generatecharacter/UnicodeSpec.java.html#L757">757</a></td>
+								
+								
+									
+									<td class="keepWidth">28</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/com/sun/java/util/jar/pack/BandStructure.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;need&#39; can be moved inside the block at line &#39;1,694&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/com/sun/java/util/jar/pack/BandStructure.java.html#L1690">1690</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;need&#39; can be moved inside the block at line &#39;1,694&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/com/sun/java/util/jar/pack/BandStructure.java.html#L1690">1690</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;knowns&#39; can be moved inside the block at line &#39;2,585&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/com/sun/java/util/jar/pack/BandStructure.java.html#L2580">2580</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;knowns&#39; can be moved inside the block at line &#39;2,585&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/com/sun/java/util/jar/pack/BandStructure.java.html#L2580">2580</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/ClassValue.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/ClassValue.java.html#L421">421</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/ClassValue.java.html#L421">421</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/invoke/BoundMethodHandle.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/invoke/BoundMethodHandle.java.html#L332">332</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/invoke/BoundMethodHandle.java.html#L332">332</a></td>
+								
+								
+									
+									<td class="keepWidth">22</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/invoke/BoundMethodHandle.java.html#L336">336</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/invoke/BoundMethodHandle.java.html#L336">336</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/invoke/InvokerBytecodeGenerator.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Method definition in wrong order. Expected &#39;Method(.*)&#39; then &#39;InnerClass()&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/invoke/InvokerBytecodeGenerator.java.html#L239">239</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Method definition in wrong order. Expected &#39;Method(.*)&#39; then &#39;InnerClass()&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/lang/invoke/InvokerBytecodeGenerator.java.html#L239">239</a></td>
+								
+								
+									
+									<td class="keepWidth">11</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/net/InetAddress.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;ret&#39; can be moved inside the block at line &#39;1,337&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/net/InetAddress.java.html#L1336">1336</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;ret&#39; can be moved inside the block at line &#39;1,337&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/net/InetAddress.java.html#L1336">1336</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/time/format/DateTimeFormatterBuilder.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;zoneStrings&#39; can be moved inside the block at line &#39;4,107&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/time/format/DateTimeFormatterBuilder.java.html#L4106">4106</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;zoneStrings&#39; can be moved inside the block at line &#39;4,107&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/time/format/DateTimeFormatterBuilder.java.html#L4106">4106</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/HashMap.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;as&#39; can be moved inside the block at line &#39;350&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/HashMap.java.html#L347">347</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;as&#39; can be moved inside the block at line &#39;350&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/HashMap.java.html#L347">347</a></td>
+								
+								
+									
+									<td class="keepWidth">29</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/concurrent/ConcurrentHashMap.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;as&#39; can be moved inside the block at line &#39;724&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/concurrent/ConcurrentHashMap.java.html#L721">721</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;as&#39; can be moved inside the block at line &#39;724&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/concurrent/ConcurrentHashMap.java.html#L721">721</a></td>
+								
+								
+									
+									<td class="keepWidth">29</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/concurrent/ForkJoinPool.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;ws&#39; can be moved inside the block at line &#39;1,510&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/concurrent/ForkJoinPool.java.html#L1509">1509</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;ws&#39; can be moved inside the block at line &#39;1,510&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/concurrent/ForkJoinPool.java.html#L1509">1509</a></td>
+								
+								
+									
+									<td class="keepWidth">18</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;a&#39; can be moved inside the block at line &#39;1,762&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/concurrent/ForkJoinPool.java.html#L1761">1761</a></td>
+								
+								
+									
+									<td class="keepWidth">48</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;a&#39; can be moved inside the block at line &#39;1,762&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/concurrent/ForkJoinPool.java.html#L1761">1761</a></td>
+								
+								
+									
+									<td class="keepWidth">63</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;a&#39; can be moved inside the block at line &#39;1,829&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/concurrent/ForkJoinPool.java.html#L1828">1828</a></td>
+								
+								
+									
+									<td class="keepWidth">41</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;a&#39; can be moved inside the block at line &#39;1,829&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/java/util/concurrent/ForkJoinPool.java.html#L1828">1828</a></td>
+								
+								
+									
+									<td class="keepWidth">56</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/sun/security/pkcs/ContentInfo.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;contents&#39; can be moved inside the block at line &#39;142&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/sun/security/pkcs/ContentInfo.java.html#L130">130</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;contents&#39; can be moved inside the block at line &#39;142&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.base/share/classes/sun/security/pkcs/ContentInfo.java.html#L130">130</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/com/sun/imageio/plugins/jpeg/JPEGMetadata.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;oldCompSpecs&#39; can be moved inside the block at line &#39;1,707&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/com/sun/imageio/plugins/jpeg/JPEGMetadata.java.html#L1705">1705</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;oldCompSpecs&#39; can be moved inside the block at line &#39;1,707&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/com/sun/imageio/plugins/jpeg/JPEGMetadata.java.html#L1705">1705</a></td>
+								
+								
+									
+									<td class="keepWidth">40</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/javax/swing/text/ZoneView.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;removedElems&#39; can be moved inside the block at line &#39;515&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/javax/swing/text/ZoneView.java.html#L509">509</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;removedElems&#39; can be moved inside the block at line &#39;515&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/javax/swing/text/ZoneView.java.html#L509">509</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;addedElems&#39; can be moved inside the block at line &#39;515&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/javax/swing/text/ZoneView.java.html#L510">510</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;addedElems&#39; can be moved inside the block at line &#39;515&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/javax/swing/text/ZoneView.java.html#L510">510</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/javax/swing/text/html/StyleSheet.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A43" href = "#A43">#A43</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Method definition in wrong order. Expected &#39;Method(.*)&#39; then &#39;InnerClass()&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/javax/swing/text/html/StyleSheet.java.html#L1132">1132</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A44" href = "#A44">#A44</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Method definition in wrong order. Expected &#39;Method(.*)&#39; then &#39;InnerClass()&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/javax/swing/text/html/StyleSheet.java.html#L1132">1132</a></td>
+								
+								
+									
+									<td class="keepWidth">11</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/sun/print/RasterPrinterJob.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A45" href = "#A45">#A45</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;spsFactories&#39; can be moved inside the block at line &#39;985&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/sun/print/RasterPrinterJob.java.html#L984">984</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A46" href = "#A46">#A46</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;spsFactories&#39; can be moved inside the block at line &#39;985&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.desktop/share/classes/sun/print/RasterPrinterJob.java.html#L984">984</a></td>
+								
+								
+									
+									<td class="keepWidth">34</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.naming/share/classes/com/sun/jndi/ldap/sasl/DefaultCallbackHandler.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A47" href = "#A47">#A47</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;choices&#39; can be moved inside the block at line &#39;83&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.naming/share/classes/com/sun/jndi/ldap/sasl/DefaultCallbackHandler.java.html#L79">79</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A48" href = "#A48">#A48</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;choices&#39; can be moved inside the block at line &#39;83&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.naming/share/classes/com/sun/jndi/ldap/sasl/DefaultCallbackHandler.java.html#L79">79</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.security.jgss/share/classes/sun/security/jgss/krb5/Krb5NameElement.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A49" href = "#A49">#A49</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;components&#39; can be moved inside the block at line &#39;116&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.security.jgss/share/classes/sun/security/jgss/krb5/Krb5NameElement.java.html#L99">99</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A50" href = "#A50">#A50</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;components&#39; can be moved inside the block at line &#39;116&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/java.security.jgss/share/classes/sun/security/jgss/krb5/Krb5NameElement.java.html#L99">99</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.accessibility/share/classes/com/sun/java/accessibility/util/EventQueueMonitor.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A51" href = "#A51">#A51</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;wins&#39; can be moved inside the block at line &#39;424&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.accessibility/share/classes/com/sun/java/accessibility/util/EventQueueMonitor.java.html#L401">401</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A52" href = "#A52">#A52</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;wins&#39; can be moved inside the block at line &#39;424&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.accessibility/share/classes/com/sun/java/accessibility/util/EventQueueMonitor.java.html#L401">401</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.crypto.mscapi/windows/classes/sun/security/mscapi/KeyStore.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A53" href = "#A53">#A53</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.crypto.mscapi/windows/classes/sun/security/mscapi/KeyStore.java.html#L146">146</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A54" href = "#A54">#A54</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.crypto.mscapi/windows/classes/sun/security/mscapi/KeyStore.java.html#L146">146</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.jconsole/share/classes/sun/tools/jconsole/inspector/XTree.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A55" href = "#A55">#A55</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;ni&#39; can be moved inside the block at line &#39;646&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.jconsole/share/classes/sun/tools/jconsole/inspector/XTree.java.html#L585">585</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A56" href = "#A56">#A56</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;ni&#39; can be moved inside the block at line &#39;646&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.jconsole/share/classes/sun/tools/jconsole/inspector/XTree.java.html#L585">585</a></td>
+								
+								
+									
+									<td class="keepWidth">34</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.jlink/share/classes/jdk/tools/jlink/internal/TaskHelper.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A57" href = "#A57">#A57</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.jlink/share/classes/jdk/tools/jlink/internal/TaskHelper.java.html#L649">649</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A58" href = "#A58">#A58</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.jlink/share/classes/jdk/tools/jlink/internal/TaskHelper.java.html#L649">649</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.jlink/share/classes/jdk/tools/jlink/internal/plugins/ExcludeVMPlugin.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A59" href = "#A59">#A59</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;jvmlibs&#39; can be moved inside the block at line &#39;123&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.jlink/share/classes/jdk/tools/jlink/internal/plugins/ExcludeVMPlugin.java.html#L120">120</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A60" href = "#A60">#A60</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;jvmlibs&#39; can be moved inside the block at line &#39;123&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/src/jdk.jlink/share/classes/jdk/tools/jlink/internal/plugins/ExcludeVMPlugin.java.html#L120">120</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/com/sun/security/sasl/ClientCallbackHandler.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A61" href = "#A61">#A61</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;choices&#39; can be moved inside the block at line &#39;73&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/com/sun/security/sasl/ClientCallbackHandler.java.html#L71">71</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A62" href = "#A62">#A62</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;choices&#39; can be moved inside the block at line &#39;73&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/com/sun/security/sasl/ClientCallbackHandler.java.html#L71">71</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/com/sun/security/sasl/digest/ClientCallbackHandler.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A63" href = "#A63">#A63</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;choices&#39; can be moved inside the block at line &#39;73&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/com/sun/security/sasl/digest/ClientCallbackHandler.java.html#L71">71</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A64" href = "#A64">#A64</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;choices&#39; can be moved inside the block at line &#39;73&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/com/sun/security/sasl/digest/ClientCallbackHandler.java.html#L71">71</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/awt/print/PrinterJob/Collate2DPrintingTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A65" href = "#A65">#A65</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;pservice&#39; can be moved inside the block at line &#39;63&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/awt/print/PrinterJob/Collate2DPrintingTest.java.html#L62">62</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A66" href = "#A66">#A66</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;pservice&#39; can be moved inside the block at line &#39;63&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/awt/print/PrinterJob/Collate2DPrintingTest.java.html#L62">62</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/awt/print/PrinterJob/PrtException.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A67" href = "#A67">#A67</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;svc&#39; can be moved inside the block at line &#39;42&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/awt/print/PrinterJob/PrtException.java.html#L40">40</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A68" href = "#A68">#A68</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;svc&#39; can be moved inside the block at line &#39;42&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/awt/print/PrinterJob/PrtException.java.html#L40">40</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessBuilder/Basic.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A69" href = "#A69">#A69</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;envpWin&#39; can be moved inside the block at line &#39;1,819&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessBuilder/Basic.java.html#L1817">1817</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A70" href = "#A70">#A70</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;envpWin&#39; can be moved inside the block at line &#39;1,819&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessBuilder/Basic.java.html#L1817">1817</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A71" href = "#A71">#A71</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;envpOth&#39; can be moved inside the block at line &#39;1,821&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessBuilder/Basic.java.html#L1818">1818</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A72" href = "#A72">#A72</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;envpOth&#39; can be moved inside the block at line &#39;1,821&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessBuilder/Basic.java.html#L1818">1818</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A73" href = "#A73">#A73</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;envpWin&#39; can be moved inside the block at line &#39;1,867&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessBuilder/Basic.java.html#L1862">1862</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A74" href = "#A74">#A74</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;envpWin&#39; can be moved inside the block at line &#39;1,867&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessBuilder/Basic.java.html#L1862">1862</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A75" href = "#A75">#A75</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;envpOth&#39; can be moved inside the block at line &#39;1,869&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessBuilder/Basic.java.html#L1864">1864</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A76" href = "#A76">#A76</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;envpOth&#39; can be moved inside the block at line &#39;1,869&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessBuilder/Basic.java.html#L1864">1864</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessHandle/ProcessUtil.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A77" href = "#A77">#A77</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;windowsArglist&#39; can be moved inside the block at line &#39;224&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessHandle/ProcessUtil.java.html#L220">220</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A78" href = "#A78">#A78</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;windowsArglist&#39; can be moved inside the block at line &#39;224&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessHandle/ProcessUtil.java.html#L220">220</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A79" href = "#A79">#A79</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;unixArglist&#39; can be moved inside the block at line &#39;226&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessHandle/ProcessUtil.java.html#L221">221</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A80" href = "#A80">#A80</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;unixArglist&#39; can be moved inside the block at line &#39;226&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/ProcessHandle/ProcessUtil.java.html#L221">221</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/management/MemoryMXBean/LowMemoryTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A81" href = "#A81">#A81</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;o&#39; can be moved inside the block at line &#39;332&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/management/MemoryMXBean/LowMemoryTest.java.html#L331">331</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A82" href = "#A82">#A82</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;o&#39; can be moved inside the block at line &#39;332&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/management/MemoryMXBean/LowMemoryTest.java.html#L331">331</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/management/MemoryMXBean/MemoryManagement.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A83" href = "#A83">#A83</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;o&#39; can be moved inside the block at line &#39;176&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/management/MemoryMXBean/MemoryManagement.java.html#L175">175</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A84" href = "#A84">#A84</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;o&#39; can be moved inside the block at line &#39;176&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/management/MemoryMXBean/MemoryManagement.java.html#L175">175</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/management/ThreadMXBean/MyOwnSynchronizer.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A85" href = "#A85">#A85</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;syncs&#39; can be moved inside the block at line &#39;74&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/management/ThreadMXBean/MyOwnSynchronizer.java.html#L73">73</a></td>
+								
+								
+									
+									<td class="keepWidth">12</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A86" href = "#A86">#A86</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;syncs&#39; can be moved inside the block at line &#39;74&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/lang/management/ThreadMXBean/MyOwnSynchronizer.java.html#L73">73</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/time/tck/java/time/format/TCKDateTimeParseResolver.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A87" href = "#A87">#A87</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;styles&#39; can be moved inside the block at line &#39;664&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/time/tck/java/time/format/TCKDateTimeParseResolver.java.html#L663">663</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A88" href = "#A88">#A88</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;styles&#39; can be moved inside the block at line &#39;664&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/time/tck/java/time/format/TCKDateTimeParseResolver.java.html#L663">663</a></td>
+								
+								
+									
+									<td class="keepWidth">22</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/Locale/LocaleTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A89" href = "#A89">#A89</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;spotCheck1&#39; can be moved inside the block at line &#39;463&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/Locale/LocaleTest.java.html#L458">458</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A90" href = "#A90">#A90</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;spotCheck1&#39; can be moved inside the block at line &#39;463&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/Locale/LocaleTest.java.html#L458">458</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A91" href = "#A91">#A91</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;spotCheck2&#39; can be moved inside the block at line &#39;494&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/Locale/LocaleTest.java.html#L489">489</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A92" href = "#A92">#A92</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;spotCheck2&#39; can be moved inside the block at line &#39;494&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/Locale/LocaleTest.java.html#L489">489</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/PluggableLocale/BreakIteratorProviderTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A93" href = "#A93">#A93</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;classNames&#39; can be moved inside the block at line &#39;90&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/PluggableLocale/BreakIteratorProviderTest.java.html#L69">69</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A94" href = "#A94">#A94</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;classNames&#39; can be moved inside the block at line &#39;90&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/PluggableLocale/BreakIteratorProviderTest.java.html#L69">69</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/PluggableLocale/DecimalFormatSymbolsProviderTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A95" href = "#A95">#A95</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;data&#39; can be moved inside the block at line &#39;69&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/PluggableLocale/DecimalFormatSymbolsProviderTest.java.html#L64">64</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A96" href = "#A96">#A96</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;data&#39; can be moved inside the block at line &#39;69&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/java/util/PluggableLocale/DecimalFormatSymbolsProviderTest.java.html#L64">64</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/imageio/metadata/MetadataFormatPrinter.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A97" href = "#A97">#A97</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;childNames&#39; can be moved inside the block at line &#39;160&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/imageio/metadata/MetadataFormatPrinter.java.html#L129">129</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A98" href = "#A98">#A98</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;childNames&#39; can be moved inside the block at line &#39;160&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/imageio/metadata/MetadataFormatPrinter.java.html#L129">129</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/management/modelmbean/InfoSupportTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A99" href = "#A99">#A99</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;defaultFields&#39; can be moved inside the block at line &#39;205&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/management/modelmbean/InfoSupportTest.java.html#L187">187</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A100" href = "#A100">#A100</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;defaultFields&#39; can be moved inside the block at line &#39;205&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/management/modelmbean/InfoSupportTest.java.html#L187">187</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A101" href = "#A101">#A101</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;defaultValues&#39; can be moved inside the block at line &#39;205&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/management/modelmbean/InfoSupportTest.java.html#L190">190</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A102" href = "#A102">#A102</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;defaultValues&#39; can be moved inside the block at line &#39;205&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/management/modelmbean/InfoSupportTest.java.html#L190">190</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/CheckDupFlavor.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A103" href = "#A103">#A103</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;pservice&#39; can be moved inside the block at line &#39;40&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/CheckDupFlavor.java.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A104" href = "#A104">#A104</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;pservice&#39; can be moved inside the block at line &#39;40&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/CheckDupFlavor.java.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/GetCopiesSupported.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A105" href = "#A105">#A105</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;pservice&#39; can be moved inside the block at line &#39;39&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/GetCopiesSupported.java.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A106" href = "#A106">#A106</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;pservice&#39; can be moved inside the block at line &#39;39&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/GetCopiesSupported.java.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/SidesPageRangesTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A107" href = "#A107">#A107</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;pservice&#39; can be moved inside the block at line &#39;53&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/SidesPageRangesTest.java.html#L51">51</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A108" href = "#A108">#A108</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;pservice&#39; can be moved inside the block at line &#39;53&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/SidesPageRangesTest.java.html#L51">51</a></td>
+								
+								
+									
+									<td class="keepWidth">29</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A109" href = "#A109">#A109</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;pr&#39; can be moved inside the block at line &#39;85&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/SidesPageRangesTest.java.html#L84">84</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A110" href = "#A110">#A110</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;pr&#39; can be moved inside the block at line &#39;85&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/SidesPageRangesTest.java.html#L84">84</a></td>
+								
+								
+									
+									<td class="keepWidth">31</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A111" href = "#A111">#A111</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;s&#39; can be moved inside the block at line &#39;110&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/SidesPageRangesTest.java.html#L109">109</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A112" href = "#A112">#A112</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;s&#39; can be moved inside the block at line &#39;110&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/SidesPageRangesTest.java.html#L109">109</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/SupportedPrintableAreas.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A113" href = "#A113">#A113</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;svc&#39; can be moved inside the block at line &#39;42&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/SupportedPrintableAreas.java.html#L40">40</a></td>
+								
+								
+									
+									<td class="keepWidth">6</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A114" href = "#A114">#A114</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;svc&#39; can be moved inside the block at line &#39;42&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/javax/print/attribute/SupportedPrintableAreas.java.html#L40">40</a></td>
+								
+								
+									
+									<td class="keepWidth">18</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/tools/launcher/ToolsOpts.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A115" href = "#A115">#A115</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;output&#39; can be moved inside the block at line &#39;194&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/tools/launcher/ToolsOpts.java.html#L185">185</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A116" href = "#A116">#A116</a></td>
+								<td>warning</td>
+								<td>MoveVariableInsideIf</td>
+								<td>Variable &#39;output&#39; can be moved inside the block at line &#39;194&#39; to restrict runtime creation.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/IdeaProjects/contribution/checkstyle-tester/repositories/openjdk9/test/tools/launcher/ToolsOpts.java.html#L185">185</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
