@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>InputNewlineAtEndOfFileCr.tree xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [1:0]</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   `--COMMENT_CONTENT -&gt; <em class="jxr_comment">//////////////////////////////////////////////////////////////////////////////\r [1:2]</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [2:0]</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   `--COMMENT_CONTENT -&gt;  Test <strong class="jxr_keyword">case</strong> file <strong class="jxr_keyword">for</strong> checkstyle.\r [2:2]
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [3:0]</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   `--COMMENT_CONTENT -&gt;  Created: 2015\r [3:2]
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   SINGLE_LINE_COMMENT -&gt; <em class="jxr_comment">// [4:0]</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   `--COMMENT_CONTENT -&gt; <em class="jxr_comment">//////////////////////////////////////////////////////////////////////////////\r [4:2]</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   PACKAGE_DEF -&gt; <strong class="jxr_keyword">package</strong> [5:0]
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  |--ANNOTATIONS -&gt; ANNOTATIONS [5:46]
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  |--DOT -&gt; . [5:46]
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  |   |--DOT -&gt; . [5:39]
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  |   |   |--DOT -&gt; . [5:28]
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  |   |   |   |--DOT -&gt; . [5:22]
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  |   |   |   |   |--DOT -&gt; . [5:11]
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  |   |   |   |   |   |--IDENT -&gt; com [5:8]
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  |   |   |   |   |   `--IDENT -&gt; puppycrawl [5:12]
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  |   |   |   |   `--IDENT -&gt; tools [5:23]
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  |   |   |   `--IDENT -&gt; checkstyle [5:29]
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  |   |   `--IDENT -&gt; checks [5:40]
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  |   `--IDENT -&gt; newlineatendoffile [5:47]
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  `--SEMI -&gt; ; [5:65]
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  INTERFACE_DEF -&gt; INTERFACE_DEF [12:0]
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  |--MODIFIERS -&gt; MODIFIERS [12:0]
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  |   |--BLOCK_COMMENT_BEGIN -&gt; <em class="jxr_comment">/* [7:0]</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment">|   |   |--COMMENT_CONTENT -&gt; *\r * Test case for detection of an existing CR newline at EOF, using the\r * NewlineAtEndOfFileCheck.\r * @author Martin Steiger\r * [7:2]</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment">|   |   |   `--JAVADOC -&gt; JAVADOC [7:3]</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment">|   |   |       |--NEWLINE -&gt; \r [7:3]</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment">|   |   |       |--LEADING_ASTERISK -&gt;  * [8:0]</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment">|   |   |       |--TEXT -&gt;  Test case for detection of an existing CR newline at EOF, using the [8:2]</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_comment">|   |   |       |--NEWLINE -&gt; \r [8:70]</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_comment">|   |   |       |--LEADING_ASTERISK -&gt;  * [9:0]</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_comment">|   |   |       |--TEXT -&gt;  NewlineAtEndOfFileCheck. [9:2]</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_comment">|   |   |       |--NEWLINE -&gt; \r [9:27]</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_comment">|   |   |       |--LEADING_ASTERISK -&gt;  * [10:0]</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_comment">|   |   |       |--WS -&gt;   [10:2]</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_comment">|   |   |       |--JAVADOC_TAG -&gt; JAVADOC_TAG [10:3]</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_comment">|   |   |       |   |--AUTHOR_LITERAL -&gt; @author [10:3]</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_comment">|   |   |       |   |--WS -&gt;   [10:10]</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_comment">|   |   |       |   `--DESCRIPTION -&gt; DESCRIPTION [10:11]</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_comment">|   |   |       |       |--TEXT -&gt; Martin Steiger [10:11]</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_comment">|   |   |       |       |--NEWLINE -&gt; \r [10:25]</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_comment">|   |   |       |       `--LEADING_ASTERISK -&gt;  * [11:0]</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_comment">|   |   |       `--EOF -&gt; &lt;EOF&gt; [11:2]</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_comment">|   |   `--BLOCK_COMMENT_END -&gt; */</em> [11:2]
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  |   `--LITERAL_PUBLIC -&gt; <strong class="jxr_keyword">public</strong> [12:0]
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  |--LITERAL_INTERFACE -&gt; <strong class="jxr_keyword">interface</strong> [12:7]
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  |--IDENT -&gt; InputNewlineAtEndOfFileCr [12:17]
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  `--OBJBLOCK -&gt; OBJBLOCK [13:0]
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      |--LCURLY -&gt; { [13:0]
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      |--BLOCK_COMMENT_BEGIN -&gt; <em class="jxr_comment">/* [14:0]</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <em class="jxr_comment">    |   |--COMMENT_CONTENT -&gt; * Test with ending with CR newline\r [14:2]</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <em class="jxr_comment">    |   `--BLOCK_COMMENT_END -&gt; */</em> [15:0]
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      `--RCURLY -&gt; } [16:0]
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
