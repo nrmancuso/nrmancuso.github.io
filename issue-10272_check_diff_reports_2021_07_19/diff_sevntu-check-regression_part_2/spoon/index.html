@@ -1,0 +1,4107 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										<td class="c">
+											
+												tabWidth
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												tabWidth
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">SuppressionCommentFilter</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressWithNearbyCommentFilter</td>
+										
+										<td class="c">
+											
+												checkFormat
+												
+													<li>$1</li>
+												
+												<br/>
+											
+												commentFormat
+												
+													<li>-@cs\[(\w{8,})\] \w[\(\)\-\.\&#39;\`\,\:\;\w ]{10,}</li>
+												
+												<br/>
+											
+												influenceFormat
+												
+													<li>3</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checkFormat
+												
+													<li>$1</li>
+												
+												<br/>
+											
+												commentFormat
+												
+													<li>-@cs\[(\w{8,})\] \w[\(\)\-\.\&#39;\`\,\:\;\w ]{10,}</li>
+												
+												<br/>
+											
+												influenceFormat
+												
+													<li>3</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheck</td>
+										
+										<td class="c">
+											
+												annotationName
+												
+													<li>Test</li>
+												
+												<br/>
+											
+												forbiddenElementValueRegexp
+												
+													<li>.*</li>
+												
+												<br/>
+											
+												elementName
+												
+													<li>expected</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												annotationName
+												
+													<li>Test</li>
+												
+												<br/>
+											
+												forbiddenElementValueRegexp
+												
+													<li>.*</li>
+												
+												<br/>
+											
+												elementName
+												
+													<li>expected</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck</td>
+										
+										<td class="c">
+											
+												annotationTargets
+												
+													<li>METHOD_DEF</li>
+												
+												<br/>
+											
+												annotationNames
+												
+													<li>Ignore, VisibleForTesting</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												annotationTargets
+												
+													<li>METHOD_DEF</li>
+												
+												<br/>
+											
+												annotationNames
+												
+													<li>Ignore, VisibleForTesting</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.RequiredParameterForAnnotationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.RequiredParameterForAnnotationCheck</td>
+										
+										<td class="c">
+											
+												requiredParameters
+												
+													<li>value</li>
+												
+												<br/>
+											
+												annotationName
+												
+													<li>Generated</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												requiredParameters
+												
+													<li>value</li>
+												
+												<br/>
+											
+												annotationName
+												
+													<li>Generated</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheck</td>
+										
+										<td class="c">
+											
+												collectionList
+												
+													<li>AbstractCollection AbstractList AbstractQueue AbstractSequentialList AbstractSet ArrayBlockingQueue ArrayDeque ArrayList AttributeList BeanContextServicesSupport BeanContextSupport ConcurrentLinkedDeque ConcurrentLinkedQueue ConcurrentSkipListSet CopyOnWriteArrayList CopyOnWriteArraySet DelayQueue EnumSet HashSet JobStateReasons LinkedBlockingDeque LinkedBlockingQueue LinkedHashSet LinkedList LinkedTransferQueue PriorityBlockingQueue PriorityQueue RoleList RoleUnresolvedList Stack SynchronousQueue TreeSet Vector Collection List Map Set</li>
+												
+												<br/>
+											
+												searchThroughMethodBody
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												collectionList
+												
+													<li>AbstractCollection AbstractList AbstractQueue AbstractSequentialList AbstractSet ArrayBlockingQueue ArrayDeque ArrayList AttributeList BeanContextServicesSupport BeanContextSupport ConcurrentLinkedDeque ConcurrentLinkedQueue ConcurrentSkipListSet CopyOnWriteArrayList CopyOnWriteArraySet DelayQueue EnumSet HashSet JobStateReasons LinkedBlockingDeque LinkedBlockingQueue LinkedHashSet LinkedList LinkedTransferQueue PriorityBlockingQueue PriorityQueue RoleList RoleUnresolvedList Stack SynchronousQueue TreeSet Vector Collection List Map Set</li>
+												
+												<br/>
+											
+												searchThroughMethodBody
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck</td>
+										
+										<td class="c">
+											
+												customDeclarationOrder
+												
+													<li>Field(public) ### Field(protected) ### Field(private) ### CTOR(.*) ### Method(.*)### InnerClass()</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												fieldPrefix
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												customDeclarationOrder
+												
+													<li>Field(public) ### Field(protected) ### Field(private) ### CTOR(.*) ### Method(.*)### InnerClass()</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												fieldPrefix
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck</td>
+										
+										<td class="c">
+											
+												allowedDuplicates
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreOccurrenceContext
+												
+													<li>ANNOTATION</li>
+												
+												<br/>
+											
+												ignoreStringsRegexp
+												
+													<li>^&quot;&quot;$</li>
+												
+												<br/>
+											
+												highlightAllDuplicates
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowedDuplicates
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreOccurrenceContext
+												
+													<li>ANNOTATION</li>
+												
+												<br/>
+											
+												ignoreStringsRegexp
+												
+													<li>^&quot;&quot;$</li>
+												
+												<br/>
+											
+												highlightAllDuplicates
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck</td>
+										
+										<td class="c">
+											
+												allowPartialImplementation
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowPartialImplementation
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheck</td>
+										
+										<td class="c">
+											
+												ignoreThrowInElse
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNullCaseInIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreSequentialIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreInnerIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												multiplyFactorForElseBlocks
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreThrowInElse
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNullCaseInIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreSequentialIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreInnerIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												multiplyFactorForElseBlocks
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCertainImportsCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidModifiersForTypesCheck</td>
+										
+										<td class="c">
+											
+												forbiddenClassesRegexpFinal
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpStatic
+												
+													<li>ULC.+</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpVolatile
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpAnnotation
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPackagePrivate
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPublic
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpProtected
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpTransient
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPrivate
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												forbiddenClassesRegexpFinal
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpStatic
+												
+													<li>ULC.+</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpVolatile
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpAnnotation
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPackagePrivate
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPublic
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpProtected
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpTransient
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPrivate
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck</td>
+										
+										<td class="c">
+											
+												argumentCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												methodName
+												
+													<li>assert(True|False)</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												argumentCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												methodName
+												
+													<li>assert(True|False)</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheck</td>
+										
+										<td class="c">
+											
+												matchMethodsByArgCount
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkCloneMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkReadObjectMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												matchMethodsByArgCount
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkCloneMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkReadObjectMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheck</td>
+										
+										<td class="c">
+											
+												ignoreMethods
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCycles
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreMethods
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCycles
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheck</td>
+										
+										<td class="c">
+											
+												loggingMethodNames
+												
+													<li>error, warn, info, debug</li>
+												
+												<br/>
+											
+												loggerFullyQualifiedClassName
+												
+													<li>org.slf4j.Logger</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												loggingMethodNames
+												
+													<li>error, warn, info, debug</li>
+												
+												<br/>
+											
+												loggerFullyQualifiedClassName
+												
+													<li>org.slf4j.Logger</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck</td>
+										
+										<td class="c">
+											
+												allowRethrow
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowThrow
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowRethrow
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowThrow
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheck</td>
+										
+										<td class="c">
+											
+												ignoreEmptyReturns
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreMethodsNames
+												
+													<li>equals</li>
+												
+												<br/>
+											
+												minIgnoreReturnDepth
+												
+													<li>4</li>
+												
+												<br/>
+											
+												maxReturnCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreMethodLinesCount
+												
+													<li>20</li>
+												
+												<br/>
+											
+												topLinesToIgnoreCount
+												
+													<li>5</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreEmptyReturns
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreMethodsNames
+												
+													<li>equals</li>
+												
+												<br/>
+											
+												minIgnoreReturnDepth
+												
+													<li>4</li>
+												
+												<br/>
+											
+												maxReturnCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreMethodLinesCount
+												
+													<li>20</li>
+												
+												<br/>
+											
+												topLinesToIgnoreCount
+												
+													<li>5</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheck</td>
+										
+										<td class="c">
+											
+												ignoreCalculationOfBooleanVariablesWithAssert
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariables
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariablesWithReturn
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreCalculationOfBooleanVariablesWithAssert
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariables
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariablesWithReturn
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidInstantiationCheck</td>
+										
+										<td class="c">
+											
+												forbiddenClasses
+												
+													<li>java.lang.NullPointerExceptionCheck</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												forbiddenClasses
+												
+													<li>java.lang.NullPointerExceptionCheck</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheck</td>
+										
+										<td class="c">
+											
+												targetConstantTypes
+												
+													<li>LITERAL_NULL,LITERAL_TRUE,LITERAL_FALSE,NUM_INT,NUM_DOUBLE,NUM_LONG,NUM_FLOAT</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												targetConstantTypes
+												
+													<li>LITERAL_NULL,LITERAL_TRUE,LITERAL_FALSE,NUM_INT,NUM_DOUBLE,NUM_LONG,NUM_FLOAT</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidThrowAnonymousExceptionsCheck</td>
+										
+										<td class="c">
+											
+												exceptionClassNameRegex
+												
+													<li>^.*Exception</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												exceptionClassNameRegex
+												
+													<li>^.*Exception</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MapIterationInForEachLoopCheck</td>
+										
+										<td class="c">
+											
+												proposeKeySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeEntrySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeValuesUsage
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												proposeKeySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeEntrySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeValuesUsage
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheck</td>
+										
+										<td class="c">
+											
+												ignoreTernaryOperatorsInBraces
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreIsolatedTernaryOnLine
+												
+													<li>true</li>
+												
+												<br/>
+											
+												maxTernaryPerExpressionCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreTernaryOperatorsInBraces
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreIsolatedTernaryOnLine
+												
+													<li>true</li>
+												
+												<br/>
+											
+												maxTernaryPerExpressionCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheck</td>
+										
+										<td class="c">
+											
+												allowReturnInEmptyMethodsAndConstructors
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowReturnInEmptyMethodsAndConstructors
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheck</td>
+										
+										<td class="c">
+											
+												maxDecimalSymbolsUntilUnderscore
+												
+													<li>3</li>
+												
+												<br/>
+											
+												minHexSymbolLength
+												
+													<li>5</li>
+												
+												<br/>
+											
+												minBinarySymbolLength
+												
+													<li>9</li>
+												
+												<br/>
+											
+												minDecimalSymbolLength
+												
+													<li>7</li>
+												
+												<br/>
+											
+												maxHexSymbolsUntilUnderscore
+												
+													<li>4</li>
+												
+												<br/>
+											
+												ignoreFieldNamePattern
+												
+													<li>serialVersionUID</li>
+												
+												<br/>
+											
+												maxBinarySymbolsUntilUnderscore
+												
+													<li>8</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												maxDecimalSymbolsUntilUnderscore
+												
+													<li>3</li>
+												
+												<br/>
+											
+												minHexSymbolLength
+												
+													<li>5</li>
+												
+												<br/>
+											
+												minBinarySymbolLength
+												
+													<li>9</li>
+												
+												<br/>
+											
+												minDecimalSymbolLength
+												
+													<li>7</li>
+												
+												<br/>
+											
+												maxHexSymbolsUntilUnderscore
+												
+													<li>4</li>
+												
+												<br/>
+											
+												ignoreFieldNamePattern
+												
+													<li>serialVersionUID</li>
+												
+												<br/>
+											
+												maxBinarySymbolsUntilUnderscore
+												
+													<li>8</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.NameConventionForJunit4TestClassesCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.Jsr305AnnotationsCheck</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+												excludePackages
+												
+													<li>com.github.sevntu.checkstyle.checks.sizes,com.github.sevntu.checkstyle.checks.design</li>
+												
+												<br/>
+											
+												allowOverridingParameter
+												
+													<li>false</li>
+												
+												<br/>
+											
+												packages
+												
+													<li>com.github.sevntu.checkstyle.checks.naming,com.github.sevntu.checkstyle.checks.coding</li>
+												
+												<br/>
+											
+												allowOverridingReturnValue
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+												excludePackages
+												
+													<li>com.github.sevntu.checkstyle.checks.sizes,com.github.sevntu.checkstyle.checks.design</li>
+												
+												<br/>
+											
+												allowOverridingParameter
+												
+													<li>false</li>
+												
+												<br/>
+											
+												packages
+												
+													<li>com.github.sevntu.checkstyle.checks.naming,com.github.sevntu.checkstyle.checks.coding</li>
+												
+												<br/>
+											
+												allowOverridingReturnValue
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+								<th>Severity-error</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">1702</td>
+							<td id="totalBase">5701</td>
+							
+								<td id="warningSeverityNumBase">5700</td>
+							
+								<td id="errorSeverityNumBase">1</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">1702</td>
+							<td id="totalPatch">5608 (95 removed, 2 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">5606 (94 removed)</td>
+							
+								<td id="errorSeverityStatisticsPatch">2 (1 removed, 2 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">2 files with differences</td>
+							<td id="totalDiff">97 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">94 changes in violations</td>
+							
+								<td id="errorSeverityNumDiff">3 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.Checker</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheckModuleNumBase">39</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheckModuleNumBase">28</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheckModuleNumBase">68</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheckModuleNumBase">966</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheckModuleNumBase">11</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheckModuleNumBase">1178</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheckModuleNumBase">37</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheckModuleNumBase">237</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheckModuleNumBase">429</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheckModuleNumBase">76</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheckModuleNumBase">34</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheckModuleNumBase">13</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheckModuleNumBase">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheckModuleNumBase">35</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheckModuleNumBase">6</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheckModuleNumBase">29</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheckModuleNumBase">16</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheckModuleNumBase">62</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheckModuleNumBase">8</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheckModuleNumBase">1850</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheckModuleNumBase">123</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheckModuleNumBase">32</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheckModuleNumBase">70</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheckModuleNumBase">3</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheckModuleNumBase">13</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheckModuleNumBase">52</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheckModuleNumBase">3</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleNumBase">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheckModuleNumBase">147</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheckModuleNumBase">41</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheckModuleNumBase">9</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheckModuleNumBase">79</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheckModuleNumBase">5</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheckModuleStatisticsPatch">39</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheckModuleStatisticsPatch">28</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheckModuleStatisticsPatch">66 (2 removed)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheckModuleStatisticsPatch">923 (43 removed)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheckModuleStatisticsPatch">11</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheckModuleStatisticsPatch">1178</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheckModuleStatisticsPatch">37</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheckModuleStatisticsPatch">237</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheckModuleStatisticsPatch">429</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheckModuleStatisticsPatch">76</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheckModuleStatisticsPatch">34</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheckModuleStatisticsPatch">13</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheckModuleStatisticsPatch">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheckModuleStatisticsPatch">27 (8 removed)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheckModuleStatisticsPatch">6</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheckModuleStatisticsPatch">29</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheckModuleStatisticsPatch">16</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheckModuleStatisticsPatch">44 (18 removed)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheckModuleStatisticsPatch">8</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheckModuleStatisticsPatch">1841 (9 removed)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheckModuleStatisticsPatch">122 (1 removed)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheckModuleStatisticsPatch">31 (1 removed)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheckModuleStatisticsPatch">70</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheckModuleStatisticsPatch">3</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheckModuleStatisticsPatch">13</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheckModuleStatisticsPatch">45 (7 removed)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheckModuleStatisticsPatch">3</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleStatisticsPatch">2 (1 removed, 2 added)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheckModuleStatisticsPatch">142 (5 removed)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheckModuleStatisticsPatch">41</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheckModuleStatisticsPatch">9</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheckModuleStatisticsPatch">79</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheckModuleStatisticsPatch">5</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheckModuleNumDiff">2</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheckModuleNumDiff">43</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheckModuleNumDiff">8</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheckModuleNumDiff">18</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheckModuleNumDiff">9</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheckModuleNumDiff">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheckModuleNumDiff">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheckModuleNumDiff">7</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleNumDiff">3</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheckModuleNumDiff">5</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheckModuleNumDiff">0</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">95</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">2</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>error</td>
+								<td>Checker</td>
+								<td>Got an exception - java.lang.NullPointerException<br />
+#x9;at com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck.visitToken(ForbidCertainMethodCheck.java:162)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.notifyVisit(TreeWalker.java:335)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.processIter(TreeWalker.java:406)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.walk(TreeWalker.java:273)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.processFiltered(TreeWalker.java:154)<br />
+#x9;at com.puppycrawl.tools.checkstyle.api.AbstractFileSetCheck.process(AbstractFileSetCheck.java:87)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.processFile(Checker.java:328)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.processFiles(Checker.java:289)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.process(Checker.java:221)<br />
+#x9;at org.apache.maven.plugins.checkstyle.exec.DefaultCheckstyleExecutor.executeCheckstyle(DefaultCheckstyleExecutor.java:202)<br />
+#x9;at org.apache.maven.plugins.checkstyle.AbstractCheckstyleReport.executeReport(AbstractCheckstyleReport.java:533)<br />
+#x9;at org.apache.maven.plugins.checkstyle.CheckstyleReport.executeReport(CheckstyleReport.java:57)<br />
+#x9;at org.apache.maven.reporting.AbstractMavenReport.generate(AbstractMavenReport.java:255)<br />
+#x9;at org.apache.maven.plugins.site.ReportDocumentRenderer.renderDocument(ReportDocumentRenderer.java:219)<br />
+#x9;at org.apache.maven.doxia.siterenderer.DefaultSiteRenderer.renderModule(DefaultSiteRenderer.java:319)<br />
+#x9;at org.apache.maven.doxia.siterenderer.DefaultSiteRenderer.render(DefaultSiteRenderer.java:135)<br />
+#x9;at org.apache.maven.plugins.site.SiteMojo.renderLocale(SiteMojo.java:175)<br />
+#x9;at org.apache.maven.plugins.site.SiteMojo.execute(SiteMojo.java:138)<br />
+#x9;at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:210)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:156)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)<br />
+#x9;at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)<br />
+#x9;at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)<br />
+#x9;at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)<br />
+#x9;at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)<br />
+#x9;at org.apache.maven.cli.MavenCli.execute(MavenCli.java:957)<br />
+#x9;at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:289)<br />
+#x9;at org.apache.maven.cli.MavenCli.main(MavenCli.java:193)<br />
+#x9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+#x9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+#x9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+#x9;at java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:282)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:225)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)<br />
+</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1">1</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Field(private)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L84">84</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Field(private)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L89">89</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>DiamondOperatorForVariableDefinition</td>
+								<td>Diamond operator expected.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L89">89</a></td>
+								
+								
+									
+									<td class="keepWidth">51</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Field(private)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L94">94</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>DiamondOperatorForVariableDefinition</td>
+								<td>Diamond operator expected.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L94">94</a></td>
+								
+								
+									
+									<td class="keepWidth">51</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Field(private)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L115">115</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Field(private)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L120">120</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Field(private)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L125">125</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Field(private)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L129">129</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Field(private)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L139">139</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Field(private)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L145">145</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Field(private)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L151">151</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>DiamondOperatorForVariableDefinition</td>
+								<td>Diamond operator expected.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L155">155</a></td>
+								
+								
+									
+									<td class="keepWidth">65</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Constructor definition in wrong order. Expected &#39;CTOR(.*)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L198">198</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Constructor definition in wrong order. Expected &#39;CTOR(.*)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L203">203</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Constructor definition in wrong order. Expected &#39;CTOR(.*)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L208">208</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>OverridableMethodInConstructor</td>
+								<td>Overridable method &#39;setLearningStrategy&#39; is called in constructor body.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L216">216</a></td>
+								
+								
+									
+									<td class="keepWidth">28</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected setter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L254">254</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L264">264</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected setter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L314">314</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L318">318</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected setter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L329">329</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L338">338</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>MultipleStringLiteralsExtended</td>
+								<td>The String &quot;Reference to the constraint to remove needed!&quot; appears 2 times in the file.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L407">407</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>MultipleStringLiteralsExtended</td>
+								<td>The String &quot;Call the solve method first!!!&quot; appears 3 times in the file.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L499">499</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L542">542</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L544">544</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L546">546</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>ReturnCountExtended</td>
+								<td>Return count for &#39;analyzeFinalConflictInTermsOfAssumptions&#39; method is 3 (max allowed is 1).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L636">636</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>LogicConditionNeedOptimization</td>
+								<td>Condition with &amp;&amp; at line 708 position 5 need optimization. All method calls are advised to move to end of logic expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L708">708</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(public)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L713">713</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(public)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L728">728</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(public)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L744">744</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(public)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L761">761</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L778">778</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>IllegalCatchExtended</td>
+								<td>Catching &#39;Exception&#39; is not allowed.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L790">790</a></td>
+								
+								
+									
+									<td class="keepWidth">11</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>warning</td>
+								<td>MultipleVariableDeclarationsExtended</td>
+								<td>Each variable declaration must be in its own statement.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L839">839</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L861">861</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L863">863</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>warning</td>
+								<td>MultipleVariableDeclarationsExtended</td>
+								<td>Each variable declaration must be in its own statement.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L869">869</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>warning</td>
+								<td>ReturnCountExtended</td>
+								<td>Return count for &#39;analyzeRemovable&#39; method is 2 (max allowed is 1).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L886">886</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A43" href = "#A43">#A43</a></td>
+								<td>warning</td>
+								<td>MultipleVariableDeclarationsExtended</td>
+								<td>Each variable declaration must be in its own statement.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L933">933</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A44" href = "#A44">#A44</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1038">1038</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A45" href = "#A45">#A45</a></td>
+								<td>warning</td>
+								<td>DiamondOperatorForVariableDefinition</td>
+								<td>Diamond operator expected.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1038">1038</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A46" href = "#A46">#A46</a></td>
+								<td>warning</td>
+								<td>ReturnCountExtended</td>
+								<td>Return count for &#39;reduceClausesForFalsifiedLiteral&#39; method is 2 (max allowed is 1).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1063">1063</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A47" href = "#A47">#A47</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1159">1159</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A48" href = "#A48">#A48</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1161">1161</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A49" href = "#A49">#A49</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1163">1163</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A50" href = "#A50">#A50</a></td>
+								<td>warning</td>
+								<td>ReturnCountExtended</td>
+								<td>Return count for &#39;search&#39; method is 4 (max allowed is 1).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1165">1165</a></td>
+								
+								
+									
+									<td class="keepWidth">11</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A51" href = "#A51">#A51</a></td>
+								<td>warning</td>
+								<td>LogicConditionNeedOptimization</td>
+								<td>Condition with &amp;&amp; at line 1,182 position 29 need optimization. All method calls are advised to move to end of logic expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1182">1182</a></td>
+								
+								
+									
+									<td class="keepWidth">42</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A52" href = "#A52">#A52</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1291">1291</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A53" href = "#A53">#A53</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1292">1292</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A54" href = "#A54">#A54</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1294">1294</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A55" href = "#A55">#A55</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1380">1380</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A56" href = "#A56">#A56</a></td>
+								<td>warning</td>
+								<td>MultipleVariableDeclarationsExtended</td>
+								<td>Each variable declaration must be in its own statement.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1392">1392</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A57" href = "#A57">#A57</a></td>
+								<td>warning</td>
+								<td>MultipleStringLiteralsExtended</td>
+								<td>The String &quot;Use a valid Dimacs var id as argument!&quot; appears 2 times in the file.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1473">1473</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A58" href = "#A58">#A58</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1546">1546</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A59" href = "#A59">#A59</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1548">1548</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A60" href = "#A60">#A60</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1550">1550</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A61" href = "#A61">#A61</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1552">1552</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A62" href = "#A62">#A62</a></td>
+								<td>warning</td>
+								<td>MultipleVariableDeclarationsExtended</td>
+								<td>Each variable declaration must be in its own statement.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1574">1574</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A63" href = "#A63">#A63</a></td>
+								<td>warning</td>
+								<td>MultipleStringLiteralsExtended</td>
+								<td>The String &quot;cleaning &quot; appears 3 times in the file.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1591">1591</a></td>
+								
+								
+									
+									<td class="keepWidth">31</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A64" href = "#A64">#A64</a></td>
+								<td>warning</td>
+								<td>MultipleStringLiteralsExtended</td>
+								<td>The String &quot; clauses out of &quot; appears 3 times in the file.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1592">1592</a></td>
+								
+								
+									
+									<td class="keepWidth">31</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A65" href = "#A65">#A65</a></td>
+								<td>warning</td>
+								<td>MultipleVariableDeclarationsExtended</td>
+								<td>Each variable declaration must be in its own statement.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1638">1638</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A66" href = "#A66">#A66</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1690">1690</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A67" href = "#A67">#A67</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(public)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1708">1708</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A68" href = "#A68">#A68</a></td>
+								<td>warning</td>
+								<td>MultipleVariableDeclarationsExtended</td>
+								<td>Each variable declaration must be in its own statement.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1725">1725</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A69" href = "#A69">#A69</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1745">1745</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A70" href = "#A70">#A70</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1821">1821</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A71" href = "#A71">#A71</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(public)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1855">1855</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A72" href = "#A72">#A72</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1858">1858</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A73" href = "#A73">#A73</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1878">1878</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A74" href = "#A74">#A74</a></td>
+								<td>warning</td>
+								<td>ReturnCountExtended</td>
+								<td>Return count for &#39;isSatisfiable&#39; method is 3 (max allowed is 1).</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L1880">1880</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A75" href = "#A75">#A75</a></td>
+								<td>warning</td>
+								<td>MultipleStringLiteralsExtended</td>
+								<td>The String &quot; =&gt; &quot; appears 2 times in the file.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2056">2056</a></td>
+								
+								
+									
+									<td class="keepWidth">51</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A76" href = "#A76">#A76</a></td>
+								<td>warning</td>
+								<td>DiamondOperatorForVariableDefinition</td>
+								<td>Diamond operator expected.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2068">2068</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A77" href = "#A77">#A77</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2117">2117</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A78" href = "#A78">#A78</a></td>
+								<td>warning</td>
+								<td>MultipleStringLiteralsExtended</td>
+								<td>The String &quot;ignored satisfied constraints&quot; appears 2 times in the file.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2156">2156</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A79" href = "#A79">#A79</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2180">2180</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A80" href = "#A80">#A80</a></td>
+								<td>warning</td>
+								<td>MultipleStringLiteralsExtended</td>
+								<td>The String &quot;\n&quot; appears 4 times in the file.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2231">2231</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A81" href = "#A81">#A81</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2315">2315</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A82" href = "#A82">#A82</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected setter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2319">2319</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A83" href = "#A83">#A83</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected setter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2362">2362</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A84" href = "#A84">#A84</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2369">2369</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A85" href = "#A85">#A85</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(protected)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2417">2417</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A86" href = "#A86">#A86</a></td>
+								<td>warning</td>
+								<td>MultipleStringLiteralsExtended</td>
+								<td>The String &quot;Not implemented yet!&quot; appears 2 times in the file.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2456">2456</a></td>
+								
+								
+									
+									<td class="keepWidth">49</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A87" href = "#A87">#A87</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected setter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2474">2474</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A88" href = "#A88">#A88</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2478">2478</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A89" href = "#A89">#A89</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2486">2486</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A90" href = "#A90">#A90</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected getter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2539">2539</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A91" href = "#A91">#A91</a></td>
+								<td>warning</td>
+								<td>SimpleAccessorNameNotation</td>
+								<td>Unexpected setter name.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2543">2543</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A92" href = "#A92">#A92</a></td>
+								<td>warning</td>
+								<td>CustomDeclarationOrder</td>
+								<td>Field definition in wrong order. Expected &#39;Field(private)&#39; then &#39;Method(.*)&#39;.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2547">2547</a></td>
+								
+								
+									
+									<td class="keepWidth">5</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A93" href = "#A93">#A93</a></td>
+								<td>warning</td>
+								<td>DiamondOperatorForVariableDefinition</td>
+								<td>Diamond operator expected.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2554">2554</a></td>
+								
+								
+									
+									<td class="keepWidth">48</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A94" href = "#A94">#A94</a></td>
+								<td>warning</td>
+								<td>DiamondOperatorForVariableDefinition</td>
+								<td>Diamond operator expected.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2613">2613</a></td>
+								
+								
+									
+									<td class="keepWidth">42</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A95" href = "#A95">#A95</a></td>
+								<td>warning</td>
+								<td>MultipleVariableDeclarationsExtended</td>
+								<td>Each variable declaration must be in its own statement.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/Solver.java.html#L2614">2614</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/SubscriptionAdapter.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A96" href = "#A96">#A96</a></td>
+								<td>error</td>
+								<td>Checker</td>
+								<td>Got an exception - java.lang.NullPointerException<br />
+#x9;at com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck.visitToken(ForbidCertainMethodCheck.java:162)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.notifyVisit(TreeWalker.java:335)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.processIter(TreeWalker.java:406)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.walk(TreeWalker.java:273)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.processFiltered(TreeWalker.java:154)<br />
+#x9;at com.puppycrawl.tools.checkstyle.api.AbstractFileSetCheck.process(AbstractFileSetCheck.java:87)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.processFile(Checker.java:328)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.processFiles(Checker.java:289)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.process(Checker.java:221)<br />
+#x9;at org.apache.maven.plugins.checkstyle.exec.DefaultCheckstyleExecutor.executeCheckstyle(DefaultCheckstyleExecutor.java:202)<br />
+#x9;at org.apache.maven.plugins.checkstyle.AbstractCheckstyleReport.executeReport(AbstractCheckstyleReport.java:533)<br />
+#x9;at org.apache.maven.plugins.checkstyle.CheckstyleReport.executeReport(CheckstyleReport.java:57)<br />
+#x9;at org.apache.maven.reporting.AbstractMavenReport.generate(AbstractMavenReport.java:255)<br />
+#x9;at org.apache.maven.plugins.site.ReportDocumentRenderer.renderDocument(ReportDocumentRenderer.java:219)<br />
+#x9;at org.apache.maven.doxia.siterenderer.DefaultSiteRenderer.renderModule(DefaultSiteRenderer.java:319)<br />
+#x9;at org.apache.maven.doxia.siterenderer.DefaultSiteRenderer.render(DefaultSiteRenderer.java:135)<br />
+#x9;at org.apache.maven.plugins.site.SiteMojo.renderLocale(SiteMojo.java:175)<br />
+#x9;at org.apache.maven.plugins.site.SiteMojo.execute(SiteMojo.java:138)<br />
+#x9;at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:210)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:156)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)<br />
+#x9;at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)<br />
+#x9;at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)<br />
+#x9;at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)<br />
+#x9;at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)<br />
+#x9;at org.apache.maven.cli.MavenCli.execute(MavenCli.java:957)<br />
+#x9;at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:289)<br />
+#x9;at org.apache.maven.cli.MavenCli.main(MavenCli.java:193)<br />
+#x9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+#x9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+#x9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+#x9;at java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:282)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:225)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)<br />
+</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/SubscriptionAdapter.java.html#L1">1</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A97" href = "#A97">#A97</a></td>
+								<td>error</td>
+								<td>Checker</td>
+								<td>Got an exception - java.lang.NullPointerException<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitSimpleMethodExp(JavaAstVisitor.java:1561)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitSimpleMethodExp(JavaAstVisitor.java:47)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$SimpleMethodExpContext.accept(JavaParser.java:8751)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visit(JavaAstVisitor.java:2251)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitExpression(JavaAstVisitor.java:1349)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitExpression(JavaAstVisitor.java:47)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$ExpressionContext.accept(JavaParser.java:8565)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visit(JavaAstVisitor.java:2251)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitExpStat(JavaAstVisitor.java:1017)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitExpStat(JavaAstVisitor.java:47)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$ExpStatContext.accept(JavaParser.java:6480)<br />
+#x9;at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParserBaseVisitor.visitStat(JavaParserBaseVisitor.java:608)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$StatContext.accept(JavaParser.java:5946)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visit(JavaAstVisitor.java:2251)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.lambda$processChildren$21(JavaAstVisitor.java:2019)<br />
+#x9;at java.base/java.lang.Iterable.forEach(Iterable.java:75)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.processChildren(JavaAstVisitor.java:2012)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitConstructorBlock(JavaAstVisitor.java:859)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitConstructorBlock(JavaAstVisitor.java:47)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$ConstructorBlockContext.accept(JavaParser.java:5691)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visit(JavaAstVisitor.java:2251)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.lambda$processChildren$21(JavaAstVisitor.java:2019)<br />
+#x9;at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.processChildren(JavaAstVisitor.java:2012)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitConstructorDeclaration(JavaAstVisitor.java:446)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitConstructorDeclaration(JavaAstVisitor.java:47)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$ConstructorDeclarationContext.accept(JavaParser.java:2932)<br />
+#x9;at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParserBaseVisitor.visitMemberDeclaration(JavaParserBaseVisitor.java:272)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$MemberDeclarationContext.accept(JavaParser.java:2626)<br />
+#x9;at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParserBaseVisitor.visitClassDef(JavaParserBaseVisitor.java:265)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$ClassDefContext.accept(JavaParser.java:2505)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visit(JavaAstVisitor.java:2251)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.lambda$processChildren$21(JavaAstVisitor.java:2019)<br />
+#x9;at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.processChildren(JavaAstVisitor.java:2012)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitClassBody(JavaAstVisitor.java:366)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitClassBody(JavaAstVisitor.java:47)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$ClassBodyContext.accept(JavaParser.java:2366)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visit(JavaAstVisitor.java:2251)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.lambda$processChildren$21(JavaAstVisitor.java:2019)<br />
+#x9;at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.processChildren(JavaAstVisitor.java:2012)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitClassDeclaration(JavaAstVisitor.java:161)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitClassDeclaration(JavaAstVisitor.java:47)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$ClassDeclarationContext.accept(JavaParser.java:972)<br />
+#x9;at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParserBaseVisitor.visitTypes(JavaParserBaseVisitor.java:55)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$TypesContext.accept(JavaParser.java:673)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visit(JavaAstVisitor.java:2251)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitTypeDeclaration(JavaAstVisitor.java:142)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitTypeDeclaration(JavaAstVisitor.java:47)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$TypeDeclarationContext.accept(JavaParser.java:552)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visit(JavaAstVisitor.java:2251)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitCompilationUnit(JavaAstVisitor.java:74)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visitCompilationUnit(JavaAstVisitor.java:47)<br />
+#x9;at com.puppycrawl.tools.checkstyle.grammar.java.JavaParser$CompilationUnitContext.accept(JavaParser.java:310)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaAstVisitor.visit(JavaAstVisitor.java:2251)<br />
+#x9;at com.puppycrawl.tools.checkstyle.JavaParser.parse(JavaParser.java:111)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.processFiltered(TreeWalker.java:152)<br />
+#x9;at com.puppycrawl.tools.checkstyle.api.AbstractFileSetCheck.process(AbstractFileSetCheck.java:87)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.processFile(Checker.java:328)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.processFiles(Checker.java:289)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.process(Checker.java:221)<br />
+#x9;at org.apache.maven.plugins.checkstyle.exec.DefaultCheckstyleExecutor.executeCheckstyle(DefaultCheckstyleExecutor.java:202)<br />
+#x9;at org.apache.maven.plugins.checkstyle.AbstractCheckstyleReport.executeReport(AbstractCheckstyleReport.java:533)<br />
+#x9;at org.apache.maven.plugins.checkstyle.CheckstyleReport.executeReport(CheckstyleReport.java:57)<br />
+#x9;at org.apache.maven.reporting.AbstractMavenReport.generate(AbstractMavenReport.java:255)<br />
+#x9;at org.apache.maven.plugins.site.ReportDocumentRenderer.renderDocument(ReportDocumentRenderer.java:219)<br />
+#x9;at org.apache.maven.doxia.siterenderer.DefaultSiteRenderer.renderModule(DefaultSiteRenderer.java:319)<br />
+#x9;at org.apache.maven.doxia.siterenderer.DefaultSiteRenderer.render(DefaultSiteRenderer.java:135)<br />
+#x9;at org.apache.maven.plugins.site.SiteMojo.renderLocale(SiteMojo.java:175)<br />
+#x9;at org.apache.maven.plugins.site.SiteMojo.execute(SiteMojo.java:138)<br />
+#x9;at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:210)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:156)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)<br />
+#x9;at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)<br />
+#x9;at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)<br />
+#x9;at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)<br />
+#x9;at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)<br />
+#x9;at org.apache.maven.cli.MavenCli.execute(MavenCli.java:957)<br />
+#x9;at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:289)<br />
+#x9;at org.apache.maven.cli.MavenCli.main(MavenCli.java:193)<br />
+#x9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+#x9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+#x9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+#x9;at java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:282)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:225)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)<br />
+</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/spoon/src/test/resources/noclasspath/SubscriptionAdapter.java.html#L1">1</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,2352 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										<td class="c">
+											
+												tabWidth
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												tabWidth
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">SuppressionCommentFilter</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressWithNearbyCommentFilter</td>
+										
+										<td class="c">
+											
+												checkFormat
+												
+													<li>$1</li>
+												
+												<br/>
+											
+												commentFormat
+												
+													<li>-@cs\[(\w{8,})\] \w[\(\)\-\.\&#39;\`\,\:\;\w ]{10,}</li>
+												
+												<br/>
+											
+												influenceFormat
+												
+													<li>3</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checkFormat
+												
+													<li>$1</li>
+												
+												<br/>
+											
+												commentFormat
+												
+													<li>-@cs\[(\w{8,})\] \w[\(\)\-\.\&#39;\`\,\:\;\w ]{10,}</li>
+												
+												<br/>
+											
+												influenceFormat
+												
+													<li>3</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheck</td>
+										
+										<td class="c">
+											
+												annotationName
+												
+													<li>Test</li>
+												
+												<br/>
+											
+												forbiddenElementValueRegexp
+												
+													<li>.*</li>
+												
+												<br/>
+											
+												elementName
+												
+													<li>expected</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												annotationName
+												
+													<li>Test</li>
+												
+												<br/>
+											
+												forbiddenElementValueRegexp
+												
+													<li>.*</li>
+												
+												<br/>
+											
+												elementName
+												
+													<li>expected</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck</td>
+										
+										<td class="c">
+											
+												annotationTargets
+												
+													<li>METHOD_DEF</li>
+												
+												<br/>
+											
+												annotationNames
+												
+													<li>Ignore, VisibleForTesting</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												annotationTargets
+												
+													<li>METHOD_DEF</li>
+												
+												<br/>
+											
+												annotationNames
+												
+													<li>Ignore, VisibleForTesting</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.RequiredParameterForAnnotationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.RequiredParameterForAnnotationCheck</td>
+										
+										<td class="c">
+											
+												requiredParameters
+												
+													<li>value</li>
+												
+												<br/>
+											
+												annotationName
+												
+													<li>Generated</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												requiredParameters
+												
+													<li>value</li>
+												
+												<br/>
+											
+												annotationName
+												
+													<li>Generated</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheck</td>
+										
+										<td class="c">
+											
+												collectionList
+												
+													<li>AbstractCollection AbstractList AbstractQueue AbstractSequentialList AbstractSet ArrayBlockingQueue ArrayDeque ArrayList AttributeList BeanContextServicesSupport BeanContextSupport ConcurrentLinkedDeque ConcurrentLinkedQueue ConcurrentSkipListSet CopyOnWriteArrayList CopyOnWriteArraySet DelayQueue EnumSet HashSet JobStateReasons LinkedBlockingDeque LinkedBlockingQueue LinkedHashSet LinkedList LinkedTransferQueue PriorityBlockingQueue PriorityQueue RoleList RoleUnresolvedList Stack SynchronousQueue TreeSet Vector Collection List Map Set</li>
+												
+												<br/>
+											
+												searchThroughMethodBody
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												collectionList
+												
+													<li>AbstractCollection AbstractList AbstractQueue AbstractSequentialList AbstractSet ArrayBlockingQueue ArrayDeque ArrayList AttributeList BeanContextServicesSupport BeanContextSupport ConcurrentLinkedDeque ConcurrentLinkedQueue ConcurrentSkipListSet CopyOnWriteArrayList CopyOnWriteArraySet DelayQueue EnumSet HashSet JobStateReasons LinkedBlockingDeque LinkedBlockingQueue LinkedHashSet LinkedList LinkedTransferQueue PriorityBlockingQueue PriorityQueue RoleList RoleUnresolvedList Stack SynchronousQueue TreeSet Vector Collection List Map Set</li>
+												
+												<br/>
+											
+												searchThroughMethodBody
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck</td>
+										
+										<td class="c">
+											
+												customDeclarationOrder
+												
+													<li>Field(public) ### Field(protected) ### Field(private) ### CTOR(.*) ### Method(.*)### InnerClass()</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												fieldPrefix
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												customDeclarationOrder
+												
+													<li>Field(public) ### Field(protected) ### Field(private) ### CTOR(.*) ### Method(.*)### InnerClass()</li>
+												
+												<br/>
+											
+												caseSensitive
+												
+													<li>true</li>
+												
+												<br/>
+											
+												fieldPrefix
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck</td>
+										
+										<td class="c">
+											
+												allowedDuplicates
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreOccurrenceContext
+												
+													<li>ANNOTATION</li>
+												
+												<br/>
+											
+												ignoreStringsRegexp
+												
+													<li>^&quot;&quot;$</li>
+												
+												<br/>
+											
+												highlightAllDuplicates
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowedDuplicates
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreOccurrenceContext
+												
+													<li>ANNOTATION</li>
+												
+												<br/>
+											
+												ignoreStringsRegexp
+												
+													<li>^&quot;&quot;$</li>
+												
+												<br/>
+											
+												highlightAllDuplicates
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck</td>
+										
+										<td class="c">
+											
+												allowPartialImplementation
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowPartialImplementation
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheck</td>
+										
+										<td class="c">
+											
+												ignoreThrowInElse
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNullCaseInIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreSequentialIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreInnerIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												multiplyFactorForElseBlocks
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreThrowInElse
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNullCaseInIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreSequentialIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreInnerIf
+												
+													<li>true</li>
+												
+												<br/>
+											
+												multiplyFactorForElseBlocks
+												
+													<li>4</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ReturnNullInsteadOfBooleanCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCertainImportsCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidModifiersForTypesCheck</td>
+										
+										<td class="c">
+											
+												forbiddenClassesRegexpFinal
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpStatic
+												
+													<li>ULC.+</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpVolatile
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpAnnotation
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPackagePrivate
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPublic
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpProtected
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpTransient
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPrivate
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												forbiddenClassesRegexpFinal
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpStatic
+												
+													<li>ULC.+</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpVolatile
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpAnnotation
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPackagePrivate
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPublic
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpProtected
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpTransient
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPrivate
+												
+													<li></li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck</td>
+										
+										<td class="c">
+											
+												argumentCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												methodName
+												
+													<li>assert(True|False)</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												argumentCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												methodName
+												
+													<li>assert(True|False)</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheck</td>
+										
+										<td class="c">
+											
+												matchMethodsByArgCount
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkCloneMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkReadObjectMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												matchMethodsByArgCount
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkCloneMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+												checkReadObjectMethod
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheck</td>
+										
+										<td class="c">
+											
+												ignoreMethods
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCycles
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreMethods
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCycles
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheck</td>
+										
+										<td class="c">
+											
+												loggingMethodNames
+												
+													<li>error, warn, info, debug</li>
+												
+												<br/>
+											
+												loggerFullyQualifiedClassName
+												
+													<li>org.slf4j.Logger</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												loggingMethodNames
+												
+													<li>error, warn, info, debug</li>
+												
+												<br/>
+											
+												loggerFullyQualifiedClassName
+												
+													<li>org.slf4j.Logger</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck</td>
+										
+										<td class="c">
+											
+												allowRethrow
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowThrow
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowRethrow
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowThrow
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheck</td>
+										
+										<td class="c">
+											
+												ignoreEmptyReturns
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreMethodsNames
+												
+													<li>equals</li>
+												
+												<br/>
+											
+												minIgnoreReturnDepth
+												
+													<li>4</li>
+												
+												<br/>
+											
+												maxReturnCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreMethodLinesCount
+												
+													<li>20</li>
+												
+												<br/>
+											
+												topLinesToIgnoreCount
+												
+													<li>5</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreEmptyReturns
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreMethodsNames
+												
+													<li>equals</li>
+												
+												<br/>
+											
+												minIgnoreReturnDepth
+												
+													<li>4</li>
+												
+												<br/>
+											
+												maxReturnCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+												ignoreMethodLinesCount
+												
+													<li>20</li>
+												
+												<br/>
+											
+												topLinesToIgnoreCount
+												
+													<li>5</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheck</td>
+										
+										<td class="c">
+											
+												ignoreCalculationOfBooleanVariablesWithAssert
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariables
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariablesWithReturn
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreCalculationOfBooleanVariablesWithAssert
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariables
+												
+													<li>false</li>
+												
+												<br/>
+											
+												ignoreCalculationOfBooleanVariablesWithReturn
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidInstantiationCheck</td>
+										
+										<td class="c">
+											
+												forbiddenClasses
+												
+													<li>java.lang.NullPointerExceptionCheck</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												forbiddenClasses
+												
+													<li>java.lang.NullPointerExceptionCheck</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheck</td>
+										
+										<td class="c">
+											
+												targetConstantTypes
+												
+													<li>LITERAL_NULL,LITERAL_TRUE,LITERAL_FALSE,NUM_INT,NUM_DOUBLE,NUM_LONG,NUM_FLOAT</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												targetConstantTypes
+												
+													<li>LITERAL_NULL,LITERAL_TRUE,LITERAL_FALSE,NUM_INT,NUM_DOUBLE,NUM_LONG,NUM_FLOAT</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidThrowAnonymousExceptionsCheck</td>
+										
+										<td class="c">
+											
+												exceptionClassNameRegex
+												
+													<li>^.*Exception</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												exceptionClassNameRegex
+												
+													<li>^.*Exception</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MapIterationInForEachLoopCheck</td>
+										
+										<td class="c">
+											
+												proposeKeySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeEntrySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeValuesUsage
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												proposeKeySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeEntrySetUsage
+												
+													<li>false</li>
+												
+												<br/>
+											
+												proposeValuesUsage
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheck</td>
+										
+										<td class="c">
+											
+												ignoreTernaryOperatorsInBraces
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreIsolatedTernaryOnLine
+												
+													<li>true</li>
+												
+												<br/>
+											
+												maxTernaryPerExpressionCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreTernaryOperatorsInBraces
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreIsolatedTernaryOnLine
+												
+													<li>true</li>
+												
+												<br/>
+											
+												maxTernaryPerExpressionCount
+												
+													<li>1</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheck</td>
+										
+										<td class="c">
+											
+												allowReturnInEmptyMethodsAndConstructors
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowReturnInEmptyMethodsAndConstructors
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheck</td>
+										
+										<td class="c">
+											
+												maxDecimalSymbolsUntilUnderscore
+												
+													<li>3</li>
+												
+												<br/>
+											
+												minHexSymbolLength
+												
+													<li>5</li>
+												
+												<br/>
+											
+												minBinarySymbolLength
+												
+													<li>9</li>
+												
+												<br/>
+											
+												minDecimalSymbolLength
+												
+													<li>7</li>
+												
+												<br/>
+											
+												maxHexSymbolsUntilUnderscore
+												
+													<li>4</li>
+												
+												<br/>
+											
+												ignoreFieldNamePattern
+												
+													<li>serialVersionUID</li>
+												
+												<br/>
+											
+												maxBinarySymbolsUntilUnderscore
+												
+													<li>8</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												maxDecimalSymbolsUntilUnderscore
+												
+													<li>3</li>
+												
+												<br/>
+											
+												minHexSymbolLength
+												
+													<li>5</li>
+												
+												<br/>
+											
+												minBinarySymbolLength
+												
+													<li>9</li>
+												
+												<br/>
+											
+												minDecimalSymbolLength
+												
+													<li>7</li>
+												
+												<br/>
+											
+												maxHexSymbolsUntilUnderscore
+												
+													<li>4</li>
+												
+												<br/>
+											
+												ignoreFieldNamePattern
+												
+													<li>serialVersionUID</li>
+												
+												<br/>
+											
+												maxBinarySymbolsUntilUnderscore
+												
+													<li>8</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.NameConventionForJunit4TestClassesCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.Jsr305AnnotationsCheck</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+												excludePackages
+												
+													<li>com.github.sevntu.checkstyle.checks.sizes,com.github.sevntu.checkstyle.checks.design</li>
+												
+												<br/>
+											
+												allowOverridingParameter
+												
+													<li>false</li>
+												
+												<br/>
+											
+												packages
+												
+													<li>com.github.sevntu.checkstyle.checks.naming,com.github.sevntu.checkstyle.checks.coding</li>
+												
+												<br/>
+											
+												allowOverridingReturnValue
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+												excludePackages
+												
+													<li>com.github.sevntu.checkstyle.checks.sizes,com.github.sevntu.checkstyle.checks.design</li>
+												
+												<br/>
+											
+												allowOverridingParameter
+												
+													<li>false</li>
+												
+												<br/>
+											
+												packages
+												
+													<li>com.github.sevntu.checkstyle.checks.naming,com.github.sevntu.checkstyle.checks.coding</li>
+												
+												<br/>
+											
+												allowOverridingReturnValue
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">3008</td>
+							<td id="totalBase">9519</td>
+							
+								<td id="warningSeverityNumBase">9519</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">3008</td>
+							<td id="totalPatch">9523 (4 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">9523 (4 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">3 files with differences</td>
+							<td id="totalDiff">4 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">4 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.annotation.RequiredParameterForAnnotationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheck</th>
+								
+									<th>com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheckModuleNumBase">11</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheckModuleNumBase">11</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheckModuleNumBase">48</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheckModuleNumBase">49</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheckModuleNumBase">1030</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheckModuleNumBase">10</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheckModuleNumBase">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheckModuleNumBase">10</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheckModuleNumBase">28</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheckModuleNumBase">525</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheckModuleNumBase">274</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheckModuleNumBase">193</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheckModuleNumBase">107</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.RequiredParameterForAnnotationCheckModuleNumBase">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheckModuleNumBase">16</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheckModuleNumBase">256</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheckModuleNumBase">31</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheckModuleNumBase">22</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheckModuleNumBase">14</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheckModuleNumBase">31</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheckModuleNumBase">5952</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheckModuleNumBase">420</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheckModuleNumBase">71</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheckModuleNumBase">5</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheckModuleNumBase">19</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheckModuleNumBase">60</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheckModuleNumBase">33</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheckModuleNumBase">45</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheckModuleNumBase">19</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheckModuleNumBase">14</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheckModuleNumBase">100</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheckModuleNumBase">107</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheckModuleNumBase">6</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheckModuleStatisticsPatch">11</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheckModuleStatisticsPatch">11</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheckModuleStatisticsPatch">48</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheckModuleStatisticsPatch">49</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheckModuleStatisticsPatch">1030</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheckModuleStatisticsPatch">10</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheckModuleStatisticsPatch">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheckModuleStatisticsPatch">10</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheckModuleStatisticsPatch">28</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheckModuleStatisticsPatch">525</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheckModuleStatisticsPatch">274</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheckModuleStatisticsPatch">193</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheckModuleStatisticsPatch">107</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.RequiredParameterForAnnotationCheckModuleStatisticsPatch">1</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheckModuleStatisticsPatch">16</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheckModuleStatisticsPatch">256</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheckModuleStatisticsPatch">31</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheckModuleStatisticsPatch">22</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheckModuleStatisticsPatch">14</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheckModuleStatisticsPatch">31</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheckModuleStatisticsPatch">5952</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheckModuleStatisticsPatch">424 (4 added)</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheckModuleStatisticsPatch">71</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheckModuleStatisticsPatch">5</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheckModuleStatisticsPatch">19</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheckModuleStatisticsPatch">60</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheckModuleStatisticsPatch">33</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheckModuleStatisticsPatch">45</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheckModuleStatisticsPatch">19</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheckModuleStatisticsPatch">14</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheckModuleStatisticsPatch">100</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheckModuleStatisticsPatch">107</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheckModuleStatisticsPatch">6</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidReturnInFinallyBlockCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidHidingCauseExceptionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ConfusingConditionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.LogicConditionNeedOptimizationCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UnnecessaryParenthesesExtendedCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.EmptyPublicCtorInClassCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.annotation.RequiredParameterForAnnotationCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.TernaryPerExpressionCountCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleVariableDeclarationsExtendedCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.UselessSingleCatchCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheckModuleNumDiff">4</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.NoNullForCollectionReturnCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnBooleanFromTernaryCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.FinalizeImplementationCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.RedundantReturnCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.MoveVariableInsideIfCheckModuleNumDiff">0</td>
+								
+									<td id="com.github.sevntu.checkstyle.checks.coding.AvoidNotShortCircuitOperatorsForBooleanCheckModuleNumDiff">0</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">4</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle/src/it/resources/com/google/checkstyle/test/chapter5naming/rule51identifiernames/InputCatchParameterName.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>IllegalCatchExtended</td>
+								<td>Catching &#39;Error&#39; is not allowed.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle/src/it/resources/com/google/checkstyle/test/chapter5naming/rule51identifiernames/InputCatchParameterName.java.html#L12">12</a></td>
+								
+								
+									
+									<td class="keepWidth">11</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle/src/test/resources/com/puppycrawl/tools/checkstyle/checks/coding/illegalcatch/InputIllegalCatch2.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>IllegalCatchExtended</td>
+								<td>Catching &#39;RuntimeException&#39; is not allowed.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle/src/test/resources/com/puppycrawl/tools/checkstyle/checks/coding/illegalcatch/InputIllegalCatch2.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">11</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>IllegalCatchExtended</td>
+								<td>Catching &#39;RuntimeException&#39; is not allowed.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle/src/test/resources/com/puppycrawl/tools/checkstyle/checks/coding/illegalcatch/InputIllegalCatch2.java.html#L10">10</a></td>
+								
+								
+									
+									<td class="keepWidth">11</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle/src/test/resources/com/puppycrawl/tools/checkstyle/checks/naming/catchparametername/InputCatchParameterName.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>IllegalCatchExtended</td>
+								<td>Catching &#39;Error&#39; is not allowed.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle/src/test/resources/com/puppycrawl/tools/checkstyle/checks/naming/catchparametername/InputCatchParameterName.java.html#L12">12</a></td>
+								
+								
+									
+									<td class="keepWidth">11</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
