@@ -26,37 +26,1719 @@
 							<th>Files</th>
 							<th>Violations</th>
 							
+								<th>Severity-difference</th>
+							
 						</tr>
 						<tr class="b">
 							<td>base</td>
-							<td id="filesBase">3129</td>
-							<td id="totalBase">0</td>
+							<td id="filesBase">3208</td>
+							<td id="totalBase">39</td>
+							
+								<td id="differenceSeverityNumBase">39</td>
 							
 						</tr>
 						<tr class="a">
 							<td>patch</td>
-							<td id="filesPatch">3129</td>
-							<td id="totalPatch">0</td>
+							<td id="filesPatch">3208</td>
+							<td id="totalPatch">57 (39 removed, 57 added)</td>
+							
+								<td id="differenceSeverityStatisticsPatch">57 (39 removed, 57 added)</td>
 							
 						</tr>
 						<tr class="d">
 							<td/>
-							<td id="filesDiff">0 files with differences</td>
-							<td id="totalDiff">0 changes in violations</td>
+							<td id="filesDiff">1 file with differences</td>
+							<td id="totalDiff">96 changes in violations</td>
+							
+								<td id="differenceSeverityNumDiff">96 changes in violations</td>
 							
 						<tr>
 					</table>
 
 					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>patch-diff-report-tool</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="patch-diff-report-toolModuleNumBase">39</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="patch-diff-report-toolModuleStatisticsPatch">57 (39 removed, 57 added)</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="patch-diff-report-toolModuleNumDiff">96</td>
+								
+							<tr>
+						</table>
+					
 
 					<br />
-					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
-					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">0</span><br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">39</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">57</span><br />
 				</div>
 			</div>
 
 			<div class="section">
 				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>SINGLE_LINE_COMMENT -&gt; // [1:0]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L1">1</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>com.puppycrawl.tools.checkstyle.api.CheckstyleException: IllegalStateException occurred while parsing file /home/nick/development/contribution/checkstyle-tester/repositories/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.java.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L1">1</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.JavaParser.parse(JavaParser.java:104)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L2">2</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>`--COMMENT_CONTENT -&gt; non-compiled with eclipse: &#39;The explicit &#39;this&#39; parameter is expected to be qualified with Inner&#39;\n [1:2]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L2">2</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.JavaParser.parseFileText(JavaParser.java:121)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L3">3</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>PACKAGE_DEF -&gt; package [2:0]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L3">3</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.JavaParser.parseFile(JavaParser.java:141)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L4">4</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|--ANNOTATIONS -&gt; ANNOTATIONS [2:47]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L4">4</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.AstTreeStringPrinter.printJavaAndJavadocTree(AstTreeStringPrinter.java:78)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|--DOT -&gt; . [2:47]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L5">5</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.Main.runCli(Main.java:306)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L6">6</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   |--DOT -&gt; . [2:39]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L6">6</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.Main.execute(Main.java:191)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   |   |--DOT -&gt; . [2:28]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.Main.main(Main.java:126)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L8">8</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   |   |   |--DOT -&gt; . [2:22]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L8">8</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>Caused by: java.lang.IllegalStateException: 8:81: mismatched input &#39;Inner&#39; expecting &#39;this&#39;</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L9">9</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   |   |   |   |--DOT -&gt; . [2:11]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L9">9</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.JavaParser$CheckstyleErrorListener.syntaxError(JavaParser.java:255)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L10">10</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   |   |   |   |   |--IDENT -&gt; com [2:8]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L10">10</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at org.antlr.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:41)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L11">11</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   |   |   |   |   `--IDENT -&gt; puppycrawl [2:12]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L11">11</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at org.antlr.v4.runtime.Parser.notifyErrorListeners(Parser.java:544)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L12">12</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   |   |   |   `--IDENT -&gt; tools [2:23]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L12">12</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at org.antlr.v4.runtime.DefaultErrorStrategy.reportInputMismatch(DefaultErrorStrategy.java:327)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L13">13</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   |   |   `--IDENT -&gt; checkstyle [2:29]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L13">13</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at org.antlr.v4.runtime.DefaultErrorStrategy.reportError(DefaultErrorStrategy.java:139)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L14">14</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   |   `--IDENT -&gt; grammar [2:40]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L14">14</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.CheckstyleParserErrorStrategy.recoverInline(CheckstyleParserErrorStrategy.java:38)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L15">15</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   `--IDENT -&gt; antlr4 [2:48]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L15">15</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at org.antlr.v4.runtime.Parser.match(Parser.java:206)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L16">16</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>`--SEMI -&gt; ; [2:54]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L16">16</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.variableDeclaratorId(CheckstyleJavaParser.java:3573)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L17">17</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>CLASS_DEF -&gt; CLASS_DEF [4:0]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L17">17</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.formalParameter(CheckstyleJavaParser.java:4311)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L18">18</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|--MODIFIERS -&gt; MODIFIERS [4:0]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L18">18</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.formalParameterList(CheckstyleJavaParser.java:4204)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L19">19</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|   `--LITERAL_PUBLIC -&gt; public [4:0]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L19">19</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.formalParameters(CheckstyleJavaParser.java:4147)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L20">20</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|--LITERAL_CLASS -&gt; class [4:7]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L20">20</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.constructorDeclaration(CheckstyleJavaParser.java:2975)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L21">21</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>|--IDENT -&gt; InputAntlr4AstRegressionQualifiedConstructorParameter [4:13]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L21">21</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A43" href = "#A43">#A43</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.memberDeclaration(CheckstyleJavaParser.java:2681)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L22">22</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A44" href = "#A44">#A44</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>`--OBJBLOCK -&gt; OBJBLOCK [4:67]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L22">22</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A45" href = "#A45">#A45</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.classBodyDeclaration(CheckstyleJavaParser.java:2594)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L23">23</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A46" href = "#A46">#A46</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |--LCURLY -&gt; { [4:67]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L23">23</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A47" href = "#A47">#A47</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.classBody(CheckstyleJavaParser.java:2405)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L24">24</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A48" href = "#A48">#A48</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |--CLASS_DEF -&gt; CLASS_DEF [5:4]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L24">24</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A49" href = "#A49">#A49</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.classDeclaration(CheckstyleJavaParser.java:1047)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L25">25</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A50" href = "#A50">#A50</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |   |--MODIFIERS -&gt; MODIFIERS [5:4]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L25">25</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A51" href = "#A51">#A51</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.memberDeclaration(CheckstyleJavaParser.java:2702)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L26">26</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A52" href = "#A52">#A52</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |   |--LITERAL_CLASS -&gt; class [5:4]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L26">26</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A53" href = "#A53">#A53</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.classBodyDeclaration(CheckstyleJavaParser.java:2594)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L27">27</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A54" href = "#A54">#A54</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |   |--IDENT -&gt; Inner [5:10]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L27">27</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A55" href = "#A55">#A55</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.classBody(CheckstyleJavaParser.java:2405)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L28">28</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A56" href = "#A56">#A56</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |   `--OBJBLOCK -&gt; OBJBLOCK [5:16]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L28">28</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A57" href = "#A57">#A57</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.classDeclaration(CheckstyleJavaParser.java:1047)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L29">29</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A58" href = "#A58">#A58</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |--LCURLY -&gt; { [5:16]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L29">29</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A59" href = "#A59">#A59</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.memberDeclaration(CheckstyleJavaParser.java:2702)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L30">30</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A60" href = "#A60">#A60</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |--CLASS_DEF -&gt; CLASS_DEF [6:8]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L30">30</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A61" href = "#A61">#A61</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.classBodyDeclaration(CheckstyleJavaParser.java:2594)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L31">31</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A62" href = "#A62">#A62</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |   |--MODIFIERS -&gt; MODIFIERS [6:8]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L31">31</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A63" href = "#A63">#A63</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.classBody(CheckstyleJavaParser.java:2405)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L32">32</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A64" href = "#A64">#A64</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |   |--LITERAL_CLASS -&gt; class [6:8]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L32">32</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A65" href = "#A65">#A65</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.classDeclaration(CheckstyleJavaParser.java:1047)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L33">33</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A66" href = "#A66">#A66</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |   |--IDENT -&gt; Inner2 [6:14]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L33">33</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A67" href = "#A67">#A67</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.types(CheckstyleJavaParser.java:707)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L34">34</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A68" href = "#A68">#A68</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |   `--OBJBLOCK -&gt; OBJBLOCK [6:21]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L34">34</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A69" href = "#A69">#A69</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.typeDeclaration(CheckstyleJavaParser.java:622)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A70" href = "#A70">#A70</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |--LCURLY -&gt; { [6:21]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A71" href = "#A71">#A71</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.grammar.java.CheckstyleJavaParser.compilationUnit(CheckstyleJavaParser.java:374)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L36">36</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A72" href = "#A72">#A72</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |--CTOR_DEF -&gt; CTOR_DEF [7:12]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L36">36</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A73" href = "#A73">#A73</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	at com.puppycrawl.tools.checkstyle.JavaParser.parse(JavaParser.java:98)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A74" href = "#A74">#A74</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |--MODIFIERS -&gt; MODIFIERS [7:12]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A75" href = "#A75">#A75</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>	... 6 more</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A76" href = "#A76">#A76</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |--IDENT -&gt; Inner2 [7:12]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A77" href = "#A77">#A77</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |--LPAREN -&gt; ( [7:18]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A78" href = "#A78">#A78</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>Checkstyle ends with 1 errors.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savemaster/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A79" href = "#A79">#A79</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |--PARAMETERS -&gt; PARAMETERS [7:72]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L40">40</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A80" href = "#A80">#A80</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |   `--PARAMETER_DEF -&gt; PARAMETER_DEF [7:72]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L41">41</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A81" href = "#A81">#A81</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |       |--MODIFIERS -&gt; MODIFIERS [7:72]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L42">42</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A82" href = "#A82">#A82</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |       |--TYPE -&gt; TYPE [7:72]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L43">43</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A83" href = "#A83">#A83</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |       |   `--DOT -&gt; . [7:72]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L44">44</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A84" href = "#A84">#A84</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |       |       |--IDENT -&gt; InputAntlr4AstRegressionQualifiedConstructorParameter [7:19]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L45">45</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A85" href = "#A85">#A85</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |       |       `--IDENT -&gt; Inner [7:73]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L46">46</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A86" href = "#A86">#A86</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |       `--DOT -&gt; . [8:86]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L47">47</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A87" href = "#A87">#A87</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |           |--DOT -&gt; . [8:80]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L48">48</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A88" href = "#A88">#A88</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |           |   |--IDENT -&gt; InputAntlr4AstRegressionQualifiedConstructorParameter [8:27]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A89" href = "#A89">#A89</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |           |   `--IDENT -&gt; Inner [8:81]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L50">50</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A90" href = "#A90">#A90</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |           `--LITERAL_THIS -&gt; this [8:87]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L51">51</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A91" href = "#A91">#A91</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   |--RPAREN -&gt; ) [8:91]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L52">52</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A92" href = "#A92">#A92</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |   `--SLIST -&gt; { [8:93]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L53">53</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A93" href = "#A93">#A93</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       |       `--RCURLY -&gt; } [8:95]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L54">54</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A94" href = "#A94">#A94</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       |       `--RCURLY -&gt; } [9:8]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L55">55</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A95" href = "#A95">#A95</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    |       `--RCURLY -&gt; } [10:4]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L56">56</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A96" href = "#A96">#A96</a></td>
+								<td>difference</td>
+								<td>patch-diff-report-tool</td>
+								<td>    `--RCURLY -&gt; } [11:0]</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/savepull/my-checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/antlr4/InputAntlr4AstRegressionQualifiedConstructorParameter.tree.html#L57">57</a></td>
+								
+								
+									
+									<td class="keepWidth">1</td>
+								
+							</tr>
+						
+					</table>
+				</div>
 			</div>
 		</div>
 	</body>
