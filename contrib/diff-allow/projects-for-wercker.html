@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>projects-for-wercker.html xref</title>
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   # List of GIT repositories to clone / pull for checking with Checkstyle
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   # File format: REPO_NAME|[local|git|hg]|URL|[COMMIT_ID]|[EXCLUDE FOLDERS]
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   # Please note that bash comments works in this file
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   #apache-struts|git|https://github.com/apache/struts.git|master|**/apache-struts/**/resources/**/*
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   # 'InputAllEscapedUnicodeCharacters' must be skipped because it is too big and slows down JXR
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   # 'InputXpathMapperStringConcat' must be skipped until https://github.com/checkstyle/checkstyle/issues/10810
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   #local-checkstyle|local|../../../|master|**/.ci-temp/**/*,**/resources-noncompilable/**/asttreestringprinter/**/*,**/resources-noncompilable/**/filefilters/**/*,**/resources-noncompilable/**/main/**/*,**/resources-noncompilable/**/suppressionsstringprinter/**/*,**/resources-noncompilable/**/gui/**/*,**/resources-noncompilable/**/javadocpropertiesgenerator/**/*,src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/javaparser/InputJavaParser.java,**/InputAllEscapedUnicodeCharacters.java,**/resources-noncompilable/**/javaparser/InputJavaParser.java,**/resources-noncompilable/**/checks/imports/unusedimports/InputUnusedImportsSingleWordPackage.java,src/test/resources/com/puppycrawl/tools/checkstyle/xpath/xpathmapper/InputXpathMapperStringConcat,src/test/resources/com/puppycrawl/tools/checkstyle/checks/indentation/indentation/InputIndentationLongConcatenatedString
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  #sevntu-checkstyle|git|https://github.com/sevntu-checkstyle/sevntu.checkstyle|master||
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  guava|git|https://github.com/google/guava|v28.2||
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  #hibernate-orm|git|https://github.com/hibernate/hibernate-orm|4.2.19.Final|**/hibernate-orm/documentation/**/*
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  #spotbugs|git|https://github.com/spotbugs/spotbugs|3.1.2||
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  #spring-framework|git|https://github.com/spring-projects/spring-framework|v4.1.6.RELEASE||
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  #Hbase|git|https://github.com/apache/hbase|1.1.0.1||
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  #pmd|git|https://github.com/pmd/pmd|pmd_releases/6.21.0|**/pmd/pmd-java/src/test/**/*,**/pmd/cpd/files/*
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  #spoon|git|https://github.com/INRIA/spoon.git|spoon-core-8.0.0|
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  #elasticsearch|git|https://github.com/elastic/elasticsearch|v1.5.2||
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  #lombok-ast|git|https://github.com/rzwitserloot/lombok.ast|v0.2|**/lombok-ast/test/**/*
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  # Projects which contain a lot of labmda expressions
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  #RxJava|git|https://github.com/ReactiveX/RxJava|v1.0.9||
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  #Vavr|git|https://github.com/vavr-io/vavr|v0.9.0||
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  #java-design-patterns|git|https://github.com/iluwatar/java-design-patterns|dd855a376bc025aa61f6816584f79eb9854fe5d7||
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  #MaterialDesignLibrary|git|https://github.com/navasmdc/MaterialDesignLibrary|1.3||
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  # Those projects are quite old and have lot of legacy code
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  #apache-ant|git|https://github.com/apache/ant|ANT_194|**/apache-ant/src/tests/**/*,**/apache-ant/src/etc/testcases/
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  #apache-jsecurity|git|https://github.com/apache/jsecurity|c2ac5b90a467aedb04b52ae50a99e83207d847b3||
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  #android-launcher|git|https://github.com/android/platform_packages_apps_launcher|android-2.1_r2.1p2||
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
