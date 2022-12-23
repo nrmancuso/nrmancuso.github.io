@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.5.1-SNAPSHOT">
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/iterator/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/iterator/src/main/java/com/iluwatar/ItemType.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/iterator/src/main/java/com/iluwatar/App.java">
+<error line="20" column="28" severity="warning" message="The String &quot;----------&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/iterator/src/main/java/com/iluwatar/TreasureChestItemIterator.java">
+<error line="36" column="9" severity="warning" message="Loops should not contain more than a single &quot;break&quot; or &quot;continue&quot; statement" source="com.github.sevntu.checkstyle.checks.coding.SingleBreakOrContinueCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/iterator/src/main/java/com/iluwatar/ItemIterator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/iterator/src/main/java/com/iluwatar/Item.java">
+<error line="9" column="21" severity="warning" message="Overridable method &apos;setType&apos; is called in constructor body." source="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/iterator/src/main/java/com/iluwatar/TreasureChest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/main/java/com/iluwatar/AlchemistShop.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/main/java/com/iluwatar/InvisibilityPotion.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/main/java/com/iluwatar/PoisonPotion.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/main/java/com/iluwatar/StrengthPotion.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/main/java/com/iluwatar/PotionFactory.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/main/java/com/iluwatar/HolyWaterPotion.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/main/java/com/iluwatar/PotionType.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/main/java/com/iluwatar/HealingPotion.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/flyweight/src/main/java/com/iluwatar/Potion.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/visitor/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/visitor/src/main/java/com/iluwatar/Commander.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/visitor/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/visitor/src/main/java/com/iluwatar/Unit.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/visitor/src/main/java/com/iluwatar/SoldierVisitor.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/visitor/src/main/java/com/iluwatar/Sergeant.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/visitor/src/main/java/com/iluwatar/SergeantVisitor.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/visitor/src/main/java/com/iluwatar/CommanderVisitor.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/visitor/src/main/java/com/iluwatar/Soldier.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/visitor/src/main/java/com/iluwatar/UnitVisitor.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/adapter/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/adapter/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/adapter/src/main/java/com/iluwatar/GnomeEngineeringManager.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/adapter/src/main/java/com/iluwatar/Engineer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/adapter/src/main/java/com/iluwatar/GoblinGlider.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/adapter/src/main/java/com/iluwatar/GnomeEngineer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/HeroFactory.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/OrcWarlord.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/Prototype.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/HeroFactoryImpl.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/Beast.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/OrcBeast.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/Mage.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/Warlord.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/ElfWarlord.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/OrcMage.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/ElfMage.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/prototype/src/main/java/com/iluwatar/ElfBeast.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/model-view-presenter/src/test/java/com/iluwatar/FileSelectorPresenterTest.java">
+<error line="48" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="77" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="93" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="107" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="108" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="119" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/model-view-presenter/src/main/java/com/iluwatar/FileLoader.java">
+<error line="28" column="19" severity="warning" message="Return count for &apos;loadData&apos; method is 2 (max allowed is 1)." source="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheck"/>
+<error line="45" column="9" severity="warning" message="Catching &apos;Exception&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/model-view-presenter/src/main/java/com/iluwatar/FileSelectorJFrame.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/model-view-presenter/src/main/java/com/iluwatar/FileSelectorView.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/model-view-presenter/src/main/java/com/iluwatar/FileSelectorPresenter.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/model-view-presenter/src/main/java/com/iluwatar/MainApp.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/model-view-presenter/src/main/java/com/iluwatar/FileSelectorStub.java">
+<error line="99" column="5" severity="warning" message="Unexpected getter name." source="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/factory-method/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/factory-method/src/main/java/com/iluwatar/Weapon.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/factory-method/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/factory-method/src/main/java/com/iluwatar/WeaponType.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/factory-method/src/main/java/com/iluwatar/ElfWeapon.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/factory-method/src/main/java/com/iluwatar/ElfBlacksmith.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/factory-method/src/main/java/com/iluwatar/OrcWeapon.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/factory-method/src/main/java/com/iluwatar/OrcBlacksmith.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/factory-method/src/main/java/com/iluwatar/Blacksmith.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/state/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/state/src/main/java/com/iluwatar/AngryState.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/state/src/main/java/com/iluwatar/Mammoth.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/state/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/state/src/main/java/com/iluwatar/State.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/state/src/main/java/com/iluwatar/PeacefulState.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/double-checked-locking/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/double-checked-locking/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/double-checked-locking/src/main/java/com/iluwatar/Inventory.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/double-checked-locking/src/main/java/com/iluwatar/Item.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/Weather.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/Orcs.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/generic/GWeather.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/generic/GHobbits.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/generic/GOrcs.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/generic/Race.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/generic/Observable.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/generic/Observer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/WeatherObserver.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/Hobbits.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/observer/src/main/java/com/iluwatar/WeatherType.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/main/java/com/iluwatar/Event.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/main/java/com/iluwatar/KingJoffrey.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/main/java/com/iluwatar/KingsHand.java">
+<error line="12" column="9" severity="warning" message="Redundant super constructor call could be removed. Class &apos;KingsHand&apos; has superclass. Java compiler automatically inserts a call to the no-argument constructor of the superclass." source="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/main/java/com/iluwatar/EventObserver.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/main/java/com/iluwatar/Weekday.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/main/java/com/iluwatar/Scout.java">
+<error line="11" column="9" severity="warning" message="Redundant super constructor call could be removed. Class &apos;Scout&apos; has superclass. Java compiler automatically inserts a call to the no-argument constructor of the superclass." source="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/main/java/com/iluwatar/EventEmitter.java">
+<error line="21" column="25" severity="warning" message="Overridable method &apos;registerObserver&apos; is called in constructor body." source="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/main/java/com/iluwatar/LordBaelish.java">
+<error line="11" column="9" severity="warning" message="Redundant super constructor call could be removed. Class &apos;LordBaelish&apos; has superclass. Java compiler automatically inserts a call to the no-argument constructor of the superclass." source="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/event-aggregator/src/main/java/com/iluwatar/LordVarys.java">
+<error line="11" column="9" severity="warning" message="Redundant super constructor call could be removed. Class &apos;LordVarys&apos; has superclass. Java compiler automatically inserts a call to the no-argument constructor of the superclass." source="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/MagicWeapon.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/Excalibur.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/SoulEatingMagicWeapon.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/FlyingMagicWeaponImp.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/Mjollnir.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/MagicWeaponImp.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/SoulEatingMagicWeaponImp.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/BlindingMagicWeapon.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/Stormbringer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/BlindingMagicWeaponImp.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/bridge/src/main/java/com/iluwatar/FlyingMagicWeapon.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/chain/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/chain/src/main/java/com/iluwatar/OrcCommander.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/chain/src/main/java/com/iluwatar/Request.java">
+<error line="9" column="28" severity="warning" message="Overridable method &apos;setRequestType&apos; is called in constructor body." source="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheck"/>
+<error line="10" column="35" severity="warning" message="Overridable method &apos;setRequestDescription&apos; is called in constructor body." source="com.github.sevntu.checkstyle.checks.coding.OverridableMethodInConstructorCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/chain/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/chain/src/main/java/com/iluwatar/OrcOfficer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/chain/src/main/java/com/iluwatar/OrcKing.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/chain/src/main/java/com/iluwatar/OrcSoldier.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/chain/src/main/java/com/iluwatar/RequestHandler.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/chain/src/main/java/com/iluwatar/RequestType.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/interpreter/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/interpreter/src/main/java/com/iluwatar/Expression.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/interpreter/src/main/java/com/iluwatar/App.java">
+<error line="53" column="25" severity="warning" message="The String &quot;+&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="53" column="42" severity="warning" message="The String &quot;-&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="53" column="59" severity="warning" message="The String &quot;*&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/interpreter/src/main/java/com/iluwatar/MinusExpression.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/interpreter/src/main/java/com/iluwatar/NumberExpression.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/interpreter/src/main/java/com/iluwatar/PlusExpression.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/interpreter/src/main/java/com/iluwatar/MultiplyExpression.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/proxy/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/proxy/src/main/java/com/iluwatar/WizardTowerProxy.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/proxy/src/main/java/com/iluwatar/WizardTower.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/proxy/src/main/java/com/iluwatar/Wizard.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/proxy/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/template-method/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/template-method/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/template-method/src/main/java/com/iluwatar/StealingMethod.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/template-method/src/main/java/com/iluwatar/HitAndRunMethod.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/template-method/src/main/java/com/iluwatar/SubtleMethod.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/template-method/src/main/java/com/iluwatar/HalflingThief.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/memento/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/memento/src/main/java/com/iluwatar/StarType.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/memento/src/main/java/com/iluwatar/App.java">
+<error line="17" column="44" severity="warning" message="Numeric literal should have underscores." source="com.github.sevntu.checkstyle.checks.coding.NumericLiteralNeedsUnderscoreCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/memento/src/main/java/com/iluwatar/Star.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/memento/src/main/java/com/iluwatar/StarMementoInternal.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/memento/src/main/java/com/iluwatar/StarMemento.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/main/java/com/iluwatar/PartyImpl.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/main/java/com/iluwatar/Wizard.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/main/java/com/iluwatar/PartyMember.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/main/java/com/iluwatar/PartyMemberBase.java">
+<error line="20" column="35" severity="warning" message="The String &quot; &quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/main/java/com/iluwatar/Hobbit.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/main/java/com/iluwatar/Rogue.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/main/java/com/iluwatar/Hunter.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/main/java/com/iluwatar/Party.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/mediator/src/main/java/com/iluwatar/Action.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/facade/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/facade/src/main/java/com/iluwatar/DwarvenMineWorker.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/facade/src/main/java/com/iluwatar/DwarvenGoldDigger.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/facade/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/facade/src/main/java/com/iluwatar/DwarvenCartOperator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/facade/src/main/java/com/iluwatar/DwarvenTunnelDigger.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/facade/src/main/java/com/iluwatar/DwarvenGoldmineFacade.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/strategy/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/strategy/src/main/java/com/iluwatar/MeleeStrategy.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/strategy/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/strategy/src/main/java/com/iluwatar/DragonSlayer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/strategy/src/main/java/com/iluwatar/DragonSlayingStrategy.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/strategy/src/main/java/com/iluwatar/SpellStrategy.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/strategy/src/main/java/com/iluwatar/ProjectileStrategy.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/builder/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/builder/src/main/java/com/iluwatar/Hero.java">
+<error line="52" column="27" severity="warning" message="The String &quot; &quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="72" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/builder/src/main/java/com/iluwatar/Profession.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/builder/src/main/java/com/iluwatar/Weapon.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/builder/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/builder/src/main/java/com/iluwatar/Armor.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/builder/src/main/java/com/iluwatar/HairColor.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/builder/src/main/java/com/iluwatar/HairType.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/service-locator/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/service-locator/src/main/java/com/iluwatar/ServiceImpl.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/service-locator/src/main/java/com/iluwatar/Service.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/service-locator/src/main/java/com/iluwatar/App.java">
+<error line="11" column="53" severity="warning" message="The String &quot;jndi/serviceA&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/service-locator/src/main/java/com/iluwatar/ServiceLocator.java">
+<error line="26" column="13" severity="warning" message="C-style comments (/*...*/) inside method body are not allowed." source="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/service-locator/src/main/java/com/iluwatar/ServiceCache.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/service-locator/src/main/java/com/iluwatar/InitContext.java">
+<error line="19" column="32" severity="warning" message="The String &quot;jndi/serviceA&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="22" column="39" severity="warning" message="The String &quot;jndi/serviceB&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/composite/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/composite/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/composite/src/main/java/com/iluwatar/LetterComposite.java">
+<error line="13" column="59" severity="warning" message="Diamond operator expected." source="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/composite/src/main/java/com/iluwatar/Word.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/composite/src/main/java/com/iluwatar/Messenger.java">
+<error line="11" column="41" severity="warning" message="Diamond operator expected." source="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheck"/>
+<error line="34" column="41" severity="warning" message="Diamond operator expected." source="com.github.sevntu.checkstyle.checks.coding.DiamondOperatorForVariableDefinitionCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/composite/src/main/java/com/iluwatar/Letter.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/composite/src/main/java/com/iluwatar/Sentence.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/null-object/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/null-object/src/main/java/com/iluwatar/NodeImpl.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/null-object/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/null-object/src/main/java/com/iluwatar/NullNode.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/null-object/src/main/java/com/iluwatar/Node.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/servant/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/servant/src/main/java/com/iluwatar/King.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/servant/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/servant/src/main/java/com/iluwatar/Royalty.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/servant/src/main/java/com/iluwatar/Queen.java">
+<error line="34" column="5" severity="warning" message="Unexpected setter name." source="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/servant/src/main/java/com/iluwatar/Servant.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/singleton/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/singleton/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/singleton/src/main/java/com/iluwatar/EnumIvoryTower.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/singleton/src/main/java/com/iluwatar/InitializingOnDemandHolderIdiom.java">
+<error line="17" column="46" severity="warning" message="Inner class should not implement default Serializable interface." source="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck"/>
+<error line="29" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/singleton/src/main/java/com/iluwatar/ThreadSafeLazyLoadedIvoryTower.java">
+<error line="18" column="9" severity="warning" message="C-style comments (/*...*/) inside method body are not allowed." source="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/singleton/src/main/java/com/iluwatar/IvoryTower.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/singleton/src/main/java/com/iluwatar/ThreadSafeDoubleCheckLocking.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/command/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/command/src/main/java/com/iluwatar/Wizard.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/command/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/command/src/main/java/com/iluwatar/Size.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/command/src/main/java/com/iluwatar/Goblin.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/command/src/main/java/com/iluwatar/Visibility.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/command/src/main/java/com/iluwatar/Command.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/command/src/main/java/com/iluwatar/Target.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/command/src/main/java/com/iluwatar/InvisibilitySpell.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/command/src/main/java/com/iluwatar/ShrinkSpell.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/decorator/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/decorator/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/decorator/src/main/java/com/iluwatar/Hostile.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/decorator/src/main/java/com/iluwatar/SmartTroll.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/decorator/src/main/java/com/iluwatar/Troll.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/test/java/com/iluwatar/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/King.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/App.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/ElfArmy.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/OrcKing.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/OrcKingdomFactory.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/ElfKing.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/ElfKingdomFactory.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/OrcCastle.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/Army.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/OrcArmy.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/ElfCastle.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/KingdomFactory.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/java-design-patterns/abstract-factory/src/main/java/com/iluwatar/Castle.java">
+</file>
+</checkstyle>

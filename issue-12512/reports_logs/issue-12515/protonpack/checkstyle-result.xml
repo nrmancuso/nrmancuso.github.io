@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.5.1-SNAPSHOT">
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/ZipTest.java">
+<error line="16" column="44" severity="warning" message="The String &quot;A&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="16" column="49" severity="warning" message="The String &quot;B&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="16" column="54" severity="warning" message="The String &quot;C&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="17" column="45" severity="warning" message="The String &quot;Apple&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="17" column="54" severity="warning" message="The String &quot;Banana&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="17" column="64" severity="warning" message="The String &quot;Carrot&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="19" column="79" severity="warning" message="The String &quot; is for &quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="21" column="37" severity="warning" message="The String &quot;A is for Apple&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="21" column="55" severity="warning" message="The String &quot;B is for Banana&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="21" column="74" severity="warning" message="The String &quot;C is for Carrot&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="46" column="43" severity="warning" message="The String &quot;Foo&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="46" column="50" severity="warning" message="The String &quot;Bar&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="46" column="57" severity="warning" message="The String &quot;Baz&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/OptionalTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/MapStreamTest.java">
+<error line="25" column="34" severity="warning" message="The String &quot;John&quot; appears 5 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="25" column="45" severity="warning" message="The String &quot;Alice&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="31" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="31" column="36" severity="warning" message="The String &quot;hn&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="48" column="11" severity="warning" message="Forbidden element &apos;expected&apos; in annotation &apos;Test&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/InterleaveTest.java">
+<error line="19" column="44" severity="warning" message="The String &quot;Peter&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="19" column="53" severity="warning" message="The String &quot;Paul&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="19" column="61" severity="warning" message="The String &quot;Mary&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="20" column="44" severity="warning" message="The String &quot;A&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="20" column="49" severity="warning" message="The String &quot;B&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="20" column="54" severity="warning" message="The String &quot;C&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="20" column="59" severity="warning" message="The String &quot;D&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="20" column="64" severity="warning" message="The String &quot;E&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="21" column="44" severity="warning" message="The String &quot;foo&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="21" column="51" severity="warning" message="The String &quot;bar&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="21" column="58" severity="warning" message="The String &quot;baz&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="21" column="65" severity="warning" message="The String &quot;xyzzy&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="49" column="44" severity="warning" message="The String &quot;1 A1&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="49" column="52" severity="warning" message="The String &quot;1 A2&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="49" column="60" severity="warning" message="The String &quot;2 A3&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="50" column="44" severity="warning" message="The String &quot;2 B1&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="50" column="52" severity="warning" message="The String &quot;1 B2&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="50" column="60" severity="warning" message="The String &quot;1 B3&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/SeqTest.java">
+<error line="38" column="27" severity="warning" message="The String &quot;Blankets&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="38" column="44" severity="warning" message="The String &quot;In&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="38" column="55" severity="warning" message="The String &quot;Pigs&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/NullableTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/MinMaxByProjectionTest.java">
+<error line="17" column="55" severity="warning" message="The String &quot;bb&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="17" column="61" severity="warning" message="The String &quot;ccc&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="17" column="68" severity="warning" message="The String &quot;1&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/NoCombinerTest.java">
+<error line="16" column="11" severity="warning" message="Forbidden element &apos;expected&apos; in annotation &apos;Test&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/UniqueTest.java">
+<error line="25" column="11" severity="warning" message="Forbidden element &apos;expected&apos; in annotation &apos;Test&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/StreamableTest.java">
+<error line="48" column="51" severity="warning" message="The String &quot;a&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="48" column="56" severity="warning" message="The String &quot;b&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="48" column="61" severity="warning" message="The String &quot;c&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/MergeTest.java">
+<error line="17" column="44" severity="warning" message="The String &quot;A&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="17" column="49" severity="warning" message="The String &quot;B&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="17" column="54" severity="warning" message="The String &quot;C&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="18" column="44" severity="warning" message="The String &quot;apple&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="18" column="53" severity="warning" message="The String &quot;banana&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="18" column="63" severity="warning" message="The String &quot;carrot&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="18" column="73" severity="warning" message="The String &quot;date&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="19" column="44" severity="warning" message="The String &quot;fritter&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="19" column="55" severity="warning" message="The String &quot;split&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="19" column="64" severity="warning" message="The String &quot;cake&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="19" column="72" severity="warning" message="The String &quot;roll&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="19" column="80" severity="warning" message="The String &quot;pastry&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/WindowedTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/TakeWhileTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/SkipWhileTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/UnfoldTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/GroupRunsTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/test/java/com/codepoetics/protonpack/AggregateTest.java">
+<error line="18" column="43" severity="warning" message="The String &quot;a1&quot; appears 10 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="18" column="49" severity="warning" message="The String &quot;b1&quot; appears 8 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="18" column="55" severity="warning" message="The String &quot;b2&quot; appears 8 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="18" column="61" severity="warning" message="The String &quot;c1&quot; appears 8 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/MergingSpliterator.java">
+<error line="17" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="18" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="19" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="21" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/ZippingSpliterator.java">
+<error line="13" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="14" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="15" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="16" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="18" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/GroupRunsSpliterator.java">
+<error line="16" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;InnerClass()&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="21" column="5" severity="warning" message="Method definition in wrong order. Expected &apos;Method(.*)&apos; then &apos;InnerClass()&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="22" column="20" severity="warning" message="Return count for &apos;tryAdvance&apos; method is 3 (max allowed is 1)." source="com.github.sevntu.checkstyle.checks.coding.ReturnCountExtendedCheck"/>
+<error line="65" column="5" severity="warning" message="Method definition in wrong order. Expected &apos;Method(.*)&apos; then &apos;InnerClass()&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="70" column="5" severity="warning" message="Method definition in wrong order. Expected &apos;Method(.*)&apos; then &apos;InnerClass()&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="75" column="5" severity="warning" message="Method definition in wrong order. Expected &apos;Method(.*)&apos; then &apos;InnerClass()&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/StreamUtils.java">
+<error line="329" column="21" severity="warning" message="Constant have to be second operand of &apos;==&apos;." source="com.github.sevntu.checkstyle.checks.coding.AvoidConstantAsFirstOperandInConditionCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/InterleavingSpliterator.java">
+<error line="27" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="28" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="29" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="30" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="32" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/functions/TriFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/EmptySeq.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/TakeWhileSpliterator.java">
+<error line="13" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="14" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="15" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="17" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/selectors/Selector.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/selectors/Selectors.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/collectors/CollectorUtils.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/collectors/NonUniqueValueException.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/Streamable.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/maps/DefaultMapStream.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/maps/MapStream.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/TriZippingSpliterator.java">
+<error line="14" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="15" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="16" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="17" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="18" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="19" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="21" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/AggregatingSpliterator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/SkipUntilSpliterator.java">
+<error line="13" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="14" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="15" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="17" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/TappedSpliterator.java">
+<error line="12" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="13" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="15" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/PairSeq.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/Indexed.java">
+<error line="23" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="24" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="26" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/Seq.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/WindowedSpliterator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/protonpack/src/main/java/com/codepoetics/protonpack/UnfoldSpliterator.java">
+<error line="14" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="15" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(private)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="17" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+</checkstyle>

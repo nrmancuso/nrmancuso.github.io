@@ -1,0 +1,22 @@
+#Thu Dec 22 13:19:06 EST 2022
+configuration*?=B68E49C4D9C649A2A15A515D53944840DF0B6A52
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/it/java/org/checkstyle/plugins/sonar/CheckJarTest.java=1671733137747
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/rule/ActiveRuleWrapperServerImpl.java=1671733137747
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/rule/ActiveRuleWrapper.java=1671733137747
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/test-resources/World.java=1671733137763
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleConstants.java=1671733137747
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/internal/CheckUtil.java=1671733137763
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleTestUtils.java=1671733137763
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/rule/ActiveRuleWrapperScannerImpl.java=1671733137747
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/metadata/CheckstyleMetadata.java=1671733137747
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/test-resources/Hello.java=1671733137763
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstylePluginTest.java=1671733137759
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleConstantsTest.java=1671733137759
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleSensor.java=1671733137747
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleSensorTest.java=1671733137759
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/internal/XmlUtil.java=1671733137763
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleVersionTest.java=1671733137763
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/metadata/SonarRulePropertyLoader.java=1671733137747
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/package-info.java=1671733137747
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/metadata/CheckUtil.java=1671733137747
+/home/nick/development/contribution/checkstyle-tester/src/main/java/checkstyle-sonar/src/it/resources/integration-test-project/src/test/java/com/acme/AppTest.java=1671733137747

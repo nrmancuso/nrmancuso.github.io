@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.5.1-SNAPSHOT">
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/it/java/org/checkstyle/plugins/sonar/RunPluginTest.java">
+<error line="79" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="110" column="9" severity="warning" message="try/catch either requires a fail at the end of the try clause for junit tests or to remove the try/catch completely." source="com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheck"/>
+<error line="129" column="45" severity="warning" message="The String &quot;admin&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="227" column="27" severity="warning" message="The String &quot;language&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="227" column="39" severity="warning" message="The String &quot;java&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="228" column="35" severity="warning" message="The String &quot;checkstyle&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="243" column="31" severity="warning" message="The String &quot;profile_key&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/it/java/org/checkstyle/plugins/sonar/CheckJarTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/it/resources/integration-test-project/src/test/java/com/acme/AppTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/it/resources/integration-test-project/src/main/java/com/acme/App.java">
+<error line="10" column="5" severity="warning" message="Unexpected getter name." source="com.github.sevntu.checkstyle.checks.coding.SimpleAccessorNameNotationCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleProfileImporterTest.java">
+<error line="54" column="9" severity="warning" message="C-style comments (/*...*/) inside method body are not allowed." source="com.github.sevntu.checkstyle.checks.coding.ForbidCCommentsInMethodsCheck"/>
+<error line="70" column="17" severity="warning" message="The String &quot;/org/sonar/plugins/checkstyle/CheckstyleProfileImporterTest/simple.xml&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="74" column="56" severity="warning" message="The String &quot;checkstyle&quot; appears 10 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="75" column="17" severity="warning" message="The String &quot;Checker/TreeWalker/EqualsHashCode&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="76" column="70" severity="warning" message="The String &quot;Checker/JavadocPackage&quot; appears 9 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="89" column="46" severity="warning" message="The String &quot;format&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="90" column="46" severity="warning" message="The String &quot;ignore&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="90" column="67" severity="warning" message="The String &quot;true&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="98" column="17" severity="warning" message="The String &quot;/org/sonar/plugins/checkstyle/CheckstyleProfileImporterTest/&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="103" column="17" severity="warning" message="The String &quot;Checker/TreeWalker/MissingOverride&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="105" column="44" severity="warning" message="The String &quot;javaFiveCompatibility&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="122" column="17" severity="warning" message="The String &quot;/org/sonar/plugins/checkstyle/&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="154" column="17" severity="warning" message="The String &quot;com.puppycrawl.tools.checkstyle.checks.javadoc.&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="154" column="69" severity="warning" message="The String &quot;JavadocPackageCheck_12345&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="193" column="66" severity="warning" message="The String &quot;Javadoc Package&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleConfigurationTest.java">
+<error line="58" column="36" severity="warning" message="The String &quot;mainFile&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="63" column="25" severity="warning" message="The String &quot;java&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="67" column="40" severity="warning" message="The String &quot;testFile&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="117" column="28" severity="warning" message="The String &quot;&lt;conf/&gt;&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/internal/XmlUtil.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/internal/CheckUtil.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/internal/ChecksTest.java">
+<error line="275" column="66" severity="warning" message="The String &quot;key&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="286" column="23" severity="warning" message="The String &quot; (&quot; appears 15 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="286" column="43" severity="warning" message="The String &quot;)&quot; appears 15 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="298" column="47" severity="warning" message="The String &quot; requires a name in sonar rules&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="309" column="55" severity="warning" message="The String &quot;Check$&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="365" column="49" severity="warning" message="The String &quot;: &quot; appears 8 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="373" column="17" severity="warning" message="The String &quot;tokens&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="373" column="46" severity="warning" message="The String &quot;javadocTokens&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="377" column="41" severity="warning" message="The String &quot;s[&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="379" column="79" severity="warning" message="The String &quot;]&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="396" column="50" severity="warning" message="The String &quot; has the parameter &apos;&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="464" column="34" severity="warning" message="The String &quot;.name&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="468" column="68" severity="warning" message="The String &quot;.param.&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleRulesDefinitionTest.java">
+<error line="52" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleProfileExporterTest.java">
+<error line="59" column="28" severity="warning" message="The String &quot;javax.xml.transform.TransformerFactory&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="70" column="58" severity="warning" message="The String &quot;sonar way&quot; appears 9 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="70" column="71" severity="warning" message="The String &quot;java&quot; appears 9 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="76" column="17" severity="warning" message="The String &quot;/org/sonar/plugins/checkstyle/CheckstyleProfileExporterTest/&quot; appears 9 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="86" column="42" severity="warning" message="The String &quot;pmd&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="86" column="49" severity="warning" message="The String &quot;PmdRule1&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="86" column="61" severity="warning" message="The String &quot;PMD rule one&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="101" column="29" severity="warning" message="The String &quot;checkstyle&quot; appears 5 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="102" column="25" severity="warning" message="The String &quot;com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="103" column="25" severity="warning" message="The String &quot;Javadoc&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="103" column="49" severity="warning" message="The String &quot;Checker/JavadocPackage&quot; appears 5 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="125" column="25" severity="warning" message="The String &quot;IOException while writing should not be ignored&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="189" column="30" severity="warning" message="The String &quot;format&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="211" column="27" severity="warning" message="The String &quot;&lt;/module&gt;&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="273" column="35" severity="warning" message="The String &quot;test exception handling&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleTestUtils.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstylePluginTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleAuditListenerTest.java">
+<error line="59" column="91" severity="warning" message="The String &quot;msg&quot; appears 9 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="106" column="84" severity="warning" message="The String &quot;module&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="129" column="43" severity="warning" message="The String &quot;repo&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="129" column="51" severity="warning" message="The String &quot;key&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleSeverityUtilsTest.java">
+<error line="34" column="88" severity="warning" message="The String &quot;error&quot; appears 5 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="36" column="86" severity="warning" message="The String &quot;warning&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="37" column="86" severity="warning" message="The String &quot;info&quot; appears 5 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleExecutorTest.java">
+<error line="74" column="61" severity="warning" message="The String &quot;.*Hello.java&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="78" column="61" severity="warning" message="The String &quot;.*World.java&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="117" column="42" severity="warning" message="The String &quot;target/test-tmp/checkstyle-report.xml&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="188" column="33" severity="warning" message="The String &quot;java&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleSensorTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleConstantsTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/CheckstyleVersionTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/test/java/org/sonar/plugins/checkstyle/metadata/CheckstyleMetadataTest.java">
+<error line="52" column="17" severity="warning" message="The String &quot;com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleProfileExporter.java">
+<error line="182" column="5" severity="warning" message="Incorrect target: &apos;METHOD_DEF&apos; for annotation: &apos;VisibleForTesting&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/package-info.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleExecutor.java">
+<error line="109" column="9" severity="warning" message="Catching &apos;Exception&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="120" column="5" severity="warning" message="Incorrect target: &apos;METHOD_DEF&apos; for annotation: &apos;VisibleForTesting&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck"/>
+<error line="130" column="5" severity="warning" message="Incorrect target: &apos;METHOD_DEF&apos; for annotation: &apos;VisibleForTesting&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleAuditListener.java">
+<error line="123" column="5" severity="warning" message="Incorrect target: &apos;METHOD_DEF&apos; for annotation: &apos;VisibleForTesting&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck"/>
+<error line="129" column="9" severity="warning" message="Catching &apos;Exception&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="137" column="13" severity="warning" message="Catching &apos;Exception&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="145" column="5" severity="warning" message="Incorrect target: &apos;METHOD_DEF&apos; for annotation: &apos;VisibleForTesting&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck"/>
+<error line="152" column="9" severity="warning" message="Catching &apos;Exception&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="159" column="5" severity="warning" message="Incorrect target: &apos;METHOD_DEF&apos; for annotation: &apos;VisibleForTesting&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck"/>
+<error line="168" column="9" severity="warning" message="Catching &apos;Exception&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleConstants.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleVersion.java">
+<error line="43" column="9" severity="warning" message="Catching &apos;Exception&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstylePlugin.java">
+<error line="39" column="15" severity="warning" message="The String &quot;&lt;a href=&apos;https://checkstyle.org/config.html&apos;&gt;&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="40" column="15" severity="warning" message="The String &quot;Checkstyle&lt;/a&gt; &quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="41" column="15" severity="warning" message="The String &quot;configuration for more information.&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="51" column="15" severity="warning" message="The String &quot; &lt;a href=\&quot;https://checkstyle.org/config_filters.html&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleSeverityUtils.java">
+<error line="82" column="9" severity="warning" message="Catching &apos;Exception&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/rule/ActiveRuleWrapperServerImpl.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/rule/ActiveRuleWrapper.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/rule/ActiveRuleWrapperScannerImpl.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleProfileImporter.java">
+<error line="76" column="49" severity="warning" message="The String &quot;name&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="109" column="61" severity="warning" message="The String &quot;/&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="155" column="5" severity="warning" message="Incorrect target: &apos;METHOD_DEF&apos; for annotation: &apos;VisibleForTesting&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck"/>
+<error line="160" column="5" severity="warning" message="Incorrect target: &apos;METHOD_DEF&apos; for annotation: &apos;VisibleForTesting&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck"/>
+<error line="175" column="42" severity="warning" message="The String &quot;id&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="180" column="59" severity="warning" message="The String &quot;&apos; not found&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleConfiguration.java">
+<error line="116" column="5" severity="warning" message="Incorrect target: &apos;METHOD_DEF&apos; for annotation: &apos;VisibleForTesting&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleRulesDefinition.java">
+<error line="60" column="5" severity="warning" message="Incorrect target: &apos;METHOD_DEF&apos; for annotation: &apos;VisibleForTesting&apos;." source="com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/metadata/CheckUtil.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/metadata/CheckstyleMetadata.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/metadata/SonarRulePropertyLoader.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/src/main/java/org/sonar/plugins/checkstyle/CheckstyleSensor.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/test-resources/Hello.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/checkstyle-sonar/test-resources/World.java">
+</file>
+</checkstyle>

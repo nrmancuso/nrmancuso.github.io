@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.5.1-SNAPSHOT">
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CurryTest.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedConsumerTest.java">
+<error line="139" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="144" column="27" severity="warning" message="The String &quot;a&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="146" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="157" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="158" column="38" severity="warning" message="The String &quot;0&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="162" column="36" severity="warning" message="Array initializer should have whitespace before." source="com.github.sevntu.checkstyle.checks.coding.WhitespaceBeforeArrayInitializerCheck"/>
+<error line="164" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="165" column="38" severity="warning" message="The String &quot;1&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="175" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="182" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="193" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="200" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedBiPredicateTest.java">
+<error line="33" column="41" severity="warning" message="The String &quot;:&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="60" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedBiFunctionTest.java">
+<error line="38" column="41" severity="warning" message="The String &quot;:&quot; appears 8 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="140" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="141" column="38" severity="warning" message="The String &quot;null:null&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="146" column="21" severity="warning" message="The String &quot;a&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="149" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="160" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="171" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="182" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedBinaryOperatorTest.java">
+<error line="40" column="42" severity="warning" message="The String &quot;:&quot; appears 8 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="142" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="149" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="160" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="161" column="38" severity="warning" message="The String &quot;0:0&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="167" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="168" column="38" severity="warning" message="The String &quot;1:2&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="178" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="185" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="196" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="203" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/Utils.java">
+<error line="44" column="9" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="59" column="9" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/SeqTest.java">
+<error line="65" column="73" severity="warning" message="The String &quot;a&quot; appears 47 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="65" column="78" severity="warning" message="The String &quot;b&quot; appears 42 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="65" column="83" severity="warning" message="The String &quot;c&quot; appears 16 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="266" column="20" severity="warning" message="The String &quot;A&quot; appears 63 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="276" column="25" severity="warning" message="The String &quot;B&quot; appears 39 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="289" column="30" severity="warning" message="The String &quot;C&quot; appears 6 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="331" column="34" severity="warning" message="The String &quot;X&quot; appears 45 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="363" column="39" severity="warning" message="The String &quot;Y&quot; appears 27 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="406" column="19" severity="warning" message="The String &quot;(&quot; appears 9 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="414" column="19" severity="warning" message="The String &quot;)&quot; appears 9 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="564" column="22" severity="warning" message="The String &quot;123&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="565" column="22" severity="warning" message="The String &quot;1, 2, 3&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="565" column="58" severity="warning" message="The String &quot;, &quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="752" column="89" severity="warning" message="The String &quot;!&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="754" column="29" severity="warning" message="The String &quot;a!&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="754" column="35" severity="warning" message="The String &quot;b!&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="754" column="41" severity="warning" message="The String &quot;c!&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="773" column="22" severity="warning" message="The String &quot;abc&quot; appears 9 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="774" column="89" severity="warning" message="The String &quot;-&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="785" column="29" severity="warning" message="The String &quot;ab&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="947" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="948" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="950" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="951" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="952" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="953" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="958" column="59" severity="warning" message="The String &quot;two&quot; appears 6 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="958" column="76" severity="warning" message="The String &quot;one&quot; appears 6 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/TupleTest.java">
+<error line="52" column="26" severity="warning" message="The String &quot;abc&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="68" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="69" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="70" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="80" column="32" severity="warning" message="The String &quot;a&quot; appears 27 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="96" column="39" severity="warning" message="The String &quot;b&quot; appears 14 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="96" column="47" severity="warning" message="The String &quot;c&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="96" column="55" severity="warning" message="The String &quot;d&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="148" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="149" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="150" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="151" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="152" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="153" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="156" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="157" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="158" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="159" column="19" severity="warning" message="Call to &apos;assertTrue&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="160" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="161" column="20" severity="warning" message="Call to &apos;assertFalse&apos; method (matches pattern &apos;assert(True|False)&apos;) with &apos;1&apos; arguments (matches pattern &apos;1&apos;) is forbidden." source="com.github.sevntu.checkstyle.checks.coding.ForbidCertainMethodCheck"/>
+<error line="186" column="23" severity="warning" message="The String &quot;1, 2, 3&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="190" column="57" severity="warning" message="The String &quot;, &quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/SQLTest.java">
+<error line="44" column="9" severity="warning" message="Catching &apos;Exception&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="57" column="27" severity="warning" message="The String &quot;FIRST_NAME&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="58" column="27" severity="warning" message="The String &quot;LAST_NAME&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="92" column="55" severity="warning" message="The String &quot;SELECT id FROM author WHERE 1 = 0&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedUnaryOperatorTest.java">
+<error line="142" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="147" column="23" severity="warning" message="The String &quot;a&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="149" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="160" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="161" column="38" severity="warning" message="The String &quot;0&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="167" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="168" column="38" severity="warning" message="The String &quot;1&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="178" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="185" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="196" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="203" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedFunctionTest.java">
+<error line="366" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="367" column="38" severity="warning" message="The String &quot;null&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="372" column="33" severity="warning" message="The String &quot;a&quot; appears 5 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="374" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="385" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="390" column="23" severity="warning" message="The String &quot;1&quot; appears 9 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="390" column="28" severity="warning" message="The String &quot;2&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="390" column="33" severity="warning" message="The String &quot;3&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="392" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="403" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="410" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="421" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="428" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="439" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="440" column="38" severity="warning" message="The String &quot;0&quot; appears 6 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="446" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="457" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="464" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="475" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="482" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="493" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="500" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="511" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="518" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="529" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="536" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="547" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="548" column="38" severity="warning" message="The String &quot;0.0&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="554" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="555" column="38" severity="warning" message="The String &quot;1.0&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="565" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="572" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="583" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="590" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedSupplierTest.java">
+<error line="37" column="37" severity="warning" message="The String &quot;object&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="62" column="37" severity="warning" message="The String &quot;int&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="87" column="37" severity="warning" message="The String &quot;long&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="112" column="37" severity="warning" message="The String &quot;double&quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="137" column="37" severity="warning" message="The String &quot;boolean&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="164" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="171" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="182" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="189" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="200" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="207" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="218" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="225" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="236" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedPredicateTest.java">
+<error line="142" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="147" column="23" severity="warning" message="The String &quot;a&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="149" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="160" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="161" column="38" severity="warning" message="The String &quot;0&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="167" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="168" column="38" severity="warning" message="The String &quot;1&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="178" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="185" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="196" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="203" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedComparatorTest.java">
+<error line="33" column="42" severity="warning" message="The String &quot;:&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="60" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedBiConsumerTest.java">
+<error line="38" column="42" severity="warning" message="The String &quot;:&quot; appears 8 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="140" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="151" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="162" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="163" column="38" severity="warning" message="The String &quot;null:0&quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="173" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="184" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/test/java/org/jooq/lambda/CheckedRunnableTest.java">
+<error line="31" column="37" severity="warning" message="The String &quot;runnable&quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="58" column="9" severity="warning" message="Catching &apos;RuntimeException&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuple1.java">
+<error line="31" column="25" severity="warning" message="Inner class should not implement default Serializable interface." source="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck"/>
+<error line="35" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="41" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="45" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/package-info.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuples.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuple8.java">
+<error line="32" column="53" severity="warning" message="Inner class should not implement default Serializable interface." source="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck"/>
+<error line="36" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="37" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="38" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="39" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="40" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="41" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="42" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="43" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="77" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="88" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="245" column="16" severity="warning" message="The String &quot;, &quot; appears 7 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Range.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuple3.java">
+<error line="32" column="33" severity="warning" message="Inner class should not implement default Serializable interface." source="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck"/>
+<error line="36" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="37" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="38" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="52" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="58" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="202" column="16" severity="warning" message="The String &quot;, &quot; appears 2 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuple5.java">
+<error line="32" column="41" severity="warning" message="Inner class should not implement default Serializable interface." source="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck"/>
+<error line="36" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="37" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="38" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="39" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="40" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="62" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="70" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="222" column="16" severity="warning" message="The String &quot;, &quot; appears 4 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuple4.java">
+<error line="32" column="37" severity="warning" message="Inner class should not implement default Serializable interface." source="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck"/>
+<error line="36" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="37" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="38" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="39" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="57" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="64" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="212" column="16" severity="warning" message="The String &quot;, &quot; appears 3 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuple6.java">
+<error line="32" column="45" severity="warning" message="Inner class should not implement default Serializable interface." source="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck"/>
+<error line="36" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="37" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="38" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="39" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="40" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="41" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="67" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="76" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="232" column="16" severity="warning" message="The String &quot;, &quot; appears 5 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuple0.java">
+<error line="32" column="21" severity="warning" message="Inner class should not implement default Serializable interface." source="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuple2.java">
+<error line="33" column="29" severity="warning" message="Inner class should not implement default Serializable interface." source="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck"/>
+<error line="37" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="38" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="48" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="53" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuple.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/tuple/Tuple7.java">
+<error line="32" column="49" severity="warning" message="Inner class should not implement default Serializable interface." source="com.github.sevntu.checkstyle.checks.coding.AvoidDefaultSerializableInInnerClassesCheck"/>
+<error line="36" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="37" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="38" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="39" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="40" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="41" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="42" column="5" severity="warning" message="Field definition in wrong order. Expected &apos;Field(public)&apos; then &apos;Field(private)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="72" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="82" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+<error line="242" column="16" severity="warning" message="The String &quot;, &quot; appears 6 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/package-info.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/function/Function7.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/function/Function8.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/function/Function2.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/function/package-info.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/function/Function3.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/function/Function4.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/function/Function6.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/function/Function1.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/function/Function5.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/function/Function0.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/SQL.java">
+<error line="191" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/SeqImpl.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/Unchecked.java">
+<error line="93" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="96" column="49" severity="warning" message="The String &quot;Exception handler must throw a RuntimeException&quot; appears 44 times in the file." source="com.github.sevntu.checkstyle.checks.coding.MultipleStringLiteralsExtendedCheck"/>
+<error line="120" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="168" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="191" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="212" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="235" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="287" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="310" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="333" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="356" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="383" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="435" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="483" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="531" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="579" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="627" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="671" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="715" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="759" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="811" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="859" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="907" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="955" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1003" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1051" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1099" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1147" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1195" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1243" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1291" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1339" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1387" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1439" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1487" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1535" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1583" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1628" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1669" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1710" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1751" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1792" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1844" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1892" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1940" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1988" column="13" severity="warning" message="Catching &apos;Throwable&apos; is not allowed." source="com.github.sevntu.checkstyle.checks.coding.IllegalCatchExtendedCheck"/>
+<error line="1999" column="5" severity="warning" message="Constructor definition in wrong order. Expected &apos;CTOR(.*)&apos; then &apos;Method(.*)&apos;." source="com.github.sevntu.checkstyle.checks.coding.CustomDeclarationOrderCheck"/>
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/Seq.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/package-info.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/CheckedComparator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/package-info.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedDoubleToLongFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedToLongBiFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedObjDoubleConsumer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedLongToDoubleFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedBinaryOperator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedIntToDoubleFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedDoubleBinaryOperator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedDoubleToIntFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedLongBinaryOperator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedToIntBiFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedLongUnaryOperator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedDoublePredicate.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedUnaryOperator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedIntBinaryOperator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/package-info.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedIntUnaryOperator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedBiConsumer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedToDoubleFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedToIntFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedLongFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedBooleanSupplier.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedDoubleFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedToDoubleBiFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedObjLongConsumer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedDoubleConsumer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedObjIntConsumer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedDoubleSupplier.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedLongPredicate.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedSupplier.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedBiPredicate.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedIntPredicate.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedBiFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedDoubleUnaryOperator.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedLongSupplier.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedPredicate.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedIntSupplier.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedIntFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedIntConsumer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedLongToIntFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedConsumer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedToLongFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedIntToLongFunction.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/util/function/CheckedLongConsumer.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/lang/package-info.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/fi/lang/CheckedRunnable.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/UncheckedException.java">
+</file>
+<file name="/home/nick/development/contribution/checkstyle-tester/repositories/jOOL/src/main/java/org/jooq/lambda/FunctionalSpliterator.java">
+</file>
+</checkstyle>
