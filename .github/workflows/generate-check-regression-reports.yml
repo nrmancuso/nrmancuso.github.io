@@ -1,0 +1,74 @@
+name: Generate Check Regression Reports
+
+on:
+  - workflow_call
+  - workflow_dispatch
+
+jobs:
+  generate_check_regression_report:
+    runs-on: ubuntu-latest
+    container: checkstyle/jdk-11-groovy-git-mvn:11.0.13__3.0.9__2.25.1__3.6.3
+    env:
+      MAVEN_OPTS: -Xmx4096m
+      JAVA_OPTS: -Xmx4096m
+      CHECKSTYLE_DIRECTORY: checkstyle
+      ROOT_DIR: /__w/checkstyle-diff-report-generator/checkstyle-diff-report-generator
+
+      ## change these for report generation
+      PATCH_BRANCH: ci-test-branch
+      PROJECTS_FILE: test-projects.properties
+
+    strategy:
+      matrix:
+        # use config name with no '.xml' extension
+        # generate list with: 'for f in $(find configs -name '*.xml'); do echo " - \"$(echo $f | cut -d '/' -f 2 | cut -d '.' -f 1)\""; done'
+        config_name:
+          - "test"
+#          - "part1"
+#          - "part2"
+#          - "part3"
+#          - "part4"
+#          - "part5"
+#          - "part6"
+#          - "sevntu-check-regression_part_1"
+#          - "sevntu-check-regression_part_2"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: main
+
+      - name: Checkout Checkstyle
+        uses: actions/checkout@v3
+        with:
+          repository: nrmancuso/checkstyle
+          path: checkstyle
+          fetch-depth: 0
+
+      - name: Checkout Contribution
+        uses: actions/checkout@v3
+        with:
+          repository: checkstyle/contribution
+          path: contribution
+
+      - name: Set up local checkstyle repo
+        run: |
+          cd "${ROOT_DIR}/checkstyle"
+          git remote add upstream https://github.com/checkstyle/checkstyle
+          git fetch --all
+          git checkout master
+          git reset --hard upstream/master
+          git checkout $PATCH_BRANCH
+
+      - name: Generate report
+        env:
+          CONFIG_FILE: ${{ matrix.config_name }}.xml
+        run: main/scripts/generate-check-regression-report.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.config_name }}-report
+          path: contribution/checkstyle-tester/reports/diff
+          retention-days: 60

@@ -1,0 +1,70 @@
+name: Generate ANTLR Regression Reports
+
+on:
+  - workflow_call
+  - workflow_dispatch
+
+jobs:
+  generate_antlr_regression_report:
+    runs-on: ubuntu-latest
+    container: checkstyle/jdk-11-groovy-git-mvn:11.0.13__3.0.9__2.25.1__3.6.3
+    env:
+      MAVEN_OPTS: -Xmx4096m
+      JAVA_OPTS: -Xmx4096m
+      CHECKSTYLE_DIRECTORY: checkstyle
+      ROOT_DIR: /__w/checkstyle-diff-report-generator/checkstyle-diff-report-generator
+
+      # change for report generation
+      PATCH_BRANCH: ci-test-branch
+
+
+    strategy:
+      matrix:
+        project_name:
+          # change for report generation
+          - "MaterialDesignLibrary"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: main
+
+      - name: Checkout Checkstyle
+        uses: actions/checkout@v3
+        with:
+          repository: nrmancuso/checkstyle
+          path: checkstyle
+          fetch-depth: 0
+
+      - name: Checkout Contribution
+        uses: actions/checkout@v3
+        with:
+          repository: checkstyle/contribution
+          path: contribution
+
+      - name: Build patch-diff-report-tool
+        run: |
+          cd "${ROOT_DIR}/contribution/patch-diff-report-tool"
+          mvn clean install
+
+      - name: Set up local checkstyle repo
+        run: |
+          cd "${ROOT_DIR}/checkstyle"
+          git remote add upstream https://github.com/checkstyle/checkstyle
+          git fetch --all
+          git checkout master
+          git reset --hard upstream/master
+          git checkout $PATCH_BRANCH
+
+      - name: Generate report
+        env:
+          PROJECT: ${{ matrix.project_name }}
+        run: ./main/scripts/generate-antlr-regression-report.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: antlr-report
+          path: contribution/checkstyle-tester/reports/diff
+          retention-days: 60
