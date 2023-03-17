@@ -7,6 +7,7 @@ on:
   pull_request:
     branches: '*'
 
+
 jobs:
   run-generate-antlr-regression-report:
     uses: ./.github/workflows/generate-antlr-regression-reports.yml
@@ -18,7 +19,7 @@ jobs:
     uses: ./.github/workflows/commit-reports.yml
     with:
       # change this for report generation
-      patch-branch: ci-test-branch
+      patch-branch: issue-12809
     needs: [
       run-generate-antlr-regression-report,
       run-generate-check-regression-report
