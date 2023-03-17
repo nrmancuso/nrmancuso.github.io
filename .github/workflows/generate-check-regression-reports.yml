@@ -12,7 +12,7 @@ jobs:
       MAVEN_OPTS: -Xmx4096m
       JAVA_OPTS: -Xmx4096m
       CHECKSTYLE_DIRECTORY: checkstyle
-      ROOT_DIR: /__w/checkstyle-diff-report-generator/checkstyle-diff-report-generator
+      ROOT_DIR: /__w/nrmancuso.github.io/nrmancuso.github.io
 
       ## change these for report generation
       PATCH_BRANCH: ci-test-branch

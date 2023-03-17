@@ -23,18 +23,31 @@ jobs:
 
       - name: List reports
         run: |
-          echo "PWD" && pwd
-          echo "LS:" && ls
           echo "LS -R:" && ls -R
 
       - name: Setup reports to be committed
+        id: setup-reports
         run: |
-          
-          REPORT_DIR="reports/${{ inputs.patch-branch }}/$(date +'%Y-%m-%d-T-%H-%M-%S')"
+          DATE=$(date +'%Y-%m-%d-T-%H-%M-%S')
+          REPORT_DIR="reports/${{ inputs.patch-branch }}/$DATE"
+          echo "REPORT_DIR=$REPORT_DIR" >> $GITHUB_OUTPUT
+          echo "REPORT_PR_BRANCH_NAME=${{ inputs.patch-branch }}-$DATE" >> $GITHUB_OUTPUT
           mkdir -p $REPORT_DIR
           cp -r temp-reports/* $REPORT_DIR
           rm -rf temp-reports
           echo "LS -R:" && ls -R $REPORT_DIR
+
+      - name: Build body of PR request with links to reports
+        id: build-pr-body
+        run: |
+          echo "REPORT_LINKS<<EOF" >> $GITHUB_OUTPUT
+          
+          for f in $(find ${{ steps.setup-reports.outputs.REPORT_DIR }} -maxdepth 2 -type f -name 'index.html'); do
+            echo "https://nrmancuso.github.io/$f" >> $GITHUB_OUTPUT
+            echo "" >> $GITHUB_OUTPUT
+          done
+          
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Create PR with reports
         uses: peter-evans/create-pull-request@v4
@@ -42,7 +55,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "reports: create reports for ${{ inputs.patch-branch }}"
           title: "reports: create reports for ${{ inputs.patch-branch }}"
-          body: "Creates reports for ${{ inputs.patch-branch }}"
-          branch: "reports/${{ inputs.patch-branch }}"
-          base: "main"
+          # want to add links to body to copy paste into PR
+          body: "${{ steps.build-pr-body.outputs.REPORT_LINKS }}"
+          branch: "${{ steps.setup-reports.outputs.REPORT_PR_BRANCH_NAME }}"
+          base: "master"
           delete-branch: true
