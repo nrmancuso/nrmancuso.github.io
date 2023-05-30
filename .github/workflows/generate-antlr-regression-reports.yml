@@ -12,10 +12,10 @@ jobs:
       MAVEN_OPTS: -Xmx4096m
       JAVA_OPTS: -Xmx4096m
       CHECKSTYLE_DIRECTORY: checkstyle
-      ROOT_DIR: /__w/nrmancuso.github.io/nrmancuso.github.io
+      ROOT_DIR: /__w/Kevin222004.github.io/Kevin222004.github.io
 
       # change for report generation
-      PATCH_BRANCH: ci-test-branch
+      PATCH_BRANCH: M3
 
 
     strategy:
@@ -33,7 +33,7 @@ jobs:
       - name: Checkout Checkstyle
         uses: actions/checkout@v3
         with:
-          repository: nrmancuso/checkstyle
+          repository: Kevin222004/checkstyle
           path: checkstyle
           fetch-depth: 0
 

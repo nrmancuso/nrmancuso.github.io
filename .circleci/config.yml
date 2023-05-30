@@ -29,7 +29,7 @@ jobs:
         - run:
             name: Clone checkstyle repo
             command: |
-              git clone https://github.com/nrmancuso/checkstyle.git
+              git clone https://github.com/Kevin222004/checkstyle.git
               cd checkstyle
               git fetch --all
               git checkout $PATCH_BRANCH
@@ -37,7 +37,7 @@ jobs:
         - run:
             name: Clone contribution repo
             command: |
-              git clone https://github.com/nrmancuso/contribution.git
+              git clone https://github.com/Kevin222004/contribution.git
               cd contribution
               git fetch --all
               git checkout mt-groovy
