@@ -20,8 +20,30 @@
     <module name="TreeWalker">
          <!-- Example of checkstyle Check usage -->
          <!-- PLEASE CHANGE IT TO CHECK YOU ARE TESTING !!!! -->
-         <module name="IllegalImport"/>
 
+        <module name="VariableDeclarationUsageDistance">
+            <property name="id" value="VariableDeclarationUsageDistance1" />
+        </module>
+
+
+        <module name="VariableDeclarationUsageDistance">
+            <property name="validateBetweenScopes"  value = "true"/>
+            <property name="id" value="VariableDeclarationUsageDistance2" />
+        </module>
+
+
+        <module name="VariableDeclarationUsageDistance">
+            <property name="ignoreFinal"  value = "false"/>
+            <property name="id" value="VariableDeclarationUsageDistance3" />
+            </module>
+
+
+        <module name="VariableDeclarationUsageDistance">
+            <property name="validateBetweenScopes"  value = "true"/>
+            <property name="ignoreFinal"  value = "false"/>
+            <property name="id" value="VariableDeclarationUsageDistance4" />
+        </module>                    
+        
 
          <!-- Example of sevntu.checkstyle Check usage -->
          <!-- <module name="NestedSwitchCheck"/> -->
