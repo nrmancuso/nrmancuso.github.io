@@ -22,23 +22,27 @@
          <!-- PLEASE CHANGE IT TO CHECK YOU ARE TESTING !!!! -->
 
         <module name="VariableDeclarationUsageDistance">
+            <property name="allowedDistance" value="1"/>
             <property name="id" value="VariableDeclarationUsageDistance1" />
         </module>
 
 
         <module name="VariableDeclarationUsageDistance">
+            <property name="allowedDistance" value="1"/>
             <property name="validateBetweenScopes"  value = "true"/>
             <property name="id" value="VariableDeclarationUsageDistance2" />
         </module>
 
 
         <module name="VariableDeclarationUsageDistance">
+            <property name="allowedDistance" value="1"/>
             <property name="ignoreFinal"  value = "false"/>
             <property name="id" value="VariableDeclarationUsageDistance3" />
             </module>
 
 
         <module name="VariableDeclarationUsageDistance">
+            <property name="allowedDistance" value="1"/>
             <property name="validateBetweenScopes"  value = "true"/>
             <property name="ignoreFinal"  value = "false"/>
             <property name="id" value="VariableDeclarationUsageDistance4" />
