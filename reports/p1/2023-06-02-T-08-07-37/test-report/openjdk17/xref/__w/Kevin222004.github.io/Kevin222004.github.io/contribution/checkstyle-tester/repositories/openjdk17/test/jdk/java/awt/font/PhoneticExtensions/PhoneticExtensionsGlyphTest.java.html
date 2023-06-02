@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>PhoneticExtensionsGlyphTest xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @bug 8202696</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> * @summary  Verifies if Phonetic extensions are getting displayed.</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> java.awt.Font;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> java.awt.GraphicsEnvironment;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> java.util.Locale;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> PhoneticExtensionsGlyphTest {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] logicalFonts = {<span class="jxr_string">"dialog"</span>, <span class="jxr_string">"dialoginput"</span>, <span class="jxr_string">"serif"</span>, <span class="jxr_string">"sansserif"</span>, <span class="jxr_string">"monospaced"</span>};
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String phoneticExtnChars = <span class="jxr_string">"\u1D00 \u1D01 \u1D02 \u1D03 \u1D04 \u1D05 \u1D06 \u1D07 \u1D08 \u1D09\n"</span>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>                                                     +<span class="jxr_string">"\u1D0A \u1D0B \u1D0C \u1D0D \u1D0E \u1D0F \u1D10 \u1D11 \u1D12 \u1D13\n"</span>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>                                                     +<span class="jxr_string">"\u1D14 \u1D15 \u1D16 \u1D17 \u1D18 \u1D19 \u1D1A \u1D1B \u1D1C \u1D1D\n"</span>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>                                                     +<span class="jxr_string">"\u1D1E \u1D1F \u1D20 \u1D21 \u1D22 \u1D23 \u1D24 \u1D25 \u1D26 \u1D27\n"</span>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>                                                     +<span class="jxr_string">"\u1D28 \u1D29 \u1D2A \u1D2B \u1D2C \u1D2D \u1D2E \u1D2F \u1D30 \u1D31\n"</span>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>                                                     +<span class="jxr_string">"\u1D32 \u1D33 \u1D34 \u1D35 \u1D36 \u1D37 \u1D38 \u1D39 \u1D3A \u1D3B\n"</span>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>                                                     +<span class="jxr_string">"\u1D3C \u1D3D \u1D3E \u1D3F \u1D40 \u1D41 \u1D42 \u1D43 \u1D44 \u1D45\n"</span>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>                                                     +<span class="jxr_string">"\u1D46 \u1D47 \u1D48 \u1D49 \u1D4A \u1D4B \u1D4C \u1D4D \u1D4E \u1D4F\n"</span>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>                                                     +<span class="jxr_string">"\u1D50 \u1D51 \u1D52 \u1D53 \u1D54 \u1D55 \u1D56 \u1D57 \u1D58 \u1D59\n"</span>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>                                                     +<span class="jxr_string">"\u1D5A \u1D5B \u1D5C \u1D5D \u1D5E \u1D5F \u1D60 \u1D61 \u1D62 \u1D63\n"</span>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>                                                     +<span class="jxr_string">"\u1D64 \u1D65 \u1D66 \u1D67 \u1D68 \u1D69 \u1D6A \u1D6B \u1D6C \u1D6D\n"</span>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>                                                     +<span class="jxr_string">"\u1D6E \u1D6F \u1D70 \u1D71 \u1D72 \u1D73 \u1D74 \u1D75 \u1D76 \u1D77\n"</span>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>                                                     +<span class="jxr_string">"\u1D78 \u1D79 \u1D7A \u1D7B \u1D7C \u1D7D \u1D7E \u1D7F"</span>;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">if</strong> (!System.getProperty(<span class="jxr_string">"os.name"</span>).startsWith(<span class="jxr_string">"Win"</span>)) {
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              <strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          }
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          <strong class="jxr_keyword">if</strong>(!canDisplayPhoneticChars()) {
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Phonetic extensions failed to display."</span>);
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          }
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      }
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> isLogicalFont(Font f) {
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          String fontName = f.getFamily().toLowerCase(Locale.ROOT);
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; logicalFonts.length; i++) {
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>              <strong class="jxr_keyword">if</strong> (logicalFonts[i].equals(fontName)) {
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>                  <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>              }
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          }
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      }
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> canDisplayPhoneticChars() {
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          Font[] fonts = ge.getAllFonts();
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          <strong class="jxr_keyword">boolean</strong> ret = false;
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          <strong class="jxr_keyword">for</strong> (Font font : fonts) {
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>              <strong class="jxr_keyword">if</strong> (isLogicalFont(font) &amp;&amp; font.canDisplayUpTo(phoneticExtnChars) == -1) {
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>                  ret = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              }
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          }
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          <strong class="jxr_keyword">return</strong> ret;
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      }
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

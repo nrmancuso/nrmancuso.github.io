@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>FlowComputationMultiplePath xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> A {
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>     <strong class="jxr_keyword">boolean</strong> cond = Math.random() &lt; 0.5d;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>     <strong class="jxr_keyword">boolean</strong> cond2 = Math.random() &lt; 0.5d;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>     <strong class="jxr_keyword">void</strong> f() {
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>       Object a;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>       Object b = <strong class="jxr_keyword">null</strong>; <em class="jxr_comment">// flow@path2 {{Implies 'b' is null.}}</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>       <strong class="jxr_keyword">if</strong> (cond) {
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>        a = <strong class="jxr_keyword">null</strong>; <em class="jxr_comment">// flow@path1 {{Implies 'a' is null.}}</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>      } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>        a = b; <em class="jxr_comment">// flow@path2 {{Implies 'a' has the same value as 'b'.}}</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      }
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>      a.toString(); <em class="jxr_comment">// Noncompliant [[flows=path1,path2]] flow@path1,path2 {{'a' is dereferenced.}}</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>    }
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>    <strong class="jxr_keyword">void</strong> g() {
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>      Object a;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>      Object b = <strong class="jxr_keyword">null</strong>; <em class="jxr_comment">// flow@p1 {{Implies 'b' is null.}}</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">if</strong> (cond) {
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>        a = <strong class="jxr_keyword">null</strong>; <em class="jxr_comment">// flow@p2 {{Implies 'a' is null.}}</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>      } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>        a = b; <em class="jxr_comment">// flow@p1 {{Implies 'a' has the same value as 'b'.}}</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      }
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      Object c;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      <strong class="jxr_keyword">if</strong> (cond2) {
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>        c = <strong class="jxr_keyword">null</strong>;  <em class="jxr_comment">// flow@p3 {{Implies 'c' is null.}}</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>        c = a; <em class="jxr_comment">// flow@p1,p2 {{Implies 'c' has the same value as 'a'.}}</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      }
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      c.toString(); <em class="jxr_comment">// Noncompliant [[flows=p1,p2,p3]] flow@p1,p2,p3 {{'c' is dereferenced.}}</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>    }
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>    <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> multipleArgs(<strong class="jxr_keyword">boolean</strong> x, <strong class="jxr_keyword">boolean</strong> y) { <em class="jxr_comment">// flow@args [[order=3]] {{Implies 'x' has the same value as 'a'.}} flow@args [[order=4]] {{Implies 'y' has the same value as 'a'.}}</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      <strong class="jxr_keyword">if</strong> (x &amp;&amp; y) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;  <em class="jxr_comment">// flow@args [[order=5]] {{Implies 'x' is true.}} flow@args [[order=6]] {{Implies 'y' is true.}}</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>    }
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>    <strong class="jxr_keyword">void</strong> test_constraint_on_multiple_args(<strong class="jxr_keyword">boolean</strong> a, <strong class="jxr_keyword">boolean</strong> b) {
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <strong class="jxr_keyword">if</strong> (multipleArgs(a, a)) { <em class="jxr_comment">// flow@args [[order=1]] {{'a' is passed to 'multipleArgs()'.}} flow@args [[order=2]] {{'a' is passed to 'multipleArgs()'.}} flow@args [[order=7]] {{Implies 'a' is true.}} flow@args [[order=8]] {{Implies 'a' is true.}}</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>        <strong class="jxr_keyword">if</strong> (a) { <em class="jxr_comment">// Noncompliant [[flows=args]] flow@args [[order=9]] {{Expression is always true.}}</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>        }
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      }
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>    }
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>    <strong class="jxr_keyword">void</strong> loop() {
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      Object a;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      <strong class="jxr_keyword">while</strong> (<strong class="jxr_keyword">true</strong>) {
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>        a = <strong class="jxr_keyword">null</strong>; <em class="jxr_comment">// flow@loop {{Implies 'a' is null.}}</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>        <strong class="jxr_keyword">if</strong> (cond) a.toString(); <em class="jxr_comment">// Noncompliant [[flows=loop]] flow@loop {{'a' is dereferenced.}}</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      }
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>    }
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

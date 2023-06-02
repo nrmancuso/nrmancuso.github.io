@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>beforeBuilderAtMethodSimplePredefined xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> BuilderAtMethodSimplePredefined {
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> myInt;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>     <strong class="jxr_keyword">private</strong> String myString;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>     @lombok.Builder
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> BuilderAtMethodSimplePredefined createMe(<strong class="jxr_keyword">int</strong> myInt, String myString) {
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>       BuilderAtMethodSimplePredefined result = <strong class="jxr_keyword">new</strong> BuilderAtMethodSimplePredefined();
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>       result.myInt = myInt;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>       result.myString = myString;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      <strong class="jxr_keyword">return</strong> result;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>    }
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>    <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> BuilderAtMethodSimplePredefinedBuilder {
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> myInt;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <strong class="jxr_keyword">public</strong> BuilderAtMethodSimplePredefinedBuilder myString(String myString) {
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>        <strong class="jxr_keyword">this</strong>.myString = myString + <span class="jxr_string">"something"</span>;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>        <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>      }
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>    }
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      BuilderAtMethodSimplePredefined builderSimple = BuilderAtMethodSimplePredefined.builder().myInt(123).myString(<span class="jxr_string">"string"</span>).build();
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      System.out.println(builderSimple);
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>    }
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

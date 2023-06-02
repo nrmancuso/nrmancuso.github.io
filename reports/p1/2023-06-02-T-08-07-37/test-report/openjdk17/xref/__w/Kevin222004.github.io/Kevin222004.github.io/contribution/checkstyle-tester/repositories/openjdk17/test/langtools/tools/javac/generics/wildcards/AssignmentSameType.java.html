@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>AssignmentSameType xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * @test /nodynamiccopyright/</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * @summary Test subtyping for wildcards with the same type bound.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * @compile/fail/ref=AssignmentSameType.out -XDrawDiagnostics AssignmentSameType.java</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> AssignmentSameType {
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>          Ref&lt;B&gt; exact = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>          Ref&lt;? <strong class="jxr_keyword">extends</strong> B&gt; ebound = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>          Ref&lt;? <strong class="jxr_keyword">super</strong> B&gt; sbound = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>          Ref&lt;?&gt; unbound = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  ;       exact = exact;          <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;A&gt; = &lt;A&gt;</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>          ebound = exact;         <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;? extends A&gt; = &lt;A&gt;</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>          ebound = ebound;        <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;? extends A&gt; = &lt;? extends A&gt;</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>          sbound = exact;         <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;? super A&gt; = &lt;A&gt;</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>          sbound = sbound;        <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;? super A&gt; = &lt;? super A&gt;</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          unbound = exact;        <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;?&gt; = &lt;A&gt;</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          unbound = ebound;       <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;?&gt; = &lt;? extends A&gt;</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>          unbound = sbound;       <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;?&gt; = &lt;? super A&gt;</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>          unbound = unbound;      <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;?&gt; = &lt;?&gt;</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          exact = ebound;         <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;A&gt; = &lt;? extends A&gt;</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>          exact = sbound;         <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;A&gt; = &lt;? super A&gt;</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          exact = unbound;        <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;A&gt; = &lt;?&gt;</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          ebound = sbound;        <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;? extends A&gt; = &lt;? super A&gt;</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          ebound = unbound;       <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;? extends A&gt; = &lt;?&gt;</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          sbound = ebound;        <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;? super A&gt; = &lt;? extends A&gt;</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          sbound = unbound;       <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;? super A&gt; = &lt;?&gt;</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      }
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  }
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">class</strong> Ref&lt;A&gt; {}
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">class</strong> B {}
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

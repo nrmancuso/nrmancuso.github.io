@@ -1,0 +1,720 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>RecognizeAuFloat xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2019, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> java.io.ByteArrayInputStream;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> java.io.ByteArrayOutputStream;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> java.io.File;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> java.io.FileInputStream;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> java.io.InputStream;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Files;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Paths;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> javax.sound.sampled.AudioFileFormat;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> javax.sound.sampled.AudioFormat;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> javax.sound.sampled.AudioInputStream;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> javax.sound.sampled.AudioSystem;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment"> * @test</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment"> * @bug 8146239</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment"> * @summary Tests that AU_FLOAT and AU_DOUBLE formats are supported</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> RecognizeAuFloat {
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      <em class="jxr_comment">// Create the audio file</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <em class="jxr_comment">//   $sox  -c 2 -n -b 32 -e floating-point -r 32000 --comment '' tmp.au synth 0.01 sine 1-90000 sine 90000-1</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      <em class="jxr_comment">// sndfile will remove the optional information chunk</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <em class="jxr_comment">//   $sndfile-convert tmp.au data.au</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> byte[] data32 =
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>              <strong class="jxr_keyword">new</strong> byte[]{46, 115, 110, 100, 0, 0, 0, 24, 0, 0, 10, 0, 0, 0, 0, 6,
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>                      0, 0, 125, 0, 0, 0, 0, 2, 55, 30, 0, 0, -66, 83, 22, 72, 57,
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>                      20, 0, 0, -66, -22, -69, 4, 57, -100, -96, 0, 62, -119, 4,
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>                      -42, 57, -15, -80, 0, -67, -102, -15, -24, 58, 39, -84, 0,
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>                      -68, 77, 29, 64, 58, 88, -104, 0, 61, 39, -13, -64, 58,
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>                      -122, -16, 0, -69, -74, -27, -128, 58, -94, -26, 0, -66, 42,
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>                      16, 116, 58, -63, 38, 0, 63, 5, 27, -95, 58, -32, -6, 0,
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>                      -65, 25, 104, -34, 59, 1, -98, 0, -66, -67, -43, 98, 59, 19,
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>                      -85, 0, 62, -37, 121, -120, 59, 39, 4, 0, 63, 21, 30, 50,
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>                      59, 59, 110, 0, 63, 65, 109, 87, 59, 81, 60, 0, 63, 11, 74,
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>                      112, 59, 104, 67, 0, 62, -36, 123, -48, 59, -128, 100, 0,
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>                      -66, -50, -18, -128, 59, -115, 88, -128, -65, 20, -62, 90,
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>                      59, -101, 27, -128, -67, -122, 39, -88, 59, -87, -89, -128,
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>                      63, 81, 60, -32, 59, -71, 18, -128, -65, 52, -14, 17, 59,
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>                      -55, 95, -128, 62, 91, 110, -100, 59, -38, -97, 0, 62, 36,
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>                      28, -120, 59, -20, -38, 0, -66, -97, 28, -24, 60, 0, 15, 0,
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>                      62, -95, 14, 112, 60, 10, 60, -128, -66, -125, -38, 104, 60,
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>                      20, -5, 0, 62, 64, -85, -72, 60, 32, 83, -64, -66, 0, -88,
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>                      -124, 60, 44, 75, -128, 61, -104, -68, -104, 60, 56, -19,
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>                      64, -67, 11, -80, 16, 60, 70, 62, 0, 59, 12, 0, 0, 60, 84,
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>                      73, 64, 60, -72, 108, -128, 60, 99, 21, 0, -67, 6, -91, 32,
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>                      60, 114, -83, -128, 61, 110, -11, 32, 60, -127, -116, -64,
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>                      -67, 73, -87, -64, 60, -118, 51, 64, 61, -71, 28, -96, 60,
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>                      -109, 77, -32, -67, -66, 26, -72, 60, -100, -29, -96, 61,
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>                      -101, 24, -112, 60, -90, -7, 32, -67, 110, -4, -64, 60, -79,
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>                      -107, -96, 61, -85, -41, 112, 60, -68, -66, 64, -67, -117,
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>                      85, 8, 60, -56, 122, -96, 61, 119, 33, -128, 60, -44, -48,
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>                      -32, -67, -123, -116, 104, 60, -31, -56, -64, 60, -101, -65,
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>                      -128, 60, -17, 105, 96, 60, 71, 29, -128, 60, -3, -70, -32,
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>                      -67, -121, -72, 32, 61, 6, 98, -80, 62, 17, 12, -52, 61, 14,
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>                      72, -96, -66, 98, -7, 120, 61, 22, -109, -48, 62, -89, -123,
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>                      -114, 61, 31, 72, -64, -66, -46, -27, -126, 61, 40, 108,
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>                      112, 62, -24, 13, -98, 61, 50, 3, -64, -66, -49, -111, -118,
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>                      61, 60, 20, 32, 62, 65, -50, 0, 61, 70, -94, -48, 62, 7,
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>                      -53, -92, 61, 81, -75, -80, -65, 15, 22, 51, 61, 93, 82,
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>                      -112, 63, 75, 122, 6, 61, 105, 127, -64, -65, 39, -103, 108,
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>                      61, 118, 67, -128, 61, 102, -22, 32, 61, -127, -46, 80, 63,
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>                      3, -8, 3, 61, -120, -44, -16, -65, 13, 31, -78, 61, -112,
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>                      45, 88, -66, 26, 95, 88, 61, -105, -33, 40, 63, 56, 1, -51,
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>                      61, -97, -18, 104, -66, -87, 96, -96, 61, -88, 94, -24, -65,
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>                      14, -12, 116, 61, -79, 53, 8, 62, -28, 8, -68, 61, -70, 116,
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>                      -16, 62, -11, -35, 8, 61, -60, 35, 48, -65, 7, -110, 47, 61,
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>                      -50, 68, 96, -65, 4, 62, -13, 61, -40, -35, 48, 62, -54,
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>                      -54, 70, 61, -29, -14, -64, 63, 28, -19, -10, 61, -17, -119,
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>                      -80, -66, 74, 117, -88, 61, -5, -89, -24, -65, 55, 82, 2,
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>                      62, 4, 40, -40, -66, 119, -21, -24, 62, 10, -58, -4, 62, -8,
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>                      108, 110, 62, 17, -80, 40, 63, 38, 48, 49, 62, 24, -24,
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>                      -112, -67, 110, -90, 32, 62, 32, 113, 92, -65, 29, -111,
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>                      -11, 62, 40, 79, -92, -65, 31, 111, 119, 62, 48, -125, -68,
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>                      -67, -99, -66, -80, 62, 57, 19, -60, 62, -13, -69, 100, 62,
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>                      65, -1, 16, 63, 53, 109, -123, 62, 75, 76, -64, 62, -112,
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>                     45, 8, 62, 84, -5, 36, -66, -117, -58, -90, 62, 95, 18, 24,
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>                     -65, 43, -15, -111, 62, 105, -113, 36, -65, 37, -126, 17,
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>                     62, 116, 122, 72, -66, -71, 7, 124, 62, 127, -48, -48, 61,
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>                     -80, 58, 104, 62, -123, -52, -22, 63, 10, -42, -96, 62,
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>                     -117, -23, -88, 63, 53, 17, -15, 62, -110, 64, -8, 63, 4,
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>                     -33, -105, 62, -104, -46, -42, 62, 14, -16, 16, 62, -97,
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>                     -97, 98, -66, -120, -100, 48, 62, -90, -88, 106, -65, 16,
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>                     -55, 65, 62, -83, -22, -104, -65, 50, 111, 94, 62, -75, 106,
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>                     126, -65, 43, -76, -4, 62, -67, 31, -16, -65, 5, 60, 84, 62,
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>                     -59, 19, 34, -66, -101, 116, -118, 62, -51, 53, -64, -67,
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>                     -114, -112, 112, 62, -43, -108, 62, 62, 124, 61, 4, 62, -34,
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>                     25, 4, 63, 12, -46, 66, 62, -26, -44, -28, 63, 46, -89, -62,
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>                     62, -17, -86, 94, 63, 49, -118, -31, 62, -8, -83, -6, 63,
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>                     18, 74, -70, 63, 0, -35, 49, 62, -57, -13, -10, 63, 5, 115,
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>                     21, 62, 39, 28, -108, 63, 10, 2, -109, -67, 91, 2, -48, 63,
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>                     14, -106, 126, -66, -125, -114, 6, 63, 19, 22, 108, -66,
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>                     -43, -29, 52, 63, 23, -118, -117, -65, 11, 119, -38, 63, 27,
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>                     -39, -51, -65, 32, -43, 72, 63, 32, 6, -41, -65, 46, 64,
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>                     -64, 63, 35, -6, 65, -65, 51, -67, -118, 63, 39, -83, -78,
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>                     -65, 51, -12, -67, 63, 43, 14, 38, -65, 47, -33, -17, 63,
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>                     46, 8, 121, -65, 41, 19, 46, 63, 48, -111, 23, -65, 32, -60,
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>                     -18, 63, 50, -124, 76, -65, 23, -122, -109, 63, 51, -31, 5,
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>                     -65, 14, -121, 38, 63, 52, 111, -48, -65, 5, -96, -7, 63,
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>                     52, 60, -30, -66, -5, -52, -60, 63, 50, -5, 32, -66, -19,
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>                     -110, -102, 63, 48, -58, 58, -66, -30, 112, -76, 63, 45, 59,
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>                     -112, -66, -40, -12, 36, 63, 40, -121, -76, -66, -46, -85,
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>                     120, 63, 34, 53, -105, -66, -50, 29, 12, 63, 26, -125, 46,
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>                     -66, -52, -124, 104, 63, 16, -17, -11, -66, -52, -114, 12,
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>                     63, 5, -54, -26, -66, -49, 34, 40, 62, -15, 39, -124, -66,
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>                     -45, 38, -34, 62, -45, 83, 6, -66, -39, 53, 112, 62, -79,
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>                     58, -88, -66, -32, 113, 10, 62, -117, -71, 118, -66, -23,
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>                     44, -72, 62, 68, -124, 88, -66, -14, -61, 36, 61, -41, 35,
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>                     -48, -66, -3, 76, -16, 60, 73, 21, 64, -65, 4, 41, 121, -67,
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>                     -84, -32, 56, -65, 9, -32, 97, -66, 59, -16, -68, -65, 15,
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>                     -95, -73, -66, -112, -19, 104, -65, 21, 83, -106, -66, -62,
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>                     84, 28, -65, 26, -38, 66, -66, -15, 61, -70, -65, 32, 18,
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>                     -104, -65, 13, 91, 117, -65, 36, -21, 35, -65, 31, 24, -23,
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>                     -65, 41, 61, 53, -65, 43, -67, -83, -65, 44, -1, 47, -65,
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>                     51, 118, 20, -65, 48, 11, 126, -65, 51, -106, -70, -65, 50,
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>                     94, -68, -65, 45, 55, 12, -65, 51, -40, 0, -65, 29, 54, 57,
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>                     -65, 52, 121, 12, -65, 6, 103, 50, -65, 52, 40, 15, -66,
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>                     -54, 55, 44, -65, 50, -21, 51, -66, 126, 66, -44, -65, 48,
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>                     -79, 26, -67, 117, 95, -48, -65, 45, -125, -61, 61, -106,
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>                     52, -96, -65, 41, 90, -97, 61, -57, 113, -120, -65, 36, 66,
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>                     -15, 62, 12, -23, 24, -65, 30, 60, -115, 62, 48, 125, 20,
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>                     -65, 23, 87, 95, 62, 90, -59, 68, -65, 15, -102, -111, 62,
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>                     -127, -1, 112, -65, 7, 24, 12, 62, -104, 94, -106, -66, -5,
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>                     -71, -60, 62, -82, -25, -76, -66, -25, -8, -128, 62, -58,
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>                     53, -84, -66, -45, 14, -22, 62, -35, -81, -96, -66, -67, 36,
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>                     -120, 62, -11, 6, -66, -66, -90, 97, 4, 63, 6, 3, 127, -66,
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>                     -114, -21, -84, 63, 16, -20, 40, -66, 109, -36, 56, 63, 27,
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>                     40, 41, -66, 61, 28, 72, 63, 36, 33, -103, -66, 11, -23, 72,
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>                     63, 43, -83, 65, -67, -75, 19, 40, 63, 49, 27, 71, -67, 37,
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>                     37, 48, 63, 52, 32, -92, 59, -13, 9, 0, 63, 51, -1, -36, 61,
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>                     95, 94, -112, 63, 48, 88, -114, 61, -50, 123, -8, 63, 40,
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>                     111, -36, 62, 21, -110, 52, 63, 27, -12, -26, 62, 66, -90,
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>                     -48, 63, 10, 76, 35, 62, 110, 78, 0, 62, -26, -13, -12, 62,
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>                     -116, 49, -14, 62, -82, 100, -112, 62, -96, 99, 6, 62, 88,
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>                     -35, 60, 62, -77, -83, 18, 61, -122, 105, 8, 62, -58, 4, 54,
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>                     -67, -72, 110, -32, 62, -41, 95, -40, -66, -128, -100, 68,
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>                     62, -25, -72, -8, -66, -50, -95, -10, 62, -9, 11, 32, -65,
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>                     10, 90, -74, 63, 2, -87, -56, -65, 36, 41, 100, 63, 9, 72,
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>                     -63, -65, 51, 48, -12, 63, 15, 98, -30, -65, 49, 114, 53,
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>                     63, 20, -7, 86, -65, 31, -51, 3, 63, 26, 13, -7, -66, -14,
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>                     -93, 4, 63, 30, -93, 56, -66, -118, -69, 76, 63, 34, -68,
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>                     16, -70, -82, 44, 0, 63, 38, 91, -23, 62, 94, 113, -52, 63,
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>                     41, -122, -105, 62, -89, -122, -42, 63, 44, 64, 56, 62, -28,
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>                     76, -10, 63, 46, -115, 50, 63, 12, 66, 105, 63, 48, 114, 28,
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>                     63, 34, 21, 2, 63, 49, -13, -73, 63, 48, 66, -126, 63, 51,
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>                     22, -34, 63, 52, 69, -91, 63, 51, -32, 123, 63, 44, 33, -96,
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>                     63, 52, 85, -126, 63, 21, 55, -35, 63, 52, 122, -32, 62,
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>                     -33, -42, 72, 63, 52, 85, 123, 62, 113, 54, 96, 63, 51, -22,
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>                     37, -69, 84, -27, 0, 63, 51, 61, -98, -66, -125, -34, -80,
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>                     63, 50, 84, -124, -66, -7, -59, 56, 63, 49, 51, 90, -65, 38,
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>                     -69, 12, 63, 47, -34, 124, -65, 52, 120, -13, 63, 46, 90,
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>                     32, -65, 28, -48, -75, 63, 44, -86, 84, -66, -62, -122, 2,
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>                     63, 42, -46, -4, -68, -66, 18, -64, 63, 40, -41, -49, 62,
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>                     -125, 39, -32, 63, 38, -68, 89, 62, -23, 125, -60, 63, 36,
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>                     -125, -7, 63, 32, 56, 64, 63, 34, 49, -32, 63, 51, -95, -58,
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>                     63, 31, -55, 21, 63, 41, -75, 70, 63, 29, 76, 114, 62, -7,
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>                     -33, -98, 63, 26, -66, -91, 62, 65, -30, 76, 63, 24, 34, 52,
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>                     -66, 48, 71, -116, 63, 21, 121, 124, -65, 2, -67, 114, 63,
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>                     18, -58, -80, -65, 49, 29, -36, 63, 16, 11, -32, -65, 34,
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>                     -68, -19, 63, 13, 74, -12, -66, -104, 24, -26, 63, 10, -123,
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>                     -76, 62, 51, 28, -80, 63, 7, -67, -61, 63, 2, 89, -28, 63,
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>                     4, -12, -89, 63, 47, -73, -62, 63, 2, 43, -61, 63, 39, 28,
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>                     20, 62, -2, -56, -64, 62, -77, 8, -104, 62, -7, 63, 86, -67,
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>                     -19, -18, -96, 62, -13, -67, 110, -65, 14, -31, -41, 62,
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>                     -18, 68, -10, -65, 50, -108, 124, 62, -24, -41, -72, -66,
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>                     -51, -101, 100, 62, -29, 119, 74, 62, 81, -23, -92, 62, -34,
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>                     37, 28, 63, 35, 19, -90, 62, -40, -30, 118, 63, 42, 75, 0,
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>                     62, -45, -80, -126, 62, -101, 23, -2, 62, -50, -112, 60,
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>                     -66, -92, 113, 88, 62, -55, -126, -110, -65, 48, 57, -75,
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>                     62, -60, -120, 62, -66, -18, 109, -36, 62, -65, -95, -2, 62,
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>                     -122, 46, -94, 62, -70, -48, 80, 63, 43, -78, 92, 62, -74,
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>                     19, -56, 63, 8, -56, 59, 62, -79, 108, -82, -66, 53, 9, -12,
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>                     62, -84, -37, 124, -65, 45, -38, -43, 62, -88, 96, 68, -66,
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>                     -64, 66, -114, 62, -93, -5, 104, 62, -5, -24, -122, 62, -97,
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>                     -84, -46, 63, 37, -56, 106, 62, -101, 116, -52, -69, -51,
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>                     74, 0, 62, -105, 83, 38, -65, 52, 39, 12, 62, -109, 72, 12,
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>                     -66, 105, -56, -88, 62, -113, 83, 68, 63, 34, 28, -23, 62,
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>                     -117, 116, -54, 62, -41, 27, -96, 62, -121, -84, 124, -65,
+<a class="jxr_linenumber" name="L202" href="#L202">202</a>                     6, 56, 36, 62, -125, -6, 18, -66, -24, -78, 120, 62, -128,
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>                     93, -98, 63, 26, -115, 55, 62, 121, -84, -36, 62, -72, -90,
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>                     88, 62, 114, -54, 0, -65, 24, -101, -10, 62, 108, 16, 20,
+<a class="jxr_linenumber" name="L205" href="#L205">205</a>                     -66, 52, -39, -8, 62, 101, -127, 68, 63, 69, 45, 6, 62, 95,
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>                     25, 120, -66, -68, 112, 34, 62, 88, -36, 112, -66, -63,
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>                     -116, 94, 62, 82, -60, 72, 63, 28, 61, 0, 62, 76, -42, -116,
+<a class="jxr_linenumber" name="L208" href="#L208">208</a>                     -66, 27, 72, 116, 62, 71, 11, 104, -66, -7, -1, -124, 62,
+<a class="jxr_linenumber" name="L209" href="#L209">209</a>                     65, 106, 68, 63, 84, 48, 84, 62, 59, -23, 120, -65, 42, 107,
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>                     50, 62, 54, -110, 16, 62, -125, -115, -8, 62, 49, 89, 0, 62,
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>                     57, -24, -4, 62, 44, 72, 60, -66, -35, -117, 4, 62, 39, 84,
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>                     100, 63, 1, -103, 34, 62, 34, -121, 12, -66, -17, 116, 4,
+<a class="jxr_linenumber" name="L213" href="#L213">213</a>                     62, 29, -42, 0, 62, -65, -115, 24, 62, 25, 72, -72, -66,
+<a class="jxr_linenumber" name="L214" href="#L214">214</a>                     120, -42, -28, 62, 20, -40, 64, 62, 26, 47, 8, 62, 16, -121,
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>                     -112, -67, 77, -2, 32, 62, 12, 85, -124, 59, 64, 93, 0, 62,
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>                     8, 61, -16, 61, 73, 86, -80, 62, 4, 72, 80, -67, -102, 14,
+<a class="jxr_linenumber" name="L217" href="#L217">217</a>                     0, 62, 0, 102, 100, 61, -76, -35, 112, 61, -7, 86, 72, -67,
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>                     121, 104, -96, 61, -15, -9, 56, 61, 123, -75, 16, 61, -22,
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>                     -15, 64, -67, 115, -85, 64, 61, -29, -15, 8, 61, -125, -102,
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>                     40, 61, -35, 86, -16, -68, -17, 52, 32, 61, -42, -80, -128,
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>                     61, 30, -101, 112, 61, -48, 124, -16, 60, 14, -37, 0, 61,
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>                     -54, 44, 88, -67, 38, 97, 112, 61, -60, 89, 8, 61, 79, -37,
+<a class="jxr_linenumber" name="L223" href="#L223">223</a>                     -96, 61, -66, 91, -64, -67, 76, 109, 80, 61, -72, -31, 72,
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>                     61, -73, -94, -88, 61, -77, 54, 72, -67, -4, 114, -24, 61,
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>                     -82, 12, 32, 62, 5, 28, 48, 61, -88, -77, -8, -66, 37, 7,
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>                     20, 61, -93, -48, 88, 62, 36, -101, 8, 61, -98, -52, -16,
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>                     -67, -40, 80, 112, 61, -102, 37, 64, -67, -91, -60, 104, 61,
+<a class="jxr_linenumber" name="L228" href="#L228">228</a>                     -107, 121, -88, 62, -47, 16, 34, 61, -111, 2, -72, -65, 69,
+<a class="jxr_linenumber" name="L229" href="#L229">229</a>                     50, -82, 61, -116, -78, -96, 63, 20, -70, 1, 61, -120, 97,
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>                     56, 62, -127, -67, -36, 61, -124, 112, 96, -65, 33, -9, -43,
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>                     61, -128, 57, -16, -66, -7, -70, 72, 61, 121, 86, -32, 62,
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>                     41, -78, 116, 61, 113, 13, -80, 63, 18, -75, -76, 61, 106,
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>                     -72, 112, 63, 48, 90, 88, 61, 98, -123, 48, 63, 52, 13, -69,
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>                     61, 92, -10, 16, 63, 45, 31, -18, 61, 84, -47, 48, 62, -32,
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>                     12, 26, 61, 80, 0, 48, -66, 38, -81, 88, 61, 71, -23, -16,
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>                     -65, 63, -24, 61, 61, 67, -57, 0, 62, -106, -40, 110, 61,
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>                     59, -55, 48, 62, 116, 6, 44, 61, 56, 58, 80, -66, -67, 31,
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>                     42, 61, 48, 106, 64, 62, -88, 121, 104, 61, 45, 73, 16, -66,
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>                     -115, -11, -110, 61, 37, -53, 48, 62, -128, -110, -42, 61,
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>                     34, -33, -80, -66, 121, 84, -44, 61, 27, -17, 48, 62, 79,
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>                     -38, 28, 61, 24, -30, -16, 61, 91, 108, 16, 61, 18, -23, 32,
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>                     -65, 38, 12, 43, 61, 15, 26, -64, 62, 59, -92, -104, 61, 11,
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>                     11, 96, 62, -37, 45, 18, 61, 4, -81, -48, 61, 74, 69, -16,
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>                     61, 6, -67, 80,};
+<a class="jxr_linenumber" name="L245" href="#L245">245</a> 
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>     <em class="jxr_comment">// Create the audio file</em>
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>     <em class="jxr_comment">//   $sox  -c 2 -n -b 64 -e floating-point -r 32000 --comment '' tmp.au synth 0.01 sine 1-90000 sine 90000-1</em>
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>     <em class="jxr_comment">// sndfile will remove the optional information chunk</em>
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>     <em class="jxr_comment">//   $sndfile-convert tmp.au data.au</em>
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> byte[] data64 =
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>             <strong class="jxr_keyword">new</strong> byte[]{46, 115, 110, 100, 0, 0, 0, 24, 0, 0, 20, 0, 0, 0, 0, 7,
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>                     0, 0, 125, 0, 0, 0, 0, 2, 62, -29, -76, -128, 0, 0, 0, 0,
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>                     -65, -54, 98, -55, 10, 0, 0, 0, 63, 34, 127, 32, 0, 0, 0, 0,
+<a class="jxr_linenumber" name="L254" href="#L254">254</a>                     -65, -35, 87, 96, -84, -128, 0, 0, 63, 51, -108, 34, 0, 0,
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>                     0, 0, 63, -47, 32, -102, -49, -128, 0, 0, 63, 62, 54, 74, 0,
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>                     0, 0, 0, -65, -77, 94, 60, -84, 0, 0, 0, 63, 68, -11, 79, 0,
+<a class="jxr_linenumber" name="L257" href="#L257">257</a>                     0, 0, 0, -65, -119, -93, -86, 48, 0, 0, 0, 63, 75, 19, 0, 0,
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>                     0, 0, 0, 63, -92, -2, 120, 56, 0, 0, 0, 63, 80, -34, 23,
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>                     -128, 0, 0, 0, -65, 118, -36, -82, 0, 0, 0, 0, 63, 84, 92,
+<a class="jxr_linenumber" name="L260" href="#L260">260</a>                     -63, -128, 0, 0, 0, -65, -59, 66, 14, 115, 0, 0, 0, 63, 88,
+<a class="jxr_linenumber" name="L261" href="#L261">261</a>                     36, -38, 0, 0, 0, 0, 63, -32, -93, 116, 32, 0, 0, 0, 63, 92,
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>                     31, 46, -128, 0, 0, 0, -65, -29, 45, 27, -52, 64, 0, 0, 63,
+<a class="jxr_linenumber" name="L263" href="#L263">263</a>                     96, 51, -72, -64, 0, 0, 0, -65, -41, -70, -84, 58, -128, 0,
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>                     0, 63, 98, 117, 82, -128, 0, 0, 0, 63, -37, 111, 49, 18, 0,
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>                     0, 0, 63, 100, -32, 114, -128, 0, 0, 0, 63, -30, -93, -58,
+<a class="jxr_linenumber" name="L266" href="#L266">266</a>                     66, -64, 0, 0, 63, 103, 109, -69, -64, 0, 0, 0, 63, -24, 45,
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>                     -86, -27, -128, 0, 0, 63, 106, 39, 113, 0, 0, 0, 0, 63, -31,
+<a class="jxr_linenumber" name="L268" href="#L268">268</a>                     105, 78, 14, 0, 0, 0, 63, 109, 8, 89, 0, 0, 0, 0, 63, -37,
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>                     -113, 121, -3, -128, 0, 0, 63, 112, 12, 124, 96, 0, 0, 0,
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>                     -65, -39, -35, -48, 29, -128, 0, 0, 63, 113, -85, 22, -32,
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>                     0, 0, 0, -65, -30, -104, 75, 72, -64, 0, 0, 63, 115, 99,
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>                     111, 64, 0, 0, 0, -65, -80, -60, -11, 82, 0, 0, 0, 63, 117,
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>                     52, -17, -128, 0, 0, 0, 63, -22, 39, -100, 28, 64, 0, 0, 63,
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>                     119, 34, 84, -32, 0, 0, 0, -65, -26, -98, 66, 30, 0, 0, 0,
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>                     63, 121, 43, -20, -96, 0, 0, 0, 63, -53, 109, -45, 127, 0,
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>                     0, 0, 63, 123, 83, -34, 0, 0, 0, 0, 63, -60, -125, -111, 35,
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>                     0, 0, 0, 63, 125, -101, 60, 64, 0, 0, 0, -65, -45, -29, -99,
+<a class="jxr_linenumber" name="L278" href="#L278">278</a>                     28, -128, 0, 0, 63, -128, 1, -33, 0, 0, 0, 0, 63, -44, 33,
+<a class="jxr_linenumber" name="L279" href="#L279">279</a>                     -50, 29, 0, 0, 0, 63, -127, 71, -115, -80, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>                     -48, 123, 77, 30, 0, 0, 0, 63, -126, -97, 96, -96, 0, 0, 0,
+<a class="jxr_linenumber" name="L281" href="#L281">281</a>                     63, -56, 21, 119, 58, 0, 0, 0, 63, -124, 10, 118, 80, 0, 0,
+<a class="jxr_linenumber" name="L282" href="#L282">282</a>                     0, -65, -64, 21, 16, -60, 0, 0, 0, 63, -123, -119, 115, -96,
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>                     0, 0, 0, 63, -77, 23, -109, 98, 0, 0, 0, 63, -121, 29, -87,
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>                     -16, 0, 0, 0, -65, -95, 118, 1, 44, 0, 0, 0, 63, -120, -57,
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>                     -66, -128, 0, 0, 0, 63, 97, 127, -7, 0, 0, 0, 0, 63, -118,
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>                     -119, 40, -96, 0, 0, 0, 63, -105, 13, -111, 56, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>                     -116, 98, -99, -96, 0, 0, 0, -65, -96, -44, -92, 100, 0, 0,
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>                     0, 63, -114, 85, -80, 32, 0, 0, 0, 63, -83, -34, -93, -24,
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>                     0, 0, 0, 63, -112, 49, -103, 80, 0, 0, 0, -65, -87, 53, 56,
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>                     100, 0, 0, 0, 63, -111, 70, 102, 32, 0, 0, 0, 63, -73, 35,
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>                     -108, 44, 0, 0, 0, 63, -110, 105, -69, 40, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>                     -73, -61, 87, -118, 0, 0, 0, 63, -109, -100, 116, 88, 0, 0,
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>                     0, 63, -77, 99, 17, -86, 0, 0, 0, 63, -108, -33, 37, 80, 0,
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>                     0, 0, -65, -83, -33, -104, -20, 0, 0, 0, 63, -106, 50, -78,
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>                     8, 0, 0, 0, 63, -75, 122, -19, -18, 0, 0, 0, 63, -105, -105,
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>                     -57, 104, 0, 0, 0, -65, -79, 106, -95, 80, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>                     -103, 15, 82, 104, 0, 0, 0, 63, -82, -28, 47, -68, 0, 0, 0,
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>                     63, -102, -102, 26, 96, 0, 0, 0, -65, -80, -79, -115, -122,
+<a class="jxr_linenumber" name="L299" href="#L299">299</a>                     0, 0, 0, 63, -100, 57, 23, 96, 0, 0, 0, 63, -109, 119, -17,
+<a class="jxr_linenumber" name="L300" href="#L300">300</a>                     0, 0, 0, 0, 63, -99, -19, 43, -8, 0, 0, 0, 63, -120, -29,
+<a class="jxr_linenumber" name="L301" href="#L301">301</a>                     -81, -32, 0, 0, 0, 63, -97, -73, 93, -96, 0, 0, 0, -65, -80,
+<a class="jxr_linenumber" name="L302" href="#L302">302</a>                     -9, 3, -100, 0, 0, 0, 63, -96, -52, 85, 76, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>                     -62, 33, -103, -109, 0, 0, 0, 63, -95, -55, 20, 116, 0, 0,
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>                     0, -65, -52, 95, 46, -25, 0, 0, 0, 63, -94, -46, 121, 84, 0,
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>                     0, 0, 63, -44, -16, -79, -41, -128, 0, 0, 63, -93, -23, 24,
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>                     -80, 0, 0, 0, -65, -38, 92, -80, 77, 0, 0, 0, 63, -91, 13,
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>                     -115, -32, 0, 0, 0, 63, -35, 1, -77, -25, 0, 0, 0, 63, -90,
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>                     64, 120, -56, 0, 0, 0, -65, -39, -14, 49, 104, -128, 0, 0,
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>                     63, -89, -126, -125, -120, 0, 0, 0, 63, -56, 57, -65, -19,
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>                     0, 0, 0, 63, -88, -44, 90, 108, 0, 0, 0, 63, -64, -7, 116,
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>                     100, 0, 0, 0, 63, -86, 54, -74, -12, 0, 0, 0, -65, -31, -30,
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>                     -58, 100, -64, 0, 0, 63, -85, -86, 83, 0, 0, 0, 0, 63, -23,
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>                     111, 64, -60, -64, 0, 0, 63, -83, 47, -8, 120, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>                     -28, -13, 45, -110, -128, 0, 0, 63, -82, -56, 111, -100, 0,
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>                     0, 0, 63, -84, -35, 68, 16, 0, 0, 0, 63, -80, 58, 73, -36,
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>                     0, 0, 0, 63, -32, 127, 0, 107, 64, 0, 0, 63, -79, 26, -98,
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>                     4, 0, 0, 0, -65, -31, -93, -10, 83, 64, 0, 0, 63, -78, 5,
+<a class="jxr_linenumber" name="L318" href="#L318">318</a>                     -85, 102, 0, 0, 0, -65, -61, 75, -21, 38, 0, 0, 0, 63, -78,
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>                     -5, -27, 50, 0, 0, 0, 63, -25, 0, 57, -88, -128, 0, 0, 63,
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>                     -77, -3, -52, -102, 0, 0, 0, -65, -43, 44, 20, 8, -128, 0,
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>                     0, 63, -75, 11, -36, -46, 0, 0, 0, -65, -31, -34, -114,
+<a class="jxr_linenumber" name="L322" href="#L322">322</a>                     -106, -128, 0, 0, 63, -74, 38, -95, 8, 0, 0, 0, 63, -36,
+<a class="jxr_linenumber" name="L323" href="#L323">323</a>                     -127, 23, -107, 0, 0, 0, 63, -73, 78, -99, -84, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L324" href="#L324">324</a>                     -34, -69, -95, 14, 0, 0, 0, 63, -72, -124, 102, 120, 0, 0,
+<a class="jxr_linenumber" name="L325" href="#L325">325</a>                     0, -65, -32, -14, 69, -38, 64, 0, 0, 63, -71, -56, -117,
+<a class="jxr_linenumber" name="L326" href="#L326">326</a>                     -40, 0, 0, 0, -65, -32, -121, -34, 103, -64, 0, 0, 63, -69,
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>                     27, -90, 118, 0, 0, 0, 63, -39, 89, 72, -38, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>                     -68, 126, 87, -94, 0, 0, 0, 63, -29, -99, -66, -42, 0, 0, 0,
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>                     63, -67, -15, 54, 116, 0, 0, 0, -65, -55, 78, -76, -34, 0,
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>                     0, 0, 63, -65, 116, -4, -82, 0, 0, 0, -65, -26, -22, 64, 89,
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>                     -64, 0, 0, 63, -64, -123, 27, 3, 0, 0, 0, -65, -50, -3, 125,
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>                     21, 0, 0, 0, 63, -63, 88, -33, 109, 0, 0, 0, 63, -33, 13,
+<a class="jxr_linenumber" name="L333" href="#L333">333</a>                     -115, -60, 0, 0, 0, 63, -62, 54, 5, 67, 0, 0, 0, 63, -28,
+<a class="jxr_linenumber" name="L334" href="#L334">334</a>                     -58, 6, 53, 64, 0, 0, 63, -61, 29, 17, -18, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>                     -83, -44, -61, -116, 0, 0, 0, 63, -60, 14, 43, 126, 0, 0, 0,
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>                     -65, -29, -78, 62, -76, -64, 0, 0, 63, -59, 9, -12, 83, 0,
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>                     0, 0, -65, -29, -19, -18, -10, -64, 0, 0, 63, -58, 16, 119,
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>                     -96, 0, 0, 0, -65, -77, -73, -42, 14, 0, 0, 0, 63, -57, 34,
+<a class="jxr_linenumber" name="L339" href="#L339">339</a>                     120, -123, 0, 0, 0, 63, -34, 119, 108, -99, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L340" href="#L340">340</a>                     -56, 63, -30, 64, 0, 0, 0, 63, -26, -83, -80, -100, -64, 0,
+<a class="jxr_linenumber" name="L341" href="#L341">341</a>                     0, 63, -55, 105, -105, -2, 0, 0, 0, 63, -46, 5, -96, -15,
+<a class="jxr_linenumber" name="L342" href="#L342">342</a>                     -128, 0, 0, 63, -54, -97, 100, -116, 0, 0, 0, -65, -47, 120,
+<a class="jxr_linenumber" name="L343" href="#L343">343</a>                     -44, -83, -128, 0, 0, 63, -53, -30, 66, -15, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L344" href="#L344">344</a>                     -27, 126, 50, 30, 0, 0, 0, 63, -51, 49, -28, -110, 0, 0, 0,
+<a class="jxr_linenumber" name="L345" href="#L345">345</a>                     -65, -28, -80, 66, 35, 0, 0, 0, 63, -50, -113, 73, 47, 0, 0,
+<a class="jxr_linenumber" name="L346" href="#L346">346</a>                     0, -65, -41, 32, -17, 119, -128, 0, 0, 63, -49, -6, 26, 31,
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>                     0, 0, 0, 63, -74, 7, 77, 102, 0, 0, 0, 63, -48, -71, -99,
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>                     98, 0, 0, 0, 63, -31, 90, -44, 17, 64, 0, 0, 63, -47, 125,
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>                     53, 14, -128, 0, 0, 63, -26, -94, 62, 29, 0, 0, 0, 63, -46,
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>                     72, 31, 11, 0, 0, 0, 63, -32, -101, -14, -11, 64, 0, 0, 63,
+<a class="jxr_linenumber" name="L351" href="#L351">351</a>                     -45, 26, 90, -23, 0, 0, 0, 63, -63, -34, 1, -36, 0, 0, 0,
+<a class="jxr_linenumber" name="L352" href="#L352">352</a>                     63, -45, -13, -20, 70, -128, 0, 0, -65, -47, 19, -123, -14,
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>                     -128, 0, 0, 63, -44, -43, 13, 101, -128, 0, 0, -65, -30, 25,
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>                     40, 47, -128, 0, 0, 63, -43, -67, 83, 25, 0, 0, 0, -65, -26,
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>                     77, -21, -50, -64, 0, 0, 63, -42, -83, 79, -58, 0, 0, 0,
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>                     -65, -27, 118, -97, -120, -64, 0, 0, 63, -41, -93, -2, 15,
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>                     0, 0, 0, -65, -32, -89, -118, 122, -128, 0, 0, 63, -40, -94,
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>                     100, 65, 0, 0, 0, -65, -45, 110, -111, 82, -128, 0, 0, 63,
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>                     -39, -90, -72, 34, -128, 0, 0, -65, -79, -46, 14, 48, 0, 0,
+<a class="jxr_linenumber" name="L360" href="#L360">360</a>                     0, 63, -38, -78, -121, -43, -128, 0, 0, 63, -49, -121, -96,
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>                     108, 0, 0, 0, 63, -37, -61, 32, -94, -128, 0, 0, 63, -31,
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>                     -102, 72, 77, 0, 0, 0, 63, -36, -38, -100, -100, 0, 0, 0,
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>                     63, -27, -44, -8, 75, 64, 0, 0, 63, -35, -11, 75, -73, -128,
+<a class="jxr_linenumber" name="L364" href="#L364">364</a>                     0, 0, 63, -26, 49, 92, 55, 0, 0, 0, 63, -33, 21, -65, 93,
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>                     -128, 0, 0, 63, -30, 73, 87, 61, 64, 0, 0, 63, -32, 27, -90,
+<a class="jxr_linenumber" name="L366" href="#L366">366</a>                     45, -64, 0, 0, 63, -40, -2, 126, -69, 0, 0, 0, 63, -32, -82,
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>                     98, -88, 0, 0, 0, 63, -60, -29, -110, 102, 0, 0, 0, 63, -31,
+<a class="jxr_linenumber" name="L368" href="#L368">368</a>                     64, 82, 94, -64, 0, 0, -65, -85, 96, 91, 4, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>                     -31, -46, -49, -65, -64, 0, 0, -65, -48, 113, -64, -42, 0,
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>                     0, 0, 63, -30, 98, -51, -112, 64, 0, 0, -65, -38, -68, 102,
+<a class="jxr_linenumber" name="L371" href="#L371">371</a>                     -91, -128, 0, 0, 63, -30, -15, 81, 95, 0, 0, 0, -65, -31,
+<a class="jxr_linenumber" name="L372" href="#L372">372</a>                     110, -5, 67, 0, 0, 0, 63, -29, 123, 57, -90, -128, 0, 0,
+<a class="jxr_linenumber" name="L373" href="#L373">373</a>                     -65, -28, 26, -87, 15, -64, 0, 0, 63, -28, 0, -38, -22,
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>                     -128, 0, 0, -65, -27, -56, 24, 7, 0, 0, 0, 63, -28, 127, 72,
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>                     54, -128, 0, 0, -65, -26, 119, -79, 75, 0, 0, 0, 63, -28,
+<a class="jxr_linenumber" name="L376" href="#L376">376</a>                     -11, -74, 71, 64, 0, 0, -65, -26, 126, -105, -79, 64, 0, 0,
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>                     63, -27, 97, -60, -41, -64, 0, 0, -65, -27, -5, -3, -16, 64,
+<a class="jxr_linenumber" name="L378" href="#L378">378</a>                     0, 0, 63, -27, -63, 15, 40, -64, 0, 0, -65, -27, 34, 101,
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>                     -55, 64, 0, 0, 63, -26, 18, 34, -27, -64, 0, 0, -65, -28,
+<a class="jxr_linenumber" name="L380" href="#L380">380</a>                     24, -99, -49, 0, 0, 0, 63, -26, 80, -119, -121, 0, 0, 0,
+<a class="jxr_linenumber" name="L381" href="#L381">381</a>                     -65, -30, -16, -46, 103, 0, 0, 0, 63, -26, 124, 32, -98,
+<a class="jxr_linenumber" name="L382" href="#L382">382</a>                     -64, 0, 0, -65, -31, -48, -28, -55, -64, 0, 0, 63, -26,
+<a class="jxr_linenumber" name="L383" href="#L383">383</a>                     -115, -6, 10, 0, 0, 0, -65, -32, -76, 31, 26, -64, 0, 0, 63,
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>                     -26, -121, -100, 75, 64, 0, 0, -65, -33, 121, -104, -99, 0,
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>                     0, 0, 63, -26, 95, 100, 7, -128, 0, 0, -65, -35, -78, 83,
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>                     60, 0, 0, 0, 63, -26, 24, -57, 81, 0, 0, 0, -65, -36, 78,
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>                     22, -86, -128, 0, 0, 63, -27, -89, 113, -4, -64, 0, 0, -65,
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>                     -37, 30, -124, -87, -128, 0, 0, 63, -27, 16, -10, 127, -64,
+<a class="jxr_linenumber" name="L389" href="#L389">389</a>                     0, 0, -65, -38, 85, 111, 36, -128, 0, 0, 63, -28, 70, -78,
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>                     -26, -128, 0, 0, -65, -39, -61, -95, 119, 0, 0, 0, 63, -29,
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>                     80, 101, -46, 64, 0, 0, -65, -39, -112, -115, 43, -128, 0,
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>                     0, 63, -30, 29, -2, -81, 64, 0, 0, -65, -39, -111, -63, 125,
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>                     0, 0, 0, 63, -32, -71, 92, -46, 0, 0, 0, -65, -39, -28, 69,
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>                     16, 0, 0, 0, 63, -34, 36, -16, 122, -128, 0, 0, -65, -38,
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>                     100, -37, -65, 0, 0, 0, 63, -38, 106, 96, -55, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L396" href="#L396">396</a>                     -37, 38, -82, 17, 0, 0, 0, 63, -42, 39, 85, 33, 0, 0, 0,
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>                     -65, -36, 14, 33, 82, 0, 0, 0, 63, -47, 119, 46, -80, -128,
+<a class="jxr_linenumber" name="L398" href="#L398">398</a>                     0, 0, -65, -35, 37, -105, 5, -128, 0, 0, 63, -56, -112,
+<a class="jxr_linenumber" name="L399" href="#L399">399</a>                     -118, -42, 0, 0, 0, -65, -34, 88, 100, -116, -128, 0, 0, 63,
+<a class="jxr_linenumber" name="L400" href="#L400">400</a>                     -70, -28, 121, -10, 0, 0, 0, -65, -33, -87, -98, 26, -128,
+<a class="jxr_linenumber" name="L401" href="#L401">401</a>                     0, 0, 63, -119, 34, -92, 64, 0, 0, 0, -65, -32, -123, 47,
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>                     53, 64, 0, 0, -65, -75, -100, 7, 12, 0, 0, 0, -65, -31, 60,
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>                     12, 44, 0, 0, 0, -65, -57, 126, 23, -88, 0, 0, 0, -65, -31,
+<a class="jxr_linenumber" name="L404" href="#L404">404</a>                     -12, 54, -30, -128, 0, 0, -65, -46, 29, -83, 7, -128, 0, 0,
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>                     -65, -30, -86, 114, -44, 64, 0, 0, -65, -40, 74, -125, 121,
+<a class="jxr_linenumber" name="L406" href="#L406">406</a>                     -128, 0, 0, -65, -29, 91, 72, 77, 64, 0, 0, -65, -34, 39,
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>                     -73, 65, -128, 0, 0, -65, -28, 2, 83, 7, 64, 0, 0, -65, -31,
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>                     -85, 110, -101, -64, 0, 0, -65, -28, -99, 100, 118, 64, 0,
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>                     0, -65, -29, -29, 29, 57, 64, 0, 0, -65, -27, 39, -90, -96,
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>                     0, 0, 0, -65, -27, 119, -75, -92, 0, 0, 0, -65, -27, -97,
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>                     -27, -34, -128, 0, 0, -65, -26, 110, -62, -112, 64, 0, 0,
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>                     -65, -26, 1, 111, -67, 64, 0, 0, -65, -26, 114, -41, 64,
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>                     -128, 0, 0, -65, -26, 75, -41, -118, -64, 0, 0, -65, -27,
+<a class="jxr_linenumber" name="L414" href="#L414">414</a>                     -90, -31, -123, -64, 0, 0, -65, -26, 123, 0, 25, 64, 0, 0,
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>                     -65, -29, -90, -57, 30, 64, 0, 0, -65, -26, -113, 33, -103,
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>                     0, 0, 0, -65, -32, -52, -26, 84, -128, 0, 0, -65, -26, -123,
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>                     1, -28, 64, 0, 0, -65, -39, 70, -27, 117, 0, 0, 0, -65, -26,
+<a class="jxr_linenumber" name="L418" href="#L418">418</a>                     93, 102, 118, 0, 0, 0, -65, -49, -56, 90, 97, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L419" href="#L419">419</a>                     -26, 22, 35, 81, -64, 0, 0, -65, -82, -85, -7, -92, 0, 0, 0,
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>                     -65, -27, -80, 120, 104, 0, 0, 0, 63, -78, -58, -109, -68,
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>                     0, 0, 0, -65, -27, 43, 83, -31, 64, 0, 0, 63, -72, -18, 49,
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>                     104, 0, 0, 0, -65, -28, -120, 94, 42, 0, 0, 0, 63, -63, -99,
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>                     35, 2, 0, 0, 0, -65, -29, -57, -111, -85, 64, 0, 0, 63, -58,
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>                     15, -94, 118, 0, 0, 0, -65, -30, -22, -21, -37, 64, 0, 0,
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>                     63, -53, 88, -88, -60, 0, 0, 0, -65, -31, -13, 82, 55, 64,
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>                     0, 0, 63, -48, 63, -18, 34, 0, 0, 0, -65, -32, -29, 1, 122,
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>                     -64, 0, 0, 63, -45, 11, -46, -68, 0, 0, 0, -65, -33, 119,
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>                     56, 126, 0, 0, 0, 63, -43, -36, -10, -87, -128, 0, 0, -65,
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>                     -36, -1, 15, -10, 0, 0, 0, 63, -40, -58, -75, -91, 0, 0, 0,
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>                     -65, -38, 97, -35, 81, -128, 0, 0, 63, -37, -75, -12, 36, 0,
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>                     0, 0, -65, -41, -92, -111, 21, -128, 0, 0, 63, -34, -96,
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>                     -41, -42, 0, 0, 0, -65, -44, -52, 32, -107, -128, 0, 0, 63,
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>                     -32, -64, 111, -10, 64, 0, 0, -65, -47, -35, 117, 127, 0, 0,
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>                     0, 63, -30, 29, -123, 22, -128, 0, 0, -65, -51, -69, -121,
+<a class="jxr_linenumber" name="L435" href="#L435">435</a>                     60, 0, 0, 0, 63, -29, 101, 5, 56, -128, 0, 0, -65, -57, -93,
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>                     -119, 56, 0, 0, 0, 63, -28, -124, 51, 40, 0, 0, 0, -65, -63,
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>                     125, 41, 21, 0, 0, 0, 63, -27, 117, -88, 29, -128, 0, 0,
+<a class="jxr_linenumber" name="L438" href="#L438">438</a>                     -65, -74, -94, 100, -80, 0, 0, 0, 63, -26, 35, 104, -15,
+<a class="jxr_linenumber" name="L439" href="#L439">439</a>                     -128, 0, 0, -65, -92, -92, -91, -16, 0, 0, 0, 63, -26, -124,
+<a class="jxr_linenumber" name="L440" href="#L440">440</a>                     20, -119, -64, 0, 0, 63, 126, 97, 28, 32, 0, 0, 0, 63, -26,
+<a class="jxr_linenumber" name="L441" href="#L441">441</a>                     127, -5, 123, -128, 0, 0, 63, -85, -21, -46, -32, 0, 0, 0,
+<a class="jxr_linenumber" name="L442" href="#L442">442</a>                     63, -26, 11, 17, -44, -128, 0, 0, 63, -71, -49, 126, -70, 0,
+<a class="jxr_linenumber" name="L443" href="#L443">443</a>                     0, 0, 63, -27, 13, -5, -122, 64, 0, 0, 63, -62, -78, 70,
+<a class="jxr_linenumber" name="L444" href="#L444">444</a>                     -80, 0, 0, 0, 63, -29, 126, -100, -51, -64, 0, 0, 63, -56,
+<a class="jxr_linenumber" name="L445" href="#L445">445</a>                     84, -39, -32, 0, 0, 0, 63, -31, 73, -124, 104, -64, 0, 0,
+<a class="jxr_linenumber" name="L446" href="#L446">446</a>                     63, -51, -55, -65, -14, 0, 0, 0, 63, -36, -34, 126, -95, 0,
+<a class="jxr_linenumber" name="L447" href="#L447">447</a>                     0, 0, 63, -47, -122, 62, 92, 0, 0, 0, 63, -43, -52, -110,
+<a class="jxr_linenumber" name="L448" href="#L448">448</a>                     13, -128, 0, 0, 63, -44, 12, 96, -44, -128, 0, 0, 63, -53,
+<a class="jxr_linenumber" name="L449" href="#L449">449</a>                     27, -89, -108, 0, 0, 0, 63, -42, 117, -94, 70, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L450" href="#L450">450</a>                     -80, -51, 33, 86, 0, 0, 0, 63, -40, -64, -122, -40, 0, 0, 0,
+<a class="jxr_linenumber" name="L451" href="#L451">451</a>                     -65, -73, 13, -37, -72, 0, 0, 0, 63, -38, -21, -5, 36, -128,
+<a class="jxr_linenumber" name="L452" href="#L452">452</a>                     0, 0, -65, -48, 19, -120, -98, -128, 0, 0, 63, -36, -9, 31,
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>                     1, 0, 0, 0, -65, -39, -44, 62, -40, 0, 0, 0, 63, -34, -31,
+<a class="jxr_linenumber" name="L454" href="#L454">454</a>                     100, 1, 0, 0, 0, -65, -31, 75, 86, -55, 64, 0, 0, 63, -32,
+<a class="jxr_linenumber" name="L455" href="#L455">455</a>                     85, 57, 23, 64, 0, 0, -65, -28, -123, 44, -111, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L456" href="#L456">456</a>                     -31, 41, 24, 30, -64, 0, 0, -65, -26, 102, 30, -108, 64, 0,
+<a class="jxr_linenumber" name="L457" href="#L457">457</a>                     0, 63, -31, -20, 92, 76, 64, 0, 0, -65, -26, 46, 70, -87,
+<a class="jxr_linenumber" name="L458" href="#L458">458</a>                     -128, 0, 0, 63, -30, -97, 42, -49, -128, 0, 0, -65, -29, -7,
+<a class="jxr_linenumber" name="L459" href="#L459">459</a>                     -96, 121, -128, 0, 0, 63, -29, 65, -65, 33, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L460" href="#L460">460</a>                     -34, 84, 96, -90, -128, 0, 0, 63, -29, -44, 103, 5, 0, 0, 0,
+<a class="jxr_linenumber" name="L461" href="#L461">461</a>                     -65, -47, 87, 105, 113, -128, 0, 0, 63, -28, 87, -126, 5,
+<a class="jxr_linenumber" name="L462" href="#L462">462</a>                     -128, 0, 0, -65, 85, -59, 122, 0, 0, 0, 0, 63, -28, -53,
+<a class="jxr_linenumber" name="L463" href="#L463">463</a>                     125, 53, -128, 0, 0, 63, -53, -50, 57, 82, 0, 0, 0, 63, -27,
+<a class="jxr_linenumber" name="L464" href="#L464">464</a>                     48, -46, -10, 64, 0, 0, 63, -44, -16, -38, -63, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>                     -27, -120, 7, 2, -64, 0, 0, 63, -36, -119, -98, -76, -128,
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>                     0, 0, 63, -27, -47, -90, 68, 64, 0, 0, 63, -31, -120, 77,
+<a class="jxr_linenumber" name="L467" href="#L467">467</a>                     53, 0, 0, 0, 63, -26, 14, 67, 126, -128, 0, 0, 63, -28, 66,
+<a class="jxr_linenumber" name="L468" href="#L468">468</a>                     -96, 73, 64, 0, 0, 63, -26, 62, 118, -24, 64, 0, 0, 63, -26,
+<a class="jxr_linenumber" name="L469" href="#L469">469</a>                     8, 80, 66, -64, 0, 0, 63, -26, 98, -37, -67, -64, 0, 0, 63,
+<a class="jxr_linenumber" name="L470" href="#L470">470</a>                     -26, -120, -76, -79, 0, 0, 0, 63, -26, 124, 15, 117, -128,
+<a class="jxr_linenumber" name="L471" href="#L471">471</a>                     0, 0, 63, -27, -124, 51, -4, 0, 0, 0, 63, -26, -118, -80,
+<a class="jxr_linenumber" name="L472" href="#L472">472</a>                     71, 0, 0, 0, 63, -30, -90, -5, -78, 0, 0, 0, 63, -26, -113,
+<a class="jxr_linenumber" name="L473" href="#L473">473</a>                     92, 0, -64, 0, 0, 63, -37, -6, -56, -2, -128, 0, 0, 63, -26,
+<a class="jxr_linenumber" name="L474" href="#L474">474</a>                     -118, -81, 92, -64, 0, 0, 63, -50, 38, -52, 64, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L475" href="#L475">475</a>                     -26, 125, 68, -75, 64, 0, 0, -65, 106, -100, -111, -64, 0,
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>                     0, 0, 63, -26, 103, -77, -59, 0, 0, 0, -65, -48, 123, -43,
+<a class="jxr_linenumber" name="L477" href="#L477">477</a>                     -12, 0, 0, 0, 63, -26, 74, -112, -108, 0, 0, 0, -65, -33,
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>                     56, -89, 1, -128, 0, 0, 63, -26, 38, 107, 71, 64, 0, 0, -65,
+<a class="jxr_linenumber" name="L479" href="#L479">479</a>                     -28, -41, 97, -115, -128, 0, 0, 63, -27, -5, -49, 123, -64,
+<a class="jxr_linenumber" name="L480" href="#L480">480</a>                     0, 0, -65, -26, -113, 30, 103, -64, 0, 0, 63, -27, -53, 67,
+<a class="jxr_linenumber" name="L481" href="#L481">481</a>                     -4, -64, 0, 0, -65, -29, -102, 22, -80, -64, 0, 0, 63, -27,
+<a class="jxr_linenumber" name="L482" href="#L482">482</a>                     -107, 74, -114, -64, 0, 0, -65, -40, 80, -64, 70, 0, 0, 0,
+<a class="jxr_linenumber" name="L483" href="#L483">483</a>                     63, -27, 90, 95, -120, -64, 0, 0, -65, -105, -62, 88, -64,
+<a class="jxr_linenumber" name="L484" href="#L484">484</a>                     0, 0, 0, 63, -27, 26, -7, -6, 0, 0, 0, 63, -48, 100, -4, 29,
+<a class="jxr_linenumber" name="L485" href="#L485">485</a>                     0, 0, 0, 63, -28, -41, -117, 54, 0, 0, 0, 63, -35, 47, -72,
+<a class="jxr_linenumber" name="L486" href="#L486">486</a>                     -117, 0, 0, 0, 63, -28, -112, 127, 49, -128, 0, 0, 63, -28,
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>                     7, 8, 0, -64, 0, 0, 63, -28, 70, 60, 21, 0, 0, 0, 63, -26,
+<a class="jxr_linenumber" name="L488" href="#L488">488</a>                     116, 56, -39, -128, 0, 0, 63, -29, -7, 34, -72, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L489" href="#L489">489</a>                     -27, 54, -88, -53, -128, 0, 0, 63, -29, -87, -114, 65, -128,
+<a class="jxr_linenumber" name="L490" href="#L490">490</a>                     0, 0, 63, -33, 59, -13, -32, 0, 0, 0, 63, -29, 87, -44, -80,
+<a class="jxr_linenumber" name="L491" href="#L491">491</a>                     -64, 0, 0, 63, -56, 60, 73, -112, 0, 0, 0, 63, -29, 4, 70,
+<a class="jxr_linenumber" name="L492" href="#L492">492</a>                     -111, 64, 0, 0, -65, -58, 8, -15, 84, 0, 0, 0, 63, -30, -81,
+<a class="jxr_linenumber" name="L493" href="#L493">493</a>                     47, -124, 0, 0, 0, -65, -32, 87, -82, 61, 64, 0, 0, 63, -30,
+<a class="jxr_linenumber" name="L494" href="#L494">494</a>                     88, -42, 9, 0, 0, 0, -65, -26, 35, -69, -119, -64, 0, 0, 63,
+<a class="jxr_linenumber" name="L495" href="#L495">495</a>                     -30, 1, 124, 2, -64, 0, 0, -65, -28, 87, -99, -98, 64, 0, 0,
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>                     63, -31, -87, 94, -111, 64, 0, 0, -65, -45, 3, 28, -55, 0,
+<a class="jxr_linenumber" name="L497" href="#L497">497</a>                     0, 0, 63, -31, 80, -74, -114, -128, 0, 0, 63, -58, 99, -107,
+<a class="jxr_linenumber" name="L498" href="#L498">498</a>                     -26, 0, 0, 0, 63, -32, -9, -72, 118, -128, 0, 0, 63, -32,
+<a class="jxr_linenumber" name="L499" href="#L499">499</a>                     75, 60, -115, 64, 0, 0, 63, -32, -98, -108, -34, 64, 0, 0,
+<a class="jxr_linenumber" name="L500" href="#L500">500</a>                     63, -27, -10, -8, 88, -64, 0, 0, 63, -32, 69, 120, 96, -128,
+<a class="jxr_linenumber" name="L501" href="#L501">501</a>                     0, 0, 63, -28, -29, -126, 123, 64, 0, 0, 63, -33, -39, 24,
+<a class="jxr_linenumber" name="L502" href="#L502">502</a>                     37, -128, 0, 0, 63, -42, 97, 18, -1, 0, 0, 0, 63, -33, 39,
+<a class="jxr_linenumber" name="L503" href="#L503">503</a>                     -22, -25, 0, 0, 0, -65, -67, -67, -45, -14, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L504" href="#L504">504</a>                     -34, 119, -83, -70, 0, 0, 0, -65, -31, -36, 58, -38, -64, 0,
+<a class="jxr_linenumber" name="L505" href="#L505">505</a>                     0, 63, -35, -56, -98, -35, -128, 0, 0, -65, -26, 82, -113,
+<a class="jxr_linenumber" name="L506" href="#L506">506</a>                     -127, 0, 0, 0, 63, -35, 26, -9, 16, -128, 0, 0, -65, -39,
+<a class="jxr_linenumber" name="L507" href="#L507">507</a>                     -77, 108, 121, 0, 0, 0, 63, -36, 110, -23, 49, -128, 0, 0,
+<a class="jxr_linenumber" name="L508" href="#L508">508</a>                     63, -54, 61, 52, -56, 0, 0, 0, 63, -37, -60, -93, -119, 0,
+<a class="jxr_linenumber" name="L509" href="#L509">509</a>                     0, 0, 63, -28, 98, 116, -68, -64, 0, 0, 63, -37, 28, 78,
+<a class="jxr_linenumber" name="L510" href="#L510">510</a>                     -53, -128, 0, 0, 63, -27, 73, 96, 4, -64, 0, 0, 63, -38,
+<a class="jxr_linenumber" name="L511" href="#L511">511</a>                     118, 16, 65, -128, 0, 0, 63, -45, 98, -1, -37, -128, 0, 0,
+<a class="jxr_linenumber" name="L512" href="#L512">512</a>                     63, -39, -46, 7, -128, 0, 0, 0, -65, -44, -114, 42, -15,
+<a class="jxr_linenumber" name="L513" href="#L513">513</a>                     -128, 0, 0, 63, -39, 48, 82, 66, -128, 0, 0, -65, -26, 7,
+<a class="jxr_linenumber" name="L514" href="#L514">514</a>                     54, -101, -64, 0, 0, 63, -40, -111, 7, -40, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L515" href="#L515">515</a>                     -35, -51, -69, -109, 0, 0, 0, 63, -41, -12, 63, -39, -128,
+<a class="jxr_linenumber" name="L516" href="#L516">516</a>                     0, 0, 63, -48, -59, -44, 99, -128, 0, 0, 63, -41, 90, 10, 1,
+<a class="jxr_linenumber" name="L517" href="#L517">517</a>                     -128, 0, 0, 63, -27, 118, 75, -116, 0, 0, 0, 63, -42, -62,
+<a class="jxr_linenumber" name="L518" href="#L518">518</a>                     121, 24, -128, 0, 0, 63, -31, 25, 7, 100, 64, 0, 0, 63, -42,
+<a class="jxr_linenumber" name="L519" href="#L519">519</a>                     45, -107, -23, 0, 0, 0, -65, -58, -95, 62, 125, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L520" href="#L520">520</a>                     -43, -101, 111, -122, -128, 0, 0, -65, -27, -69, 90, -76,
+<a class="jxr_linenumber" name="L521" href="#L521">521</a>                     -128, 0, 0, 63, -43, 12, 8, -126, -128, 0, 0, -65, -40, 8,
+<a class="jxr_linenumber" name="L522" href="#L522">522</a>                     81, -41, -128, 0, 0, 63, -44, 127, 108, -11, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L523" href="#L523">523</a>                     -33, 125, 16, -56, -128, 0, 0, 63, -45, -11, -102, 68, 0, 0,
+<a class="jxr_linenumber" name="L524" href="#L524">524</a>                     0, 63, -28, -71, 13, 81, 64, 0, 0, 63, -45, 110, -103, -94,
+<a class="jxr_linenumber" name="L525" href="#L525">525</a>                     0, 0, 0, -65, 121, -87, 70, -96, 0, 0, 0, 63, -46, -22, 100,
+<a class="jxr_linenumber" name="L526" href="#L526">526</a>                     -25, -128, 0, 0, -65, -26, -124, -31, -123, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L527" href="#L527">527</a>                     -46, 105, 1, -108, -128, 0, 0, -65, -51, 57, 21, 0, 0, 0, 0,
+<a class="jxr_linenumber" name="L528" href="#L528">528</a>                     63, -47, -22, 104, 115, -128, 0, 0, 63, -28, 67, -99, 49,
+<a class="jxr_linenumber" name="L529" href="#L529">529</a>                     -64, 0, 0, 63, -47, 110, -103, 96, 0, 0, 0, 63, -38, -29,
+<a class="jxr_linenumber" name="L530" href="#L530">530</a>                     115, -19, -128, 0, 0, 63, -48, -11, -113, -88, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L531" href="#L531">531</a>                     -32, -57, 4, -111, -64, 0, 0, 63, -48, 127, 66, 73, -128, 0,
+<a class="jxr_linenumber" name="L532" href="#L532">532</a>                     0, -65, -35, 22, 79, 22, -128, 0, 0, 63, -48, 11, -77, -49,
+<a class="jxr_linenumber" name="L533" href="#L533">533</a>                     -128, 0, 0, 63, -29, 81, -90, -35, 0, 0, 0, 63, -49, 53,
+<a class="jxr_linenumber" name="L534" href="#L534">534</a>                     -101, -54, 0, 0, 0, 63, -41, 20, -53, 34, 0, 0, 0, 63, -50,
+<a class="jxr_linenumber" name="L535" href="#L535">535</a>                     89, 64, 25, 0, 0, 0, -65, -29, 19, 126, -68, 64, 0, 0, 63,
+<a class="jxr_linenumber" name="L536" href="#L536">536</a>                     -51, -126, 2, 123, 0, 0, 0, -65, -58, -101, 63, 23, 0, 0, 0,
+<a class="jxr_linenumber" name="L537" href="#L537">537</a>                     63, -52, -80, 40, 91, 0, 0, 0, 63, -24, -91, -96, -50, 0, 0,
+<a class="jxr_linenumber" name="L538" href="#L538">538</a>                     0, 63, -53, -29, 47, 22, 0, 0, 0, -65, -41, -114, 4, 95,
+<a class="jxr_linenumber" name="L539" href="#L539">539</a>                     -128, 0, 0, 63, -53, 27, -114, 46, 0, 0, 0, -65, -40, 49,
+<a class="jxr_linenumber" name="L540" href="#L540">540</a>                     -117, -81, 0, 0, 0, 63, -54, 88, -119, 16, 0, 0, 0, 63, -29,
+<a class="jxr_linenumber" name="L541" href="#L541">541</a>                     -121, -96, 15, -128, 0, 0, 63, -55, -102, -47, -87, 0, 0, 0,
+<a class="jxr_linenumber" name="L542" href="#L542">542</a>                     -65, -61, 105, 14, -83, 0, 0, 0, 63, -56, -31, 108, -33, 0,
+<a class="jxr_linenumber" name="L543" href="#L543">543</a>                     0, 0, -65, -33, 63, -16, -111, -128, 0, 0, 63, -56, 45, 72,
+<a class="jxr_linenumber" name="L544" href="#L544">544</a>                     -84, 0, 0, 0, 63, -22, -122, 10, -109, -128, 0, 0, 63, -57,
+<a class="jxr_linenumber" name="L545" href="#L545">545</a>                     125, 47, 67, 0, 0, 0, -65, -27, 77, 102, 63, -64, 0, 0, 63,
+<a class="jxr_linenumber" name="L546" href="#L546">546</a>                     -58, -46, 65, -16, 0, 0, 0, 63, -48, 113, -66, -14, -128, 0,
+<a class="jxr_linenumber" name="L547" href="#L547">547</a>                     0, 63, -58, 43, 32, 18, 0, 0, 0, 63, -57, 61, 31, -100, 0,
+<a class="jxr_linenumber" name="L548" href="#L548">548</a>                     0, 0, 63, -59, -119, 7, -105, 0, 0, 0, -65, -37, -79, 96,
+<a class="jxr_linenumber" name="L549" href="#L549">549</a>                     -95, -128, 0, 0, 63, -60, -22, -116, 96, 0, 0, 0, 63, -32,
+<a class="jxr_linenumber" name="L550" href="#L550">550</a>                     51, 36, 61, -64, 0, 0, 63, -60, 80, -31, 125, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L551" href="#L551">551</a>                     -35, -18, -128, -112, -128, 0, 0, 63, -61, -70, -64, 56, 0,
+<a class="jxr_linenumber" name="L552" href="#L552">552</a>                     0, 0, 63, -41, -15, -93, 33, -128, 0, 0, 63, -61, 41, 23,
+<a class="jxr_linenumber" name="L553" href="#L553">553</a>                     61, 0, 0, 0, -65, -49, 26, -36, -127, 0, 0, 0, 63, -62,
+<a class="jxr_linenumber" name="L554" href="#L554">554</a>                     -101, 7, -36, 0, 0, 0, 63, -61, 69, -32, -25, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L555" href="#L555">555</a>                     -62, 16, -14, 0, 0, 0, 0, -65, -87, -65, -61, -96, 0, 0, 0,
+<a class="jxr_linenumber" name="L556" href="#L556">556</a>                     63, -63, -118, -80, -78, 0, 0, 0, 63, 104, 11, -91, 64, 0,
+<a class="jxr_linenumber" name="L557" href="#L557">557</a>                     0, 0, 63, -63, 7, -66, 20, 0, 0, 0, 63, -87, 42, -43, -36,
+<a class="jxr_linenumber" name="L558" href="#L558">558</a>                     0, 0, 0, 63, -64, -119, 9, -46, 0, 0, 0, -65, -77, 65, -65,
+<a class="jxr_linenumber" name="L559" href="#L559">559</a>                     -116, 0, 0, 0, 63, -64, 12, -52, 89, 0, 0, 0, 63, -74, -101,
+<a class="jxr_linenumber" name="L560" href="#L560">560</a>                     -83, -58, 0, 0, 0, 63, -65, 42, -56, -30, 0, 0, 0, -65, -81,
+<a class="jxr_linenumber" name="L561" href="#L561">561</a>                     45, 20, -48, 0, 0, 0, 63, -66, 62, -26, -48, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L562" href="#L562">562</a>                     -81, 118, -95, -108, 0, 0, 0, 63, -67, 94, 40, 80, 0, 0, 0,
+<a class="jxr_linenumber" name="L563" href="#L563">563</a>                     -65, -82, 117, 104, -28, 0, 0, 0, 63, -68, 126, 32, -26, 0,
+<a class="jxr_linenumber" name="L564" href="#L564">564</a>                     0, 0, 63, -80, 115, 69, 50, 0, 0, 0, 63, -69, -86, -34, 124,
+<a class="jxr_linenumber" name="L565" href="#L565">565</a>                     0, 0, 0, -65, -99, -26, -124, 32, 0, 0, 0, 63, -70, -42, 15,
+<a class="jxr_linenumber" name="L566" href="#L566">566</a>                     -78, 0, 0, 0, 63, -93, -45, 109, -44, 0, 0, 0, 63, -70, 15,
+<a class="jxr_linenumber" name="L567" href="#L567">567</a>                     -98, 2, 0, 0, 0, 63, -127, -37, 95, 16, 0, 0, 0, 63, -71,
+<a class="jxr_linenumber" name="L568" href="#L568">568</a>                     69, -118, -82, 0, 0, 0, -65, -92, -52, 45, 36, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L569" href="#L569">569</a>                     -72, -117, 32, -84, 0, 0, 0, 63, -87, -5, 115, 84, 0, 0, 0,
+<a class="jxr_linenumber" name="L570" href="#L570">570</a>                     63, -73, -53, 119, -96, 0, 0, 0, -65, -87, -115, -86, -80,
+<a class="jxr_linenumber" name="L571" href="#L571">571</a>                     0, 0, 0, 63, -73, 28, 40, -26, 0, 0, 0, 63, -74, -12, 85,
+<a class="jxr_linenumber" name="L572" href="#L572">572</a>                     22, 0, 0, 0, 63, -74, 102, -55, -126, 0, 0, 0, -65, -65,
+<a class="jxr_linenumber" name="L573" href="#L573">573</a>                     -114, 92, -36, 0, 0, 0, 63, -75, -63, -125, -78, 0, 0, 0,
+<a class="jxr_linenumber" name="L574" href="#L574">574</a>                     63, -64, -93, -123, -55, 0, 0, 0, 63, -75, 22, 126, -110, 0,
+<a class="jxr_linenumber" name="L575" href="#L575">575</a>                     0, 0, -65, -60, -96, -30, 79, 0, 0, 0, 63, -76, 122, 11, 0,
+<a class="jxr_linenumber" name="L576" href="#L576">576</a>                     0, 0, 0, 63, -60, -109, 97, 47, 0, 0, 0, 63, -77, -39, -99,
+<a class="jxr_linenumber" name="L577" href="#L577">577</a>                     -18, 0, 0, 0, -65, -69, 10, 14, 2, 0, 0, 0, 63, -77, 68,
+<a class="jxr_linenumber" name="L578" href="#L578">578</a>                     -88, 54, 0, 0, 0, -65, -76, -72, -116, -102, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L579" href="#L579">579</a>                     -78, -81, 52, -44, 0, 0, 0, 63, -38, 34, 4, 75, -128, 0, 0,
+<a class="jxr_linenumber" name="L580" href="#L580">580</a>                     63, -78, 32, 86, -46, 0, 0, 0, -65, -24, -90, 85, -58, 0, 0,
+<a class="jxr_linenumber" name="L581" href="#L581">581</a>                     0, 63, -79, -106, 83, -40, 0, 0, 0, 63, -30, -105, 64, 26,
+<a class="jxr_linenumber" name="L582" href="#L582">582</a>                     -64, 0, 0, 63, -79, 12, 38, -62, 0, 0, 0, 63, -48, 55, -69,
+<a class="jxr_linenumber" name="L583" href="#L583">583</a>                     121, -128, 0, 0, 63, -80, -114, 12, 80, 0, 0, 0, -65, -28,
+<a class="jxr_linenumber" name="L584" href="#L584">584</a>                     62, -6, -92, -64, 0, 0, 63, -80, 7, 62, 66, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L585" href="#L585">585</a>                     -33, 55, 73, 0, 0, 0, 0, 63, -81, 42, -36, -104, 0, 0, 0,
+<a class="jxr_linenumber" name="L586" href="#L586">586</a>                     63, -59, 54, 78, 79, 0, 0, 0, 63, -82, 33, -74, 44, 0, 0, 0,
+<a class="jxr_linenumber" name="L587" href="#L587">587</a>                     63, -30, 86, -74, -109, 0, 0, 0, 63, -83, 87, 14, 100, 0, 0,
+<a class="jxr_linenumber" name="L588" href="#L588">588</a>                     0, 63, -26, 11, 75, 15, 64, 0, 0, 63, -84, 80, -91, -68, 0,
+<a class="jxr_linenumber" name="L589" href="#L589">589</a>                     0, 0, 63, -26, -127, -73, 103, -128, 0, 0, 63, -85, -98,
+<a class="jxr_linenumber" name="L590" href="#L590">590</a>                     -62, 84, 0, 0, 0, 63, -27, -93, -3, -41, 64, 0, 0, 63, -86,
+<a class="jxr_linenumber" name="L591" href="#L591">591</a>                     -102, 37, -108, 0, 0, 0, 63, -36, 1, -125, 75, -128, 0, 0,
+<a class="jxr_linenumber" name="L592" href="#L592">592</a>                     63, -86, 0, 5, -4, 0, 0, 0, -65, -60, -43, -22, -40, 0, 0,
+<a class="jxr_linenumber" name="L593" href="#L593">593</a>                     0, 63, -88, -3, 61, -8, 0, 0, 0, -65, -25, -3, 7, -90, -64,
+<a class="jxr_linenumber" name="L594" href="#L594">594</a>                     0, 0, 63, -88, 120, -33, 124, 0, 0, 0, 63, -46, -37, 13,
+<a class="jxr_linenumber" name="L595" href="#L595">595</a>                     -62, -128, 0, 0, 63, -89, 121, 37, -104, 0, 0, 0, 63, -50,
+<a class="jxr_linenumber" name="L596" href="#L596">596</a>                     -128, -59, -125, 0, 0, 0, 63, -89, 7, 73, 52, 0, 0, 0, -65,
+<a class="jxr_linenumber" name="L597" href="#L597">597</a>                     -41, -93, -27, 70, 0, 0, 0, 63, -90, 13, 72, -32, 0, 0, 0,
+<a class="jxr_linenumber" name="L598" href="#L598">598</a>                     63, -43, 15, 45, 20, 0, 0, 0, 63, -91, -87, 33, 104, 0, 0,
+<a class="jxr_linenumber" name="L599" href="#L599">599</a>                     0, -65, -47, -66, -78, 59, 0, 0, 0, 63, -92, -71, 101, -36,
+<a class="jxr_linenumber" name="L600" href="#L600">600</a>                     0, 0, 0, 63, -48, 18, 90, -72, -128, 0, 0, 63, -92, 91, -10,
+<a class="jxr_linenumber" name="L601" href="#L601">601</a>                     92, 0, 0, 0, -65, -49, 42, -102, -49, 0, 0, 0, 63, -93, 125,
+<a class="jxr_linenumber" name="L602" href="#L602">602</a>                     -26, -36, 0, 0, 0, 63, -55, -5, 67, 105, 0, 0, 0, 63, -93,
+<a class="jxr_linenumber" name="L603" href="#L603">603</a>                     28, 93, -20, 0, 0, 0, 63, -85, 109, -126, -76, 0, 0, 0, 63,
+<a class="jxr_linenumber" name="L604" href="#L604">604</a>                     -94, 93, 36, -20, 0, 0, 0, -65, -28, -63, -123, 118, 0, 0,
+<a class="jxr_linenumber" name="L605" href="#L605">605</a>                     0, 63, -95, -29, 88, 16, 0, 0, 0, 63, -57, 116, -110, -20,
+<a class="jxr_linenumber" name="L606" href="#L606">606</a>                     0, 0, 0, 63, -95, 97, 107, 88, 0, 0, 0, 63, -37, 101, -94,
+<a class="jxr_linenumber" name="L607" href="#L607">607</a>                     50, 0, 0, 0, 63, -96, -107, -6, 36, 0, 0, 0, 63, -87, 72,
+<a class="jxr_linenumber" name="L608" href="#L608">608</a>                     -66, 4, 0, 0, 0, 63, -96, -41, -86, 72, 0, 0, 0};
+<a class="jxr_linenumber" name="L609" href="#L609">609</a> 
+<a class="jxr_linenumber" name="L610" href="#L610">610</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(<strong class="jxr_keyword">final</strong> String[] args) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L611" href="#L611">611</a>         test(data32, 32);
+<a class="jxr_linenumber" name="L612" href="#L612">612</a>         test(data64, 64);
+<a class="jxr_linenumber" name="L613" href="#L613">613</a>     }
+<a class="jxr_linenumber" name="L614" href="#L614">614</a> 
+<a class="jxr_linenumber" name="L615" href="#L615">615</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> test(<strong class="jxr_keyword">final</strong> byte[] data, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> bits)
+<a class="jxr_linenumber" name="L616" href="#L616">616</a>             <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L617" href="#L617">617</a> 
+<a class="jxr_linenumber" name="L618" href="#L618">618</a>         <em class="jxr_comment">// Audio data should contain the same format as a command lines above</em>
+<a class="jxr_linenumber" name="L619" href="#L619">619</a>         checkAudioStream(<strong class="jxr_keyword">new</strong> ByteArrayInputStream(data), data, bits);
+<a class="jxr_linenumber" name="L620" href="#L620">620</a> 
+<a class="jxr_linenumber" name="L621" href="#L621">621</a>         <em class="jxr_comment">// Checks that the data will be preserved when we save audio data to the</em>
+<a class="jxr_linenumber" name="L622" href="#L622">622</a>         <em class="jxr_comment">// file and read it again</em>
+<a class="jxr_linenumber" name="L623" href="#L623">623</a>         <strong class="jxr_keyword">final</strong> File file = File.createTempFile(<span class="jxr_string">"sound"</span>, <span class="jxr_string">"test"</span>);
+<a class="jxr_linenumber" name="L624" href="#L624">624</a>         <strong class="jxr_keyword">try</strong> (<strong class="jxr_keyword">final</strong> InputStream fis = <strong class="jxr_keyword">new</strong> FileInputStream(file);
+<a class="jxr_linenumber" name="L625" href="#L625">625</a>              <strong class="jxr_keyword">final</strong> InputStream is = <strong class="jxr_keyword">new</strong> ByteArrayInputStream(data);
+<a class="jxr_linenumber" name="L626" href="#L626">626</a>              <strong class="jxr_keyword">final</strong> AudioInputStream ais = AudioSystem.getAudioInputStream(is)) {
+<a class="jxr_linenumber" name="L627" href="#L627">627</a>             AudioSystem.write(ais, AudioFileFormat.Type.AU, file);
+<a class="jxr_linenumber" name="L628" href="#L628">628</a>             <strong class="jxr_keyword">if</strong> (!Arrays.equals(data, fis.readAllBytes())) {
+<a class="jxr_linenumber" name="L629" href="#L629">629</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong data in the file"</span>);
+<a class="jxr_linenumber" name="L630" href="#L630">630</a>             }
+<a class="jxr_linenumber" name="L631" href="#L631">631</a>         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L632" href="#L632">632</a>             Files.delete(Paths.get(file.getAbsolutePath()));
+<a class="jxr_linenumber" name="L633" href="#L633">633</a>         }
+<a class="jxr_linenumber" name="L634" href="#L634">634</a> 
+<a class="jxr_linenumber" name="L635" href="#L635">635</a>         <em class="jxr_comment">// Checks that the data will be preserved when we save audio data to the</em>
+<a class="jxr_linenumber" name="L636" href="#L636">636</a>         <em class="jxr_comment">// stream and read it again</em>
+<a class="jxr_linenumber" name="L637" href="#L637">637</a>         <strong class="jxr_keyword">try</strong> (<strong class="jxr_keyword">final</strong> ByteArrayOutputStream baos = <strong class="jxr_keyword">new</strong> ByteArrayOutputStream();
+<a class="jxr_linenumber" name="L638" href="#L638">638</a>              <strong class="jxr_keyword">final</strong> InputStream is = <strong class="jxr_keyword">new</strong> ByteArrayInputStream(data);
+<a class="jxr_linenumber" name="L639" href="#L639">639</a>              <strong class="jxr_keyword">final</strong> AudioInputStream ais = AudioSystem.getAudioInputStream(is)) {
+<a class="jxr_linenumber" name="L640" href="#L640">640</a>             AudioSystem.write(ais, AudioFileFormat.Type.AU, baos);
+<a class="jxr_linenumber" name="L641" href="#L641">641</a>             <strong class="jxr_keyword">if</strong> (!Arrays.equals(data, baos.toByteArray())) {
+<a class="jxr_linenumber" name="L642" href="#L642">642</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong data in the stream"</span>);
+<a class="jxr_linenumber" name="L643" href="#L643">643</a>             }
+<a class="jxr_linenumber" name="L644" href="#L644">644</a>         }
+<a class="jxr_linenumber" name="L645" href="#L645">645</a>     }
+<a class="jxr_linenumber" name="L646" href="#L646">646</a> 
+<a class="jxr_linenumber" name="L647" href="#L647">647</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L648" href="#L648">648</a> <em class="jxr_javadoccomment">     * Tests that audio data is the same format as a command lines above.</em>
+<a class="jxr_linenumber" name="L649" href="#L649">649</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L650" href="#L650">650</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> checkAudioStream(<strong class="jxr_keyword">final</strong> InputStream is,
+<a class="jxr_linenumber" name="L651" href="#L651">651</a>                                          <strong class="jxr_keyword">final</strong> byte[] data, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> bits)
+<a class="jxr_linenumber" name="L652" href="#L652">652</a>             <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L653" href="#L653">653</a>         <strong class="jxr_keyword">final</strong> AudioFileFormat aff = AudioSystem.getAudioFileFormat(is);
+<a class="jxr_linenumber" name="L654" href="#L654">654</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> byteLength = aff.getByteLength();
+<a class="jxr_linenumber" name="L655" href="#L655">655</a>         <strong class="jxr_keyword">if</strong> (byteLength != data.length) {
+<a class="jxr_linenumber" name="L656" href="#L656">656</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong byteLength: "</span> + byteLength);
+<a class="jxr_linenumber" name="L657" href="#L657">657</a>         }
+<a class="jxr_linenumber" name="L658" href="#L658">658</a>         <strong class="jxr_keyword">final</strong> AudioFileFormat.Type type = aff.getType();
+<a class="jxr_linenumber" name="L659" href="#L659">659</a>         <strong class="jxr_keyword">if</strong> (!type.equals(AudioFileFormat.Type.AU)) {
+<a class="jxr_linenumber" name="L660" href="#L660">660</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong type: "</span> + type);
+<a class="jxr_linenumber" name="L661" href="#L661">661</a>         }
+<a class="jxr_linenumber" name="L662" href="#L662">662</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> frameLength = aff.getFrameLength();
+<a class="jxr_linenumber" name="L663" href="#L663">663</a>         <strong class="jxr_keyword">if</strong> (frameLength != 0.01f * aff.getFormat().getFrameRate()) {
+<a class="jxr_linenumber" name="L664" href="#L664">664</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong frameLength: "</span> + frameLength);
+<a class="jxr_linenumber" name="L665" href="#L665">665</a>         }
+<a class="jxr_linenumber" name="L666" href="#L666">666</a>         checkAudioFormat(aff.getFormat(), bits);
+<a class="jxr_linenumber" name="L667" href="#L667">667</a>         <strong class="jxr_keyword">try</strong> (AudioInputStream ais = AudioSystem.getAudioInputStream(is)) {
+<a class="jxr_linenumber" name="L668" href="#L668">668</a>             <strong class="jxr_keyword">final</strong> AudioFormat format = ais.getFormat();
+<a class="jxr_linenumber" name="L669" href="#L669">669</a>             <strong class="jxr_keyword">if</strong> (ais.getFrameLength() != 0.01f * format.getFrameRate()) {
+<a class="jxr_linenumber" name="L670" href="#L670">670</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(
+<a class="jxr_linenumber" name="L671" href="#L671">671</a>                         <span class="jxr_string">"Wrong frameLength: "</span> + ais.getFrameLength());
+<a class="jxr_linenumber" name="L672" href="#L672">672</a>             }
+<a class="jxr_linenumber" name="L673" href="#L673">673</a>             checkAudioFormat(format, bits);
+<a class="jxr_linenumber" name="L674" href="#L674">674</a>         }
+<a class="jxr_linenumber" name="L675" href="#L675">675</a>     }
+<a class="jxr_linenumber" name="L676" href="#L676">676</a> 
+<a class="jxr_linenumber" name="L677" href="#L677">677</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L678" href="#L678">678</a> <em class="jxr_javadoccomment">     * Tests that audio data is the same format as a command lines above.</em>
+<a class="jxr_linenumber" name="L679" href="#L679">679</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L680" href="#L680">680</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> checkAudioFormat(<strong class="jxr_keyword">final</strong> AudioFormat audioFormat,
+<a class="jxr_linenumber" name="L681" href="#L681">681</a>                                          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> bits) {
+<a class="jxr_linenumber" name="L682" href="#L682">682</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> channels = audioFormat.getChannels();
+<a class="jxr_linenumber" name="L683" href="#L683">683</a>         <strong class="jxr_keyword">if</strong> (channels != 2) {
+<a class="jxr_linenumber" name="L684" href="#L684">684</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong channels: "</span> + channels);
+<a class="jxr_linenumber" name="L685" href="#L685">685</a>         }
+<a class="jxr_linenumber" name="L686" href="#L686">686</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> sizeInBits = audioFormat.getSampleSizeInBits();
+<a class="jxr_linenumber" name="L687" href="#L687">687</a>         <strong class="jxr_keyword">if</strong> (sizeInBits != bits) {
+<a class="jxr_linenumber" name="L688" href="#L688">688</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong sizeInBits: "</span> + sizeInBits);
+<a class="jxr_linenumber" name="L689" href="#L689">689</a>         }
+<a class="jxr_linenumber" name="L690" href="#L690">690</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> frameSize = audioFormat.getFrameSize();
+<a class="jxr_linenumber" name="L691" href="#L691">691</a>         <strong class="jxr_keyword">if</strong> (frameSize != sizeInBits * channels / 8) {
+<a class="jxr_linenumber" name="L692" href="#L692">692</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong frameSize: "</span> + frameSize);
+<a class="jxr_linenumber" name="L693" href="#L693">693</a>         }
+<a class="jxr_linenumber" name="L694" href="#L694">694</a>         <strong class="jxr_keyword">final</strong> AudioFormat.Encoding encoding = audioFormat.getEncoding();
+<a class="jxr_linenumber" name="L695" href="#L695">695</a>         <strong class="jxr_keyword">if</strong> (!encoding.equals(AudioFormat.Encoding.PCM_FLOAT)) {
+<a class="jxr_linenumber" name="L696" href="#L696">696</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong encoding: "</span> + encoding);
+<a class="jxr_linenumber" name="L697" href="#L697">697</a>         }
+<a class="jxr_linenumber" name="L698" href="#L698">698</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">float</strong> frameRate = audioFormat.getFrameRate();
+<a class="jxr_linenumber" name="L699" href="#L699">699</a>         <strong class="jxr_keyword">if</strong> (frameRate != 32000) {
+<a class="jxr_linenumber" name="L700" href="#L700">700</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong frameRate: "</span> + frameRate);
+<a class="jxr_linenumber" name="L701" href="#L701">701</a>         }
+<a class="jxr_linenumber" name="L702" href="#L702">702</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">float</strong> sampleRate = audioFormat.getSampleRate();
+<a class="jxr_linenumber" name="L703" href="#L703">703</a>         <strong class="jxr_keyword">if</strong> (sampleRate != 32000) {
+<a class="jxr_linenumber" name="L704" href="#L704">704</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Wrong sampleRate: "</span> + sampleRate);
+<a class="jxr_linenumber" name="L705" href="#L705">705</a>         }
+<a class="jxr_linenumber" name="L706" href="#L706">706</a>     }
+<a class="jxr_linenumber" name="L707" href="#L707">707</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

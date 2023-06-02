@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>LuxTrustCA xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2019, 2021, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> * @bug 8232019 8256895</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment"> * @summary Interoperability tests with LuxTrust Global Root 2 CA</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment"> * @build ValidatePathWithParams</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment"> * @run main/othervm -Djava.security.debug=certpath LuxTrustCA OCSP</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment"> * @run main/othervm -Djava.security.debug=certpath LuxTrustCA CRL</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_comment"> * Obtain TLS test artifacts for LuxTrust CAs from:</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_comment"> * LuxTrust Global Root 2 CA sent test certificates as attachment</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> LuxTrustCA {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <em class="jxr_comment">// Owner: CN=LuxTrust Global Qualified CA 3, O=LuxTrust S.A., C=LU</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      <em class="jxr_comment">// Issuer: CN=LuxTrust Global Root 2, O=LuxTrust S.A., C=LU</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      <em class="jxr_comment">// Serial number: 413dea1a28c2253845558e047f3e2a8b5b9baeae</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      <em class="jxr_comment">// Valid from: Fri Mar 06 06:12:15 PST 2015 until: Mon Mar 05 05:21:57 PST 2035</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String INT = <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span> +
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>              <span class="jxr_string">"MIIGcjCCBFqgAwIBAgIUQT3qGijCJThFVY4Efz4qi1ubrq4wDQYJKoZIhvcNAQEL\n"</span> +
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>              <span class="jxr_string">"BQAwRjELMAkGA1UEBhMCTFUxFjAUBgNVBAoMDUx1eFRydXN0IFMuQS4xHzAdBgNV\n"</span> +
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>              <span class="jxr_string">"BAMMFkx1eFRydXN0IEdsb2JhbCBSb290IDIwHhcNMTUwMzA2MTQxMjE1WhcNMzUw\n"</span> +
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>              <span class="jxr_string">"MzA1MTMyMTU3WjBOMQswCQYDVQQGEwJMVTEWMBQGA1UECgwNTHV4VHJ1c3QgUy5B\n"</span> +
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>              <span class="jxr_string">"LjEnMCUGA1UEAwweTHV4VHJ1c3QgR2xvYmFsIFF1YWxpZmllZCBDQSAzMIICIjAN\n"</span> +
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>              <span class="jxr_string">"BgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAuZ5iXSmFbP80gWb0kieYsImcyIo3\n"</span> +
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>              <span class="jxr_string">"QYg+XA3NlwH6QtI0PgZEG9dSo8pM7VMIzE5zq8tgJ50HnPdYflvfhkEKvAW2NuNX\n"</span> +
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              <span class="jxr_string">"6hi/6HK4Nye+kB+INjpfAHmLft3GT95e+frk/t7hJNorK44xzqfWZKLNGysEHIri\n"</span> +
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>              <span class="jxr_string">"ddcePWOk3J/VMc9CsSemeZbmeZW1/xXeqolMS7JIDZ3+0DgVCYsKIK+b3sAQ8iqX\n"</span> +
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>              <span class="jxr_string">"bQlQyvymG6QyoQoJbuEP23iawRMWKNWk+sjzOkPAAQDtgEEVdggzzudLSM04C5Cj\n"</span> +
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>              <span class="jxr_string">"eLlLYuXgljler9bKRk9wW8nkareLZsn9uCDihGXGyC5m9jseGY1KAnlV8usLjBFA\n"</span> +
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>              <span class="jxr_string">"iW5OCnzcOg+CPsVucoRhS6uvXcu7VtHRGo5yLysJVv7sj6cx5lMvQKAMLviVi3kp\n"</span> +
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>              <span class="jxr_string">"hZKYfqVLAVFJpXTpunY2GayVGf/uOpzNoiSRpcxxYjmAlPKNeTgXVl5Mc0zojgT/\n"</span> +
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>              <span class="jxr_string">"MZTGFN7ov7n01yodN6OhfTADacvaKfj2C2CwdCJvMqvlUuCKrvuXbdZrtRm3BZXr\n"</span> +
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>              <span class="jxr_string">"ghGhuQmG0Tir7VVCI0WZjVjyHs2rpUcCQ6+D1WymKhzp0mrXdaFzYRce7FrEk69J\n"</span> +
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>              <span class="jxr_string">"WzWVp/9/GKnnb0//camavEaI4V64MVxYAir5AL/j7d4JIOqhPPU14ajxmC6dEH84\n"</span> +
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>              <span class="jxr_string">"guVs0Lo/dwVTUzsCAwEAAaOCAU4wggFKMBIGA1UdEwEB/wQIMAYBAf8CAQAwQwYD\n"</span> +
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>              <span class="jxr_string">"VR0gBDwwOjA4BggrgSsBAQEKAzAsMCoGCCsGAQUFBwIBFh5odHRwczovL3JlcG9z\n"</span> +
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>              <span class="jxr_string">"aXRvcnkubHV4dHJ1c3QubHUwagYIKwYBBQUHAQEEXjBcMCsGCCsGAQUFBzABhh9o\n"</span> +
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>              <span class="jxr_string">"dHRwOi8vbHRncm9vdC5vY3NwLmx1eHRydXN0Lmx1MC0GCCsGAQUFBzAChiFodHRw\n"</span> +
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>              <span class="jxr_string">"Oi8vY2EubHV4dHJ1c3QubHUvTFRHUkNBMi5jcnQwDgYDVR0PAQH/BAQDAgEGMB8G\n"</span> +
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>              <span class="jxr_string">"A1UdIwQYMBaAFP8YKHb5SAUsoa7xKxsrslP4S3yzMDMGA1UdHwQsMCowKKAmoCSG\n"</span> +
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>              <span class="jxr_string">"Imh0dHA6Ly9jcmwubHV4dHJ1c3QubHUvTFRHUkNBMi5jcmwwHQYDVR0OBBYEFGOP\n"</span> +
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>              <span class="jxr_string">"wosDsauO2FNHlh2ZqH32rKh1MA0GCSqGSIb3DQEBCwUAA4ICAQADB6M/edbOO9iJ\n"</span> +
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>              <span class="jxr_string">"COnVxayJ1NBk08/BVKlHwe7HBYAzT6Kmo3TbMUwOpcGI2e/NBCR3F4wTzXOVvFmv\n"</span> +
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>              <span class="jxr_string">"dBl7sdS6uMSLBTrav+5LChcFDBQj26X5VQDcXkA8b/u6J4Ve7CwoSesYg9H0fsJ3\n"</span> +
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>              <span class="jxr_string">"v12QrmGUUao9gbamKP1TFriO+XiIaDLYectruusRktIke9qy8MCpNSarZqr3oD3c\n"</span> +
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>              <span class="jxr_string">"/+N5D3lDlGpaz1IL8TpbubFEQHPCr6JiwR+qSqGRfxv8vIvOOAVxe7np5QhtwmCk\n"</span> +
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>              <span class="jxr_string">"XdMOPQ/XOOuEA06bez+zHkASX64at7dXru+4JUEbpijjMA+1jbFZr20OeBIQZL7o\n"</span> +
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>              <span class="jxr_string">"Est+FF8lFuvmucC9TS9QnlF28WJExvpIknjS7LhFMGXB9w380q38ZOuKjPZpoztY\n"</span> +
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>              <span class="jxr_string">"eyUpf8gxzV7fE5Q1okhnsDZ+12vBzBruzJcwtNuXyLyIh3fVN0LunVd+NP2kGjB2\n"</span> +
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>              <span class="jxr_string">"t9WD2Y0CaKxWx8snDdrSbAi46TpNoe04eroWgZOvdN0hEmf2d8tYBSJ/XZekU9sC\n"</span> +
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>              <span class="jxr_string">"Aww5vxHnXJi6CZHhjt8f1mMhyE2gBvmpk4CFetViO2sG0n/nsxCQNpnclsax/eJu\n"</span> +
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              <span class="jxr_string">"XmGiZ3OPCIRijI5gy3pLRgnbgLyktWoOkmT/gxtWDLfVZwEt52JL8d550KIgttyR\n"</span> +
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>              <span class="jxr_string">"qX81LJWGSDdpnzeRVQEnzAt6+RebAQ==\n"</span> +
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>              <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>      <em class="jxr_comment">// Owner: T=Private Person, SERIALNUMBER=00100978855105608536,</em>
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>      <em class="jxr_comment">// GIVENNAME=TokenPRIActive, SURNAME=Test, CN=TokenPRIActive Test, C=DE</em>
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      <em class="jxr_comment">// Issuer: CN=LuxTrust Global Qualified CA 3, O=LuxTrust S.A., C=LU</em>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      <em class="jxr_comment">// Serial number: 3814b6</em>
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>      <em class="jxr_comment">// Valid from: Wed Jul 10 04:36:12 PDT 2019 until: Sun Jul 10 04:36:12 PDT 2022</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String VALID = <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span> +
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>              <span class="jxr_string">"MIIG/jCCBOagAwIBAgIDOBS2MA0GCSqGSIb3DQEBCwUAME4xCzAJBgNVBAYTAkxV\n"</span> +
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              <span class="jxr_string">"MRYwFAYDVQQKDA1MdXhUcnVzdCBTLkEuMScwJQYDVQQDDB5MdXhUcnVzdCBHbG9i\n"</span> +
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>              <span class="jxr_string">"YWwgUXVhbGlmaWVkIENBIDMwHhcNMTkwNzEwMTEzNjEyWhcNMjIwNzEwMTEzNjEy\n"</span> +
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>              <span class="jxr_string">"WjCBizELMAkGA1UEBhMCREUxHDAaBgNVBAMTE1Rva2VuUFJJQWN0aXZlIFRlc3Qx\n"</span> +
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>              <span class="jxr_string">"DTALBgNVBAQTBFRlc3QxFzAVBgNVBCoTDlRva2VuUFJJQWN0aXZlMR0wGwYDVQQF\n"</span> +
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>              <span class="jxr_string">"ExQwMDEwMDk3ODg1NTEwNTYwODUzNjEXMBUGA1UEDBMOUHJpdmF0ZSBQZXJzb24w\n"</span> +
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>              <span class="jxr_string">"ggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQDb8l2RJNS7iA9hJFj8aR25\n"</span> +
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>              <span class="jxr_string">"kpU/ZQTHl8Z9yrTLhr4VcMWMxqeOQUcUU27SgIuFvU9s/68OuaIhxyu6eohaGCLC\n"</span> +
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>              <span class="jxr_string">"wzFFRg8OlsUYuI1QtUEliIjmHOMDqSNIt093+SDV64osnHw5fpfy8V0zehEkd7QR\n"</span> +
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>              <span class="jxr_string">"t7Aq38ixCQyxCmNIDJeDCKJT+wwdLaKuw/4SEpR9sygSxZ3kG6kF4icsgYuiOCRx\n"</span> +
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>              <span class="jxr_string">"+DrS1wP9kcrQVWQ0bJbGzwxLZXCHaJsWE1Y17mQAO4Iv/9icqDkP3bZBU5GCgbNT\n"</span> +
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              <span class="jxr_string">"JEP2GiUUPU3nL41Tlq03+iDmkS2bpWCtFZmTgUg+1nJEb7PSCJ9VcoflOOFgX/ku\n"</span> +
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>             <span class="jxr_string">"TQCJWwhsgyOneEZAg7PpzOj2msxA9RWI88FzRnX/zyjWEpdUCVJ85hFw8u+UZ7k1\n"</span> +
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>             <span class="jxr_string">"eF37oOpgNxQMJ+/ey7huneTzyhpFz/TqJpfMmwaGbPL6zmPLAMQalIPQj+68zlcX\n"</span> +
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>             <span class="jxr_string">"qyeKVbZU74Vm051kXb/3qs6CeUpT4HrY3UmHWLvOdNkCAwEAAaOCAiUwggIhMB8G\n"</span> +
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>             <span class="jxr_string">"A1UdIwQYMBaAFGOPwosDsauO2FNHlh2ZqH32rKh1MGYGCCsGAQUFBwEBBFowWDAn\n"</span> +
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>             <span class="jxr_string">"BggrBgEFBQcwAYYbaHR0cDovL3FjYS5vY3NwLmx1eHRydXN0Lmx1MC0GCCsGAQUF\n"</span> +
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>             <span class="jxr_string">"BzAChiFodHRwOi8vY2EubHV4dHJ1c3QubHUvTFRHUUNBMy5jcnQwggEuBgNVHSAE\n"</span> +
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             <span class="jxr_string">"ggElMIIBITCCARMGC4g3AQOBKwEBCgMFMIIBAjAqBggrBgEFBQcCARYeaHR0cHM6\n"</span> +
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>             <span class="jxr_string">"Ly9yZXBvc2l0b3J5Lmx1eHRydXN0Lmx1MIHTBggrBgEFBQcCAjCBxgyBw0x1eFRy\n"</span> +
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>             <span class="jxr_string">"dXN0IENlcnRpZmljYXRlIG5vdCBvbiBTU0NEIGNvbXBsaWFudCB3aXRoIEVUU0kg\n"</span> +
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>             <span class="jxr_string">"VFMgMTAyIDA0MiBOQ1AgY2VydGlmaWNhdGUgcG9saWN5LiBLZXkgR2VuZXJhdGlv\n"</span> +
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>             <span class="jxr_string">"biBieSBDU1AuIFNvbGUgQXV0aG9yaXNlZCBVc2FnZTogU2lnbmF0dXJlLCBEYXRh\n"</span> +
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>             <span class="jxr_string">"IG9yIEVudGl0eSBBdXRoZW50aWNhdGlvbiBhbmQgRGF0YSBFbmNyeXB0aW9uLjAI\n"</span> +
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>             <span class="jxr_string">"BgYEAI96AQEwMwYDVR0fBCwwKjAooCagJIYiaHR0cDovL2NybC5sdXh0cnVzdC5s\n"</span> +
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>             <span class="jxr_string">"dS9MVEdRQ0EzLmNybDARBgNVHQ4ECgQISND+8GZyXrcwDgYDVR0PAQH/BAQDAgTw\n"</span> +
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>             <span class="jxr_string">"MAwGA1UdEwEB/wQCMAAwDQYJKoZIhvcNAQELBQADggIBAA54w2kGy+hJsYSyrQ5C\n"</span> +
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>             <span class="jxr_string">"ft0rasUHQviEiy31H2Z1lh4yEPLiuUsaepdzG4bov/J1RewX1fL7fvErraKK7nNr\n"</span> +
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>             <span class="jxr_string">"ioAXNElHtC0wfxGx0xGaCz7xsZIDFgpzyPqS+vd8VKbRCOY66AI+3aPiatCsk+BM\n"</span> +
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>             <span class="jxr_string">"Hp9GwW3B1e5EOgXiWVNxzYFtav5QSAj28IEV7ZuN2BIiU+phawRaoFy+4glMB7zE\n"</span> +
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>             <span class="jxr_string">"J5AM/Zfi50Q85ljy1kWUueFE3VNDafAUGOF5gTHvkKqj6LznUkqcT8m96Wd0IbF2\n"</span> +
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>             <span class="jxr_string">"BLYjnKPF6lGJsivErGqMwQIhlUUMkRQ13/hftL12rIiSjC1C/6cnbxOjWEOGnler\n"</span> +
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>             <span class="jxr_string">"Qn2zu2OTGnnrYxp/hojdZggb5Yt9mkM3EmyuqP1W4g0xtMv9q97swm/fHz/rDh8T\n"</span> +
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>             <span class="jxr_string">"MqrEOJzz284IM0DXjXq1wkmsZ/6/ueCyf0oBN0csvYspZKmLAydZ+jZmjdKKxX+N\n"</span> +
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>             <span class="jxr_string">"dreauHgOq1knLHkMb/YIyA+Oh6SBlNXL4Iae8APQcRGnylHQ1lc/YHTqWh8N1tmn\n"</span> +
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>             <span class="jxr_string">"no5r1kVJBYYtkI3oufaLtP7JIazteZlqTN+tubMJhO4xGgt6bqEpQiid9r3UnIjR\n"</span> +
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>             <span class="jxr_string">"esLYxXS5qRwSoOSleXT98H75+Ok1WR3ciD4exBR8/KcUtDITvDJhkBHnRHm40jFs\n"</span> +
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>             <span class="jxr_string">"5UbHFf98S6G9dqzsqW8+2Bpn\n"</span> +
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>             <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L127" href="#L127">127</a> 
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>     <em class="jxr_comment">// Owner: T=Private Person, SERIALNUMBER=00100918135105608625,</em>
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>     <em class="jxr_comment">// GIVENNAME=TokenPRIREV, SURNAME=Test, CN=TokenPRIREV Test, C=LU</em>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>     <em class="jxr_comment">// Issuer: CN=LuxTrust Global Qualified CA 3, O=LuxTrust S.A., C=LU</em>
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>     <em class="jxr_comment">// Serial number: 3814b8</em>
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>     <em class="jxr_comment">// Valid from: Wed Jul 10 04:36:48 PDT 2019 until: Sun Jul 10 04:36:48 PDT 2022</em>
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String REVOKED = <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span> +
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>             <span class="jxr_string">"MIIG+DCCBOCgAwIBAgIDOBS4MA0GCSqGSIb3DQEBCwUAME4xCzAJBgNVBAYTAkxV\n"</span> +
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>             <span class="jxr_string">"MRYwFAYDVQQKDA1MdXhUcnVzdCBTLkEuMScwJQYDVQQDDB5MdXhUcnVzdCBHbG9i\n"</span> +
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>             <span class="jxr_string">"YWwgUXVhbGlmaWVkIENBIDMwHhcNMTkwNzEwMTEzNjQ4WhcNMjIwNzEwMTEzNjQ4\n"</span> +
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>             <span class="jxr_string">"WjCBhTELMAkGA1UEBhMCTFUxGTAXBgNVBAMTEFRva2VuUFJJUkVWIFRlc3QxDTAL\n"</span> +
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>             <span class="jxr_string">"BgNVBAQTBFRlc3QxFDASBgNVBCoTC1Rva2VuUFJJUkVWMR0wGwYDVQQFExQwMDEw\n"</span> +
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>             <span class="jxr_string">"MDkxODEzNTEwNTYwODYyNTEXMBUGA1UEDBMOUHJpdmF0ZSBQZXJzb24wggGiMA0G\n"</span> +
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>             <span class="jxr_string">"CSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCcm7y4c/D58u6g3m6HGdfiqDXa2yEl\n"</span> +
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>             <span class="jxr_string">"H2cAeSb85fsAX08iXfa/U/kmFqqycwp2nsJdfor6HEEqHsmozyjjIWHDEsq+cUre\n"</span> +
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>             <span class="jxr_string">"SO6d2Ag29MrxsAWZ1XAol40FcxNN+yEL9Xs5doqqcbz3OoKdxkoWVdYq3D7peizF\n"</span> +
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>             <span class="jxr_string">"OER4M2XA0KSLiKXDapDCfTVLE6qRG6Cn5mqnlqbUtkI6vSsda5mWLSNe4Qw/PIMw\n"</span> +
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>             <span class="jxr_string">"v7ZDn5dHeHoV6UpZC95Ole5vMQfjAOsy4nRc1zofQz7iPw4ClNzDQSuonaAKSk3Y\n"</span> +
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>             <span class="jxr_string">"1KjWPmHshb6BoANL+ce1KuWESKV3D5lBkVVLTeoBkWQu7ViJviF2HE5UoPRSGijO\n"</span> +
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>             <span class="jxr_string">"nmGOTZRsjOJXPe7/pEq9SQ477EufnSsoCj1cPCtaowbsO7oswzV/axKMhhZf6nU7\n"</span> +
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>             <span class="jxr_string">"0wd9xUuMgMRKBfi026mYK7pdxJ85qE8qKlqeNprje+g1sjxMDbMHARA427Px0IUJ\n"</span> +
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>             <span class="jxr_string">"mzIJk0ysAQvbqQVe8QQM/f+PH3mUkXR02H8CAwEAAaOCAiUwggIhMB8GA1UdIwQY\n"</span> +
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>             <span class="jxr_string">"MBaAFGOPwosDsauO2FNHlh2ZqH32rKh1MGYGCCsGAQUFBwEBBFowWDAnBggrBgEF\n"</span> +
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>             <span class="jxr_string">"BQcwAYYbaHR0cDovL3FjYS5vY3NwLmx1eHRydXN0Lmx1MC0GCCsGAQUFBzAChiFo\n"</span> +
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>             <span class="jxr_string">"dHRwOi8vY2EubHV4dHJ1c3QubHUvTFRHUUNBMy5jcnQwggEuBgNVHSAEggElMIIB\n"</span> +
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>             <span class="jxr_string">"ITCCARMGC4g3AQOBKwEBCgMFMIIBAjAqBggrBgEFBQcCARYeaHR0cHM6Ly9yZXBv\n"</span> +
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>             <span class="jxr_string">"c2l0b3J5Lmx1eHRydXN0Lmx1MIHTBggrBgEFBQcCAjCBxgyBw0x1eFRydXN0IENl\n"</span> +
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>             <span class="jxr_string">"cnRpZmljYXRlIG5vdCBvbiBTU0NEIGNvbXBsaWFudCB3aXRoIEVUU0kgVFMgMTAy\n"</span> +
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>             <span class="jxr_string">"IDA0MiBOQ1AgY2VydGlmaWNhdGUgcG9saWN5LiBLZXkgR2VuZXJhdGlvbiBieSBD\n"</span> +
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>             <span class="jxr_string">"U1AuIFNvbGUgQXV0aG9yaXNlZCBVc2FnZTogU2lnbmF0dXJlLCBEYXRhIG9yIEVu\n"</span> +
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>             <span class="jxr_string">"dGl0eSBBdXRoZW50aWNhdGlvbiBhbmQgRGF0YSBFbmNyeXB0aW9uLjAIBgYEAI96\n"</span> +
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>             <span class="jxr_string">"AQEwMwYDVR0fBCwwKjAooCagJIYiaHR0cDovL2NybC5sdXh0cnVzdC5sdS9MVEdR\n"</span> +
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>             <span class="jxr_string">"Q0EzLmNybDARBgNVHQ4ECgQIS0KUXpWyku0wDgYDVR0PAQH/BAQDAgTwMAwGA1Ud\n"</span> +
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>             <span class="jxr_string">"EwEB/wQCMAAwDQYJKoZIhvcNAQELBQADggIBAFSnezuyeRO0sh9e8/1N+2RE6Uhb\n"</span> +
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>             <span class="jxr_string">"RIdLKmaS8hMOyUNBapnHfJAdOn7j767qWQjRop5VNCcv0zDOxAqApxFiz4gJdzBY\n"</span> +
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>             <span class="jxr_string">"FVrEVwYos8a3BHLXNxfwIWEJ6EjlqI2qI3NjqK8m4M8LTq4G94V2/MOFVpXeCLju\n"</span> +
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>             <span class="jxr_string">"r0s+XZep2Sk9J4ofUOc8Gp7IZNhPzIlfKQ+KhnWovde4bpL3zRpp4u7Y580XsBuN\n"</span> +
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>             <span class="jxr_string">"kow2Eg84tRzSVizmgLPuRbySHuMo1jGIP7F9FdtOC8VVSjntfCXSEQqOvpH4YZ8S\n"</span> +
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>             <span class="jxr_string">"V4qP17CQHPWW1kOHAyXpkAjU+6SOlmF76Adv9nQFTZ6DAnKqiuxmi8EVCv96aFD7\n"</span> +
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>             <span class="jxr_string">"Ih+zBF7kj7fghPjUzsVdB6gI4VwuFCXEaAfWlxJS67s1hKnsCyqX3cu+Gnq9aRt+\n"</span> +
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>             <span class="jxr_string">"08iaTVEdrKL95AYYobVbnGJ7bH87SpenjLL+CDctXNNDlpJZ8eRYcQe+Q4dg+8L8\n"</span> +
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>             <span class="jxr_string">"X8tkXBeRbiZD1U7XwVBnKF6sJmhA4F/h/EJzwX0lp7EU6EO91bSiwD2NFVs+64UR\n"</span> +
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>             <span class="jxr_string">"9lftfFFm5In2N3vjDR/3nrCf3Jq9f0g7bTrNJmo+hc0+fD+zlAhZAx+ii2xE1cY1\n"</span> +
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>             <span class="jxr_string">"KLH2zXNzPUgIqYGdVQwn1TUFJN8JgGKsXwc+P51nEpgf6JVyK1m7EtVGtr9gF7DI\n"</span> +
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>             <span class="jxr_string">"P+4VSqTbTp4/l5n0\n"</span> +
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>             <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> 
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>         System.setProperty(<span class="jxr_string">"jdk.security.certpath.ocspNonce"</span>, <span class="jxr_string">"true"</span>);
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>         ValidatePathWithParams pathValidator = <strong class="jxr_keyword">new</strong> ValidatePathWithParams(<strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> 
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>         <strong class="jxr_keyword">if</strong> (args.length &gt;= 1 &amp;&amp; <span class="jxr_string">"CRL"</span>.equalsIgnoreCase(args[0])) {
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>             pathValidator.enableCRLCheck();
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>             <em class="jxr_comment">// OCSP check by default</em>
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>             pathValidator.enableOCSPCheck();
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>         }
+<a class="jxr_linenumber" name="L185" href="#L185">185</a> 
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>         <em class="jxr_comment">// Validate valid</em>
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>         pathValidator.validate(<strong class="jxr_keyword">new</strong> String[]{VALID, INT},
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>                 ValidatePathWithParams.Status.GOOD, <strong class="jxr_keyword">null</strong>, System.out);
+<a class="jxr_linenumber" name="L189" href="#L189">189</a> 
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>         <em class="jxr_comment">// Validate Revoked</em>
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>         pathValidator.validate(<strong class="jxr_keyword">new</strong> String[]{REVOKED, INT},
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>                 ValidatePathWithParams.Status.REVOKED,
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>                 <span class="jxr_string">"Wed Jul 10 04:48:49 PDT 2019"</span>, System.out);
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>     }
+<a class="jxr_linenumber" name="L195" href="#L195">195</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

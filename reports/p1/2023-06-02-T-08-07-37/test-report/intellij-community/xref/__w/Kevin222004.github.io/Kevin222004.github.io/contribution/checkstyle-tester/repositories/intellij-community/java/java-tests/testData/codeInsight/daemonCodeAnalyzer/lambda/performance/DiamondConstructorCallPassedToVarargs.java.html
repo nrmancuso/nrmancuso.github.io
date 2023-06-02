@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>DiamondConstructorCallPassedToVarargs xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">import</strong> java.util.*;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <strong class="jxr_keyword">import</strong> java.util.stream.*;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">interface</strong> Graph&lt;T&gt; <strong class="jxr_keyword">extends</strong> Iterable&lt;T&gt; {
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>     <strong class="jxr_keyword">double</strong> distance(T from, T to);
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>     T startVertex();
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>     <strong class="jxr_keyword">default</strong> Stream&lt;T&gt; stream() {
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>       <strong class="jxr_keyword">return</strong> StreamSupport.stream(spliterator(), false);
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>     }
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  }
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">class</strong> GeometricGraph&lt;T <strong class="jxr_keyword">extends</strong> Comparable&lt;T&gt;&gt; <strong class="jxr_keyword">implements</strong> Graph&lt;GeometricGraph.Point&lt;T&gt;&gt; {
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>    <strong class="jxr_keyword">private</strong> Point&lt;T&gt;[] vertices;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>    @SafeVarargs
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>    <strong class="jxr_keyword">public</strong> GeometricGraph(Point&lt;T&gt;... vertices) {
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <strong class="jxr_keyword">this</strong>.vertices = vertices;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>    }
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>    @Override <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> distance(Point&lt;T&gt; from, Point&lt;T&gt; to) {
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>      <strong class="jxr_keyword">double</strong> dx = to.x - from.x;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">double</strong> dy = to.y - from.y;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">return</strong> Math.sqrt(dx * dx + dy * dy);
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>    }
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>    @Override <strong class="jxr_keyword">public</strong> Point&lt;T&gt; startVertex() {
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      <strong class="jxr_keyword">return</strong> vertices[0];
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>    }
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>    @Override <strong class="jxr_keyword">public</strong> Iterator&lt;Point&lt;T&gt;&gt; iterator() {
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      <strong class="jxr_keyword">return</strong> Arrays.asList(vertices).iterator();
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>    }
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> Point&lt;T <strong class="jxr_keyword">extends</strong> Comparable&lt;T&gt;&gt; <strong class="jxr_keyword">implements</strong> Comparable&lt;Point&lt;T&gt;&gt; {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      <strong class="jxr_keyword">final</strong> T label;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">double</strong> x;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">double</strong> y;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      <strong class="jxr_keyword">public</strong> Point(T label, <strong class="jxr_keyword">double</strong> x, <strong class="jxr_keyword">double</strong> y) {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>        <strong class="jxr_keyword">this</strong>.label = label;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>        <strong class="jxr_keyword">this</strong>.x = x;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>        <strong class="jxr_keyword">this</strong>.y = y;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>      }
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      @Override <strong class="jxr_keyword">public</strong> String toString() {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>        <strong class="jxr_keyword">return</strong> String.valueOf(label);
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      }
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      @Override <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> compareTo(Point&lt;T&gt; o) {
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>        <strong class="jxr_keyword">return</strong> label.compareTo(o.label);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      }
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>    }
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  }
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <strong class="jxr_keyword">interface</strong> Crash&lt;T&gt; {
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>    <strong class="jxr_keyword">double</strong> INF = Double.POSITIVE_INFINITY;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>    <strong class="jxr_keyword">void</strong> run(Graph&lt;T&gt; graph);
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>    <em class="jxr_comment">// From http://lcm.csa.iisc.ernet.in/dsa/node186.html, solution a-&gt;c-&gt;d-&gt;e-&gt;f-&gt;b-&gt;a 48.39</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>    GeometricGraph&lt;Character&gt; CARTESIAN = <strong class="jxr_keyword">new</strong> GeometricGraph&lt;&gt;(
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;('a', 0, 0),
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;('b', 4, 3),
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;('c', 1, 7),
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;('d', 15, 7),
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;('e', 15, 4),
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;('f', 18, 0)
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>    );
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>    <em class="jxr_comment">// http://www.geomidpoint.com/random/ whole world 100 points</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>    GeometricGraph&lt;Integer&gt; GEO = <strong class="jxr_keyword">new</strong> GeometricGraph&lt;&gt;(
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(1, 41.75887603, 45.54442576),
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(2, 25.95582633, 53.31372621),
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(3, 27.10968149, -148.3088281),
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(4, 47.89312627, 63.62800849),
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(5, -39.63985521, 22.72245952),
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(6, 10.75270177, 172.5620158),
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(7, -5.22786075, 174.0175703),
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(8, 6.09021552, -174.842083),
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(9, -41.93929433, -151.4679823),
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(10, 23.76929542, 52.02191021),
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(11, -27.07564288, -65.97458804),
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(12, -44.69115169, 3.9545051),
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(13, -5.43915001, -67.03701528),
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(14, -46.80168575, 167.7479893),
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(15, 3.37026877, -112.5740888),
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(16, 72.28180933, -29.27517743),
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(17, -42.08042944, -45.20059984),
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(18, -5.94878325, 65.81227912),
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(19, 0.82655482, -137.5756048),
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(20, -1.89649258, -34.85895025),
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(21, -8.41830692, 72.91705955),
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(22, -67.12475398, -30.98024614),
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(23, 3.27537627, -101.5926056),
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(24, 28.12320278, 171.0993409),
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(25, 43.81836686, 153.6367713),
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(26, -30.26453996, 125.4817181),
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(27, 30.42399561, 140.6854059),
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(28, 51.15497569, -118.603574),
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(29, -26.11317488, 165.3413163),
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(30, 17.3884151, 109.0310505),
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(31, -53.28586665, 113.3310133),
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(32, -36.91984178, 17.53340885),
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(33, -49.45998685, 111.9311892),
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(34, -63.1554812, 79.70629564),
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(35, 28.82084009, -9.14338737),
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(36, 37.52058234, -0.32285569),
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>      <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(37, 23.58437569, -138.7499972),
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(38, -28.07522086, -175.3760246),
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(39, -63.57013678, -100.3303656),
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(40, 16.2360492, -7.04890614),
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(41, 32.50586034, -93.26947618),
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(42, 0.37760791, 114.3663184),
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(43, -54.95460861, 173.9221499),
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(44, -62.88777314, 11.02357861),
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(45, -0.39552891, -10.24023055),
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(46, -32.82228853, 2.49278472),
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(47, -21.93177958, 104.425205),
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(48, 40.66726414, 1.38813168),
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(49, -10.17461981, -147.9987545),
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(50, -14.10034262, 115.3193397),
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>     <strong class="jxr_keyword">new</strong> GeometricGraph.Point&lt;&gt;(51, -60.18635059, -77.7990411)
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>   );
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

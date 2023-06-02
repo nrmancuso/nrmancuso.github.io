@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>RemoveFunctions xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/* ###</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * IP: GHIDRA</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * Licensed under the Apache License, Version 2.0 (the "License");</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * you may not use this file except in compliance with the License.</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * You may obtain a copy of the License at</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * </em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *      <a href="http://www.apache.org/licenses/LICENSE-2.0" target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.0</a></em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * </em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * Unless required by applicable law or agreed to in writing, software</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * distributed under the License is distributed on an "AS IS" BASIS,</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * See the License for the specific language governing permissions and</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> * limitations under the License.</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> java.util.*;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">generic</strong>.stl.Pair;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> ghidra.app.script.GhidraScript;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> ghidra.feature.fid.db.*;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> ghidra.feature.fid.service.FidService;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> ghidra.program.model.lang.*;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> ghidra.program.util.DefaultLanguageService;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> ghidra.util.exception.CancelledException;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> * Example script for bulk removal of functions from a FID database.  Hashes can be added to the list</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment"> * in buildKnownHashes() manually or by running another script that generates hashes</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment"> * (like IdentifyPotentialWrapperFunctions) and copying the results in here.  Running this script</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment"> * marks any function matching one of these hashes as unmatchable (auto-fail).</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> RemoveFunctions <strong class="jxr_keyword">extends</strong> GhidraScript {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  	<strong class="jxr_keyword">private</strong> LinkedList&lt;Pair&lt;Short, Long&gt;&gt; REMOVE_HASHES = <strong class="jxr_keyword">new</strong> LinkedList&lt;&gt;();
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  	<strong class="jxr_keyword">private</strong> LinkedList&lt;Pair&lt;Short, Long&gt;&gt; REMOVE_SPECHASHES = <strong class="jxr_keyword">new</strong> LinkedList&lt;&gt;();
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  	<strong class="jxr_keyword">private</strong> LinkedList&lt;Pair&lt;Short, Long&gt;&gt; FORCE_SPECIFIC = <strong class="jxr_keyword">new</strong> LinkedList&lt;&gt;();
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  	<strong class="jxr_keyword">private</strong> LinkedList&lt;Pair&lt;Short, Long&gt;&gt; FORCE_RELATION = <strong class="jxr_keyword">new</strong> LinkedList&lt;&gt;();
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  	<strong class="jxr_keyword">private</strong> LinkedList&lt;Pair&lt;Short, Long&gt;&gt; AUTO_PASS = <strong class="jxr_keyword">new</strong> LinkedList&lt;&gt;();
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  	<strong class="jxr_keyword">private</strong> LinkedList&lt;String&gt; AUTO_FAIL_REGEX = <strong class="jxr_keyword">new</strong> LinkedList&lt;&gt;();
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  	<strong class="jxr_keyword">private</strong> LinkedList&lt;Pair&lt;String, Pair&lt;Long, Long&gt;&gt;&gt; SPECIAL_PARENT = <strong class="jxr_keyword">new</strong> LinkedList&lt;&gt;();
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">	 * FID hash adjustments built for 32-bit Visual Studio libraries</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> buildKnownHashes32() {
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  		FORCE_RELATION.add(fh(12, 0xc6895bb538b9efedL));	<em class="jxr_comment">// ??1CMFCToolBarButtonsListButton@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  		FORCE_RELATION.add(fh(9, 0xf79b0bad7e386093L));		<em class="jxr_comment">// ??1CSmartDockingManager@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  		FORCE_RELATION.add(fh(9, 0xee02fc471f1fe023L));		<em class="jxr_comment">// ??1CAccessibleProxy@ATL@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  		FORCE_RELATION.add(fh(13, 0xfc1069edfcb68a86L));	<em class="jxr_comment">// ??0PAGE_INFO@CPreviewView@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  		FORCE_RELATION.add(fh(14, 0xd02b51fb54e99a6L));		<em class="jxr_comment">// ??4XID@CMFCRibbonInfo@@QAEAAV01@ABV01@@Z</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  		FORCE_RELATION.add(fh(24, 0xfbc5755fc4b3088dL));	<em class="jxr_comment">// ?ReleaseDirectDraw@CLoadDirectDraw@@QAEXXZ</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  		FORCE_RELATION.add(fh(16, 0xf2fafe04b5c16767L));	<em class="jxr_comment">// ?Restart@CBaseReferenceClock@@IAEX_J@Z</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  		FORCE_RELATION.add(fh(15, 0x40f4e3dea772381aL));	<em class="jxr_comment">// ?GetClassID@CPropertySet@@QAE?AU_GUID@@XZ</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  		FORCE_RELATION.add(fh(16, 0xdbaf217b6864fef7L));	<em class="jxr_comment">// ?GetValue@CMFCMaskedEdit@@IBE?BV?$CStringT@DV?$StrTraitMFC@DV?$ChTraitsCRT@D@ATL@@@@@ATL@@XZ</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  		FORCE_RELATION.add(fh(21, 0xd58e87fa78cc0557L));	<em class="jxr_comment">// ?QueryInterface@CBaseBasicVideo@@UAGJABU_GUID@@PAPAX@Z</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  		FORCE_RELATION.add(fh(13, 0x7198eafea73405ccL));	<em class="jxr_comment">// ??_G?$CList@IAAI@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  		FORCE_RELATION.add(fh(25, 0xf965f87e1a7a2d4dL));	<em class="jxr_comment">// ?AtlComPtrAssign@ATL@@YGPAUIUnknown@@PAPAU2@PAU2@@Z</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  		FORCE_RELATION.add(fh(12, 0xb41bfa7edba8564aL));	<em class="jxr_comment">// ??A?$CSimpleStringT@_W$0A@@ATL@@QBE_WH@Z</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  		FORCE_RELATION.add(fh(14, 0x1300b11d1740771L));		<em class="jxr_comment">// ??0_Push_finalizer@_Micro_queue@details@Concurrency@@QAE@AAU123@I@Z</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  		FORCE_RELATION.add(fh(13, 0x54044bc079343f1dL));	<em class="jxr_comment">// ??0_Generic_error_category@std@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  		FORCE_RELATION.add(fh(11, 0x7fd89305977ee8c2L));	<em class="jxr_comment">// ??0CMFCToolBarInfo@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  		FORCE_RELATION.add(fh(11, 0x524d06c7c0970aedL));	<em class="jxr_comment">// ??_GAFX_MODULE_STATE@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  		FORCE_RELATION.add(fh(25, 0x3f879fafaef651aaL));	<em class="jxr_comment">// __get_amblksiz</em>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  		FORCE_RELATION.add(fh(15, 0x694404f614abe0b5L));	<em class="jxr_comment">// ??_GCArchiveException@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  		FORCE_RELATION.add(fh(14, 0xb92627d7f5c53d94L));	<em class="jxr_comment">// _WPP_SF_x@24</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  		FORCE_RELATION.add(fh(12, 0x73b455b7f2deffe9L));	<em class="jxr_comment">// ?Lock@CAggDrawSurface@@UAGJPAUtagRECT@@PAU_DDSURFACEDESC@@KPAX@Z</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  		FORCE_RELATION.add(fh(18, 0x360705da55b5b1e0L));	<em class="jxr_comment">// ?__CreateTimerQueueTimer@platform@details@Concurrency@@YAHPAPAXPAXP6GX1E@Z1KKK@Z</em>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		FORCE_RELATION.add(fh(20, 0x8b1bd24c9ecc8249L));	<em class="jxr_comment">// ??0CPrintPreviewState@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  		FORCE_RELATION.add(fh(15, 0xb7c94f9f51b07e8bL));	<em class="jxr_comment">// _DnssrvMidlAllocZero@4</em>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  		FORCE_RELATION.add(fh(11, 0x3be9fdaad7ec119cL));	<em class="jxr_comment">// ??0RealizedChore@details@Concurrency@@QAE@P6AXPAX@Z0@Z</em>
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		FORCE_RELATION.add(fh(12, 0xa7d4de5353635ac0L));	<em class="jxr_comment">// ?GetStartPosition@CRichEditDoc@@UBEPAU__POSITION@@XZ</em>
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  		FORCE_RELATION.add(fh(11, 0x8566fc3e26094da8L));	<em class="jxr_comment">// ?EnumOverlayZOrders@CAggDrawSurface@@UAGJKPAXP6GJPAUIDirectDrawSurface@@PAU_DDSURFACEDESC@@0@Z@Z</em>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  		FORCE_RELATION.add(fh(15, 0x1641da2efe9de56dL));	<em class="jxr_comment">// ??1CAnimationRect@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  		FORCE_RELATION.add(fh(32, 0x471007243caa0c09L));	<em class="jxr_comment">// ??1CDaoRecordView@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  		FORCE_RELATION.add(fh(9, 0xf7707ce88b335cc0L));		<em class="jxr_comment">// ??1CFileFind@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  		FORCE_RELATION.add(fh(11, 0x2aed7618d13c9213L));	<em class="jxr_comment">// ??$?6DV?$StrTraitMFC@DV?$ChTraitsCRT@D@ATL@@@@@CDumpContext@@QAEAAV0@ABV?$CStringT@DV?$StrTraitMFC@DV?$ChTraitsCRT@D@ATL@@@@@ATL@@@Z</em>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  		FORCE_RELATION.add(fh(11, 0x39409061f0b49a24L));	<em class="jxr_comment">// ??0_AfxUINT128@@QAE@_K@Z</em>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  		FORCE_RELATION.add(fh(12, 0x65c7fcb8d51a2b30L));	<em class="jxr_comment">// ??_G?$TItem@UAPOHandle@@@@QAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  		FORCE_RELATION.add(fh(10, 0xfe4ba097e732c546L));	<em class="jxr_comment">// ??1XElementButtonApplication@CMFCRibbonInfo@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		FORCE_RELATION.add(fh(35, 0xd31a59bc8af60e1dL));	<em class="jxr_comment">// ??1CMFCEditBrowseCtrl@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  		FORCE_RELATION.add(fh(11, 0xab3d076b2dc6c4daL));	<em class="jxr_comment">// ??1CMFCVisualManagerBitmapCache@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  		FORCE_RELATION.add(fh(38, 0x261a7bf7c2d0bea9L));	<em class="jxr_comment">// ??1CMFCDesktopAlertWnd@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  		FORCE_RELATION.add(fh(17, 0x69b356515597693eL));	<em class="jxr_comment">// ??0XQATItem@XQAT@CMFCRibbonInfo@@QAE@ABV012@@Z</em>
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  		FORCE_RELATION.add(fh(13, 0x1b3508ee4f62d1a0L));	<em class="jxr_comment">// ??_GBitmap@Gdiplus@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  		FORCE_RELATION.add(fh(5, 0xb35317b538e7fa8cL));		<em class="jxr_comment">// ??1CBaseVideoRenderer@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  		FORCE_RELATION.add(fh(13, 0xd042ce91efb0c886L));	<em class="jxr_comment">// ?BltFast@CAggDrawSurface@@UAGJKKPAUIDirectDrawSurface@@PAUtagRECT@@K@Z</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  		FORCE_RELATION.add(fh(9, 0xf8434e36a53623aL));		<em class="jxr_comment">// ??1CParkingWnd@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  		FORCE_RELATION.add(fh(13, 0xaa62e68c558e1314L));	<em class="jxr_comment">// ??0CMFCToolBarDateTimeCtrlImpl@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  		FORCE_RELATION.add(fh(15, 0xd9842cc1d6a8c16eL));	<em class="jxr_comment">// ??0?$CRowset@VCAccessorBase@ATL@@@ATL@@QAE@PAUIRowset@@@Z</em>
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  		FORCE_RELATION.add(fh(10, 0xb69b382c183aa9d2L));	<em class="jxr_comment">// ??1CRecentDockSiteInfo@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  		FORCE_RELATION.add(fh(18, 0xda54e37f47ee0cdfL));	<em class="jxr_comment">// ??1CLongBinary@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  		FORCE_RELATION.add(fh(19, 0x7ae06abcc70f8143L));	<em class="jxr_comment">// ?SetSite@CPrintDialogEx@@UAGJPAUIUnknown@@@Z</em>
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  		FORCE_RELATION.add(fh(9, 0xc96e57c3466d7a27L));		<em class="jxr_comment">// ??1?$ISource@I@Concurrency@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  		FORCE_RELATION.add(fh(9, 0x6943a1ade913a86L));		<em class="jxr_comment">// ??1_variant_t@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  		FORCE_RELATION.add(fh(14, 0x6c22232059921accL));	<em class="jxr_comment">// ??1CMFCOutlookBarPane@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  		FORCE_RELATION.add(fh(15, 0x893104c308ed3ce2L));	<em class="jxr_comment">// ?GetPixelFormat@Image@Gdiplus@@QAEHXZ</em>
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  		FORCE_RELATION.add(fh(13, 0x4efc77b22a40668cL));	<em class="jxr_comment">// ??_Gbad_alloc@std@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>  		FORCE_RELATION.add(fh(21, 0x5f47f93ed7f13499L));	<em class="jxr_comment">// ?widen@?$ctype@G@std@@QBEGD@Z</em>
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  		FORCE_RELATION.add(fh(11, 0x6d042e51a9dcabbaL));	<em class="jxr_comment">// ??I?$_CIP@UIBindCtx@@$1?IID_IBindCtx@@3U_GUID@@B@@QAEPAPAUIBindCtx@@XZ</em>
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> 		FORCE_RELATION.add(fh(6, 0x4b0ff9672fe08626L));		<em class="jxr_comment">// ??1ScheduleGroupBase@details@Concurrency@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> 		FORCE_RELATION.add(fh(12, 0xde6d4d6d0fb3599dL));	<em class="jxr_comment">// ?InternalSetAtIndex@?$CSimpleArray@KV?$CSimpleArrayEqualHelper@K@ATL@@@ATL@@QAEXHABK@Z</em>
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> 		FORCE_RELATION.add(fh(13, 0xca2f9cad505f5c50L));	<em class="jxr_comment">// ??_G?$ISource@I@Concurrency@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> 		FORCE_RELATION.add(fh(7, 0x21f960f6f55ff791L));		<em class="jxr_comment">// ??1?$CXMLNode@UIXMLDOMDocument@@@ATL@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> 		FORCE_RELATION.add(fh(8, 0xf3faa55d0902802L));		<em class="jxr_comment">// ??1CManualAccessor@ATL@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> 		FORCE_RELATION.add(fh(14, 0x3b286952ce952857L));	<em class="jxr_comment">// ?AfxOleRegisterServerClass@@YGHABU_GUID@@PBD11W4OLE_APPTYPE@@PAPBD3H1@Z</em>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> 		FORCE_RELATION.add(fh(4, 0x530c3899dba0cc9dL));		<em class="jxr_comment">// ??1CBaseList@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> 		FORCE_RELATION.add(fh(15, 0xd19e3babd20b0b5bL));	<em class="jxr_comment">// ??0CWnd@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> 		FORCE_RELATION.add(fh(9, 0x6d2be8e93610ff51L));		<em class="jxr_comment">// ??$_As@VSchedulingNode@details@Concurrency@@@location@Concurrency@@QBEPAVSchedulingNode@details@1@XZ</em>
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> 		FORCE_RELATION.add(fh(11, 0x1dc5b781f7b5a6e6L));	<em class="jxr_comment">// ??0&lt;lambda0&gt;@?A0x8894c2c9@Concurrency@@QAE@ACIAAIAAV?$single_assignment@I@2@@Z</em>
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> 		FORCE_RELATION.add(fh(13, 0x6afdaf056a3b372cL));	<em class="jxr_comment">// ??_G?$basic_istream@DU?$char_traits@D@std@@@std@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> 		FORCE_RELATION.add(fh(19, 0x95c64fdd68dd78d2L));	<em class="jxr_comment">// ??0?$CArray@HABH@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> 		FORCE_RELATION.add(fh(14, 0xd8df9b07e154fdbfL));	<em class="jxr_comment">// ??1CRichEditCntrItem@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> 		FORCE_RELATION.add(fh(11, 0x3c9fecb05343dec4L));	<em class="jxr_comment">// ?GetTypeInfoCount@CBaseDispatch@@QAGJPAI@Z</em>
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> 		FORCE_RELATION.add(fh(10, 0xb7661a8d952a3c36L));	<em class="jxr_comment">// _Dns_ReverseNameToAddress_A@16</em>
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> 		FORCE_RELATION.add(fh(26, 0x7b6a6376507e6ed1L));	<em class="jxr_comment">// ??1XElementButtonApplication@CMFCRibbonInfo@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> 		FORCE_RELATION.add(fh(11, 0x529f71350713eff0L));	<em class="jxr_comment">// _DnsPrint_RawOctets@24</em>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> 		FORCE_RELATION.add(fh(15, 0xc4ac7d943cff7be5L));	<em class="jxr_comment">// ??0COleDialog@@QAE@PAVCWnd@@@Z</em>
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> 		FORCE_RELATION.add(fh(10, 0x40fa05ee45f340f9L));	<em class="jxr_comment">// ??0?$CTypedPtrList@VCPtrList@@PAUCOleControlSiteOrWnd@@@@QAE@H@Z</em>
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> 		FORCE_RELATION.add(fh(10, 0x6cb0ccfc7a7b65c7L));	<em class="jxr_comment">// ?SetCheckedImage@CMFCButton@@QAEXPAUHBITMAP__@@H0H0@Z</em>
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> 		FORCE_RELATION.add(fh(29, 0x584922509ca6f2fdL));	<em class="jxr_comment">// ??1CMFCPopupMenuBar@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> 		FORCE_RELATION.add(fh(12, 0x2e7a23324afbe34eL));	<em class="jxr_comment">// ??1CCommandLineInfo@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> 		FORCE_RELATION.add(fh(25, 0x15f39174075dff3eL));	<em class="jxr_comment">// ??0?$CComPtr@UIMoniker@@@ATL@@QAE@PAUIMoniker@@@Z</em>
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 		FORCE_RELATION.add(fh(15, 0xed52233b5c5d179aL));	<em class="jxr_comment">// ?GetTypeInfo@?$IAccessibleProxyImpl@VCAccessibleProxy@ATL@@@ATL@@UAGJIKPAPAUITypeInfo@@@Z</em>
+<a class="jxr_linenumber" name="L124" href="#L124">124</a> 		FORCE_RELATION.add(fh(16, 0x3d5d986932f74e2bL));	<em class="jxr_comment">// ??4XQATItem@XQAT@CMFCRibbonInfo@@QAEAAV012@ABV012@@Z</em>
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> 		FORCE_RELATION.add(fh(15, 0xfb393ddf3efa51ffL));	<em class="jxr_comment">// ??A?$CSimpleArray@KV?$CSimpleArrayEqualHelper@K@ATL@@@ATL@@QAEAAKH@Z</em>
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> 		FORCE_RELATION.add(fh(27, 0x38ba8218a1574c02L));	<em class="jxr_comment">// ?SetClassID@CPropertySet@@QAEXU_GUID@@@Z</em>
+<a class="jxr_linenumber" name="L127" href="#L127">127</a> 		FORCE_RELATION.add(fh(10, 0xd2d3085f0326439dL));	<em class="jxr_comment">// ?GetElements@CMFCRibbonBaseElement@@UAEXAAV?$CArray@PAVCMFCRibbonBaseElement@@PAV1@@@@Z</em>
+<a class="jxr_linenumber" name="L128" href="#L128">128</a> 		FORCE_RELATION.add(fh(18, 0x315abdf2c4531012L));	<em class="jxr_comment">// ??0AFX_DDPDATA@@QAE@PAXHH0IPBD@Z</em>
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> 		FORCE_RELATION.add(fh(15, 0x50bd29d951c096feL));	<em class="jxr_comment">// ??0?$CXMLNode@UIXMLDOMNode@@@ATL@@QAE@PAUIXMLDOMNode@@@Z</em>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> 		FORCE_RELATION.add(fh(17, 0x1a2495664f6d92c3L));	<em class="jxr_comment">// ??0system_error@std@@QAE@ABV01@@Z</em>
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> 		FORCE_RELATION.add(fh(25, 0x17f377f4c4798c42L));	<em class="jxr_comment">// ??0?$_Async_send_queue@V?$message@I@Concurrency@@@details@Concurrency@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L132" href="#L132">132</a> 		FORCE_RELATION.add(fh(10, 0xe8eb87761b5542b7L));	<em class="jxr_comment">// ?Create@CDockSite@@UAEHKABUtagRECT@@PAVCWnd@@KPAUCCreateContext@@@Z</em>
+<a class="jxr_linenumber" name="L133" href="#L133">133</a> 		FORCE_RELATION.add(fh(12, 0x51468e5f80832c5eL));	<em class="jxr_comment">// ?RemoveAll@?$CSimpleArray@GV?$CSimpleArrayEqualHelper@G@ATL@@@ATL@@QAEXXZ</em>
+<a class="jxr_linenumber" name="L134" href="#L134">134</a> 		FORCE_RELATION.add(fh(9, 0xfe495b1bffb47f85L));		<em class="jxr_comment">// ??_G?$CRowset@VCAccessorBase@ATL@@@ATL@@QAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L135" href="#L135">135</a> 		FORCE_RELATION.add(fh(12, 0x20ecf51225885a5aL));	<em class="jxr_comment">// _R_DnssrvOperation2@36</em>
+<a class="jxr_linenumber" name="L136" href="#L136">136</a> 		FORCE_RELATION.add(fh(7, 0x11dc2824d0edcc80L));		<em class="jxr_comment">// ??0CDC@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L137" href="#L137">137</a> 		FORCE_RELATION.add(fh(14, 0xa076d9f8486f4667L));	<em class="jxr_comment">// ?SetSubtype@CMediaType@@QAEXPBU_GUID@@@Z</em>
+<a class="jxr_linenumber" name="L138" href="#L138">138</a> 		FORCE_RELATION.add(fh(12, 0x4f3264427c9d684fL));	<em class="jxr_comment">// ?AfxInvariantStrICmp@@YAHPBD0@Z</em>
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> 		FORCE_RELATION.add(fh(16, 0x3db72b66fe66eccbL));	<em class="jxr_comment">// ??0Graphics@Gdiplus@@QAE@PAUHDC__@@@Z</em>
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> 		FORCE_RELATION.add(fh(10, 0x42b584c04453465eL));	<em class="jxr_comment">// ?Create@CImage@ATL@@QAEHHHHK@Z</em>
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 		FORCE_RELATION.add(fh(7, 0xa0e6d60f12731076L));		<em class="jxr_comment">// ??1?$CComObject@VCPTEventSink@@@ATL@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> 		FORCE_RELATION.add(fh(9, 0x54228b0585854bfdL));		<em class="jxr_comment">// ?GetPaneCount@CMultiPaneFrameWnd@@UBEHXZ</em>
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> 		FORCE_RELATION.add(fh(3, 0x70aacabe8adeb504L));		<em class="jxr_comment">// ??1CVideoTransformFilter@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> 		FORCE_RELATION.add(fh(12, 0xfb1ea7c531542e48L));	<em class="jxr_comment">// ??_G?$CArray@HABH@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> 		FORCE_RELATION.add(fh(13, 0xad7f29dd6f059476L));	<em class="jxr_comment">// ??0?$CTypedPtrList@V?$CList@PAXPAX@@PAUCOleControlSiteOrWnd@@@@QAE@H@Z</em>
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> 		FORCE_RELATION.add(fh(11, 0xe5b805cebfd5127L));		<em class="jxr_comment">// ?_Getname@_Locinfo@std@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@V_STL70@@@2@XZ</em>
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> 		FORCE_RELATION.add(fh(15, 0x4e0920960b48ae7eL));	<em class="jxr_comment">// _TraceError@8</em>
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> 		FORCE_RELATION.add(fh(12, 0x60d88814d47b29b9L));	<em class="jxr_comment">// ?InvokeHelper@COleDispatchDriver@@QAAXJGGPAXPBEZZ</em>
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> 		FORCE_RELATION.add(fh(13, 0x3f724d88e27bd1d1L));	<em class="jxr_comment">// ?DDX_FieldText@@YGXPAVCDataExchange@@HAAEPAVCDaoRecordset@@@Z</em>
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> 		FORCE_RELATION.add(fh(15, 0x99e14403171f2be9L));	<em class="jxr_comment">// ?RtlULongToUShort@@YGJKPAG@Z</em>
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> 		FORCE_RELATION.add(fh(15, 0x3cd4904368bf315cL)); 	<em class="jxr_comment">// ??_G?$_MallocaArrayHolder@PAVContext@Concurrency@@@details@Concurrency@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L152" href="#L152">152</a> 		FORCE_RELATION.add(fh(4, 0xb8db1dacc3441a8fL));		<em class="jxr_comment">// ??1_Timer@details@Concurrency@@MAE@XZ</em>
+<a class="jxr_linenumber" name="L153" href="#L153">153</a> 		FORCE_RELATION.add(fh(14, 0x7b2255d33cddad65L));	<em class="jxr_comment">// ??_GThreadInternalContext@details@Concurrency@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> 		FORCE_RELATION.add(fh(15, 0xfe727990231ca423L));	<em class="jxr_comment">// Generic constructor</em>
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> 		REMOVE_HASHES.add(fh(4, 0x8f0554c0936e0e0dL));		<em class="jxr_comment">// ?AddPaneToList@CPaneContainerManager@@QAEXPAVCDockablePane@@@Z</em>
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> 		REMOVE_HASHES.add(fh(17, 0x6875ba2bfa94ae88L));		<em class="jxr_comment">// ??1?$CComPtrBase@UIAccessibleProxy@@@ATL@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> 		REMOVE_HASHES.add(fh(29, 0x4db81591ee928ce3L));		<em class="jxr_comment">// ??1CMFCVisualManagerBitmapCache@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> 		REMOVE_HASHES.add(fh(10, 0xf7b4ade6aff8fb76L));		<em class="jxr_comment">// ??0?$CAtlSafeAllocBufferManager@VCCRTAllocator@ATL@@@_ATL_SAFE_ALLOCA_IMPL@ATL@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> 		REMOVE_HASHES.add(fh(9, 0x8e0da9ecbc5799f6L));		<em class="jxr_comment">// ??0?$CComHeapPtr@UtagDBPROPSET@@@ATL@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L161" href="#L161">161</a> 		REMOVE_HASHES.add(fh(11, 0x3cb2b59f05ef26daL));		<em class="jxr_comment">//??$?0P6A_NABW4agent_status@Concurrency@@@Z@?$function@$$A6A_NABW4agent_status@Concurrency@@@Z@tr1@std@@QAE@P6A_NABW4agent_status@Concurrency@@@Z@Z</em>
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> 		REMOVE_HASHES.add(fh(14, 0xd66b8a76c7a5283aL));		<em class="jxr_comment">// ??_G?$CArray@HABH@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> 		REMOVE_HASHES.add(fh(26, 0x62b27011e0b64869L));		<em class="jxr_comment">// ??1COleResizeBar@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L164" href="#L164">164</a> 		REMOVE_HASHES.add(fh(10, 0xeeb578e8c50baaebL));		<em class="jxr_comment">// ??1?$ThreadProxyFactory@VFreeThreadProxy@details@Concurrency@@@details@Concurrency@@UAE@XZ</em>
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> 		REMOVE_HASHES.add(fh(15, 0x550b5d5ca0b00c01L));		<em class="jxr_comment">// ??_G?$CArray@HABH@@UAEPAXI@Z</em>
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> 		REMOVE_HASHES.add(fh(7, 0x84d01243dfb8b9cbL));		<em class="jxr_comment">// ??1?$_DebugMallocator@H@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> 		REMOVE_HASHES.add(fh(8, 0x3d7242fc6eb079a7L));		<em class="jxr_comment">// ??1&lt;lambda_61f7764e5b8087545c74b0c2f4f68b12&gt;@@QAE@XZ</em>
+<a class="jxr_linenumber" name="L168" href="#L168">168</a> 		REMOVE_HASHES.add(fh(7, 0x690dec263cb912aaL));		<em class="jxr_comment">// ?OnDrawTasksGroupAreaBorder@CMFCVisualManagerOfficeXP@@MAEXPAVCDC@@VCRect@@HH@Z</em>
+<a class="jxr_linenumber" name="L169" href="#L169">169</a> 		REMOVE_HASHES.add(fh(7, 0x6b745608ae7e77fbL));		<em class="jxr_comment">// ??1?$CArray@...  destructors based on CArray</em>
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> 		REMOVE_HASHES.add(fh(3, 0xfcc148b0692f6a69L));		<em class="jxr_comment">// thunk</em>
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> 
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> 		FORCE_SPECIFIC.add(fh(2, 0x5ef2f47ee7151243L));		<em class="jxr_comment">// __SEH_epilog4_GS, __EH_epilog3_GS, and __EH_epilog3_catch_GS</em>
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> 		FORCE_RELATION.add(fh(2, 0x5ef2f47ee7151243L));
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 		AUTO_PASS.add(fh(2, 0x5ef2f47ee7151243L));
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> 		FORCE_SPECIFIC.add(fh(2, 0x96a4a6fd5694523bL));		<em class="jxr_comment">// __SEH_epilog4_GS, __EH_epilog3_GS, and __EH_epilog3_catch_GS</em>
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> 		FORCE_RELATION.add(fh(2, 0x96a4a6fd5694523bL));
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> 		AUTO_PASS.add(fh(2, 0x96a4a6fd5694523bL));
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> 
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> 		FORCE_SPECIFIC.add(fh(3, 0xa12a5c4ca7c9b91eL));		<em class="jxr_comment">// ___crtExitProcess</em>
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> 		FORCE_RELATION.add(fh(3, 0xa12a5c4ca7c9b91eL));
+<a class="jxr_linenumber" name="L182" href="#L182">182</a> 		AUTO_PASS.add(fh(3, 0xa12a5c4ca7c9b91eL));
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> 
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> 		FORCE_SPECIFIC.add(fh(11, 0x78a6fb00a4960a21L));	<em class="jxr_comment">// __EH_epilog3</em>
+<a class="jxr_linenumber" name="L185" href="#L185">185</a> 		AUTO_PASS.add(fh(11, 0x78a6fb00a4960a21L));
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> 		FORCE_SPECIFIC.add(fh(12, 0x48eae52e9a6f402cL));	<em class="jxr_comment">// __EH_epilog3_align</em>
+<a class="jxr_linenumber" name="L187" href="#L187">187</a> 		AUTO_PASS.add(fh(12, 0x48eae52e9a6f402cL));
+<a class="jxr_linenumber" name="L188" href="#L188">188</a> 		FORCE_SPECIFIC.add(fh(12, 0x69887e7bad43a8a3L));	<em class="jxr_comment">// _wcsnlen</em>
+<a class="jxr_linenumber" name="L189" href="#L189">189</a> 		AUTO_PASS.add(fh(12, 0x69887e7bad43a8a3L));
+<a class="jxr_linenumber" name="L190" href="#L190">190</a> 		FORCE_SPECIFIC.add(fh(12, 0x56305d306ade4984L));	<em class="jxr_comment">// __EH_epilog3_align</em>
+<a class="jxr_linenumber" name="L191" href="#L191">191</a> 		AUTO_PASS.add(fh(12, 0x56305d306ade4984L));
+<a class="jxr_linenumber" name="L192" href="#L192">192</a> 		FORCE_SPECIFIC.add(fh(10, 0xc04d213e1a231d0fL));	<em class="jxr_comment">// __abnormal_termination</em>
+<a class="jxr_linenumber" name="L193" href="#L193">193</a> 		AUTO_PASS.add(fh(10, 0xc04d213e1a231d0fL));
+<a class="jxr_linenumber" name="L194" href="#L194">194</a> 		FORCE_SPECIFIC.add(fh(11, 0x1af0a46bb2b2655bL));	<em class="jxr_comment">// __SEH_epilog4</em>
+<a class="jxr_linenumber" name="L195" href="#L195">195</a> 		AUTO_PASS.add(fh(11, 0x1af0a46bb2b2655bL));
+<a class="jxr_linenumber" name="L196" href="#L196">196</a> 		FORCE_SPECIFIC.add(fh(10, 0x362f7d880d9de4aeL));	<em class="jxr_comment">// __frnd</em>
+<a class="jxr_linenumber" name="L197" href="#L197">197</a> 		AUTO_PASS.add(fh(10, 0x362f7d880d9de4aeL));
+<a class="jxr_linenumber" name="L198" href="#L198">198</a> 		FORCE_SPECIFIC.add(fh(9, 0xc9f2110bfb24660fL));		<em class="jxr_comment">// __SEH_epilog</em>
+<a class="jxr_linenumber" name="L199" href="#L199">199</a> 		AUTO_PASS.add(fh(9, 0xc9f2110bfb24660fL));
+<a class="jxr_linenumber" name="L200" href="#L200">200</a> 		FORCE_SPECIFIC.add(fh(9, 0x157890c52d4d7519L));		<em class="jxr_comment">// __SEH_epilog</em>
+<a class="jxr_linenumber" name="L201" href="#L201">201</a> 		AUTO_PASS.add(fh(9, 0x157890c52d4d7519L));
+<a class="jxr_linenumber" name="L202" href="#L202">202</a> 		FORCE_SPECIFIC.add(fh(8, 0xa11e5331b6086ac4L));		<em class="jxr_comment">// _rand</em>
+<a class="jxr_linenumber" name="L203" href="#L203">203</a> 		AUTO_PASS.add(fh(8, 0xa11e5331b6086ac4L));
+<a class="jxr_linenumber" name="L204" href="#L204">204</a> 		FORCE_SPECIFIC.add(fh(12, 0x8db8f13f97589bc2L));	<em class="jxr_comment">// _wcslen</em>
+<a class="jxr_linenumber" name="L205" href="#L205">205</a> 		AUTO_PASS.add(fh(12, 0x8db8f13f97589bc2L));
+<a class="jxr_linenumber" name="L206" href="#L206">206</a> 		FORCE_SPECIFIC.add(fh(9, 0xe1e948c7479ce80L));		<em class="jxr_comment">// ?Init@CComCriticalSection@ATL@@QAEJXZ</em>
+<a class="jxr_linenumber" name="L207" href="#L207">207</a> 		AUTO_PASS.add(fh(9, 0xe1e948c7479ce80L));
+<a class="jxr_linenumber" name="L208" href="#L208">208</a> 
+<a class="jxr_linenumber" name="L209" href="#L209">209</a> 		<em class="jxr_comment">// Distinguishing _memcpy from _memmove</em>
+<a class="jxr_linenumber" name="L210" href="#L210">210</a> 		SPECIAL_PARENT
+<a class="jxr_linenumber" name="L211" href="#L211">211</a> 				.add(<strong class="jxr_keyword">new</strong> Pair&lt;&gt;(<span class="jxr_string">"_memcpy"</span>, <strong class="jxr_keyword">new</strong> Pair&lt;&gt;(0xf0651853ecffcd13L, 0xcb909d559274fa07L)));
+<a class="jxr_linenumber" name="L212" href="#L212">212</a> 		SPECIAL_PARENT
+<a class="jxr_linenumber" name="L213" href="#L213">213</a> 				.add(<strong class="jxr_keyword">new</strong> Pair&lt;&gt;(<span class="jxr_string">"_memcpy"</span>, <strong class="jxr_keyword">new</strong> Pair&lt;&gt;(0xf0651853ecffcd13L, 0xe70c71e845db7694L)));
+<a class="jxr_linenumber" name="L214" href="#L214">214</a> 		SPECIAL_PARENT
+<a class="jxr_linenumber" name="L215" href="#L215">215</a> 				.add(<strong class="jxr_keyword">new</strong> Pair&lt;&gt;(<span class="jxr_string">"_memcpy"</span>, <strong class="jxr_keyword">new</strong> Pair&lt;&gt;(0xbba5179e27f82924L, 0xd835fe2e6794b2d0L)));
+<a class="jxr_linenumber" name="L216" href="#L216">216</a> 		SPECIAL_PARENT
+<a class="jxr_linenumber" name="L217" href="#L217">217</a> 				.add(<strong class="jxr_keyword">new</strong> Pair&lt;&gt;(<span class="jxr_string">"_memcpy"</span>, <strong class="jxr_keyword">new</strong> Pair&lt;&gt;(0xbba5179e27f82924L, 0x36c7a2db4d83f940L)));
+<a class="jxr_linenumber" name="L218" href="#L218">218</a> 		SPECIAL_PARENT
+<a class="jxr_linenumber" name="L219" href="#L219">219</a> 				.add(<strong class="jxr_keyword">new</strong> Pair&lt;&gt;(<span class="jxr_string">"_memcpy"</span>, <strong class="jxr_keyword">new</strong> Pair&lt;&gt;(0xbba5179e27f82924L, 0x29a308132dd5ffa6L)));
+<a class="jxr_linenumber" name="L220" href="#L220">220</a> 
+<a class="jxr_linenumber" name="L221" href="#L221">221</a> 		SPECIAL_PARENT
+<a class="jxr_linenumber" name="L222" href="#L222">222</a> 				.add(<strong class="jxr_keyword">new</strong> Pair&lt;&gt;(<span class="jxr_string">"_memmove"</span>, <strong class="jxr_keyword">new</strong> Pair&lt;&gt;(0xf0651853ecffcd13L, 0xdbf9702ed06fc8faL)));
+<a class="jxr_linenumber" name="L223" href="#L223">223</a> 		SPECIAL_PARENT
+<a class="jxr_linenumber" name="L224" href="#L224">224</a> 				.add(<strong class="jxr_keyword">new</strong> Pair&lt;&gt;(<span class="jxr_string">"_memmove"</span>, <strong class="jxr_keyword">new</strong> Pair&lt;&gt;(0xf0651853ecffcd13L, 0xc75b9390823f17b8L)));
+<a class="jxr_linenumber" name="L225" href="#L225">225</a> 		SPECIAL_PARENT
+<a class="jxr_linenumber" name="L226" href="#L226">226</a> 				.add(<strong class="jxr_keyword">new</strong> Pair&lt;&gt;(<span class="jxr_string">"_memmove"</span>, <strong class="jxr_keyword">new</strong> Pair&lt;&gt;(0xbba5179e27f82924L, 0x0cc0176381fd7eebL)));
+<a class="jxr_linenumber" name="L227" href="#L227">227</a> 		SPECIAL_PARENT
+<a class="jxr_linenumber" name="L228" href="#L228">228</a> 				.add(<strong class="jxr_keyword">new</strong> Pair&lt;&gt;(<span class="jxr_string">"_memmove"</span>, <strong class="jxr_keyword">new</strong> Pair&lt;&gt;(0xbba5179e27f82924L, 0xb821796c54461d3dL)));
+<a class="jxr_linenumber" name="L229" href="#L229">229</a> 		AUTO_FAIL_REGEX.add(<span class="jxr_string">"^&#92;&#92;$L.*"</span>);
+<a class="jxr_linenumber" name="L230" href="#L230">230</a> 	}
+<a class="jxr_linenumber" name="L231" href="#L231">231</a> 
+<a class="jxr_linenumber" name="L232" href="#L232">232</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L233" href="#L233">233</a> <em class="jxr_javadoccomment">	 * Hash adjustments for 64-bit Visual Studio libraries</em>
+<a class="jxr_linenumber" name="L234" href="#L234">234</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L235" href="#L235">235</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> buildKnownHashes64() {
+<a class="jxr_linenumber" name="L236" href="#L236">236</a> 		REMOVE_HASHES.add(fh(5, 0xa668ec55aef791ecL));		<em class="jxr_comment">// ??$__crt_interlocked_read@H@@YAHPEDH@Z</em>
+<a class="jxr_linenumber" name="L237" href="#L237">237</a> 		REMOVE_HASHES.add(fh(6, 0x744ed66532c779f8L));		<em class="jxr_comment">// ??1?$CAtlArray@PEAXV?$CElementTraits@PEAX@ATL@@@ATL@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L238" href="#L238">238</a> 		REMOVE_HASHES.add(fh(3, 0x73d3b025f0122566L));		<em class="jxr_comment">// ??1Bitmap@Gdiplus@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L239" href="#L239">239</a> 		REMOVE_HASHES.add(fh(13, 0x1371a69353a7828L));		<em class="jxr_comment">// ??_GFreeVirtualProcessorRoot@details@Concurrency@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L240" href="#L240">240</a> 		REMOVE_HASHES.add(fh(16, 0x81ce16d5bcd80d96L));		<em class="jxr_comment">// ??_GCMFCVisualManagerBitmapCacheItem@CMFCVisualManagerBitmapCache@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L241" href="#L241">241</a> 		REMOVE_HASHES.add(fh(9, 0x482f6a6b1c9a9bc5L));		<em class="jxr_comment">// ??1CPropbagPropExchange@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L242" href="#L242">242</a> 		REMOVE_HASHES.add(fh(11, 0x380756a1e4cbab8aL));		<em class="jxr_comment">// ??1CMFCPropertyPage@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L243" href="#L243">243</a> 		REMOVE_HASHES.add(fh(18, 0x8393f8fd57b9e43cL));		<em class="jxr_comment">// ??_GCMFCCustomColorsPropertyPage@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L244" href="#L244">244</a> 		REMOVE_HASHES.add(fh(12, 0x85a8f5c1bf2f96f5L));		<em class="jxr_comment">// ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ</em>
+<a class="jxr_linenumber" name="L245" href="#L245">245</a> 		REMOVE_HASHES.add(fh(20, 0x9ff93e3930c33535L));		<em class="jxr_comment">// ??_G?$ctype@G@std@@MEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L246" href="#L246">246</a> 		REMOVE_HASHES.add(fh(13, 0xfd681e45dcde824aL));		<em class="jxr_comment">// ??1CMFCOutlookBarPane@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L247" href="#L247">247</a> 		REMOVE_HASHES.add(fh(16, 0x64d27a7ffb0fc3a8L));		<em class="jxr_comment">// ??_GBitmap@Gdiplus@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> 		REMOVE_HASHES.add(fh(13, 0x2ecc70b4797c9810L));		<em class="jxr_comment">// ??_G?$CArray@HAEBH@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L249" href="#L249">249</a> 		REMOVE_HASHES.add(fh(20, 0x4878860cdc26f2bdL));		<em class="jxr_comment">// ??_G?$basic_ostream@DU?$char_traits@D@std@@@std@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L250" href="#L250">250</a> 		REMOVE_HASHES.add(fh(23, 0x545b08612c53fcf9L));		<em class="jxr_comment">// ??0failure@ios_base@std@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@V_STL70@@@2@@Z</em>
+<a class="jxr_linenumber" name="L251" href="#L251">251</a> 		REMOVE_HASHES.add(fh(5, 0xe522c1bfa12abc7cL));		<em class="jxr_comment">// ??3CNoTrackObject@@SAXPEAX@Z</em>
+<a class="jxr_linenumber" name="L252" href="#L252">252</a> 		REMOVE_HASHES.add(fh(17, 0xdddd776fd04f669L));		<em class="jxr_comment">// ??_GCMiniDockFrameWnd@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L253" href="#L253">253</a> 		REMOVE_HASHES.add(fh(22, 0xb2dbb68d07f64ca3L));		<em class="jxr_comment">// ??_G_com_error@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> 		REMOVE_HASHES.add(fh(10, 0x4f0b7cc769eb16f3L));		<em class="jxr_comment">// ??1COleDispParams@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L255" href="#L255">255</a> 		REMOVE_HASHES.add(fh(10, 0x510d2f08e95d5863L));		<em class="jxr_comment">// ??1CRegKey@ATL@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L256" href="#L256">256</a> 		REMOVE_HASHES.add(fh(20, 0xe1cf6ea84d56fb12L));		<em class="jxr_comment">// ??_G?$numpunct@D@std@@MEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L257" href="#L257">257</a> 		REMOVE_HASHES.add(fh(19, 0xbb0a4a7803b8e830L));		<em class="jxr_comment">// IERefreshElevationPolicy</em>
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> 		REMOVE_HASHES.add(fh(7, 0x41cab2108dd31ba7L));		<em class="jxr_comment">// ==</em>
+<a class="jxr_linenumber" name="L259" href="#L259">259</a> 		REMOVE_HASHES.add(fh(22, 0x27108c660568241bL));		<em class="jxr_comment">// ??_Gfailure@ios_base@std@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> 		REMOVE_HASHES.add(fh(10, 0x21fea5167b4a7083L));		<em class="jxr_comment">// ??1CAnimateCtrl@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L261" href="#L261">261</a> 		REMOVE_HASHES.add(fh(8, 0x89426b655ac79064L));		<em class="jxr_comment">// ??1CMediaSample@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L262" href="#L262">262</a> 		REMOVE_HASHES.add(fh(19, 0xf39cb68bc80f76f7L));		<em class="jxr_comment">// ??_GUMSFreeThreadProxy@details@Concurrency@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L263" href="#L263">263</a> 		REMOVE_HASHES.add(fh(20, 0xc9026b5e8e8d9ee8L));		<em class="jxr_comment">// ??_GCOutlookOptionsDlg@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L264" href="#L264">264</a> 		REMOVE_HASHES.add(fh(17, 0x230acc291fed10c5L));		<em class="jxr_comment">// ??_GThreadInternalContext@details@Concurrency@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L265" href="#L265">265</a> 		REMOVE_HASHES.add(fh(7, 0x1b004293e81305c4L));		<em class="jxr_comment">// ??1?$CComPtr@UIAMAudioInputMixer@@@ATL@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> 		REMOVE_HASHES.add(fh(16, 0xd42336b525605796L));		<em class="jxr_comment">// ??_G_AFX_PROPPAGEFONTINFO@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L267" href="#L267">267</a> 		REMOVE_HASHES.add(fh(17, 0x97fd3cf798f2bd15L));		<em class="jxr_comment">// ??_GCMultiPageDHtmlDialog@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L268" href="#L268">268</a> 		REMOVE_HASHES.add(fh(23, 0x1c009fbde7812ed5L));		<em class="jxr_comment">// ??0failure@ios_base@std@@QEAA@AEBV012@@Z</em>
+<a class="jxr_linenumber" name="L269" href="#L269">269</a> 		REMOVE_HASHES.add(fh(10, 0x7e10fbe69b976818L));		<em class="jxr_comment">// ??1CAudioMediaType@@MEAA@XZ</em>
+<a class="jxr_linenumber" name="L270" href="#L270">270</a> 		REMOVE_HASHES.add(fh(15, 0x79c797eb8032b47L));		<em class="jxr_comment">// ??_G?$CList@IAEAI@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L271" href="#L271">271</a> 		REMOVE_HASHES.add(fh(6, 0x1198931964e874fbL));		<em class="jxr_comment">// ??0XRibbonInfoParserRoot@CMFCRibbonInfo@@IEAA@XZ</em>
+<a class="jxr_linenumber" name="L272" href="#L272">272</a> 		REMOVE_HASHES.add(fh(6, 0x1524536d78c0da92L));		<em class="jxr_comment">// ??1?$shared_ptr@V__ExceptionPtr@@@std@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L273" href="#L273">273</a> 		REMOVE_HASHES.add(fh(7, 0x020d6fdf4571e246L));		<em class="jxr_comment">// max_size</em>
+<a class="jxr_linenumber" name="L274" href="#L274">274</a> 		REMOVE_HASHES.add(fh(13, 0x225ba93763be05b1L));		<em class="jxr_comment">// operator==</em>
+<a class="jxr_linenumber" name="L275" href="#L275">275</a> 		REMOVE_HASHES.add(fh(13, 0x287ae8c33777713cL));		<em class="jxr_comment">// ??1CStreamOnCString@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L276" href="#L276">276</a> 		REMOVE_HASHES.add(fh(9, 0x288020713ca1ea5bL));		<em class="jxr_comment">// ??0?$move_iterator@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$shared_ptr@U?$_Task_impl@E@details@Concurrency@@@std@@@std@@@std@@@std@@@std@@QEAA@AEBV01@@Z</em>
+<a class="jxr_linenumber" name="L277" href="#L277">277</a> 		REMOVE_HASHES.add(fh(10, 0x2b3bd58383bd38e9L));		<em class="jxr_comment">// ??1VirtualProcessorRoot@details@Concurrency@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L278" href="#L278">278</a> 		REMOVE_HASHES.add(fh(7, 0x30a80a215b0bb2c4L));		<em class="jxr_comment">// Generic destructor</em>
+<a class="jxr_linenumber" name="L279" href="#L279">279</a> 		REMOVE_HASHES.add(fh(7, 0x53a0821862961cb4L));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L280" href="#L280">280</a> 		REMOVE_HASHES.add(fh(4, 0x556c824f94bb014fL));		<em class="jxr_comment">// return value derefed from first parameter ptr</em>
+<a class="jxr_linenumber" name="L281" href="#L281">281</a> 		REMOVE_HASHES.add(fh(12, 0x6581a15f3efa819eL));		<em class="jxr_comment">// copy two fields between pointer parameters</em>
+<a class="jxr_linenumber" name="L282" href="#L282">282</a> 		REMOVE_HASHES.add(fh(9, 0x65e3ed6682944d20L));		<em class="jxr_comment">// ??1CTraceSnapshot@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L283" href="#L283">283</a> 		REMOVE_HASHES.add(fh(8, 0x6ce601a9094cc769L));		<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L284" href="#L284">284</a> 		REMOVE_HASHES.add(fh(7, 0x6e6e4f635fd59012L));		<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L285" href="#L285">285</a> 		REMOVE_HASHES.add(fh(8, 0xad4b1b8ef3775874L));		<em class="jxr_comment">// pass derefed first param to subfunc</em>
+<a class="jxr_linenumber" name="L286" href="#L286">286</a> 		REMOVE_HASHES.add(fh(8, 0xba8d3a7590fcc497L));		<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L287" href="#L287">287</a> 		REMOVE_HASHES.add(fh(7, 0xc4312b6b7324334aL));		<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L288" href="#L288">288</a> 		REMOVE_HASHES.add(fh(11, 0xd6650c343cfb0baeL));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L289" href="#L289">289</a> 		REMOVE_HASHES.add(fh(13, 0xe6202628da545409L));		<em class="jxr_comment">// ??0CXMLParserRoot@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L290" href="#L290">290</a> 		REMOVE_HASHES.add(fh(6, 0xebd9388fe0c5b3d5L));		<em class="jxr_comment">// operator++</em>
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> 		REMOVE_HASHES.add(fh(8, 0xebfa00c4b493da85L));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L292" href="#L292">292</a> 		REMOVE_HASHES.add(fh(11, 0xf5d1f9d9b010f936L));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L293" href="#L293">293</a> 		REMOVE_HASHES.add(fh(11, 0xf7f34c91b43fa7d3L));		<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L294" href="#L294">294</a> 		REMOVE_HASHES.add(fh(8, 0xfcffed6fce4974a8L));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L295" href="#L295">295</a> 		REMOVE_HASHES.add(fh(9, 0x1c82d67f2be6ec3cL));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L296" href="#L296">296</a> 		REMOVE_HASHES.add(fh(10, 0x7dd643f9a75d75c4L));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L297" href="#L297">297</a> 		REMOVE_HASHES.add(fh(5, 0x88b326842c8ac560L));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L298" href="#L298">298</a> 		REMOVE_HASHES.add(fh(6, 0xa03ab775e8816d83L));		<em class="jxr_comment">// wrapper</em>
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> 		REMOVE_HASHES.add(fh(15, 0xe964369cf92d003fL));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L300" href="#L300">300</a> 		REMOVE_HASHES.add(fh(10, 0xf36c24d70ec93888L));		<em class="jxr_comment">// wrapper</em>
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> 		REMOVE_HASHES.add(fh(7, 0x763a8202f3d3c655L));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L302" href="#L302">302</a> 		REMOVE_HASHES.add(fh(12, 0x108d55ea8a0d124cL));		<em class="jxr_comment">// scalar_deleting_destructor</em>
+<a class="jxr_linenumber" name="L303" href="#L303">303</a> 		REMOVE_HASHES.add(fh(13, 0x73f55a446deac3b1L));		<em class="jxr_comment">// scalar_deleting_destructor</em>
+<a class="jxr_linenumber" name="L304" href="#L304">304</a> 		REMOVE_HASHES.add(fh(14, 0x3266cd569ab4eeffL));		<em class="jxr_comment">// comparator</em>
+<a class="jxr_linenumber" name="L305" href="#L305">305</a> 		REMOVE_HASHES.add(fh(34, 0x8069e1fe2475e7c0L));		<em class="jxr_comment">// inlined copies followed by method call</em>
+<a class="jxr_linenumber" name="L306" href="#L306">306</a> 		REMOVE_HASHES.add(fh(8, 0xa5c0d8da585783d3L));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L307" href="#L307">307</a> 		REMOVE_HASHES.add(fh(14, 0xad597a6e08b319b6L));		<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L308" href="#L308">308</a> 		REMOVE_HASHES.add(fh(17, 0xa552112bff535b06L));		<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L309" href="#L309">309</a> 		REMOVE_HASHES.add(fh(13, 0xac7036a5a6a27973L));		<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L310" href="#L310">310</a> 		REMOVE_HASHES.add(fh(6, 0x561ffc1c6cdb8a09L));		<em class="jxr_comment">// Mysize</em>
+<a class="jxr_linenumber" name="L311" href="#L311">311</a> 		REMOVE_HASHES.add(fh(8, 0x6838c16db21b0fcdL));		<em class="jxr_comment">// ??1_AsyncTaskCollection@details@Concurrency@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L312" href="#L312">312</a> 		REMOVE_HASHES.add(fh(6, 0x69e6a6ae661a1d17L));		<em class="jxr_comment">// Generic size()</em>
+<a class="jxr_linenumber" name="L313" href="#L313">313</a> 		REMOVE_HASHES.add(fh(4, 0xd4c0bfb00c09e33dL));		<em class="jxr_comment">// Access field</em>
+<a class="jxr_linenumber" name="L314" href="#L314">314</a> 		REMOVE_HASHES.add(fh(4, 0xc0845430b88f5debL));		<em class="jxr_comment">// Save registers</em>
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> 		REMOVE_HASHES.add(fh(6, 0xef1dcb79b04b45a7L));		<em class="jxr_comment">// 2 calls</em>
+<a class="jxr_linenumber" name="L316" href="#L316">316</a> 		REMOVE_HASHES.add(fh(10, 0xc75e5da59c8147a1L));		<em class="jxr_comment">// vector destructor</em>
+<a class="jxr_linenumber" name="L317" href="#L317">317</a> 		REMOVE_HASHES.add(fh(15, 0x71183c69f857f80cL));		<em class="jxr_comment">// copy constructor</em>
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> 
+<a class="jxr_linenumber" name="L319" href="#L319">319</a> 		FORCE_RELATION.add(fh(6, 0x508d431b82512d5bL));		<em class="jxr_comment">// Generic wrapper, one obvious child</em>
+<a class="jxr_linenumber" name="L320" href="#L320">320</a> 		FORCE_RELATION.add(fh(19, 0x1e68c4d4d83e7585L));	<em class="jxr_comment">// A little too generic stream thing, force parent</em>
+<a class="jxr_linenumber" name="L321" href="#L321">321</a> 		FORCE_RELATION.add(fh(26, 0x12449040c1a0d37eL));	<em class="jxr_comment">// Count decrement dispatcher, distinguish via parent</em>
+<a class="jxr_linenumber" name="L322" href="#L322">322</a> 		FORCE_RELATION.add(fh(18, 0x9c1597a636ea13b3L));	<em class="jxr_comment">// scalar_deleting_destructor with a child</em>
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> 		FORCE_RELATION.add(fh(15, 0x85b697ef56707979L));	<em class="jxr_comment">// Generic form with one child</em>
+<a class="jxr_linenumber" name="L324" href="#L324">324</a> 		FORCE_RELATION.add(fh(15, 0xe27b2550f3b616bcL));	<em class="jxr_comment">// Generic form, force parent match</em>
+<a class="jxr_linenumber" name="L325" href="#L325">325</a> 		FORCE_RELATION.add(fh(14, 0xa2b429ca49281059L));	<em class="jxr_comment">// Generic destructor with one child</em>
+<a class="jxr_linenumber" name="L326" href="#L326">326</a> 		FORCE_RELATION.add(fh(21, 0x5eae3016f3cc4caaL));	<em class="jxr_comment">// Common destructor form (only child is free)</em>
+<a class="jxr_linenumber" name="L327" href="#L327">327</a> 		FORCE_RELATION.add(fh(12, 0xe77f57508779c258L));	<em class="jxr_comment">// Generic assign</em>
+<a class="jxr_linenumber" name="L328" href="#L328">328</a> 		FORCE_RELATION.add(fh(18, 0x61950fc199f518fL));		<em class="jxr_comment">// Generic destructor with children</em>
+<a class="jxr_linenumber" name="L329" href="#L329">329</a> 		FORCE_RELATION.add(fh(25, 0xd08dc36210405cfdL));	<em class="jxr_comment">// scalar_deleting_destructor force parent</em>
+<a class="jxr_linenumber" name="L330" href="#L330">330</a> 		FORCE_RELATION.add(fh(13, 0xf1e4167aedf569aL));		<em class="jxr_comment">// Generic form, with many children</em>
+<a class="jxr_linenumber" name="L331" href="#L331">331</a> 		FORCE_RELATION.add(fh(20, 0x678b611a60783c98L));	<em class="jxr_comment">// Generic form with children</em>
+<a class="jxr_linenumber" name="L332" href="#L332">332</a> 		FORCE_RELATION.add(fh(15, 0x51980975b49f9f73L));	<em class="jxr_comment">// ??1SchedulingNode@details@Concurrency@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L333" href="#L333">333</a> 		FORCE_RELATION.add(fh(18, 0xcf323a39c909432bL));	<em class="jxr_comment">// ?_Future_error_map@std@@YAPEBDH@Z</em>
+<a class="jxr_linenumber" name="L334" href="#L334">334</a> 		FORCE_RELATION.add(fh(14, 0x41110421841870bdL));	<em class="jxr_comment">// iterator::operator=</em>
+<a class="jxr_linenumber" name="L335" href="#L335">335</a> 		FORCE_RELATION.add(fh(15, 0x4ff25b1581823b8dL));	<em class="jxr_comment">// Uninitialized_move</em>
+<a class="jxr_linenumber" name="L336" href="#L336">336</a> 		FORCE_RELATION.add(fh(17, 0x98b776bf2b245c57L));	<em class="jxr_comment">// pair constructor</em>
+<a class="jxr_linenumber" name="L337" href="#L337">337</a> 		FORCE_RELATION.add(fh(12, 0x5bd6de97fe12c3deL));	<em class="jxr_comment">// ??0_WDI_RECEIVE_COALESCING_CAPABILITIES@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L338" href="#L338">338</a> 		FORCE_RELATION.add(fh(15, 0x08c46c0927acd159L));	<em class="jxr_comment">// _Ucopy</em>
+<a class="jxr_linenumber" name="L339" href="#L339">339</a> 		FORCE_RELATION.add(fh(11, 0x809e950df92527a5L));	<em class="jxr_comment">// Emplace</em>
+<a class="jxr_linenumber" name="L340" href="#L340">340</a> 		FORCE_RELATION.add(fh(17, 0xb33a994d051dd9a0L));	<em class="jxr_comment">// ??_G_AsyncTaskCollection@details@Concurrency@@UEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L341" href="#L341">341</a> 		FORCE_RELATION.add(fh(14, 0xee6fd3046cf7ee06L));	<em class="jxr_comment">// ??0_WDI_CHECKSUM_OFFLOAD_CAPABILITIES_CONTAINER@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L342" href="#L342">342</a> 		FORCE_RELATION.add(fh(16, 0xfb2a575f03442e59L));	<em class="jxr_comment">// ?Equals@Guid@Platform@@QEAA_NAEBU_GUID@@@Z</em>
+<a class="jxr_linenumber" name="L343" href="#L343">343</a> 		FORCE_RELATION.add(fh(17, 0x74a7b8ca8aa4062bL));	<em class="jxr_comment">// Find_unchecked</em>
+<a class="jxr_linenumber" name="L344" href="#L344">344</a> 		FORCE_RELATION.add(fh(13, 0x64bd12c74e7fa730L));	<em class="jxr_comment">// boolean check on field</em>
+<a class="jxr_linenumber" name="L345" href="#L345">345</a> 		FORCE_RELATION.add(fh(13, 0xe624a060e19a0c64L));	<em class="jxr_comment">// copy</em>
+<a class="jxr_linenumber" name="L346" href="#L346">346</a> 		FORCE_RELATION.add(fh(35, 0x4423b59693bfd81L));		<em class="jxr_comment">// Generic destructor</em>
+<a class="jxr_linenumber" name="L347" href="#L347">347</a> 		FORCE_RELATION.add(fh(19, 0x07ccaa127d5e1714L));	<em class="jxr_comment">// operator=</em>
+<a class="jxr_linenumber" name="L348" href="#L348">348</a> 		FORCE_RELATION.add(fh(25, 0xa6ea183912b2677dL));	<em class="jxr_comment">// Generic copy</em>
+<a class="jxr_linenumber" name="L349" href="#L349">349</a> 		FORCE_RELATION.add(fh(11, 0xb7e0a1d58b88d05cL));	<em class="jxr_comment">// Generic constructor</em>
+<a class="jxr_linenumber" name="L350" href="#L350">350</a> 		FORCE_RELATION.add(fh(12, 0xceece41b9d9525cbL));	<em class="jxr_comment">// Generic constructor</em>
+<a class="jxr_linenumber" name="L351" href="#L351">351</a> 
+<a class="jxr_linenumber" name="L352" href="#L352">352</a> 		FORCE_SPECIFIC.add(fh(26, 0xf0f7f2439683bfeaL));	<em class="jxr_comment">// Variants with specialized constants</em>
+<a class="jxr_linenumber" name="L353" href="#L353">353</a> 		FORCE_SPECIFIC.add(fh(17, 0xf468f6c40495d8caL));	<em class="jxr_comment">// Dispatcher form with lots of specific constants</em>
+<a class="jxr_linenumber" name="L354" href="#L354">354</a> 		FORCE_SPECIFIC.add(fh(13, 0x8779436db6c1d90L));		<em class="jxr_comment">// ??1?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@V_STL70@@@std@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L355" href="#L355">355</a> 		FORCE_SPECIFIC.add(fh(75, 0x48156d182763009dL));	<em class="jxr_comment">// _write confused with _read</em>
+<a class="jxr_linenumber" name="L356" href="#L356">356</a> 		FORCE_SPECIFIC.add(fh(51, 0x2d35582d216d91bbL));	<em class="jxr_comment">// ??1CCommandLineInfo@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L357" href="#L357">357</a> 		FORCE_SPECIFIC.add(fh(15, 0x4389c3585fa0606aL));	<em class="jxr_comment">// has_flag</em>
+<a class="jxr_linenumber" name="L358" href="#L358">358</a> 		FORCE_SPECIFIC.add(fh(15, 0xcc72f3219032eacfL));	<em class="jxr_comment">// ?__acrt_stdio_parse_mode_D@@YA_NAEAU__acrt_stdio_stream_mode@@@Z</em>
+<a class="jxr_linenumber" name="L359" href="#L359">359</a> 		FORCE_SPECIFIC.add(fh(36, 0xa07803de9bbbebbbL));	<em class="jxr_comment">// vector deleting destructor</em>
+<a class="jxr_linenumber" name="L360" href="#L360">360</a> 		FORCE_SPECIFIC.add(fh(20, 0x4af9f6ef9467bbcaL));	<em class="jxr_comment">// ??_GFileLCRec@@QEAAPEAXI@Z</em>
+<a class="jxr_linenumber" name="L361" href="#L361">361</a> 		FORCE_SPECIFIC.add(fh(11, 0x17c3832d5e7abe3L));		<em class="jxr_comment">// isnan, isinf</em>
+<a class="jxr_linenumber" name="L362" href="#L362">362</a> 
+<a class="jxr_linenumber" name="L363" href="#L363">363</a> 		FORCE_SPECIFIC.add(fh(12, 0x1997c3c57f1359d6L));	<em class="jxr_comment">// ?dtor$9@?0??AddMenuCommands@CMFCToolBarsCustomizeDialog@@QEAAXPEBVCMenu@@HPEB_W1@Z@4HA</em>
+<a class="jxr_linenumber" name="L364" href="#L364">364</a> 		FORCE_RELATION.add(fh(12, 0x1997c3c57f1359d6L));
+<a class="jxr_linenumber" name="L365" href="#L365">365</a> 		FORCE_SPECIFIC.add(fh(11, 0x2c36a67a489920daL));	<em class="jxr_comment">// ??1ContextBase@details@Concurrency@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L366" href="#L366">366</a> 		FORCE_RELATION.add(fh(11, 0x2c36a67a489920daL));
+<a class="jxr_linenumber" name="L367" href="#L367">367</a> 		FORCE_SPECIFIC.add(fh(15, 0x69156cfc34e915e7L));	<em class="jxr_comment">// ??0&lt;lambda_6dd2c61d572e92a64c8eda4035773505&gt;@@QEAA@AEBV0@@Z</em>
+<a class="jxr_linenumber" name="L368" href="#L368">368</a> 		FORCE_RELATION.add(fh(15, 0x69156cfc34e915e7L));
+<a class="jxr_linenumber" name="L369" href="#L369">369</a> 		FORCE_SPECIFIC.add(fh(11, 0x781f34966e8ef7deL));	<em class="jxr_comment">// FreeNode</em>
+<a class="jxr_linenumber" name="L370" href="#L370">370</a> 		FORCE_RELATION.add(fh(11, 0x781f34966e8ef7deL));
+<a class="jxr_linenumber" name="L371" href="#L371">371</a> 		FORCE_SPECIFIC.add(fh(11, 0x86b8837a96bb2fadL));	<em class="jxr_comment">// ??0NumaInformation@SchedulerBase@details@Concurrency@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L372" href="#L372">372</a> 		FORCE_RELATION.add(fh(11, 0x86b8837a96bb2fadL));
+<a class="jxr_linenumber" name="L373" href="#L373">373</a> 		FORCE_SPECIFIC.add(fh(10, 0x87dd953d6c34861eL));	<em class="jxr_comment">// get_allocator</em>
+<a class="jxr_linenumber" name="L374" href="#L374">374</a> 		FORCE_RELATION.add(fh(10, 0x87dd953d6c34861eL));
+<a class="jxr_linenumber" name="L375" href="#L375">375</a> 		FORCE_SPECIFIC.add(fh(14, 0x8c77a958beb620dfL));	<em class="jxr_comment">// ?HasRealizedChores@ScheduleGroupSegmentBase@details@Concurrency@@IEBA_NXZ</em>
+<a class="jxr_linenumber" name="L376" href="#L376">376</a> 		FORCE_RELATION.add(fh(14, 0x8c77a958beb620dfL));
+<a class="jxr_linenumber" name="L377" href="#L377">377</a> 		FORCE_SPECIFIC.add(fh(10, 0x90181c81962ce711L));	<em class="jxr_comment">// ??1CStreamOnCString@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L378" href="#L378">378</a> 		FORCE_RELATION.add(fh(10, 0x90181c81962ce711L));
+<a class="jxr_linenumber" name="L379" href="#L379">379</a> 		FORCE_SPECIFIC.add(fh(17, 0x9248e909511b8ddaL));	<em class="jxr_comment">// ??0FreeVirtualProcessorRoot@details@Concurrency@@QEAA@PEAVSchedulerProxy@12@PEAUSchedulerNode@12@I@Z</em>
+<a class="jxr_linenumber" name="L380" href="#L380">380</a> 		FORCE_RELATION.add(fh(17, 0x9248e909511b8ddaL));
+<a class="jxr_linenumber" name="L381" href="#L381">381</a> 		FORCE_SPECIFIC.add(fh(15, 0x977e6c2c25e8f389L));	<em class="jxr_comment">// ??1CMFCVisualManagerBitmapCache@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L382" href="#L382">382</a> 		FORCE_RELATION.add(fh(15, 0x977e6c2c25e8f389L));
+<a class="jxr_linenumber" name="L383" href="#L383">383</a> 		FORCE_SPECIFIC.add(fh(17, 0xad2d41b71db78df0L));	<em class="jxr_comment">// ??1COleDispatchException@@UEAA@XZ</em>
+<a class="jxr_linenumber" name="L384" href="#L384">384</a> 		FORCE_RELATION.add(fh(17, 0xad2d41b71db78df0L));
+<a class="jxr_linenumber" name="L385" href="#L385">385</a> 		FORCE_SPECIFIC.add(fh(26, 0xb5b192b00955d1feL));	<em class="jxr_comment">// ??1_Locinfo@std@@QEAA@XZ</em>
+<a class="jxr_linenumber" name="L386" href="#L386">386</a> 		FORCE_RELATION.add(fh(26, 0xb5b192b00955d1feL));
+<a class="jxr_linenumber" name="L387" href="#L387">387</a> 		FORCE_SPECIFIC.add(fh(10, 0xd6a5fc3691b7f101L));	<em class="jxr_comment">// DelRegTree</em>
+<a class="jxr_linenumber" name="L388" href="#L388">388</a> 		FORCE_RELATION.add(fh(10, 0xd6a5fc3691b7f101L));
+<a class="jxr_linenumber" name="L389" href="#L389">389</a> 		FORCE_SPECIFIC.add(fh(13, 0xd75e6989aec2a5a9L));	<em class="jxr_comment">// destructor form</em>
+<a class="jxr_linenumber" name="L390" href="#L390">390</a> 		FORCE_RELATION.add(fh(13, 0xd75e6989aec2a5a9L));
+<a class="jxr_linenumber" name="L391" href="#L391">391</a> 		FORCE_SPECIFIC.add(fh(13, 0xdcfdfd3a9345b3a5L));	<em class="jxr_comment">// constructor form</em>
+<a class="jxr_linenumber" name="L392" href="#L392">392</a> 		FORCE_RELATION.add(fh(13, 0xdcfdfd3a9345b3a5L));
+<a class="jxr_linenumber" name="L393" href="#L393">393</a> 		FORCE_SPECIFIC.add(fh(14, 0xf323b038a8b540faL));	<em class="jxr_comment">// ?GetPolicy@SchedulerBase@details@Concurrency@@UEBA?AVSchedulerPolicy@3@XZ</em>
+<a class="jxr_linenumber" name="L394" href="#L394">394</a> 		FORCE_RELATION.add(fh(14, 0xf323b038a8b540faL));
+<a class="jxr_linenumber" name="L395" href="#L395">395</a> 		FORCE_SPECIFIC.add(fh(10, 0x6862321b024d5c83L));	<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L396" href="#L396">396</a> 		FORCE_RELATION.add(fh(10, 0x6862321b024d5c83L));
+<a class="jxr_linenumber" name="L397" href="#L397">397</a> 		FORCE_SPECIFIC.add(fh(11, 0xa61ae8d54cfc35d6L));	<em class="jxr_comment">// comparator, empty</em>
+<a class="jxr_linenumber" name="L398" href="#L398">398</a> 		FORCE_RELATION.add(fh(11, 0xa61ae8d54cfc35d6L));
+<a class="jxr_linenumber" name="L399" href="#L399">399</a> 		FORCE_SPECIFIC.add(fh(12, 0x892067d7b5484452L));	<em class="jxr_comment">// anonymous destructor</em>
+<a class="jxr_linenumber" name="L400" href="#L400">400</a> 		FORCE_RELATION.add(fh(12, 0x892067d7b5484452L));
+<a class="jxr_linenumber" name="L401" href="#L401">401</a> 		FORCE_SPECIFIC.add(fh(12, 0x2155a28b83bb2704L));	<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L402" href="#L402">402</a> 		FORCE_RELATION.add(fh(12, 0x2155a28b83bb2704L));
+<a class="jxr_linenumber" name="L403" href="#L403">403</a> 		FORCE_SPECIFIC.add(fh(14, 0x205bb2f03257b770L));	<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L404" href="#L404">404</a> 		FORCE_RELATION.add(fh(14, 0x205bb2f03257b770L));
+<a class="jxr_linenumber" name="L405" href="#L405">405</a> 		FORCE_SPECIFIC.add(fh(12, 0xbdcafd32892d723L));		<em class="jxr_comment">// ??1_Locimp@locale@std@@MEAA@XZ</em>
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> 		FORCE_RELATION.add(fh(12, 0xbdcafd32892d723L));
+<a class="jxr_linenumber" name="L407" href="#L407">407</a> 		FORCE_SPECIFIC.add(fh(12, 0xcd7e1f68717240f8L));	<em class="jxr_comment">// destructor</em>
+<a class="jxr_linenumber" name="L408" href="#L408">408</a> 		FORCE_RELATION.add(fh(12, 0xcd7e1f68717240f8L));
+<a class="jxr_linenumber" name="L409" href="#L409">409</a> 
+<a class="jxr_linenumber" name="L410" href="#L410">410</a> 		FORCE_SPECIFIC.add(fh(10, 0x5c4a91ec77ecc3d2L));	<em class="jxr_comment">// strnlen</em>
+<a class="jxr_linenumber" name="L411" href="#L411">411</a> 		AUTO_PASS.add(fh(10, 0x5c4a91ec77ecc3d2L));
+<a class="jxr_linenumber" name="L412" href="#L412">412</a> 		FORCE_SPECIFIC.add(fh(11, 0xa508065e4b64b352L));	<em class="jxr_comment">// ?AllocateHeap@?$CTempBuffer@D$0IA@VCCRTAllocator@ATL@@@ATL@@AEAAX_K@Z</em>
+<a class="jxr_linenumber" name="L413" href="#L413">413</a> 		AUTO_PASS.add(fh(11, 0xa508065e4b64b352L));
+<a class="jxr_linenumber" name="L414" href="#L414">414</a> 		FORCE_SPECIFIC.add(fh(9, 0xe961767d5c594520L));		<em class="jxr_comment">// ?AtlThrowImpl@ATL@@YAXJ@Z</em>
+<a class="jxr_linenumber" name="L415" href="#L415">415</a> 		AUTO_PASS.add(fh(9, 0xe961767d5c594520L));
+<a class="jxr_linenumber" name="L416" href="#L416">416</a> 		FORCE_SPECIFIC.add(fh(10, 0xaba76591680821c6L));	<em class="jxr_comment">// strnlen</em>
+<a class="jxr_linenumber" name="L417" href="#L417">417</a> 		AUTO_PASS.add(fh(10, 0xaba76591680821c6L));
+<a class="jxr_linenumber" name="L418" href="#L418">418</a> 		FORCE_SPECIFIC.add(fh(10, 0x6244ea7ccad27b93L));	<em class="jxr_comment">// wcsnlen</em>
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> 		AUTO_PASS.add(fh(10, 0x6244ea7ccad27b93L));
+<a class="jxr_linenumber" name="L420" href="#L420">420</a> 		FORCE_SPECIFIC.add(fh(9, 0x347bdce6848098d1L));		<em class="jxr_comment">// strncnt</em>
+<a class="jxr_linenumber" name="L421" href="#L421">421</a> 		AUTO_PASS.add(fh(9, 0x347bdce6848098d1L));
+<a class="jxr_linenumber" name="L422" href="#L422">422</a> 		FORCE_SPECIFIC.add(fh(10, 0x668ac85a3d5bf04bL));	<em class="jxr_comment">// raise_securityfailure</em>
+<a class="jxr_linenumber" name="L423" href="#L423">423</a> 		AUTO_PASS.add(fh(10, 0x668ac85a3d5bf04bL));
+<a class="jxr_linenumber" name="L424" href="#L424">424</a> 
+<a class="jxr_linenumber" name="L425" href="#L425">425</a> 		<em class="jxr_comment">// Must exhibit relation and constants, plus one specific set of constants are marked as auto-fail</em>
+<a class="jxr_linenumber" name="L426" href="#L426">426</a> 		FORCE_SPECIFIC.add(fh(11, 0xf8ff33ae3bb6b9e9L));		<em class="jxr_comment">// constructor</em>
+<a class="jxr_linenumber" name="L427" href="#L427">427</a> 		FORCE_RELATION.add(fh(11, 0xf8ff33ae3bb6b9e9L));
+<a class="jxr_linenumber" name="L428" href="#L428">428</a> 		REMOVE_SPECHASHES.add(fh(11, 0xc03985b32a1f76ceL));
+<a class="jxr_linenumber" name="L429" href="#L429">429</a> 
+<a class="jxr_linenumber" name="L430" href="#L430">430</a> 	}
+<a class="jxr_linenumber" name="L431" href="#L431">431</a> 
+<a class="jxr_linenumber" name="L432" href="#L432">432</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> findMissingHashes(FidQueryService fidDB) {
+<a class="jxr_linenumber" name="L433" href="#L433">433</a> 		<strong class="jxr_keyword">for</strong> (Pair&lt;String, Pair&lt;Long, Long&gt;&gt; pair : SPECIAL_PARENT) {
+<a class="jxr_linenumber" name="L434" href="#L434">434</a> 			List&lt;FunctionRecord&gt; childFunctions = fidDB.findFunctionsByFullHash(pair.second.first);
+<a class="jxr_linenumber" name="L435" href="#L435">435</a> 			<strong class="jxr_keyword">if</strong> (childFunctions.isEmpty()) {
+<a class="jxr_linenumber" name="L436" href="#L436">436</a> 				println(<span class="jxr_string">"Missing SPECIAL_PARENT child: "</span> + Long.toHexString(pair.second.first));
+<a class="jxr_linenumber" name="L437" href="#L437">437</a> 			}
+<a class="jxr_linenumber" name="L438" href="#L438">438</a> 			List&lt;FunctionRecord&gt; parentFunctions =
+<a class="jxr_linenumber" name="L439" href="#L439">439</a> 				fidDB.findFunctionsByFullHash(pair.second.second);
+<a class="jxr_linenumber" name="L440" href="#L440">440</a> 			<strong class="jxr_keyword">if</strong> (parentFunctions.isEmpty()) {
+<a class="jxr_linenumber" name="L441" href="#L441">441</a> 				println(<span class="jxr_string">"Missing SPECIAL_PARENT parent: "</span> + Long.toHexString(pair.second.second));
+<a class="jxr_linenumber" name="L442" href="#L442">442</a> 			}
+<a class="jxr_linenumber" name="L443" href="#L443">443</a> 		}
+<a class="jxr_linenumber" name="L444" href="#L444">444</a> 		<strong class="jxr_keyword">for</strong> (Pair&lt;Short, Long&gt; removeHash : REMOVE_HASHES) {
+<a class="jxr_linenumber" name="L445" href="#L445">445</a> 			List&lt;FunctionRecord&gt; funcList = fidDB.findFunctionsByFullHash(removeHash.second);
+<a class="jxr_linenumber" name="L446" href="#L446">446</a> 			<strong class="jxr_keyword">if</strong> (funcList.isEmpty()) {
+<a class="jxr_linenumber" name="L447" href="#L447">447</a> 				println(<span class="jxr_string">"Missing REMOVE_HASHES: "</span> + Long.toHexString(removeHash.second));
+<a class="jxr_linenumber" name="L448" href="#L448">448</a> 			}
+<a class="jxr_linenumber" name="L449" href="#L449">449</a> 		}
+<a class="jxr_linenumber" name="L450" href="#L450">450</a> 		<strong class="jxr_keyword">for</strong> (Pair&lt;Short, Long&gt; removeHash : FORCE_RELATION) {
+<a class="jxr_linenumber" name="L451" href="#L451">451</a> 			List&lt;FunctionRecord&gt; funcList = fidDB.findFunctionsByFullHash(removeHash.second);
+<a class="jxr_linenumber" name="L452" href="#L452">452</a> 			<strong class="jxr_keyword">if</strong> (funcList.isEmpty()) {
+<a class="jxr_linenumber" name="L453" href="#L453">453</a> 				println(<span class="jxr_string">"Missing FORCE_RELATION: "</span> + Long.toHexString(removeHash.second));
+<a class="jxr_linenumber" name="L454" href="#L454">454</a> 			}
+<a class="jxr_linenumber" name="L455" href="#L455">455</a> 		}
+<a class="jxr_linenumber" name="L456" href="#L456">456</a> 		<strong class="jxr_keyword">for</strong> (Pair&lt;Short, Long&gt; removeHash : FORCE_SPECIFIC) {
+<a class="jxr_linenumber" name="L457" href="#L457">457</a> 			List&lt;FunctionRecord&gt; funcList = fidDB.findFunctionsByFullHash(removeHash.second);
+<a class="jxr_linenumber" name="L458" href="#L458">458</a> 			<strong class="jxr_keyword">if</strong> (funcList.isEmpty()) {
+<a class="jxr_linenumber" name="L459" href="#L459">459</a> 				println(<span class="jxr_string">"Missing FORCE_SPECIFIC: "</span> + Long.toHexString(removeHash.second));
+<a class="jxr_linenumber" name="L460" href="#L460">460</a> 			}
+<a class="jxr_linenumber" name="L461" href="#L461">461</a> 		}
+<a class="jxr_linenumber" name="L462" href="#L462">462</a> 		<strong class="jxr_keyword">for</strong> (Pair&lt;Short, Long&gt; removeHash : AUTO_PASS) {
+<a class="jxr_linenumber" name="L463" href="#L463">463</a> 			List&lt;FunctionRecord&gt; funcList = fidDB.findFunctionsByFullHash(removeHash.second);
+<a class="jxr_linenumber" name="L464" href="#L464">464</a> 			<strong class="jxr_keyword">if</strong> (funcList.isEmpty()) {
+<a class="jxr_linenumber" name="L465" href="#L465">465</a> 				println(<span class="jxr_string">"Missing AUTO_PASS: "</span> + Long.toHexString(removeHash.second));
+<a class="jxr_linenumber" name="L466" href="#L466">466</a> 			}
+<a class="jxr_linenumber" name="L467" href="#L467">467</a> 		}
+<a class="jxr_linenumber" name="L468" href="#L468">468</a> 		<strong class="jxr_keyword">for</strong> (Pair&lt;Short, Long&gt; pair : REMOVE_SPECHASHES) {
+<a class="jxr_linenumber" name="L469" href="#L469">469</a> 			List&lt;FunctionRecord&gt; listSpecHash =
+<a class="jxr_linenumber" name="L470" href="#L470">470</a> 				fidDB.findFunctionsBySpecificHash(pair.second.longValue());
+<a class="jxr_linenumber" name="L471" href="#L471">471</a> 			<strong class="jxr_keyword">if</strong> (listSpecHash.isEmpty()) {
+<a class="jxr_linenumber" name="L472" href="#L472">472</a> 				println(<span class="jxr_string">"Missing REMOVE_SPECHASHES: "</span> + Long.toHexString(pair.second));
+<a class="jxr_linenumber" name="L473" href="#L473">473</a> 			}
+<a class="jxr_linenumber" name="L474" href="#L474">474</a> 		}
+<a class="jxr_linenumber" name="L475" href="#L475">475</a> 	}
+<a class="jxr_linenumber" name="L476" href="#L476">476</a> 
+<a class="jxr_linenumber" name="L477" href="#L477">477</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> Pair&lt;Short, Long&gt; fh(<strong class="jxr_keyword">int</strong> codeUnits, <strong class="jxr_keyword">long</strong> digest) {
+<a class="jxr_linenumber" name="L478" href="#L478">478</a> 		Pair&lt;Short, Long&gt; result = <strong class="jxr_keyword">new</strong> Pair&lt;&gt;((<strong class="jxr_keyword">short</strong>) codeUnits, digest);
+<a class="jxr_linenumber" name="L479" href="#L479">479</a> 		<strong class="jxr_keyword">return</strong> result;
+<a class="jxr_linenumber" name="L480" href="#L480">480</a> 	}
+<a class="jxr_linenumber" name="L481" href="#L481">481</a> 
+<a class="jxr_linenumber" name="L482" href="#L482">482</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> runSearch() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L483" href="#L483">483</a> 		LanguageService langService = DefaultLanguageService.getLanguageService();
+<a class="jxr_linenumber" name="L484" href="#L484">484</a> 		FidService fidService = <strong class="jxr_keyword">new</strong> FidService();
+<a class="jxr_linenumber" name="L485" href="#L485">485</a> 
+<a class="jxr_linenumber" name="L486" href="#L486">486</a> 		buildKnownHashes32();
+<a class="jxr_linenumber" name="L487" href="#L487">487</a> 		LanguageID langId = <strong class="jxr_keyword">new</strong> LanguageID(<span class="jxr_string">"x86:LE:32:default"</span>);
+<a class="jxr_linenumber" name="L488" href="#L488">488</a> 		Language language = langService.getLanguage(langId);
+<a class="jxr_linenumber" name="L489" href="#L489">489</a> 		println(<span class="jxr_string">"Searching for x86:LE:32 hashes ..."</span>);
+<a class="jxr_linenumber" name="L490" href="#L490">490</a> 		FidQueryService fidQueryService = fidService.openFidQueryService(language, false);
+<a class="jxr_linenumber" name="L491" href="#L491">491</a> 		findMissingHashes(fidQueryService);
+<a class="jxr_linenumber" name="L492" href="#L492">492</a> 
+<a class="jxr_linenumber" name="L493" href="#L493">493</a> 		REMOVE_HASHES.clear();
+<a class="jxr_linenumber" name="L494" href="#L494">494</a> 		REMOVE_SPECHASHES.clear();
+<a class="jxr_linenumber" name="L495" href="#L495">495</a> 		FORCE_SPECIFIC.clear();
+<a class="jxr_linenumber" name="L496" href="#L496">496</a> 		FORCE_RELATION.clear();
+<a class="jxr_linenumber" name="L497" href="#L497">497</a> 		AUTO_PASS.clear();
+<a class="jxr_linenumber" name="L498" href="#L498">498</a> 		AUTO_FAIL_REGEX.clear();
+<a class="jxr_linenumber" name="L499" href="#L499">499</a> 		SPECIAL_PARENT.clear();
+<a class="jxr_linenumber" name="L500" href="#L500">500</a> 
+<a class="jxr_linenumber" name="L501" href="#L501">501</a> 		buildKnownHashes64();
+<a class="jxr_linenumber" name="L502" href="#L502">502</a> 		langId = <strong class="jxr_keyword">new</strong> LanguageID(<span class="jxr_string">"x86:LE:64:default"</span>);
+<a class="jxr_linenumber" name="L503" href="#L503">503</a> 		language = langService.getLanguage(langId);
+<a class="jxr_linenumber" name="L504" href="#L504">504</a> 		println(<span class="jxr_string">"Searching for x86:LE:64 hashes ..."</span>);
+<a class="jxr_linenumber" name="L505" href="#L505">505</a> 		fidQueryService = fidService.openFidQueryService(language, false);
+<a class="jxr_linenumber" name="L506" href="#L506">506</a> 		findMissingHashes(fidQueryService);
+<a class="jxr_linenumber" name="L507" href="#L507">507</a> 	}
+<a class="jxr_linenumber" name="L508" href="#L508">508</a> 
+<a class="jxr_linenumber" name="L509" href="#L509">509</a> 	@Override
+<a class="jxr_linenumber" name="L510" href="#L510">510</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> run() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L511" href="#L511">511</a> 		FidFileManager fidFileManager = FidFileManager.getInstance();
+<a class="jxr_linenumber" name="L512" href="#L512">512</a> 
+<a class="jxr_linenumber" name="L513" href="#L513">513</a> 		List&lt;FidFile&gt; allKnownFidFiles = fidFileManager.getFidFiles();
+<a class="jxr_linenumber" name="L514" href="#L514">514</a> 		ArrayList&lt;String&gt; dbfiles = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L515" href="#L515">515</a> 		HashMap&lt;String, FidFile&gt; fidMap = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L516" href="#L516">516</a> 		<strong class="jxr_keyword">for</strong> (FidFile fidFile : allKnownFidFiles) {
+<a class="jxr_linenumber" name="L517" href="#L517">517</a> 			<strong class="jxr_keyword">if</strong> (!fidFile.isInstalled()) {
+<a class="jxr_linenumber" name="L518" href="#L518">518</a> 				fidMap.put(fidFile.getName(), fidFile);
+<a class="jxr_linenumber" name="L519" href="#L519">519</a> 				dbfiles.add(fidFile.getName());
+<a class="jxr_linenumber" name="L520" href="#L520">520</a> 			}
+<a class="jxr_linenumber" name="L521" href="#L521">521</a> 		}
+<a class="jxr_linenumber" name="L522" href="#L522">522</a> 		String[] nameArray = <strong class="jxr_keyword">new</strong> String[dbfiles.size()];
+<a class="jxr_linenumber" name="L523" href="#L523">523</a> 		dbfiles.toArray(nameArray);
+<a class="jxr_linenumber" name="L524" href="#L524">524</a> 		String askChoice = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L525" href="#L525">525</a> 		<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L526" href="#L526">526</a> 			askChoice = askChoice(<span class="jxr_string">"RemoveFunctions script"</span>, <span class="jxr_string">"Choose FID database: "</span>,
+<a class="jxr_linenumber" name="L527" href="#L527">527</a> 				Arrays.asList(nameArray), nameArray[0]);
+<a class="jxr_linenumber" name="L528" href="#L528">528</a> 		}
+<a class="jxr_linenumber" name="L529" href="#L529">529</a> 		<strong class="jxr_keyword">catch</strong> (CancelledException ex) {
+<a class="jxr_linenumber" name="L530" href="#L530">530</a> 			runSearch();
+<a class="jxr_linenumber" name="L531" href="#L531">531</a> 			<strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="L532" href="#L532">532</a> 		}
+<a class="jxr_linenumber" name="L533" href="#L533">533</a> 		FidFile fidFile = fidMap.get(askChoice);
+<a class="jxr_linenumber" name="L534" href="#L534">534</a> 		FidDB modifiableFidDB = fidFile.getFidDB(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L535" href="#L535">535</a> 		List&lt;LibraryRecord&gt; allLibraries = modifiableFidDB.getAllLibraries();
+<a class="jxr_linenumber" name="L536" href="#L536">536</a> 		<strong class="jxr_keyword">boolean</strong> is64bit = false;
+<a class="jxr_linenumber" name="L537" href="#L537">537</a> 		<strong class="jxr_keyword">boolean</strong> is32bit = false;
+<a class="jxr_linenumber" name="L538" href="#L538">538</a> 		<strong class="jxr_keyword">for</strong> (LibraryRecord rec : allLibraries) {
+<a class="jxr_linenumber" name="L539" href="#L539">539</a> 			<strong class="jxr_keyword">if</strong> (rec.getGhidraLanguageID().getIdAsString().startsWith(<span class="jxr_string">"x86:LE:64"</span>)) {
+<a class="jxr_linenumber" name="L540" href="#L540">540</a> 				is64bit = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L541" href="#L541">541</a> 			}
+<a class="jxr_linenumber" name="L542" href="#L542">542</a> 			<strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (rec.getGhidraLanguageID().getIdAsString().startsWith(<span class="jxr_string">"x86:LE:32"</span>)) {
+<a class="jxr_linenumber" name="L543" href="#L543">543</a> 				is32bit = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L544" href="#L544">544</a> 			}
+<a class="jxr_linenumber" name="L545" href="#L545">545</a> 		}
+<a class="jxr_linenumber" name="L546" href="#L546">546</a> 		<strong class="jxr_keyword">if</strong> (is32bit &amp;&amp; is64bit) {
+<a class="jxr_linenumber" name="L547" href="#L547">547</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IOException(
+<a class="jxr_linenumber" name="L548" href="#L548">548</a> 				<span class="jxr_string">"Script can only process code of one type (32-bit or 64-bit) at a time"</span>);
+<a class="jxr_linenumber" name="L549" href="#L549">549</a> 		}
+<a class="jxr_linenumber" name="L550" href="#L550">550</a> 		<strong class="jxr_keyword">if</strong> ((!is32bit) &amp;&amp; (!is64bit)) {
+<a class="jxr_linenumber" name="L551" href="#L551">551</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IOException(
+<a class="jxr_linenumber" name="L552" href="#L552">552</a> 				<span class="jxr_string">"Script is designed to run only on a FID database generated from x86 code"</span>);
+<a class="jxr_linenumber" name="L553" href="#L553">553</a> 		}
+<a class="jxr_linenumber" name="L554" href="#L554">554</a> 		<strong class="jxr_keyword">if</strong> (is64bit) {
+<a class="jxr_linenumber" name="L555" href="#L555">555</a> 			buildKnownHashes64();
+<a class="jxr_linenumber" name="L556" href="#L556">556</a> 		}
+<a class="jxr_linenumber" name="L557" href="#L557">557</a> 		<strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L558" href="#L558">558</a> 			buildKnownHashes32();
+<a class="jxr_linenumber" name="L559" href="#L559">559</a> 		}
+<a class="jxr_linenumber" name="L560" href="#L560">560</a> 		<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L561" href="#L561">561</a> 			monitor.setMaximum(AUTO_FAIL_REGEX.size());
+<a class="jxr_linenumber" name="L562" href="#L562">562</a> 			monitor.setProgress(0);
+<a class="jxr_linenumber" name="L563" href="#L563">563</a> 			<strong class="jxr_keyword">for</strong> (String regex : AUTO_FAIL_REGEX) {
+<a class="jxr_linenumber" name="L564" href="#L564">564</a> 				monitor.checkCancelled();
+<a class="jxr_linenumber" name="L565" href="#L565">565</a> 				monitor.incrementProgress(1);
+<a class="jxr_linenumber" name="L566" href="#L566">566</a> 				List&lt;FunctionRecord&gt; recordList = modifiableFidDB.findFunctionsByNameRegex(regex);
+<a class="jxr_linenumber" name="L567" href="#L567">567</a> 				<strong class="jxr_keyword">for</strong> (FunctionRecord record : recordList) {
+<a class="jxr_linenumber" name="L568" href="#L568">568</a> 					modifiableFidDB.setAutoFailOnFunction(record, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L569" href="#L569">569</a> 				}
+<a class="jxr_linenumber" name="L570" href="#L570">570</a> 			}
+<a class="jxr_linenumber" name="L571" href="#L571">571</a> 			monitor.setMaximum(SPECIAL_PARENT.size());
+<a class="jxr_linenumber" name="L572" href="#L572">572</a> 			monitor.setProgress(0);
+<a class="jxr_linenumber" name="L573" href="#L573">573</a> 			<strong class="jxr_keyword">for</strong> (Pair&lt;String, Pair&lt;Long, Long&gt;&gt; pair : SPECIAL_PARENT) {
+<a class="jxr_linenumber" name="L574" href="#L574">574</a> 				monitor.checkCancelled();
+<a class="jxr_linenumber" name="L575" href="#L575">575</a> 				monitor.incrementProgress(1);
+<a class="jxr_linenumber" name="L576" href="#L576">576</a> 				List&lt;FunctionRecord&gt; childFunctions =
+<a class="jxr_linenumber" name="L577" href="#L577">577</a> 					modifiableFidDB.findFunctionsByFullHash(pair.second.first);
+<a class="jxr_linenumber" name="L578" href="#L578">578</a> 				List&lt;FunctionRecord&gt; parentFunctions =
+<a class="jxr_linenumber" name="L579" href="#L579">579</a> 					modifiableFidDB.findFunctionsByFullHash(pair.second.second);
+<a class="jxr_linenumber" name="L580" href="#L580">580</a> 				<strong class="jxr_keyword">if</strong> (parentFunctions.isEmpty()) {
+<a class="jxr_linenumber" name="L581" href="#L581">581</a> 					<strong class="jxr_keyword">continue</strong>;
+<a class="jxr_linenumber" name="L582" href="#L582">582</a> 				}
+<a class="jxr_linenumber" name="L583" href="#L583">583</a> 				FunctionRecord parentFunction = parentFunctions.get(0);
+<a class="jxr_linenumber" name="L584" href="#L584">584</a> 				<strong class="jxr_keyword">for</strong> (FunctionRecord childFunction : childFunctions) {
+<a class="jxr_linenumber" name="L585" href="#L585">585</a> 					<strong class="jxr_keyword">if</strong> (!childFunction.getName().equals(pair.first)) {
+<a class="jxr_linenumber" name="L586" href="#L586">586</a> 						<strong class="jxr_keyword">continue</strong>;
+<a class="jxr_linenumber" name="L587" href="#L587">587</a> 					}
+<a class="jxr_linenumber" name="L588" href="#L588">588</a> 					modifiableFidDB.createInferiorRelation(parentFunction, childFunction);
+<a class="jxr_linenumber" name="L589" href="#L589">589</a> 				}
+<a class="jxr_linenumber" name="L590" href="#L590">590</a> 			}
+<a class="jxr_linenumber" name="L591" href="#L591">591</a> 			monitor.setMaximum(REMOVE_HASHES.size());
+<a class="jxr_linenumber" name="L592" href="#L592">592</a> 			monitor.setProgress(0);
+<a class="jxr_linenumber" name="L593" href="#L593">593</a> 			<strong class="jxr_keyword">for</strong> (Pair&lt;Short, Long&gt; pair : REMOVE_HASHES) {
+<a class="jxr_linenumber" name="L594" href="#L594">594</a> 				modifiableFidDB.setAutoFailByFullHash(pair.second.longValue(), <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L595" href="#L595">595</a> 				monitor.checkCancelled();
+<a class="jxr_linenumber" name="L596" href="#L596">596</a> 				monitor.incrementProgress(1);
+<a class="jxr_linenumber" name="L597" href="#L597">597</a> 			}
+<a class="jxr_linenumber" name="L598" href="#L598">598</a> 			monitor.setMaximum(FORCE_RELATION.size());
+<a class="jxr_linenumber" name="L599" href="#L599">599</a> 			monitor.setProgress(0);
+<a class="jxr_linenumber" name="L600" href="#L600">600</a> 			<strong class="jxr_keyword">for</strong> (Pair&lt;Short, Long&gt; pair : FORCE_RELATION) {
+<a class="jxr_linenumber" name="L601" href="#L601">601</a> 				modifiableFidDB.setForceRelationByFullHash(pair.second.longValue(), <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L602" href="#L602">602</a> 				monitor.checkCancelled();
+<a class="jxr_linenumber" name="L603" href="#L603">603</a> 				monitor.incrementProgress(1);
+<a class="jxr_linenumber" name="L604" href="#L604">604</a> 			}
+<a class="jxr_linenumber" name="L605" href="#L605">605</a> 			monitor.setMaximum(FORCE_SPECIFIC.size());
+<a class="jxr_linenumber" name="L606" href="#L606">606</a> 			monitor.setProgress(0);
+<a class="jxr_linenumber" name="L607" href="#L607">607</a> 			<strong class="jxr_keyword">for</strong> (Pair&lt;Short, Long&gt; pair : FORCE_SPECIFIC) {
+<a class="jxr_linenumber" name="L608" href="#L608">608</a> 				modifiableFidDB.setForceSpecificByFullHash(pair.second.longValue(), <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L609" href="#L609">609</a> 				monitor.checkCancelled();
+<a class="jxr_linenumber" name="L610" href="#L610">610</a> 				monitor.incrementProgress(1);
+<a class="jxr_linenumber" name="L611" href="#L611">611</a> 			}
+<a class="jxr_linenumber" name="L612" href="#L612">612</a> 			monitor.setMaximum(AUTO_PASS.size());
+<a class="jxr_linenumber" name="L613" href="#L613">613</a> 			monitor.setProgress(0);
+<a class="jxr_linenumber" name="L614" href="#L614">614</a> 			<strong class="jxr_keyword">for</strong> (Pair&lt;Short, Long&gt; pair : AUTO_PASS) {
+<a class="jxr_linenumber" name="L615" href="#L615">615</a> 				modifiableFidDB.setAutoPassByFullHash(pair.second.longValue(), <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L616" href="#L616">616</a> 				monitor.checkCancelled();
+<a class="jxr_linenumber" name="L617" href="#L617">617</a> 				monitor.incrementProgress(1);
+<a class="jxr_linenumber" name="L618" href="#L618">618</a> 			}
+<a class="jxr_linenumber" name="L619" href="#L619">619</a> 
+<a class="jxr_linenumber" name="L620" href="#L620">620</a> 			monitor.setMaximum(REMOVE_SPECHASHES.size());
+<a class="jxr_linenumber" name="L621" href="#L621">621</a> 			monitor.setProgress(0);
+<a class="jxr_linenumber" name="L622" href="#L622">622</a> 			<strong class="jxr_keyword">for</strong> (Pair&lt;Short, Long&gt; pair : REMOVE_SPECHASHES) {
+<a class="jxr_linenumber" name="L623" href="#L623">623</a> 				List&lt;FunctionRecord&gt; listSpecHash =
+<a class="jxr_linenumber" name="L624" href="#L624">624</a> 					modifiableFidDB.findFunctionsBySpecificHash(pair.second.longValue());
+<a class="jxr_linenumber" name="L625" href="#L625">625</a> 				<strong class="jxr_keyword">for</strong> (FunctionRecord funcRec : listSpecHash) {
+<a class="jxr_linenumber" name="L626" href="#L626">626</a> 					modifiableFidDB.setAutoFailOnFunction(funcRec, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L627" href="#L627">627</a> 				}
+<a class="jxr_linenumber" name="L628" href="#L628">628</a> 				monitor.checkCancelled();
+<a class="jxr_linenumber" name="L629" href="#L629">629</a> 				monitor.incrementProgress(1);
+<a class="jxr_linenumber" name="L630" href="#L630">630</a> 			}
+<a class="jxr_linenumber" name="L631" href="#L631">631</a> 			modifiableFidDB.saveDatabase(<span class="jxr_string">""</span>, monitor);
+<a class="jxr_linenumber" name="L632" href="#L632">632</a> 		}
+<a class="jxr_linenumber" name="L633" href="#L633">633</a> 		<strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L634" href="#L634">634</a> 			modifiableFidDB.close();
+<a class="jxr_linenumber" name="L635" href="#L635">635</a> 		}
+<a class="jxr_linenumber" name="L636" href="#L636">636</a> 	}
+<a class="jxr_linenumber" name="L637" href="#L637">637</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

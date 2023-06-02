@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>BasicConstraints xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2012, 2019, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment">//</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment">// SunJSSE does not support dynamic system properties, no way to re-use</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment">// system properties in samevm/agentvm mode.</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment">//</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_comment"> * @bug 7166570</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_comment"> * @summary JSSE certificate validation has started to fail for</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_comment"> *     certificate chains</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_comment"> * @run main/othervm BasicConstraints PKIX</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_comment"> * @run main/othervm BasicConstraints SunX509</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> java.util.*;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> java.io.*;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">import</strong> javax.net.ssl.*;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">import</strong> java.security.KeyStore;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <strong class="jxr_keyword">import</strong> java.security.KeyFactory;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">import</strong> java.security.cert.*;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <strong class="jxr_keyword">import</strong> java.security.spec.*;
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <strong class="jxr_keyword">import</strong> java.security.interfaces.*;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <strong class="jxr_keyword">import</strong> java.util.Base64;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> BasicConstraints {
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <em class="jxr_comment">     * =============================================================</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <em class="jxr_comment">     * Set the various variables needed for the tests, then</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_comment">     * specify what tests to run on each side.</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_comment">     * Should we run the client or server in a separate thread?</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_comment">     * Both sides can throw exceptions, but do you have a preference</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_comment">     * as to which side should be the main thread.</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> separateServerThread = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_comment">     * Where do we find the keystores?</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      <em class="jxr_comment">// Certificate information:</em>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <em class="jxr_comment">// Issuer: C=US, O=Java, OU=SunJSSE Test Serivce</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      <em class="jxr_comment">// Validity</em>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <em class="jxr_comment">//     Not Before: Dec 20 13:13:44 2019 GMT</em>
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      <em class="jxr_comment">//     Not After : Dec 17 13:13:44 2029 GMT</em>
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>      <em class="jxr_comment">// Subject: C=US, O=Java, OU=SunJSSE Test Serivce</em>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      <em class="jxr_comment">// X509v3 Subject Key Identifier:</em>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>      <em class="jxr_comment">//     88:A7:8D:A1:4F:85:3C:9B:32:47:88:E8:74:81:65:45:00:DE:DD:45</em>
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>      <em class="jxr_comment">// X509v3 Authority Key Identifier:</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <em class="jxr_comment">//     keyid:88:A7:8D:A1:4F:85:3C:9B:32:47:88:E8:74:81:65:45:00:DE:DD:45</em>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      <strong class="jxr_keyword">static</strong> String trusedCertStr =
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span> +
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <span class="jxr_string">"MIIDZDCCAkygAwIBAgIUSXd4x4/VUhfEFGgfxEt/BG2n8RIwDQYJKoZIhvcNAQEL\n"</span> +
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          <span class="jxr_string">"BQAwOzELMAkGA1UEBhMCVVMxDTALBgNVBAoMBEphdmExHTAbBgNVBAsMFFN1bkpT\n"</span> +
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          <span class="jxr_string">"U0UgVGVzdCBTZXJpdmNlMB4XDTE5MTIyMDEzMTM0NFoXDTI5MTIxNzEzMTM0NFow\n"</span> +
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          <span class="jxr_string">"OzELMAkGA1UEBhMCVVMxDTALBgNVBAoMBEphdmExHTAbBgNVBAsMFFN1bkpTU0Ug\n"</span> +
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          <span class="jxr_string">"VGVzdCBTZXJpdmNlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1Cd4\n"</span> +
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          <span class="jxr_string">"U//Y2P4vIu9BBGi+pm64YXYP2LNRNK/e5/nWWmNKJapCAYYda/FJClrbzpI/FgRU\n"</span> +
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          <span class="jxr_string">"NLM9B4Uo065FRIrBi1vu8zyYgwT7UK0WsLwg6Z81KH50PfM0ClEx44tTqocYDc7C\n"</span> +
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          <span class="jxr_string">"gsvbyIeTIbV9AnRlEnBA15WFJAJMTCglaNleXUZ9+A/tazRhHlsRp0Ob8j4tCMJa\n"</span> +
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          <span class="jxr_string">"RDpGMYTy1XbG+WqC8wXP63a63cwjPrL5uzt/C4W1bgNBfTRwIHSUShNhfdc7ZJNS\n"</span> +
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          <span class="jxr_string">"r2NFPcwodd7uVle5JePNag7oyhjOFFEaBGq21dl6/ozVRkqSWWAi1P7MRay9eYj3\n"</span> +
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          <span class="jxr_string">"mLZiZaL6NlWxXnfzVwIDAQABo2AwXjAdBgNVHQ4EFgQUiKeNoU+FPJsyR4jodIFl\n"</span> +
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          <span class="jxr_string">"RQDe3UUwHwYDVR0jBBgwFoAUiKeNoU+FPJsyR4jodIFlRQDe3UUwDwYDVR0TAQH/\n"</span> +
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          <span class="jxr_string">"BAUwAwEB/zALBgNVHQ8EBAMCAQYwDQYJKoZIhvcNAQELBQADggEBAI1Lgf1Sd/iR\n"</span> +
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          <span class="jxr_string">"pXBW6OKE9Oa6WkZx/hKrtm3tw+m5OTU4veQijMPIIgnXw0QYXFMieWSjSz+OGq+v\n"</span> +
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          <span class="jxr_string">"t5NJWj7afCOADrhswrfAY3q3XY9+HnoXv1OvANFhokos25w6fB9t0lrm5KR+3d8l\n"</span> +
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          <span class="jxr_string">"RwQbxhr8I6tDn2pDExVXRe8k2PYqkabgG6IqPnLzt4iLhPx4ivzo4Zc+zfQZc672\n"</span> +
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          <span class="jxr_string">"oyNJw2/iNufHRsoRa8QqHJM9vziYfChZqdSSlTiqaoyijT0Br6/2yyIKfjjt5Abt\n"</span> +
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          <span class="jxr_string">"cwIDUWqQda62xV7ChkTh7ia3uvBXob2iiB0aI3gVTTqDfK9F5XXtW4BXfqx0hvwB\n"</span> +
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          <span class="jxr_string">"6JzgmNyDQos=\n"</span> +
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>      <strong class="jxr_keyword">static</strong> String trustedPrivateKey = <em class="jxr_comment">// Private key in the format of PKCS#8</em>
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         <span class="jxr_string">"MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDUJ3hT/9jY/i8i\n"</span> +
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>         <span class="jxr_string">"70EEaL6mbrhhdg/Ys1E0r97n+dZaY0olqkIBhh1r8UkKWtvOkj8WBFQ0sz0HhSjT\n"</span> +
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         <span class="jxr_string">"rkVEisGLW+7zPJiDBPtQrRawvCDpnzUofnQ98zQKUTHji1OqhxgNzsKCy9vIh5Mh\n"</span> +
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>         <span class="jxr_string">"tX0CdGUScEDXlYUkAkxMKCVo2V5dRn34D+1rNGEeWxGnQ5vyPi0IwlpEOkYxhPLV\n"</span> +
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>         <span class="jxr_string">"dsb5aoLzBc/rdrrdzCM+svm7O38LhbVuA0F9NHAgdJRKE2F91ztkk1KvY0U9zCh1\n"</span> +
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         <span class="jxr_string">"3u5WV7kl481qDujKGM4UURoEarbV2Xr+jNVGSpJZYCLU/sxFrL15iPeYtmJlovo2\n"</span> +
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>         <span class="jxr_string">"VbFed/NXAgMBAAECggEAUZvlQ5q1VbNhenTCc+m+/NK2hncd3WQNJtFIU7/dXuO2\n"</span> +
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         <span class="jxr_string">"0ApQXbmzc6RbTmppB2tmbRe5NJSGM3BbpiHxb05Y6TyyDEsQ98Vgz0Xl5pJXrsaZ\n"</span> +
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>         <span class="jxr_string">"cjxChtoY+KcHI9qikoRpElaoqBu3LcpJJLxlnB4eCxu3NbbEgneH1fvTeCO1kvcp\n"</span> +
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         <span class="jxr_string">"i3DDdyfY7WB9RW1yWAveiuqvtnbsPfJJLKEhFvZL2ArYCRTm/oIw64yukNe/QLR5\n"</span> +
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>         <span class="jxr_string">"bGzEJMT2ZNQMld1f+CW9tOrUKrnnPCGfMa351T5we+8B6sujWfftPutgEVx5TmHs\n"</span> +
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         <span class="jxr_string">"AOW1SntMapbgg46K9EC/C5YQa5D1aNOH9ZTEMkgUMQKBgQDrpPQIHFozeeyZ0iiq\n"</span> +
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>         <span class="jxr_string">"HtReLPcqpkwr/9ELc3SjgUypSvpu0l/m++um0yLinlXMn25km/BP6Mv3t/+1uzAc\n"</span> +
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>         <span class="jxr_string">"qpopkcyek8X1hzNRhDkWuMv4KDOKk5c6qLx8FGSm6q8PYm5KbsiyeCM7CJoeoqJ5\n"</span> +
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         <span class="jxr_string">"74IZjOIw7UrYLckCb6W8xGQLIwKBgQDmew3vGRR3JmCCSumtJQOqhF6bBYrNb6Qc\n"</span> +
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         <span class="jxr_string">"r4vrng+QhNIquwGqHKPorAI1J8J1jOS+dkDWTxSz2xQKQ83nsOspzVPskpDh5mWL\n"</span> +
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         <span class="jxr_string">"gGk5QCkX87jFsXfhvZFLksZMbIdpWze997Zs2fe/PWfPaH6o3erqo2zAhQV0eA9q\n"</span> +
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>         <span class="jxr_string">"C7tfImREPQKBgQDi2Xq/8CN52M9IScQx+dnyC5Gqckt0NCKXxn8sBIa7l129oDMI\n"</span> +
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>         <span class="jxr_string">"187FXA8CYPEyOu14V5KiKvdos66s0daAUlB04lI8+v+g3ZYuzH50/FQHwxPTPUBi\n"</span> +
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>         <span class="jxr_string">"DRzeyncXJWiAA/8vErWM8hDgfOh5w5Fsl4EEfdcmyNm7gWA4Qyknr1ysRwKBgQDC\n"</span> +
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>         <span class="jxr_string">"JSPepUy09VHUTxA59nT5HRmoEeoTFRizxTfi2LkZrphuwCotxoRXiRUu+3f1lyJU\n"</span> +
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>         <span class="jxr_string">"Qb5qCCFTQ5bE8squgTwGcVxhajC66V3ePePlAuPatkWN2ek28X1DoLaDR+Rk3h69\n"</span> +
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>         <span class="jxr_string">"Wb2EQbNMl4grkUUoMA8jaVhBb4vhyQSK+qjyAUFerQKBgQDXZPuflfsjH/d/O2yw\n"</span> +
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>         <span class="jxr_string">"qZbssKe9AKORjv795teblAc3vmsSlNwwVnPdS2aq1LHyoNbetc/OaZV151hTQ/9z\n"</span> +
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>         <span class="jxr_string">"bsA48oOojgrDD07Ovg3uDcNEIufxR0aGeSSvqhElp1r7wAYj8bAr6W/RH6MS16WW\n"</span> +
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>         <span class="jxr_string">"dRd+PH6hsap8BD2RlVCnrT3vIQ=="</span>;
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> 
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>     <em class="jxr_comment">// Certificate information:</em>
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>     <em class="jxr_comment">// Issuer: C=US, O=Java, OU=SunJSSE Test Serivce</em>
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>     <em class="jxr_comment">// Validity</em>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>     <em class="jxr_comment">//     Not Before: Dec 20 13:13:44 2019 GMT</em>
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>     <em class="jxr_comment">//     Not After : Dec 17 13:13:44 2029 GMT</em>
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>     <em class="jxr_comment">// Subject: C=US, O=Java, OU=SunJSSE Test Serivce, CN=casigner</em>
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>     <em class="jxr_comment">// X509v3 Subject Key Identifier:</em>
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>     <em class="jxr_comment">//     4B:6D:B0:B0:E6:EF:45:15:35:B5:FC:6B:E2:C7:FC:A6:E6:C4:EC:95</em>
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>     <em class="jxr_comment">// X509v3 Authority Key Identifier:</em>
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>     <em class="jxr_comment">//     keyid:88:A7:8D:A1:4F:85:3C:9B:32:47:88:E8:74:81:65:45:00:DE:DD:45</em>
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>     <strong class="jxr_keyword">static</strong> String caSignerStr =
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>         <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span> +
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>         <span class="jxr_string">"MIIDdzCCAl+gAwIBAgIUDYDCpVXk72hlpeNam094GPxl9Z0wDQYJKoZIhvcNAQEL\n"</span> +
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>         <span class="jxr_string">"BQAwOzELMAkGA1UEBhMCVVMxDTALBgNVBAoMBEphdmExHTAbBgNVBAsMFFN1bkpT\n"</span> +
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>         <span class="jxr_string">"U0UgVGVzdCBTZXJpdmNlMB4XDTE5MTIyMDEzMTM0NFoXDTI5MTIxNzEzMTM0NFow\n"</span> +
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>         <span class="jxr_string">"TjELMAkGA1UEBhMCVVMxDTALBgNVBAoMBEphdmExHTAbBgNVBAsMFFN1bkpTU0Ug\n"</span> +
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>         <span class="jxr_string">"VGVzdCBTZXJpdmNlMREwDwYDVQQDDAhjYXNpZ25lcjCCASIwDQYJKoZIhvcNAQEB\n"</span> +
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>         <span class="jxr_string">"BQADggEPADCCAQoCggEBAMC8Z4sqVbWWNp567w28MKN9bkE0rZzQLivLsiz7WYzg\n"</span> +
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>         <span class="jxr_string">"8LsUDhtGkxpAcoiMuxnkPWGgD3Xzdy/enVo/vn9lgw7LHWJ3+FeZt3eOnwFHTBu+\n"</span> +
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>         <span class="jxr_string">"srFrnf7iU7RLkAvl06lTYBWFx15Dv4PCgvqIC4eo1wAGDcKKOshwV5kdw8zBpkx3\n"</span> +
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>         <span class="jxr_string">"1jEkbpiuc0cxaNtdMYqmZrTY0wHVSdHGx02mGp9G3aCRSzXyXrr3uxInt5uW9JYR\n"</span> +
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>         <span class="jxr_string">"bDUGa2uD02jbxRSyIXyrSb2L8bRDNg6tLq+CG6blukcCLHF8D1n+jMes3yB/yA0N\n"</span> +
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>         <span class="jxr_string">"NGcbqmEPBVvVSP2c7Z/3JMCvHsrPkS1E2YPH1I0xL2sCAwEAAaNgMF4wHQYDVR0O\n"</span> +
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>         <span class="jxr_string">"BBYEFEttsLDm70UVNbX8a+LH/KbmxOyVMB8GA1UdIwQYMBaAFIinjaFPhTybMkeI\n"</span> +
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>         <span class="jxr_string">"6HSBZUUA3t1FMA8GA1UdEwEB/wQFMAMBAf8wCwYDVR0PBAQDAgEGMA0GCSqGSIb3\n"</span> +
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>         <span class="jxr_string">"DQEBCwUAA4IBAQBpwrPMDlCvxRvv91w4oFYhYTV2zj9BecsYQPhbqG9zRiHrJoNE\n"</span> +
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>         <span class="jxr_string">"dDPxZQnjb3P5u2LAe7Cp+Nah1ZSvjnF1oVk7ct+Usz02InojHxN72xDsZOMLWuAN\n"</span> +
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>         <span class="jxr_string">"3CJhjGp6WyYUstRWybpiJzPehZdYfk+FaMxwM54REAiipDTFO07PZrj1h/aDQ0Tl\n"</span> +
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>         <span class="jxr_string">"7D6w2v1pz1IR/ctuij7sFReFvjFEE4JoTNjfqzNWO4ML1vDHVi5MHeBgUckujOrI\n"</span> +
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>         <span class="jxr_string">"P0QqaqP+xJIY+sRrzdckxSfS9AOOrJk2VXY8qEoxCN4wCvHJWuHEAF/Lm65d/hq3\n"</span> +
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>         <span class="jxr_string">"2Uh8P+QHLeuEwF8RoTpjiGM9dXvaqcQz7w5G\n"</span> +
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>         <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>     <strong class="jxr_keyword">static</strong> String caSignerPrivateKey = <em class="jxr_comment">// Private key in the format of PKCS#8</em>
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>         <span class="jxr_string">"MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDAvGeLKlW1ljae\n"</span> +
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>         <span class="jxr_string">"eu8NvDCjfW5BNK2c0C4ry7Is+1mM4PC7FA4bRpMaQHKIjLsZ5D1hoA9183cv3p1a\n"</span> +
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>         <span class="jxr_string">"P75/ZYMOyx1id/hXmbd3jp8BR0wbvrKxa53+4lO0S5AL5dOpU2AVhcdeQ7+DwoL6\n"</span> +
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>         <span class="jxr_string">"iAuHqNcABg3CijrIcFeZHcPMwaZMd9YxJG6YrnNHMWjbXTGKpma02NMB1UnRxsdN\n"</span> +
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>         <span class="jxr_string">"phqfRt2gkUs18l6697sSJ7eblvSWEWw1Bmtrg9No28UUsiF8q0m9i/G0QzYOrS6v\n"</span> +
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>         <span class="jxr_string">"ghum5bpHAixxfA9Z/ozHrN8gf8gNDTRnG6phDwVb1Uj9nO2f9yTArx7Kz5EtRNmD\n"</span> +
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>         <span class="jxr_string">"x9SNMS9rAgMBAAECggEAZk6cF/8s5+sIqy9OXdgbaW1XbT1tOuQ23gCOX9o8Os/c\n"</span> +
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>         <span class="jxr_string">"eTG4GzpnM3QqV9l8J85D1uKD0nSeO8bLd/CGSlG0M9IVkwNjy/xIqyoFtUQHXmLn\n"</span> +
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>         <span class="jxr_string">"r84UXAv/qqDBoc8pf6RGSKZuodcMfgBuTlaQ6D3zgou0GiQN9//KP/jQyouwnr3A\n"</span> +
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>         <span class="jxr_string">"LyXQekxriwPuSYAPak8s5XLfugOebbSRm2UdGEgX3yrT9FVu9rtgeMKdRaCOU8T4\n"</span> +
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>         <span class="jxr_string">"G2UdpGaiDfm5yrR+2XEIv4oaH3WFxmmfQCxVcOFJ1iRvfKBbLb1UCgtJuCBD067y\n"</span> +
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>         <span class="jxr_string">"dq5PrwUTeAvd7hwZd0lxCSnWY7VvYFNr7iJfyElowQKBgQD8eosot+Th03hpkYDs\n"</span> +
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>         <span class="jxr_string">"BIVsw7oqhJmcrPV1bSZ+aQwqqrOGypNmb7nLGTC8Cj1sT+EzfGs7GqxiLOEn4NXr\n"</span> +
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>         <span class="jxr_string">"TYV//RUPBSEXVp2y+2dot1a9oq0BJ8FwGTYL0qSwJrIXJfkQFrYhVVz3JLIWJbwV\n"</span> +
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>         <span class="jxr_string">"cy4YCQr094BhXTS7joJOUDRsYwKBgQDDbI3Lv+bBK8lLfIBll1RY1k5Gqy/H+qxp\n"</span> +
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>         <span class="jxr_string">"sMN8FmadmIGzHhe9xml6b5EfAZphAUF4vZJhQXloT5Wm+NNIAf6X6dRjvzyw7N9B\n"</span> +
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>         <span class="jxr_string">"d48EFJF4ChqNGBocsQRNr2wPRzQ+k2caw9YyYMIjbhktDzO1U/FJGYW6/Vgr2v4K\n"</span> +
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>         <span class="jxr_string">"siROnXfLWQKBgBOVAZQP5z2opC8z7NbhZuPPrnG7xRpEw+jupUyqoxnwEWqD7bjF\n"</span> +
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>         <span class="jxr_string">"M5jQBFqhRLBQ5buTi9GSuQoIRxJLuuu8IH2TyH1YvX9M5YBLRXL2vVCJ/HcZeURT\n"</span> +
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>         <span class="jxr_string">"gECcfs92wNtQw6d+y3N8ZnB4tSNIm/Th8RJGKUZkp91lWECvxeWDDP3XAoGASfNq\n"</span> +
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>         <span class="jxr_string">"NRAJYlAPfGFAtTDu2i8+r79X9XUGiXg6gVp4umpbqkxY75eFkq9lWzZgFRVEkUwr\n"</span> +
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>         <span class="jxr_string">"eGIubyquluDSEw2uKg5yMMzNSqZYVY3IsOKXqbUpFvtn5jOWTU90tNNdEdD100sI\n"</span> +
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>         <span class="jxr_string">"Y0f6Ly4amNKH3rZFOERQNtJn6zCTsbh3xMgR7QECgYBhQTqxLU5eIu38MKobzRue\n"</span> +
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>         <span class="jxr_string">"RoUkMcoY3DePkKPSYjilFhkUDozIXf/xUGnB8kERZKO+44wUkuPGljiFL1/P/RO9\n"</span> +
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>         <span class="jxr_string">"zhHAV94Kw2ddtfxy05GVtUZ99miBmsMb2m8vumGJqfR8h2xpfc1Ra0zfrsPgLNru\n"</span> +
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>         <span class="jxr_string">"xDTDW+bNbM7XyPvg9mOf7Q=="</span>;
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> 
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>     <em class="jxr_comment">// Certificate information:</em>
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>     <em class="jxr_comment">// Issuer: C=US, O=Java, OU=SunJSSE Test Serivce, CN=casigner</em>
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>     <em class="jxr_comment">// Validity</em>
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>     <em class="jxr_comment">//     Not Before: May  5 02:40:57 2012 GMT</em>
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>     <em class="jxr_comment">//     Not After : Jan 21 02:40:57 2032 GMT</em>
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>     <em class="jxr_comment">// Subject: C=US, O=Java, OU=SunJSSE Test Serivce, CN=certissuer</em>
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>     <em class="jxr_comment">// X509v3 Subject Key Identifier:</em>
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>     <em class="jxr_comment">//     B4:E8:EA:80:A9:2B:F5:62:B5:2C:A6:F8:FF:65:BC:CF:51:40:9C:15</em>
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>     <em class="jxr_comment">// X509v3 Authority Key Identifier:</em>
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>     <em class="jxr_comment">//     keyid:4B:6D:B0:B0:E6:EF:45:15:35:B5:FC:6B:E2:C7:FC:A6:E6:C4:EC:95</em>
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>     <strong class="jxr_keyword">static</strong> String certIssuerStr =
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>         <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span> +
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>         <span class="jxr_string">"MIIDjDCCAnSgAwIBAgIUJWLHjJR9tY2/5DX3iOcZ2JRKY8cwDQYJKoZIhvcNAQEL\n"</span> +
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>         <span class="jxr_string">"BQAwTjELMAkGA1UEBhMCVVMxDTALBgNVBAoMBEphdmExHTAbBgNVBAsMFFN1bkpT\n"</span> +
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>         <span class="jxr_string">"U0UgVGVzdCBTZXJpdmNlMREwDwYDVQQDDAhjYXNpZ25lcjAeFw0xOTEyMjAxMzEz\n"</span> +
+<a class="jxr_linenumber" name="L202" href="#L202">202</a>         <span class="jxr_string">"NDVaFw0yOTEyMTcxMzEzNDVaMFAxCzAJBgNVBAYTAlVTMQ0wCwYDVQQKDARKYXZh\n"</span> +
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>         <span class="jxr_string">"MR0wGwYDVQQLDBRTdW5KU1NFIFRlc3QgU2VyaXZjZTETMBEGA1UEAwwKY2VydGlz\n"</span> +
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>         <span class="jxr_string">"c3VlcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALWUNWnObPBso4vI\n"</span> +
+<a class="jxr_linenumber" name="L205" href="#L205">205</a>         <span class="jxr_string">"VaSM+Oq1f3EsyrtJWqhu+EG/5UKEwYaNBs1A9u1zM5xc05y4wXJfFj755djtzfsz\n"</span> +
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>         <span class="jxr_string">"OFt1ke/hjhpYSf4DcSJfb99MBvHHXrmrEqIdsPYSaUqT9DrIi+L0z0Rdev++IQJj\n"</span> +
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>         <span class="jxr_string">"j9J213gpi18RNrQWl8Xn9mlkxhCjwj1GoFA6aF+9cvWX8uh2Vrl6Vm28hTKnmTad\n"</span> +
+<a class="jxr_linenumber" name="L208" href="#L208">208</a>         <span class="jxr_string">"FB7nwDF4/mGuKVsiB+YTJJ/2Y6RpNqVF/Z6kET/BE0DtCLlKvY7iljbHc892YzI0\n"</span> +
+<a class="jxr_linenumber" name="L209" href="#L209">209</a>         <span class="jxr_string">"vhxlo4lOB3J4NhsQxJbq+mIlbbqZr+p4WA8hdnwI4UlktI4S7fXQzhA51JHVjZyX\n"</span> +
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>         <span class="jxr_string">"f9XYTRUCAwEAAaNgMF4wHQYDVR0OBBYEFLTo6oCpK/VitSym+P9lvM9RQJwVMB8G\n"</span> +
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>         <span class="jxr_string">"A1UdIwQYMBaAFEttsLDm70UVNbX8a+LH/KbmxOyVMA8GA1UdEwEB/wQFMAMBAf8w\n"</span> +
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>         <span class="jxr_string">"CwYDVR0PBAQDAgEGMA0GCSqGSIb3DQEBCwUAA4IBAQCGrjnGs23pQkQoUu8+C2y/\n"</span> +
+<a class="jxr_linenumber" name="L213" href="#L213">213</a>         <span class="jxr_string">"OAT5k9uyPCcLxFPM+Hon5WI6DACxpj7mu2ekN0fswu6B7beQVygpnNSQFVqLrJw1\n"</span> +
+<a class="jxr_linenumber" name="L214" href="#L214">214</a>         <span class="jxr_string">"daYdhTMzkNCkPk6q0cUmj5k94jfCHBl4jw+qoZiIehuR9qFHhpLkT4zMTkFof+P+\n"</span> +
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>         <span class="jxr_string">"Lfc92QJppUAOh3jTvHK01YwP2sxK3KXhcbofQnxGS4WHrqmmZC2YO/LQRoYDZdUY\n"</span> +
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>         <span class="jxr_string">"zr4da2aIg9CKrH2QWoMkDfRKkJvrU3/VhVfVWpNbXFE2xZXftQl3hpFCJ3FkpciA\n"</span> +
+<a class="jxr_linenumber" name="L217" href="#L217">217</a>         <span class="jxr_string">"l3hKeq4byY3LXxhAClHpk1KkXJkMnQdOfA5aGekj/Cjuaz1/iKYAG2vRq7YcuM/o\n"</span> +
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>         <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>     <strong class="jxr_keyword">static</strong> String certIssuerPrivateKey = <em class="jxr_comment">// Private key in the format of PKCS#8</em>
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>         <span class="jxr_string">"MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC1lDVpzmzwbKOL\n"</span> +
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>         <span class="jxr_string">"yFWkjPjqtX9xLMq7SVqobvhBv+VChMGGjQbNQPbtczOcXNOcuMFyXxY++eXY7c37\n"</span> +
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>         <span class="jxr_string">"MzhbdZHv4Y4aWEn+A3EiX2/fTAbxx165qxKiHbD2EmlKk/Q6yIvi9M9EXXr/viEC\n"</span> +
+<a class="jxr_linenumber" name="L223" href="#L223">223</a>         <span class="jxr_string">"Y4/Sdtd4KYtfETa0FpfF5/ZpZMYQo8I9RqBQOmhfvXL1l/Lodla5elZtvIUyp5k2\n"</span> +
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>         <span class="jxr_string">"nRQe58AxeP5hrilbIgfmEySf9mOkaTalRf2epBE/wRNA7Qi5Sr2O4pY2x3PPdmMy\n"</span> +
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>         <span class="jxr_string">"NL4cZaOJTgdyeDYbEMSW6vpiJW26ma/qeFgPIXZ8COFJZLSOEu310M4QOdSR1Y2c\n"</span> +
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>         <span class="jxr_string">"l3/V2E0VAgMBAAECggEBAJjfVrjl2kHwtSCSYchQB6FTfSBDnctgTrtP8iMo9FO0\n"</span> +
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>         <span class="jxr_string">"gVpOkVNtRndTbjhOzro7smIgPBJ5QlIIpErBLMmTinJza7gybNk2/KD7yKwuzgnw\n"</span> +
+<a class="jxr_linenumber" name="L228" href="#L228">228</a>         <span class="jxr_string">"2IdoyB9E8B+8EHmBZzW2ck953KaqLUvzPsdMG2IOPAomr/gx/eRQwScVzBefiEGo\n"</span> +
+<a class="jxr_linenumber" name="L229" href="#L229">229</a>         <span class="jxr_string">"sN+rGfUt/RNAHwWje1KuNDj21S84agQhN6hdYUnIMsvJLu/9mOwUb9ff+AzTUfFr\n"</span> +
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>         <span class="jxr_string">"zyx2MJL4Cx59DkUUMESCfinlHUc21llQjFWmX/zOoGY0X0qV/YM/GRsv1ZDFHw9o\n"</span> +
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>         <span class="jxr_string">"hQ6m8Ov7D9wB3TKZBI97sCyggjBfSeuYQlNbs99KWQECgYEA7IKNL0ME7FuIrKYu\n"</span> +
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>         <span class="jxr_string">"FCQ/Duz1N3oQXLzrTGKUSU1qSbrU2Jwk4SfJ8ZYCW1TP6vZkaQsTXmXun3yyCAqZ\n"</span> +
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>         <span class="jxr_string">"hcOtDBhI+b7Wpmmyf6nb83oYJtzHMRQZ5qS+9vOBfV9Uf1za8XI4p90EqkFHByCF\n"</span> +
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>         <span class="jxr_string">"tHfjVbjK39zN4CvaO3tqpOaYtL0CgYEAxIrTAhGWy9nBsxf8QeqDou0rV5Cw50Kl\n"</span> +
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>         <span class="jxr_string">"kQsE7KLmjvrMaFFpUc5lgWoC+pm/69VpNBUuN/38YozwxVjVi/nMJuuK150mhdWI\n"</span> +
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>         <span class="jxr_string">"B28FI7ORnFmVeSvTrP4mBX1ct2Tny9zpchXn3rpHR5NZUs7oBhjudHSfRMrHxeBs\n"</span> +
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>         <span class="jxr_string">"Kv2pr2s6uzkCgYAtrEh3iAm7WzHZpX3ghd9nknsIa5odTp5h8eeRAFI2Ss4vxneY\n"</span> +
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>         <span class="jxr_string">"w4ZMERwDZy1/wnVBk9H5uNWMFxiKVQGww0j3vPjawe/R0zeVT8gaDMn9N0WARNF7\n"</span> +
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>         <span class="jxr_string">"qPT3265196LptZTSa6xlPllYR6LfzXgEkeJk+3qyIIHheJZ8RikiDyYOQQKBgQC/\n"</span> +
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>         <span class="jxr_string">"rxlegiMNC4KDldf7vanGxAKqcz5lPbXWQOX7mGC+f9HNx+Cs3VxYHDltiXgJnOju\n"</span> +
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>         <span class="jxr_string">"191s1HRK9WR5REt5KhY2uzB9WxJQItJ5VYiwqhhQYXqLY/gdVv1kC0DayDndtMWk\n"</span> +
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>         <span class="jxr_string">"88JhklGkeAv83DikgbpGr9sJr6+oyFkWkLDmmfD82QKBgQCMgkZJzrdSNNlB0n5x\n"</span> +
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>         <span class="jxr_string">"xC3MzlsQ5aBJuUctnMfuyDi+11yLAuP1oLzGEJ7qEfFoGRO0V8zJWmHAfNhmVYEX\n"</span> +
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>         <span class="jxr_string">"ow5g0WbPT16GoRCiOAzq+ewH+TEELMF6HWqnDuTnCg28Jg0dw2kdVTqeyzKOQlLG\n"</span> +
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>         <span class="jxr_string">"ua9c2DY3PUTXQPNqLVhz+XxZKA=="</span>;
+<a class="jxr_linenumber" name="L246" href="#L246">246</a> 
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>     <em class="jxr_comment">// Certificate information:</em>
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>     <em class="jxr_comment">// Issuer: C=US, O=Java, OU=SunJSSE Test Serivce, CN=certissuer</em>
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>     <em class="jxr_comment">// Validity</em>
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>     <em class="jxr_comment">//     Not Before: Dec 20 13:13:45 2019 GMT</em>
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>     <em class="jxr_comment">//     Not After : Dec 17 13:13:45 2029 GMT</em>
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>     <em class="jxr_comment">// Subject: C=US, O=Java, OU=SunJSSE Test Serivce, CN=localhost</em>
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>     <em class="jxr_comment">// X509v3 Subject Key Identifier:</em>
+<a class="jxr_linenumber" name="L254" href="#L254">254</a>     <em class="jxr_comment">//     46:FC:94:7A:61:6D:BF:5F:AE:D7:20:EC:BF:6A:74:2A:26:F1:D4:4C</em>
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>     <em class="jxr_comment">// X509v3 Authority Key Identifier:</em>
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>     <em class="jxr_comment">//     keyid:B4:E8:EA:80:A9:2B:F5:62:B5:2C:A6:F8:FF:65:BC:CF:51:40:9C:15</em>
+<a class="jxr_linenumber" name="L257" href="#L257">257</a>     <strong class="jxr_keyword">static</strong> String serverCertStr =
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>         <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span> +
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>         <span class="jxr_string">"MIIDfDCCAmSgAwIBAgIUHsJi1HTWpR3FCiOiG/qLK6BDluwwDQYJKoZIhvcNAQEL\n"</span> +
+<a class="jxr_linenumber" name="L260" href="#L260">260</a>         <span class="jxr_string">"BQAwUDELMAkGA1UEBhMCVVMxDTALBgNVBAoMBEphdmExHTAbBgNVBAsMFFN1bkpT\n"</span> +
+<a class="jxr_linenumber" name="L261" href="#L261">261</a>         <span class="jxr_string">"U0UgVGVzdCBTZXJpdmNlMRMwEQYDVQQDDApjZXJ0aXNzdWVyMB4XDTE5MTIyMDEz\n"</span> +
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>         <span class="jxr_string">"MTM0NVoXDTI5MTIxNzEzMTM0NVowTzELMAkGA1UEBhMCVVMxDTALBgNVBAoMBEph\n"</span> +
+<a class="jxr_linenumber" name="L263" href="#L263">263</a>         <span class="jxr_string">"dmExHTAbBgNVBAsMFFN1bkpTU0UgVGVzdCBTZXJpdmNlMRIwEAYDVQQDDAlsb2Nh\n"</span> +
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>         <span class="jxr_string">"bGhvc3QwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCaDgoxN2UQQero\n"</span> +
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>         <span class="jxr_string">"oBQ4JlQP1BFaZEtIkdIU2VJs4whz85J0LSB/68iEOS5e8wCz9wiQWr4isor7sl3e\n"</span> +
+<a class="jxr_linenumber" name="L266" href="#L266">266</a>         <span class="jxr_string">"B2dnLGY28BthOTw2j/CYw/dRqyDbPZniooB233uLGarKjqQWXpRFQi6bgEQmNqWe\n"</span> +
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>         <span class="jxr_string">"C32w+V+Oq3CTkinwgPvA5mnSe0P8gpF9NLZBFn0TtxaY0bQIie2WNk/HjrVQIhq3\n"</span> +
+<a class="jxr_linenumber" name="L268" href="#L268">268</a>         <span class="jxr_string">"qmG/zVxeBc3PVOOU/OKrwjHbim9YI+zdDRXjNm8siHi0RF2+fkxfyAm8Qg+mT8L4\n"</span> +
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>         <span class="jxr_string">"xdtr0a+eP4oIvkymRURxIrXNnvoX+MhYKSOQnizpW0NMOZ5L9nyw1cYX8j9Ed6eM\n"</span> +
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>         <span class="jxr_string">"kzxZwRrlAgMBAAGjTzBNMB0GA1UdDgQWBBRG/JR6YW2/X67XIOy/anQqJvHUTDAf\n"</span> +
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>         <span class="jxr_string">"BgNVHSMEGDAWgBS06OqAqSv1YrUspvj/ZbzPUUCcFTALBgNVHQ8EBAMCA+gwDQYJ\n"</span> +
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>         <span class="jxr_string">"KoZIhvcNAQELBQADggEBAGXHGefA1j136yenwK+j9K5VnG2kYGXCadi9bKtTXf/X\n"</span> +
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>         <span class="jxr_string">"6Xasb7QE2QWEIlq+78AaV9Dwc7qk1TuBsN05LbQUSe7h5UAfS4AZ5l/XSay2cxrZ\n"</span> +
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>         <span class="jxr_string">"TKoyuzh9kj38QkEBxZlrClyBzU8Mct0L9F8yEm4V7AqQOshn9gEQl9lzJUb2KHeZ\n"</span> +
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>         <span class="jxr_string">"AxblrQhPQDrWhmQjQkl/xaiOiU31sHKTnB/L2CKvJtmsKIyBdrQCQTlIOcRu4/PQ\n"</span> +
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>         <span class="jxr_string">"4z/sjecKP08Xkf5+p4RzPL+OZHkJoejSEjBndLC8BK9IZD94kHZYDz8ulWrQJ5Nr\n"</span> +
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>         <span class="jxr_string">"u/inkyf8NcG7zLBJJyuKfUXO/OzGPD5QMviVc+PCGTY=\n"</span> +
+<a class="jxr_linenumber" name="L278" href="#L278">278</a>         <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L279" href="#L279">279</a>     <strong class="jxr_keyword">static</strong> String serverPrivateKey = <em class="jxr_comment">// Private key in the format of PKCS#8</em>
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>         <span class="jxr_string">"MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCaDgoxN2UQQero\n"</span> +
+<a class="jxr_linenumber" name="L281" href="#L281">281</a>         <span class="jxr_string">"oBQ4JlQP1BFaZEtIkdIU2VJs4whz85J0LSB/68iEOS5e8wCz9wiQWr4isor7sl3e\n"</span> +
+<a class="jxr_linenumber" name="L282" href="#L282">282</a>         <span class="jxr_string">"B2dnLGY28BthOTw2j/CYw/dRqyDbPZniooB233uLGarKjqQWXpRFQi6bgEQmNqWe\n"</span> +
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>         <span class="jxr_string">"C32w+V+Oq3CTkinwgPvA5mnSe0P8gpF9NLZBFn0TtxaY0bQIie2WNk/HjrVQIhq3\n"</span> +
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>         <span class="jxr_string">"qmG/zVxeBc3PVOOU/OKrwjHbim9YI+zdDRXjNm8siHi0RF2+fkxfyAm8Qg+mT8L4\n"</span> +
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>         <span class="jxr_string">"xdtr0a+eP4oIvkymRURxIrXNnvoX+MhYKSOQnizpW0NMOZ5L9nyw1cYX8j9Ed6eM\n"</span> +
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>         <span class="jxr_string">"kzxZwRrlAgMBAAECggEBAIPF4p36ni3r1H2q/+CPmHP5l+ZTx7mJUcOXqNOO11on\n"</span> +
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>         <span class="jxr_string">"TGyndRc2ncvMBYgeH8nQUrj3hY+0XQGyrmwOtTohVkVD2IevJ3wcX1asuU5YLMCb\n"</span> +
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>         <span class="jxr_string">"zpd3HJ+RxeFT0S12GZEw0W70j11ft+tf7wZjGd5ZUI1+w8rWyZz5F18HOBlcauj/\n"</span> +
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>         <span class="jxr_string">"iqMgrlVLZ7qXEb6WV9zP5hWx5nZwrnuuiM1zXLVuO9rg7qk+zCts2oyM8KRTfQIi\n"</span> +
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>         <span class="jxr_string">"Zo3VDO0nwnEoxxTQ/2g2g/jBJ1GiFygiFm/i2SHQOJgaFS3Y3InjWEAiINIsdMIt\n"</span> +
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>         <span class="jxr_string">"yZk6twMG6ODjy8agZ4LLhZSyCkC33AN7MIkSCtvFubkCgYEAyRm+yvYxwiHCzZV8\n"</span> +
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>         <span class="jxr_string">"LZNuBBRliujgG41iuyUyRVBSaMyJMNRoOMm8XwDOF1BA44YPz4yCkfiiEk2ub/f0\n"</span> +
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>         <span class="jxr_string">"hDhfBW3EWvYHrWkEbx9Th2YmFq20JlgcBGaM2TiiL+qx4ct687idPbJVZnwc4HtR\n"</span> +
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>         <span class="jxr_string">"Kc0eTwRlFsf2O3rwIy52mvIf/48CgYEAxBxsllVz7+/nm0UcxwHNDN+bPyDBxsu9\n"</span> +
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>         <span class="jxr_string">"QuSyR+zSnfcL6xaS4SClBLKxHSjbJ2Hi+UOXezO+eozDp/zEFI6BygNRKTaLTVKr\n"</span> +
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>         <span class="jxr_string">"ezk9rbyKydRIXNlxFoX07U0KlD4lCrbrpsvcO/OlzJe6q5R0B/CIQmx2Y4wlRrE/\n"</span> +
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>         <span class="jxr_string">"Tu+hsf3tBEsCgYBBltsKmXerKJW/tbS1rLMiM4DW6JNHiTqdbUlTIBpwwd0xBuYj\n"</span> +
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>         <span class="jxr_string">"N3Dvz3RoWC2Bx9TaTaq8b0p1C88MB+RBR51+SMnVHQ9t+KWQlLgKnj9oACmUpAIn\n"</span> +
+<a class="jxr_linenumber" name="L299" href="#L299">299</a>         <span class="jxr_string">"UUc5BeaoGDUCPvqQCTOHzuVZsrs8YBwdtR/gh79sybU+ux8damcWrEfRcwKBgEsU\n"</span> +
+<a class="jxr_linenumber" name="L300" href="#L300">300</a>         <span class="jxr_string">"HrZHLMWU8PROtz+w/tGI4aR/Y/A5m9F6QI6sqc10AQoVcFHj74km6Auj0pL3NK/9\n"</span> +
+<a class="jxr_linenumber" name="L301" href="#L301">301</a>         <span class="jxr_string">"Ioc2Phwou9caO+8qx6GRN4cxrI8DsUbRmT1kSzYNoU56qILY8fXPYtdyGzhI41rN\n"</span> +
+<a class="jxr_linenumber" name="L302" href="#L302">302</a>         <span class="jxr_string">"/RiupLD4/awmf21ytpfHcmOWCcdQoE4WC69a6VyVAoGAboeogM5/TRKj80rXfUH2\n"</span> +
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>         <span class="jxr_string">"lFZzgX246XGwNyOVVgOuv/Oxa61b5FeeCpnFQcjpZmC5vd63X3w7oYSDe2wUt+Wh\n"</span> +
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>         <span class="jxr_string">"LhYunmcCEj+yb3of33loQb/FM2OLW9UoQakB7ewio9vtw+BAnWxnHFkEaqdxMXpy\n"</span> +
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>         <span class="jxr_string">"TiSXLpQ1Q9GvDpzngDzJzzY="</span>;
+<a class="jxr_linenumber" name="L306" href="#L306">306</a> 
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>     <em class="jxr_comment">// Certificate information:</em>
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>     <em class="jxr_comment">// Issuer: C=US, O=Java, OU=SunJSSE Test Serivce, CN=certissuer</em>
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>     <em class="jxr_comment">// Validity</em>
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>     <em class="jxr_comment">//     Not Before: Dec 20 14:21:29 2019 GMT</em>
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>     <em class="jxr_comment">//     Not After : Dec 17 14:21:29 2029 GMT</em>
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>     <em class="jxr_comment">// Subject: C=US, O=Java, OU=SunJSSE Test Serivce, CN=InterOp Tester</em>
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>     <em class="jxr_comment">// X509v3 Subject Key Identifier:</em>
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>     <em class="jxr_comment">//     1F:E4:C0:F5:B8:68:DB:D2:EB:9E:6F:BB:B5:9E:92:6D:BA:7D:97:3A</em>
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>     <em class="jxr_comment">// X509v3 Authority Key Identifier:</em>
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>     <em class="jxr_comment">//     keyid:B4:E8:EA:80:A9:2B:F5:62:B5:2C:A6:F8:FF:65:BC:CF:51:40:9C:15</em>
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>     <strong class="jxr_keyword">static</strong> String clientCertStr =
+<a class="jxr_linenumber" name="L318" href="#L318">318</a>         <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span> +
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>         <span class="jxr_string">"MIIDgTCCAmmgAwIBAgIUHFQOStLURT5sQ57OWO2z8iNJ9P8wDQYJKoZIhvcNAQEL\n"</span> +
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>         <span class="jxr_string">"BQAwUDELMAkGA1UEBhMCVVMxDTALBgNVBAoMBEphdmExHTAbBgNVBAsMFFN1bkpT\n"</span> +
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>         <span class="jxr_string">"U0UgVGVzdCBTZXJpdmNlMRMwEQYDVQQDDApjZXJ0aXNzdWVyMB4XDTE5MTIyMDE0\n"</span> +
+<a class="jxr_linenumber" name="L322" href="#L322">322</a>         <span class="jxr_string">"MjEyOVoXDTI5MTIxNzE0MjEyOVowVDELMAkGA1UEBhMCVVMxDTALBgNVBAoMBEph\n"</span> +
+<a class="jxr_linenumber" name="L323" href="#L323">323</a>         <span class="jxr_string">"dmExHTAbBgNVBAsMFFN1bkpTU0UgVGVzdCBTZXJpdmNlMRcwFQYDVQQDDA5JbnRl\n"</span> +
+<a class="jxr_linenumber" name="L324" href="#L324">324</a>         <span class="jxr_string">"ck9wIFRlc3RlcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMXA3NV+\n"</span> +
+<a class="jxr_linenumber" name="L325" href="#L325">325</a>         <span class="jxr_string">"pDnwnQgXFQ7WeDtcTe4qDQV9tDj9cRZFqQXo94C30lkuXzdH761bZB84DESV0qLI\n"</span> +
+<a class="jxr_linenumber" name="L326" href="#L326">326</a>         <span class="jxr_string">"k6/n+D9SOsg7SPe7uejG24rph/VpPANrPXo8jxwh/KW+8y0pYNigFUZDi+mEDAOG\n"</span> +
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>         <span class="jxr_string">"gyqaAbahQePDYTa09uY3MTTOcaUnKZEJkfVZnmrwmcH7qapCCz0N4Mv6Xddi87Fk\n"</span> +
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>         <span class="jxr_string">"j9R225XXW5ZZ+jwVGi1WubjxqLpbQo9VwdTgozBfxwzjQQWDOlUIics3RRaV4Yz0\n"</span> +
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>         <span class="jxr_string">"F3Sr4xZiq09O4x8ZT8jrQgduzVZhWjc7rHHbBeMmVBhOveSCvu54onZ2Y+G7+xU/\n"</span> +
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>         <span class="jxr_string">"Zc1Z6s2Wb5N2I40CAwEAAaNPME0wHQYDVR0OBBYEFB/kwPW4aNvS655vu7Wekm26\n"</span> +
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>         <span class="jxr_string">"fZc6MB8GA1UdIwQYMBaAFLTo6oCpK/VitSym+P9lvM9RQJwVMAsGA1UdDwQEAwID\n"</span> +
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>         <span class="jxr_string">"6DANBgkqhkiG9w0BAQsFAAOCAQEAdgWs2wVkPoOrShdYTJM2/v7sDYENCsj3VGEq\n"</span> +
+<a class="jxr_linenumber" name="L333" href="#L333">333</a>         <span class="jxr_string">"NvTeL98FCjRZhRmozVi0mli6z2LjDM/858vZoJWDJ08O0XvhXT4yJWWHCJz4xTY1\n"</span> +
+<a class="jxr_linenumber" name="L334" href="#L334">334</a>         <span class="jxr_string">"GBern25Y8VjZGUwAIzK3EDjYzJCZpbhBREF8XZx46OxHt04BKtQwJKBtpJ1/6bRS\n"</span> +
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>         <span class="jxr_string">"wvia3wGspFLW78P2Y5rFXzqptaqBD06Dcc4xBgvFLSocSKUzLc8BdNsixtPBQZNs\n"</span> +
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>         <span class="jxr_string">"l3X3TUNYoYW677E7EWO8NHUJg+2Qbpo11tkb0AyScSxOu2aHuPfYIchRZXnDdq20\n"</span> +
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>         <span class="jxr_string">"tL85OZz8ov7d2jVet/w7FD4M5XfcogsNtpX4kaMsctyvQbDYRA==\n"</span> +
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>         <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L339" href="#L339">339</a>     <strong class="jxr_keyword">static</strong> String clientPrivateKey = <em class="jxr_comment">// Private key in the format of PKCS#8</em>
+<a class="jxr_linenumber" name="L340" href="#L340">340</a>         <span class="jxr_string">"MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDFwNzVfqQ58J0I\n"</span> +
+<a class="jxr_linenumber" name="L341" href="#L341">341</a>         <span class="jxr_string">"FxUO1ng7XE3uKg0FfbQ4/XEWRakF6PeAt9JZLl83R++tW2QfOAxEldKiyJOv5/g/\n"</span> +
+<a class="jxr_linenumber" name="L342" href="#L342">342</a>         <span class="jxr_string">"UjrIO0j3u7noxtuK6Yf1aTwDaz16PI8cIfylvvMtKWDYoBVGQ4vphAwDhoMqmgG2\n"</span> +
+<a class="jxr_linenumber" name="L343" href="#L343">343</a>         <span class="jxr_string">"oUHjw2E2tPbmNzE0znGlJymRCZH1WZ5q8JnB+6mqQgs9DeDL+l3XYvOxZI/UdtuV\n"</span> +
+<a class="jxr_linenumber" name="L344" href="#L344">344</a>         <span class="jxr_string">"11uWWfo8FRotVrm48ai6W0KPVcHU4KMwX8cM40EFgzpVCInLN0UWleGM9Bd0q+MW\n"</span> +
+<a class="jxr_linenumber" name="L345" href="#L345">345</a>         <span class="jxr_string">"YqtPTuMfGU/I60IHbs1WYVo3O6xx2wXjJlQYTr3kgr7ueKJ2dmPhu/sVP2XNWerN\n"</span> +
+<a class="jxr_linenumber" name="L346" href="#L346">346</a>         <span class="jxr_string">"lm+TdiONAgMBAAECggEBAK3PX8n+L1YFl9++efG6q55w+MX2C8/htn/IspbCz1a0\n"</span> +
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>         <span class="jxr_string">"dqWZ67YavfGWtqCGDTArUQ0PKj2NUdFwb48oNSY8hVvIkhR4hApKTAd1YRwYK8a+\n"</span> +
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>         <span class="jxr_string">"Z4JwlOERPidZkReVTF2fjN/IAc8vcSYGiq78eS85UL6Gu+OIayVgth5Ul4I1CSa8\n"</span> +
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>         <span class="jxr_string">"+b0n/RAI+yk2HxKlkq40Ofn0VWiGg1dLP2MPwwPNIk+w7nKUysfPmXCHfyBr+CZv\n"</span> +
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>         <span class="jxr_string">"1BQ0E/tVau9wsyCjO6wxFsAKteBGdYa0ToEeT0D8MEeY9leKhAAxRneBVCz9AfHj\n"</span> +
+<a class="jxr_linenumber" name="L351" href="#L351">351</a>         <span class="jxr_string">"wMGYucxwL0cDLi1IjZB5wlvm5JPqNCKrkHE2XE+UyTkCgYEA/iNP11cqHNPItoXP\n"</span> +
+<a class="jxr_linenumber" name="L352" href="#L352">352</a>         <span class="jxr_string">"D2wN4uX60kLNbzZ2dOF1ItybS8OcQvTxA1XulARiCVDIT/+QDETbDQclfhgMOfhe\n"</span> +
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>         <span class="jxr_string">"ZCdMrL5RG0YTwg9OGbLcA+8gqd9e/3gs9g8pWNdCfuGIwsnJbpO7iBoCBzHaHHJJ\n"</span> +
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>         <span class="jxr_string">"PbWDFS6jxvsqKIGPPwrhL9yp4VMCgYEAxzPKNLclBHorUs9rYRqiG9NTkLRNx4ll\n"</span> +
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>         <span class="jxr_string">"LUh0FBItOnG85BxkjQaIlzimNvXZEzZnpOtblugAszxFyq2KTEE9qeB/V3w3FkXi\n"</span> +
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>         <span class="jxr_string">"PSpDG5sdRHnl5Qu4PuQ9WsmN7g193tOEdtWQ4NKxPqlC72ehqVDOY7In2quYLUiq\n"</span> +
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>         <span class="jxr_string">"C377esv0658CgYAJ0I1N0LT0pg0zV1mWy+KBZ8ZXBnNunxjWDLr8XK62r1hCkbkZ\n"</span> +
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>         <span class="jxr_string">"GuF63+x1VaRWypTilGotR6BgDUezmW7zyTzB0xvIxN0QeozWmzy5/isxxEmj7h02\n"</span> +
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>         <span class="jxr_string">"Z4F+R9nukoE4nJhl59ivOenoIzm8LYG8m1zznXh/v8VyCQbiNWZa9dettwKBgQDB\n"</span> +
+<a class="jxr_linenumber" name="L360" href="#L360">360</a>         <span class="jxr_string">"Yz4DP2noltJIaqXMd5a5fMe7y89Wz8Qx2g0XDy5pdtHygr37S0R/yrdS1AoR5Ndp\n"</span> +
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>         <span class="jxr_string">"/DPGpSVI3FLFGQUSUqQSr6fwvt6b+OxShRzxR/155P2TB3WvWNVXtiTb3q08Dgyj\n"</span> +
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>         <span class="jxr_string">"cWJdYS5BrwEUen8vaQt1LhgS6lOqYsjysCxkYm078QKBgEJuq4RzecgiGx8srWDb\n"</span> +
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>         <span class="jxr_string">"pQKpxrdEt82Y7OXLVj+W9vixcW/xUYhDYGsfdUigZoOjo4nV8KVmMbuI48PIYwnw\n"</span> +
+<a class="jxr_linenumber" name="L364" href="#L364">364</a>         <span class="jxr_string">"haLwWrBWlki4x9MRwuZUdewOYoo7hDZToZmIDescdiwv8CA/Dg9kOX3YYLPW+cWl\n"</span> +
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>         <span class="jxr_string">"i1pnyMPaloBOhz3Y07sWXxCz"</span>;
+<a class="jxr_linenumber" name="L366" href="#L366">366</a> 
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>     <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">char</strong> passphrase[] = <span class="jxr_string">"passphrase"</span>.toCharArray();
+<a class="jxr_linenumber" name="L368" href="#L368">368</a> 
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>     <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L370" href="#L370">370</a> <em class="jxr_comment">     * Is the server ready to serve?</em>
+<a class="jxr_linenumber" name="L371" href="#L371">371</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L372" href="#L372">372</a>     <strong class="jxr_keyword">volatile</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> serverReady = false;
+<a class="jxr_linenumber" name="L373" href="#L373">373</a> 
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>     <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L375" href="#L375">375</a> <em class="jxr_comment">     * Turn on SSL debugging?</em>
+<a class="jxr_linenumber" name="L376" href="#L376">376</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>     <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> debug = false;
+<a class="jxr_linenumber" name="L378" href="#L378">378</a> 
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>     <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L380" href="#L380">380</a> <em class="jxr_comment">     * Define the server side of the test.</em>
+<a class="jxr_linenumber" name="L381" href="#L381">381</a> <em class="jxr_comment">     *</em>
+<a class="jxr_linenumber" name="L382" href="#L382">382</a> <em class="jxr_comment">     * If the server prematurely exits, serverReady will be set to true</em>
+<a class="jxr_linenumber" name="L383" href="#L383">383</a> <em class="jxr_comment">     * to avoid infinite hangs.</em>
+<a class="jxr_linenumber" name="L384" href="#L384">384</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>     <strong class="jxr_keyword">void</strong> doServerSide() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>         SSLContext context = getSSLContext(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>         SSLServerSocketFactory sslssf = context.getServerSocketFactory();
+<a class="jxr_linenumber" name="L388" href="#L388">388</a> 
+<a class="jxr_linenumber" name="L389" href="#L389">389</a>         SSLServerSocket sslServerSocket =
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>                 (SSLServerSocket) sslssf.createServerSocket(serverPort);
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>         serverPort = sslServerSocket.getLocalPort();
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>         SSLSocket sslSocket = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>             <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L395" href="#L395">395</a> <em class="jxr_comment">             * Signal Client, we're ready for his connect.</em>
+<a class="jxr_linenumber" name="L396" href="#L396">396</a> <em class="jxr_comment">             */</em>
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>             serverReady = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L398" href="#L398">398</a> 
+<a class="jxr_linenumber" name="L399" href="#L399">399</a>             sslSocket = (SSLSocket) sslServerSocket.accept();
+<a class="jxr_linenumber" name="L400" href="#L400">400</a>             sslSocket.setNeedClientAuth(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L401" href="#L401">401</a> 
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>             InputStream sslIS = sslSocket.getInputStream();
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>             OutputStream sslOS = sslSocket.getOutputStream();
+<a class="jxr_linenumber" name="L404" href="#L404">404</a> 
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>             sslIS.read();
+<a class="jxr_linenumber" name="L406" href="#L406">406</a>             sslOS.write(85);
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>             sslOS.flush();
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>             <strong class="jxr_keyword">if</strong> (sslSocket != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>                 sslSocket.close();
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>             }
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>             sslServerSocket.close();
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>         }
+<a class="jxr_linenumber" name="L414" href="#L414">414</a>     }
+<a class="jxr_linenumber" name="L415" href="#L415">415</a> 
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>     <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L417" href="#L417">417</a> <em class="jxr_comment">     * Define the client side of the test.</em>
+<a class="jxr_linenumber" name="L418" href="#L418">418</a> <em class="jxr_comment">     *</em>
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> <em class="jxr_comment">     * If the server prematurely exits, serverReady will be set to true</em>
+<a class="jxr_linenumber" name="L420" href="#L420">420</a> <em class="jxr_comment">     * to avoid infinite hangs.</em>
+<a class="jxr_linenumber" name="L421" href="#L421">421</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>     <strong class="jxr_keyword">void</strong> doClientSide() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L424" href="#L424">424</a> <em class="jxr_comment">         * Wait for server to get started.</em>
+<a class="jxr_linenumber" name="L425" href="#L425">425</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>         <strong class="jxr_keyword">while</strong> (!serverReady) {
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>             Thread.sleep(50);
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>         }
+<a class="jxr_linenumber" name="L429" href="#L429">429</a> 
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>         SSLContext context = getSSLContext(false);
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>         SSLSocketFactory sslsf = context.getSocketFactory();
+<a class="jxr_linenumber" name="L432" href="#L432">432</a> 
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>         SSLSocket sslSocket =
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>                 (SSLSocket) sslsf.createSocket(<span class="jxr_string">"localhost"</span>, serverPort);
+<a class="jxr_linenumber" name="L435" href="#L435">435</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>             InputStream sslIS = sslSocket.getInputStream();
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>             OutputStream sslOS = sslSocket.getOutputStream();
+<a class="jxr_linenumber" name="L438" href="#L438">438</a> 
+<a class="jxr_linenumber" name="L439" href="#L439">439</a>             sslOS.write(280);
+<a class="jxr_linenumber" name="L440" href="#L440">440</a>             sslOS.flush();
+<a class="jxr_linenumber" name="L441" href="#L441">441</a>             sslIS.read();
+<a class="jxr_linenumber" name="L442" href="#L442">442</a>         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L443" href="#L443">443</a>             sslSocket.close();
+<a class="jxr_linenumber" name="L444" href="#L444">444</a>         }
+<a class="jxr_linenumber" name="L445" href="#L445">445</a>     }
+<a class="jxr_linenumber" name="L446" href="#L446">446</a> 
+<a class="jxr_linenumber" name="L447" href="#L447">447</a>     <em class="jxr_comment">// get the ssl context</em>
+<a class="jxr_linenumber" name="L448" href="#L448">448</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> SSLContext getSSLContext(<strong class="jxr_keyword">boolean</strong> isServer) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L449" href="#L449">449</a> 
+<a class="jxr_linenumber" name="L450" href="#L450">450</a>         <em class="jxr_comment">// generate certificate from cert string</em>
+<a class="jxr_linenumber" name="L451" href="#L451">451</a>         CertificateFactory cf = CertificateFactory.getInstance(<span class="jxr_string">"X.509"</span>);
+<a class="jxr_linenumber" name="L452" href="#L452">452</a> 
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>         <em class="jxr_comment">// create a key store</em>
+<a class="jxr_linenumber" name="L454" href="#L454">454</a>         KeyStore ks = KeyStore.getInstance(<span class="jxr_string">"JKS"</span>);
+<a class="jxr_linenumber" name="L455" href="#L455">455</a>         ks.load(<strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L456" href="#L456">456</a> 
+<a class="jxr_linenumber" name="L457" href="#L457">457</a>         <em class="jxr_comment">// import the trused cert</em>
+<a class="jxr_linenumber" name="L458" href="#L458">458</a>         ByteArrayInputStream is =
+<a class="jxr_linenumber" name="L459" href="#L459">459</a>             <strong class="jxr_keyword">new</strong> ByteArrayInputStream(trusedCertStr.getBytes());
+<a class="jxr_linenumber" name="L460" href="#L460">460</a>         Certificate trusedCert = cf.generateCertificate(is);
+<a class="jxr_linenumber" name="L461" href="#L461">461</a>         is.close();
+<a class="jxr_linenumber" name="L462" href="#L462">462</a> 
+<a class="jxr_linenumber" name="L463" href="#L463">463</a>         ks.setCertificateEntry(<span class="jxr_string">"SunJSSE Test Serivce"</span>, trusedCert);
+<a class="jxr_linenumber" name="L464" href="#L464">464</a> 
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>         <em class="jxr_comment">// import the certificate chain and key</em>
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>         Certificate[] chain = <strong class="jxr_keyword">new</strong> Certificate[3];
+<a class="jxr_linenumber" name="L467" href="#L467">467</a> 
+<a class="jxr_linenumber" name="L468" href="#L468">468</a>         is = <strong class="jxr_keyword">new</strong> ByteArrayInputStream(caSignerStr.getBytes());
+<a class="jxr_linenumber" name="L469" href="#L469">469</a>         Certificate caSignerCert = cf.generateCertificate(is);
+<a class="jxr_linenumber" name="L470" href="#L470">470</a>         is.close();
+<a class="jxr_linenumber" name="L471" href="#L471">471</a>         chain[2] = caSignerCert;
+<a class="jxr_linenumber" name="L472" href="#L472">472</a> 
+<a class="jxr_linenumber" name="L473" href="#L473">473</a>         is = <strong class="jxr_keyword">new</strong> ByteArrayInputStream(certIssuerStr.getBytes());
+<a class="jxr_linenumber" name="L474" href="#L474">474</a>         Certificate certIssuerCert = cf.generateCertificate(is);
+<a class="jxr_linenumber" name="L475" href="#L475">475</a>         is.close();
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>         chain[1] = certIssuerCert;
+<a class="jxr_linenumber" name="L477" href="#L477">477</a> 
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>         PKCS8EncodedKeySpec priKeySpec = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L479" href="#L479">479</a>         <strong class="jxr_keyword">if</strong> (isServer) {
+<a class="jxr_linenumber" name="L480" href="#L480">480</a>             priKeySpec = <strong class="jxr_keyword">new</strong> PKCS8EncodedKeySpec(
+<a class="jxr_linenumber" name="L481" href="#L481">481</a>                             Base64.getMimeDecoder().decode(serverPrivateKey));
+<a class="jxr_linenumber" name="L482" href="#L482">482</a>             is = <strong class="jxr_keyword">new</strong> ByteArrayInputStream(serverCertStr.getBytes());
+<a class="jxr_linenumber" name="L483" href="#L483">483</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L484" href="#L484">484</a>             priKeySpec = <strong class="jxr_keyword">new</strong> PKCS8EncodedKeySpec(
+<a class="jxr_linenumber" name="L485" href="#L485">485</a>                             Base64.getMimeDecoder().decode(clientPrivateKey));
+<a class="jxr_linenumber" name="L486" href="#L486">486</a>             is = <strong class="jxr_keyword">new</strong> ByteArrayInputStream(clientCertStr.getBytes());
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>         }
+<a class="jxr_linenumber" name="L488" href="#L488">488</a>         KeyFactory kf = KeyFactory.getInstance(<span class="jxr_string">"RSA"</span>);
+<a class="jxr_linenumber" name="L489" href="#L489">489</a>         RSAPrivateKey priKey = (RSAPrivateKey)kf.generatePrivate(priKeySpec);
+<a class="jxr_linenumber" name="L490" href="#L490">490</a>         Certificate keyCert = cf.generateCertificate(is);
+<a class="jxr_linenumber" name="L491" href="#L491">491</a>         is.close();
+<a class="jxr_linenumber" name="L492" href="#L492">492</a>         chain[0] = keyCert;
+<a class="jxr_linenumber" name="L493" href="#L493">493</a> 
+<a class="jxr_linenumber" name="L494" href="#L494">494</a>         ks.setKeyEntry(<span class="jxr_string">"End Entity"</span>, priKey, passphrase, chain);
+<a class="jxr_linenumber" name="L495" href="#L495">495</a> 
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>         <em class="jxr_comment">// check the certification path</em>
+<a class="jxr_linenumber" name="L497" href="#L497">497</a>         PKIXParameters paras = <strong class="jxr_keyword">new</strong> PKIXParameters(ks);
+<a class="jxr_linenumber" name="L498" href="#L498">498</a>         paras.setRevocationEnabled(false);
+<a class="jxr_linenumber" name="L499" href="#L499">499</a>         CertPath path = cf.generateCertPath(Arrays.asList(chain));
+<a class="jxr_linenumber" name="L500" href="#L500">500</a>         CertPathValidator cv = CertPathValidator.getInstance(<span class="jxr_string">"PKIX"</span>);
+<a class="jxr_linenumber" name="L501" href="#L501">501</a>         cv.validate(path, paras);
+<a class="jxr_linenumber" name="L502" href="#L502">502</a> 
+<a class="jxr_linenumber" name="L503" href="#L503">503</a>         <em class="jxr_comment">// create SSL context</em>
+<a class="jxr_linenumber" name="L504" href="#L504">504</a>         TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmAlgorithm);
+<a class="jxr_linenumber" name="L505" href="#L505">505</a>         tmf.init(ks);
+<a class="jxr_linenumber" name="L506" href="#L506">506</a> 
+<a class="jxr_linenumber" name="L507" href="#L507">507</a>         SSLContext ctx = SSLContext.getInstance(<span class="jxr_string">"TLS"</span>);
+<a class="jxr_linenumber" name="L508" href="#L508">508</a>         KeyManagerFactory kmf = KeyManagerFactory.getInstance(<span class="jxr_string">"NewSunX509"</span>);
+<a class="jxr_linenumber" name="L509" href="#L509">509</a>         kmf.init(ks, passphrase);
+<a class="jxr_linenumber" name="L510" href="#L510">510</a> 
+<a class="jxr_linenumber" name="L511" href="#L511">511</a>         ctx.init(kmf.getKeyManagers(), tmf.getTrustManagers(), <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L512" href="#L512">512</a>         ks = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L513" href="#L513">513</a> 
+<a class="jxr_linenumber" name="L514" href="#L514">514</a>         <strong class="jxr_keyword">return</strong> ctx;
+<a class="jxr_linenumber" name="L515" href="#L515">515</a>     }
+<a class="jxr_linenumber" name="L516" href="#L516">516</a> 
+<a class="jxr_linenumber" name="L517" href="#L517">517</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> String tmAlgorithm;        <em class="jxr_comment">// trust manager</em>
+<a class="jxr_linenumber" name="L518" href="#L518">518</a> 
+<a class="jxr_linenumber" name="L519" href="#L519">519</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> parseArguments(String[] args) {
+<a class="jxr_linenumber" name="L520" href="#L520">520</a>         tmAlgorithm = args[0];
+<a class="jxr_linenumber" name="L521" href="#L521">521</a>     }
+<a class="jxr_linenumber" name="L522" href="#L522">522</a> 
+<a class="jxr_linenumber" name="L523" href="#L523">523</a>     <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L524" href="#L524">524</a> <em class="jxr_comment">     * =============================================================</em>
+<a class="jxr_linenumber" name="L525" href="#L525">525</a> <em class="jxr_comment">     * The remainder is just support stuff</em>
+<a class="jxr_linenumber" name="L526" href="#L526">526</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L527" href="#L527">527</a> 
+<a class="jxr_linenumber" name="L528" href="#L528">528</a>     <em class="jxr_comment">// use any free port by default</em>
+<a class="jxr_linenumber" name="L529" href="#L529">529</a>     <strong class="jxr_keyword">volatile</strong> <strong class="jxr_keyword">int</strong> serverPort = 0;
+<a class="jxr_linenumber" name="L530" href="#L530">530</a> 
+<a class="jxr_linenumber" name="L531" href="#L531">531</a>     <strong class="jxr_keyword">volatile</strong> Exception serverException = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L532" href="#L532">532</a>     <strong class="jxr_keyword">volatile</strong> Exception clientException = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L533" href="#L533">533</a> 
+<a class="jxr_linenumber" name="L534" href="#L534">534</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String args[]) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L535" href="#L535">535</a>         <strong class="jxr_keyword">if</strong> (debug)
+<a class="jxr_linenumber" name="L536" href="#L536">536</a>             System.setProperty(<span class="jxr_string">"javax.net.debug"</span>, <span class="jxr_string">"all"</span>);
+<a class="jxr_linenumber" name="L537" href="#L537">537</a> 
+<a class="jxr_linenumber" name="L538" href="#L538">538</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L539" href="#L539">539</a> <em class="jxr_comment">         * Get the customized arguments.</em>
+<a class="jxr_linenumber" name="L540" href="#L540">540</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L541" href="#L541">541</a>         parseArguments(args);
+<a class="jxr_linenumber" name="L542" href="#L542">542</a> 
+<a class="jxr_linenumber" name="L543" href="#L543">543</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L544" href="#L544">544</a> <em class="jxr_comment">         * Start the tests.</em>
+<a class="jxr_linenumber" name="L545" href="#L545">545</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L546" href="#L546">546</a>         <strong class="jxr_keyword">new</strong> BasicConstraints();
+<a class="jxr_linenumber" name="L547" href="#L547">547</a>     }
+<a class="jxr_linenumber" name="L548" href="#L548">548</a> 
+<a class="jxr_linenumber" name="L549" href="#L549">549</a>     Thread clientThread = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L550" href="#L550">550</a>     Thread serverThread = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L551" href="#L551">551</a>     <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L552" href="#L552">552</a> <em class="jxr_comment">     * Primary constructor, used to drive remainder of the test.</em>
+<a class="jxr_linenumber" name="L553" href="#L553">553</a> <em class="jxr_comment">     *</em>
+<a class="jxr_linenumber" name="L554" href="#L554">554</a> <em class="jxr_comment">     * Fork off the other side, then do your work.</em>
+<a class="jxr_linenumber" name="L555" href="#L555">555</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L556" href="#L556">556</a>     BasicConstraints() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L557" href="#L557">557</a>         <strong class="jxr_keyword">if</strong> (separateServerThread) {
+<a class="jxr_linenumber" name="L558" href="#L558">558</a>             startServer(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L559" href="#L559">559</a>             startClient(false);
+<a class="jxr_linenumber" name="L560" href="#L560">560</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L561" href="#L561">561</a>             startClient(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L562" href="#L562">562</a>             startServer(false);
+<a class="jxr_linenumber" name="L563" href="#L563">563</a>         }
+<a class="jxr_linenumber" name="L564" href="#L564">564</a> 
+<a class="jxr_linenumber" name="L565" href="#L565">565</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L566" href="#L566">566</a> <em class="jxr_comment">         * Wait for other side to close down.</em>
+<a class="jxr_linenumber" name="L567" href="#L567">567</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L568" href="#L568">568</a>         <strong class="jxr_keyword">if</strong> (separateServerThread) {
+<a class="jxr_linenumber" name="L569" href="#L569">569</a>             serverThread.join();
+<a class="jxr_linenumber" name="L570" href="#L570">570</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L571" href="#L571">571</a>             clientThread.join();
+<a class="jxr_linenumber" name="L572" href="#L572">572</a>         }
+<a class="jxr_linenumber" name="L573" href="#L573">573</a> 
+<a class="jxr_linenumber" name="L574" href="#L574">574</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L575" href="#L575">575</a> <em class="jxr_comment">         * When we get here, the test is pretty much over.</em>
+<a class="jxr_linenumber" name="L576" href="#L576">576</a> <em class="jxr_comment">         *</em>
+<a class="jxr_linenumber" name="L577" href="#L577">577</a> <em class="jxr_comment">         * If the main thread excepted, that propagates back</em>
+<a class="jxr_linenumber" name="L578" href="#L578">578</a> <em class="jxr_comment">         * immediately.  If the other thread threw an exception, we</em>
+<a class="jxr_linenumber" name="L579" href="#L579">579</a> <em class="jxr_comment">         * should report back.</em>
+<a class="jxr_linenumber" name="L580" href="#L580">580</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L581" href="#L581">581</a>         <strong class="jxr_keyword">if</strong> (serverException != <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L582" href="#L582">582</a>             <strong class="jxr_keyword">throw</strong> serverException;
+<a class="jxr_linenumber" name="L583" href="#L583">583</a>         <strong class="jxr_keyword">if</strong> (clientException != <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L584" href="#L584">584</a>             <strong class="jxr_keyword">throw</strong> clientException;
+<a class="jxr_linenumber" name="L585" href="#L585">585</a>     }
+<a class="jxr_linenumber" name="L586" href="#L586">586</a> 
+<a class="jxr_linenumber" name="L587" href="#L587">587</a>     <strong class="jxr_keyword">void</strong> startServer(<strong class="jxr_keyword">boolean</strong> newThread) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L588" href="#L588">588</a>         <strong class="jxr_keyword">if</strong> (newThread) {
+<a class="jxr_linenumber" name="L589" href="#L589">589</a>             serverThread = <strong class="jxr_keyword">new</strong> Thread() {
+<a class="jxr_linenumber" name="L590" href="#L590">590</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
+<a class="jxr_linenumber" name="L591" href="#L591">591</a>                     <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L592" href="#L592">592</a>                         doServerSide();
+<a class="jxr_linenumber" name="L593" href="#L593">593</a>                     } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L594" href="#L594">594</a>                         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L595" href="#L595">595</a> <em class="jxr_comment">                         * Our server thread just died.</em>
+<a class="jxr_linenumber" name="L596" href="#L596">596</a> <em class="jxr_comment">                         *</em>
+<a class="jxr_linenumber" name="L597" href="#L597">597</a> <em class="jxr_comment">                         * Release the client, if not active already...</em>
+<a class="jxr_linenumber" name="L598" href="#L598">598</a> <em class="jxr_comment">                         */</em>
+<a class="jxr_linenumber" name="L599" href="#L599">599</a>                         System.err.println(<span class="jxr_string">"Server died..."</span>);
+<a class="jxr_linenumber" name="L600" href="#L600">600</a>                         serverReady = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L601" href="#L601">601</a>                         serverException = e;
+<a class="jxr_linenumber" name="L602" href="#L602">602</a>                     }
+<a class="jxr_linenumber" name="L603" href="#L603">603</a>                 }
+<a class="jxr_linenumber" name="L604" href="#L604">604</a>             };
+<a class="jxr_linenumber" name="L605" href="#L605">605</a>             serverThread.start();
+<a class="jxr_linenumber" name="L606" href="#L606">606</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L607" href="#L607">607</a>             doServerSide();
+<a class="jxr_linenumber" name="L608" href="#L608">608</a>         }
+<a class="jxr_linenumber" name="L609" href="#L609">609</a>     }
+<a class="jxr_linenumber" name="L610" href="#L610">610</a> 
+<a class="jxr_linenumber" name="L611" href="#L611">611</a>     <strong class="jxr_keyword">void</strong> startClient(<strong class="jxr_keyword">boolean</strong> newThread) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L612" href="#L612">612</a>         <strong class="jxr_keyword">if</strong> (newThread) {
+<a class="jxr_linenumber" name="L613" href="#L613">613</a>             clientThread = <strong class="jxr_keyword">new</strong> Thread() {
+<a class="jxr_linenumber" name="L614" href="#L614">614</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
+<a class="jxr_linenumber" name="L615" href="#L615">615</a>                     <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L616" href="#L616">616</a>                         doClientSide();
+<a class="jxr_linenumber" name="L617" href="#L617">617</a>                     } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L618" href="#L618">618</a>                         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L619" href="#L619">619</a> <em class="jxr_comment">                         * Our client thread just died.</em>
+<a class="jxr_linenumber" name="L620" href="#L620">620</a> <em class="jxr_comment">                         */</em>
+<a class="jxr_linenumber" name="L621" href="#L621">621</a>                         System.err.println(<span class="jxr_string">"Client died..."</span>);
+<a class="jxr_linenumber" name="L622" href="#L622">622</a>                         clientException = e;
+<a class="jxr_linenumber" name="L623" href="#L623">623</a>                     }
+<a class="jxr_linenumber" name="L624" href="#L624">624</a>                 }
+<a class="jxr_linenumber" name="L625" href="#L625">625</a>             };
+<a class="jxr_linenumber" name="L626" href="#L626">626</a>             clientThread.start();
+<a class="jxr_linenumber" name="L627" href="#L627">627</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L628" href="#L628">628</a>             doClientSide();
+<a class="jxr_linenumber" name="L629" href="#L629">629</a>         }
+<a class="jxr_linenumber" name="L630" href="#L630">630</a>     }
+<a class="jxr_linenumber" name="L631" href="#L631">631</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

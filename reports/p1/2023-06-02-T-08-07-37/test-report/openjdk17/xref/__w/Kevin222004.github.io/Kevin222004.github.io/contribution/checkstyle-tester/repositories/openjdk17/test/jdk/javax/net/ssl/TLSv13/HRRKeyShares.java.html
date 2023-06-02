@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>HRRKeyShares xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2020, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment">// SunJSSE does not support dynamic system properties, no way to re-use</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment">// system properties in samevm/agentvm mode.  For further debugging output</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment">// set the -Djavax.net.debug=ssl:handshake property on the @run lines.</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment"> * @bug 8247630</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_comment"> * @summary Use two key share entries</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_comment"> * @library /test/lib</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_comment"> * @run main/othervm -Djdk.tls.namedGroups=x25519,secp256r1,secp384r1 HRRKeyShares</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> java.io.ByteArrayOutputStream;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> java.io.DataOutputStream;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> javax.net.ssl.*;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">import</strong> javax.net.ssl.SSLEngineResult.*;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">import</strong> java.nio.ByteBuffer;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <strong class="jxr_keyword">import</strong> java.util.ArrayList;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">import</strong> java.util.LinkedHashMap;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <strong class="jxr_keyword">import</strong> java.util.Map;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <strong class="jxr_keyword">import</strong> java.util.Objects;
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <strong class="jxr_keyword">import</strong> jdk.test.lib.Utils;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> HRRKeyShares {
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <em class="jxr_comment">// Some TLS constants we'll use for testing</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> TLS_REC_HANDSHAKE = 22;
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> TLS_REC_ALERT = 21;
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> HS_MSG_CLIHELLO = 1;
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> HS_MSG_SERVHELLO = 2;          <em class="jxr_comment">// Also for HRR</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> HELLO_EXT_SUPP_GROUPS = 10;
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> HELLO_EXT_SUPP_VERS = 43;
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> HELLO_EXT_KEY_SHARE = 51;
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> TLS_LEGACY_VER = 0x0303;       <em class="jxr_comment">// TLSv1.2</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> TLS_PROT_VER_13 = 0x0304;      <em class="jxr_comment">// TLSv1.3</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> NG_SECP256R1 = 0x0017;
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> NG_SECP384R1 = 0x0018;
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> NG_X25519 = 0x001D;
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> NG_X448 = 0x001E;
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> NG_GC512A = 0x0026;
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> COMP_NONE = 0;
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> ALERT_TYPE_FATAL = 2;
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> ALERT_DESC_ILLEGAL_PARAM = 47;
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> byte[] HRR_RANDOM = Utils.toByteArray(
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>              <span class="jxr_string">"CF21AD74E59A6111BE1D8C021E65B891"</span> +
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>              <span class="jxr_string">"C2A211167ABB8C5E079E09E2C8A8339C"</span>);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> ClientHello {
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <em class="jxr_comment">// TLS Record header fields</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> recType;
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> recVers;
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> recLength;
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          <em class="jxr_comment">// Handshake header fields</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> hsMsgType;
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> hsMsgLength;
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          <em class="jxr_comment">// ClientHello fields</em>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> version;
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          <strong class="jxr_keyword">final</strong> byte[] random;
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          <strong class="jxr_keyword">final</strong> byte[] sessId;
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          <strong class="jxr_keyword">final</strong> List&lt;Integer&gt; cipherSuites = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          <strong class="jxr_keyword">final</strong> List&lt;Integer&gt; compressionList = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          <strong class="jxr_keyword">final</strong> Map&lt;Integer,byte[]&gt; extensionMap = <strong class="jxr_keyword">new</strong> LinkedHashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          <em class="jxr_comment">// These are fields built from specific extension data fields we</em>
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          <em class="jxr_comment">// are interested in for our tests</em>
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          <strong class="jxr_keyword">final</strong> List&lt;Integer&gt; suppGroups = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          <strong class="jxr_keyword">final</strong> Map&lt;Integer,byte[]&gt; keyShares = <strong class="jxr_keyword">new</strong> LinkedHashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          <strong class="jxr_keyword">final</strong> List&lt;Integer&gt; suppVersions = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          ClientHello(ByteBuffer data) {
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              Objects.requireNonNull(data);
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>             data.mark();
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> 
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>             <em class="jxr_comment">// Process the TLS record header</em>
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>             recType = Byte.toUnsignedInt(data.get());
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>             recVers = Short.toUnsignedInt(data.getShort());
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>             recLength = Short.toUnsignedInt(data.getShort());
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             <strong class="jxr_keyword">if</strong> (recType != TLS_REC_HANDSHAKE) {
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Not a Handshake TLS record. "</span> +
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>                         <span class="jxr_string">"Type = "</span> + recType);
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>             }
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> 
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>             <em class="jxr_comment">// Process the Handshake message header</em>
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>             <strong class="jxr_keyword">int</strong> recHdr = data.getInt();
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>             hsMsgType = recHdr &gt;&gt;&gt; 24;
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>             hsMsgLength = recHdr &amp; 0x00FFFFFF;
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>             <strong class="jxr_keyword">if</strong> (hsMsgType != HS_MSG_CLIHELLO) {
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Not a ClientHello message. "</span> +
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>                         <span class="jxr_string">"Type = "</span> + hsMsgType);
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>             } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (hsMsgLength &gt; data.remaining()) {
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Incomplete record in buffer: "</span> +
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>                         <span class="jxr_string">"Record length = "</span> + hsMsgLength + <span class="jxr_string">", Remaining = "</span> +
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>                         data.remaining());
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>             }
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>             version = Short.toUnsignedInt(data.getShort());
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>             random = <strong class="jxr_keyword">new</strong> byte[32];
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>             data.get(random);
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>             sessId = <strong class="jxr_keyword">new</strong> byte[Byte.toUnsignedInt(data.get())];
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>             data.get(sessId);
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> 
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>             <strong class="jxr_keyword">int</strong> suiteLen = Short.toUnsignedInt(data.getShort());
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>             <strong class="jxr_keyword">while</strong> (suiteLen &gt; 0) {
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>                 cipherSuites.add(Short.toUnsignedInt(data.getShort()));
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>                 suiteLen -= 2;
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>             }
+<a class="jxr_linenumber" name="L135" href="#L135">135</a> 
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>             <strong class="jxr_keyword">int</strong> compLen = Byte.toUnsignedInt(data.get());
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>             <strong class="jxr_keyword">while</strong> (compLen &gt; 0) {
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>                 compressionList.add(Byte.toUnsignedInt(data.get()));
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>                 compLen--;
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>             }
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>             <em class="jxr_comment">// Extension processing time!</em>
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>             <strong class="jxr_keyword">int</strong> extListLen = Short.toUnsignedInt(data.getShort());
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>             <strong class="jxr_keyword">while</strong> (extListLen &gt; 0) {
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>                 <strong class="jxr_keyword">int</strong> extType = Short.toUnsignedInt(data.getShort());
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>                 <strong class="jxr_keyword">int</strong> extLen = Short.toUnsignedInt(data.getShort());
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>                 byte[] extData = <strong class="jxr_keyword">new</strong> byte[extLen];
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>                 data.get(extData);
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>                 extensionMap.put(extType, extData);
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>                 <strong class="jxr_keyword">switch</strong> (extType) {
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>                     <strong class="jxr_keyword">case</strong> HELLO_EXT_SUPP_GROUPS:
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>                         ByteBuffer sgBuf = ByteBuffer.wrap(extData);
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>                         <strong class="jxr_keyword">int</strong> supGrpLen = Short.toUnsignedInt(sgBuf.getShort());
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>                         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> remain = supGrpLen; remain &gt; 0; remain -= 2) {
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>                             suppGroups.add(Short.toUnsignedInt(
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>                                     sgBuf.getShort()));
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>                         }
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>                         <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>                     <strong class="jxr_keyword">case</strong> HELLO_EXT_SUPP_VERS:
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>                         ByteBuffer svBuf = ByteBuffer.wrap(extData);
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>                         <strong class="jxr_keyword">int</strong> supVerLen = Byte.toUnsignedInt(svBuf.get());
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>                         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> remain = supVerLen; remain &gt; 0; remain -= 2) {
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>                             suppVersions.add(Short.toUnsignedInt(
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>                                     svBuf.getShort()));
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>                         }
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>                         <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>                     <strong class="jxr_keyword">case</strong> HELLO_EXT_KEY_SHARE:
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>                         ByteBuffer ksBuf = ByteBuffer.wrap(extData);
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>                         <strong class="jxr_keyword">int</strong> ksListLen = Short.toUnsignedInt(ksBuf.getShort());
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>                         <strong class="jxr_keyword">while</strong> (ksListLen &gt; 0) {
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>                             <strong class="jxr_keyword">int</strong> namedGroup = Short.toUnsignedInt(
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>                                     ksBuf.getShort());
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>                             <strong class="jxr_keyword">int</strong> ksLen = Short.toUnsignedInt(ksBuf.getShort());
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>                             byte[] ksData = <strong class="jxr_keyword">new</strong> byte[ksLen];
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>                             ksBuf.get(ksData);
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>                             keyShares.put(namedGroup, ksData);
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>                             ksListLen -= (4 + ksLen);
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>                         }
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>                         <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>                 }
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>                 extListLen -= (4 + extLen);
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>             }
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>         }
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>     }
+<a class="jxr_linenumber" name="L185" href="#L185">185</a> 
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>     <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> Alert {
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> recType;
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> recVers;
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> recLength;
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> alertType;
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> alertDesc;
+<a class="jxr_linenumber" name="L192" href="#L192">192</a> 
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>         Alert(ByteBuffer data) {
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>             Objects.requireNonNull(data);
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>             data.mark();
+<a class="jxr_linenumber" name="L196" href="#L196">196</a> 
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>             <em class="jxr_comment">// Process the TLS record header</em>
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>             recType = Byte.toUnsignedInt(data.get());
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>             recVers = Short.toUnsignedInt(data.getShort());
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>             recLength = Short.toUnsignedInt(data.getShort());
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>             <strong class="jxr_keyword">if</strong> (recType != TLS_REC_ALERT) {
+<a class="jxr_linenumber" name="L202" href="#L202">202</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Not a Handshake TLS record. "</span> +
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>                         <span class="jxr_string">"Type = "</span> + recType);
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>             }
+<a class="jxr_linenumber" name="L205" href="#L205">205</a> 
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>             alertType = Byte.toUnsignedInt(data.get());
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>             alertDesc = Byte.toUnsignedInt(data.get());
+<a class="jxr_linenumber" name="L208" href="#L208">208</a>         }
+<a class="jxr_linenumber" name="L209" href="#L209">209</a>     }
+<a class="jxr_linenumber" name="L210" href="#L210">210</a> 
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String args[]) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>         System.out.println(<span class="jxr_string">"Test 1: Good HRR exchange using secp384r1"</span>);
+<a class="jxr_linenumber" name="L213" href="#L213">213</a>         hrrKeyShareTest(NG_SECP384R1, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L214" href="#L214">214</a>         System.out.println();
+<a class="jxr_linenumber" name="L215" href="#L215">215</a> 
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>         System.out.println(<span class="jxr_string">"Test 2: Bad HRR exchange using secp256r1"</span>);
+<a class="jxr_linenumber" name="L217" href="#L217">217</a>         hrrKeyShareTest(NG_SECP256R1, false);
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>         System.out.println();
+<a class="jxr_linenumber" name="L219" href="#L219">219</a> 
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>         System.out.println(<span class="jxr_string">"Test 3: Bad HRR using unknown GC512A"</span>);
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>         hrrKeyShareTest(NG_GC512A, false);
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>         System.out.println();
+<a class="jxr_linenumber" name="L223" href="#L223">223</a> 
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>         System.out.println(<span class="jxr_string">"Test 4: Bad HRR using known / unasserted x448"</span>);
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>         hrrKeyShareTest(NG_X448, false);
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>         System.out.println();
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>     }
+<a class="jxr_linenumber" name="L228" href="#L228">228</a> 
+<a class="jxr_linenumber" name="L229" href="#L229">229</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> logResult(String str, SSLEngineResult result) {
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>         HandshakeStatus hsStatus = result.getHandshakeStatus();
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>         System.out.println(str +
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>             result.getStatus() + <span class="jxr_string">"/"</span> + hsStatus + <span class="jxr_string">", "</span> +
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>             result.bytesConsumed() + <span class="jxr_string">"/"</span> + result.bytesProduced() +
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>             <span class="jxr_string">" bytes"</span>);
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>         <strong class="jxr_keyword">if</strong> (hsStatus == HandshakeStatus.FINISHED) {
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>             System.out.println(<span class="jxr_string">"\t...ready for application data"</span>);
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>         }
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>     }
+<a class="jxr_linenumber" name="L239" href="#L239">239</a> 
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>     <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L241" href="#L241">241</a> <em class="jxr_comment">     * If the result indicates that we have outstanding tasks to do,</em>
+<a class="jxr_linenumber" name="L242" href="#L242">242</a> <em class="jxr_comment">     * go ahead and run them in this thread.</em>
+<a class="jxr_linenumber" name="L243" href="#L243">243</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> runDelegatedTasks(SSLEngine engine) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>         <strong class="jxr_keyword">if</strong> (engine.getHandshakeStatus() == HandshakeStatus.NEED_TASK) {
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>             Runnable runnable;
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>             <strong class="jxr_keyword">while</strong> ((runnable = engine.getDelegatedTask()) != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>                 System.out.println(<span class="jxr_string">"    running delegated task..."</span>);
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>                 runnable.run();
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>             }
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>             HandshakeStatus hsStatus = engine.getHandshakeStatus();
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>             <strong class="jxr_keyword">if</strong> (hsStatus == HandshakeStatus.NEED_TASK) {
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(
+<a class="jxr_linenumber" name="L254" href="#L254">254</a>                     <span class="jxr_string">"handshake shouldn't need additional tasks"</span>);
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>             }
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>         }
+<a class="jxr_linenumber" name="L257" href="#L257">257</a>     }
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> 
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> <em class="jxr_javadoccomment">     * Dump a ByteBuffer as a hexdump to stdout.  The dumping routine will</em>
+<a class="jxr_linenumber" name="L261" href="#L261">261</a> <em class="jxr_javadoccomment">     * start at the current position of the buffer and run to its limit.</em>
+<a class="jxr_linenumber" name="L262" href="#L262">262</a> <em class="jxr_javadoccomment">     * After completing the dump, the position will be returned to its</em>
+<a class="jxr_linenumber" name="L263" href="#L263">263</a> <em class="jxr_javadoccomment">     * starting point.</em>
+<a class="jxr_linenumber" name="L264" href="#L264">264</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L265" href="#L265">265</a> <em class="jxr_javadoccomment">     * @param data the ByteBuffer to dump to stdout.</em>
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L267" href="#L267">267</a> <em class="jxr_javadoccomment">     * @return the hexdump of the byte array.</em>
+<a class="jxr_linenumber" name="L268" href="#L268">268</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> String dumpHexBytes(ByteBuffer data) {
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>         StringBuilder sb = <strong class="jxr_keyword">new</strong> StringBuilder();
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>         <strong class="jxr_keyword">if</strong> (data != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>             <strong class="jxr_keyword">int</strong> i = 0;
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>             data.mark();
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>             <strong class="jxr_keyword">while</strong> (data.hasRemaining()) {
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>                 <strong class="jxr_keyword">if</strong> (i % 16 == 0 &amp;&amp; i != 0) {
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>                     sb.append(<span class="jxr_string">"\n"</span>);
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>                 }
+<a class="jxr_linenumber" name="L278" href="#L278">278</a>                 sb.append(String.format(<span class="jxr_string">"%02X "</span>, data.get()));
+<a class="jxr_linenumber" name="L279" href="#L279">279</a>                 i++;
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>             }
+<a class="jxr_linenumber" name="L281" href="#L281">281</a>             data.reset();
+<a class="jxr_linenumber" name="L282" href="#L282">282</a>         }
+<a class="jxr_linenumber" name="L283" href="#L283">283</a> 
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>         <strong class="jxr_keyword">return</strong> sb.toString();
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>     }
+<a class="jxr_linenumber" name="L286" href="#L286">286</a> 
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> hrrKeyShareTest(<strong class="jxr_keyword">int</strong> hrrNamedGroup, <strong class="jxr_keyword">boolean</strong> expectedPass)
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>             <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>         SSLContext sslCtx = SSLContext.getDefault();
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>         SSLEngine engine = sslCtx.createSSLEngine();
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>         engine.setUseClientMode(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>         SSLSession session = engine.getSession();
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>         ByteBuffer clientOut =
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>                 ByteBuffer.wrap(<span class="jxr_string">"I'm a Client"</span>.getBytes());
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>         ByteBuffer cTOs = ByteBuffer.allocateDirect(
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>                 session.getPacketBufferSize());
+<a class="jxr_linenumber" name="L297" href="#L297">297</a> 
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>         <em class="jxr_comment">// Create and check the ClientHello message</em>
+<a class="jxr_linenumber" name="L299" href="#L299">299</a>         SSLEngineResult clientResult = engine.wrap(clientOut, cTOs);
+<a class="jxr_linenumber" name="L300" href="#L300">300</a>         logResult(<span class="jxr_string">"client wrap: "</span>, clientResult);
+<a class="jxr_linenumber" name="L301" href="#L301">301</a>         <strong class="jxr_keyword">if</strong> (clientResult.getStatus() != SSLEngineResult.Status.OK) {
+<a class="jxr_linenumber" name="L302" href="#L302">302</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Client wrap got status: "</span> +
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>                     clientResult.getStatus());
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>         }
+<a class="jxr_linenumber" name="L305" href="#L305">305</a> 
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>         cTOs.flip();
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>         System.out.println(<span class="jxr_string">"----- ORIGINAL CLIENT HELLO -----\n"</span> +
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>                 dumpHexBytes(cTOs));
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>         ClientHello initialCh = <strong class="jxr_keyword">new</strong> ClientHello(cTOs);
+<a class="jxr_linenumber" name="L310" href="#L310">310</a> 
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>         <strong class="jxr_keyword">if</strong> (!initialCh.suppVersions.contains(TLS_PROT_VER_13)) {
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>                     <span class="jxr_string">"Missing TLSv1.3 protocol in supported_versions"</span>);
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (!initialCh.keyShares.containsKey(NG_X25519) ||
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>                 !initialCh.keyShares.containsKey(NG_SECP256R1)) {
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>                     <span class="jxr_string">"Missing one or more expected KeyShares"</span>);
+<a class="jxr_linenumber" name="L318" href="#L318">318</a>         }
+<a class="jxr_linenumber" name="L319" href="#L319">319</a> 
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>         <em class="jxr_comment">// Craft the HRR message with the passed-in named group as the</em>
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>         <em class="jxr_comment">// key share named group to request.</em>
+<a class="jxr_linenumber" name="L322" href="#L322">322</a>         ByteBuffer sTOc = buildHRRMessage(initialCh, hrrNamedGroup);
+<a class="jxr_linenumber" name="L323" href="#L323">323</a>         System.out.println(<span class="jxr_string">"----- SERVER HELLO RETRY REQUEST -----\n"</span> +
+<a class="jxr_linenumber" name="L324" href="#L324">324</a>                 dumpHexBytes(sTOc));
+<a class="jxr_linenumber" name="L325" href="#L325">325</a> 
+<a class="jxr_linenumber" name="L326" href="#L326">326</a>         <em class="jxr_comment">// Unwrap the HRR and process it</em>
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>         clientResult = engine.unwrap(sTOc, clientOut);
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>         logResult(<span class="jxr_string">"client unwrap: "</span>, clientResult);
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>         <strong class="jxr_keyword">if</strong> (clientResult.getStatus() != SSLEngineResult.Status.OK) {
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Client wrap got status: "</span> +
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>                     clientResult.getStatus());
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>         }
+<a class="jxr_linenumber" name="L333" href="#L333">333</a>         runDelegatedTasks(engine);
+<a class="jxr_linenumber" name="L334" href="#L334">334</a> 
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>             <em class="jxr_comment">// Now we're expecting to reissue the ClientHello, this time</em>
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>             <em class="jxr_comment">// with a secp384r1 share.</em>
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>             cTOs.compact();
+<a class="jxr_linenumber" name="L339" href="#L339">339</a>             clientResult = engine.wrap(clientOut, cTOs);
+<a class="jxr_linenumber" name="L340" href="#L340">340</a>             logResult(<span class="jxr_string">"client wrap: "</span>, clientResult);
+<a class="jxr_linenumber" name="L341" href="#L341">341</a>             <strong class="jxr_keyword">if</strong> (clientResult.getStatus() != SSLEngineResult.Status.OK) {
+<a class="jxr_linenumber" name="L342" href="#L342">342</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Client wrap got status: "</span> +
+<a class="jxr_linenumber" name="L343" href="#L343">343</a>                         clientResult.getStatus());
+<a class="jxr_linenumber" name="L344" href="#L344">344</a>             }
+<a class="jxr_linenumber" name="L345" href="#L345">345</a>         } <strong class="jxr_keyword">catch</strong> (RuntimeException | SSLException ssle) {
+<a class="jxr_linenumber" name="L346" href="#L346">346</a>             <strong class="jxr_keyword">if</strong> (expectedPass) {
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>                 System.out.println(<span class="jxr_string">"Caught unexpected exception"</span>);
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>                 <strong class="jxr_keyword">throw</strong> ssle;
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>                 System.out.println(<span class="jxr_string">"Caught expected exception: "</span> + ssle);
+<a class="jxr_linenumber" name="L351" href="#L351">351</a> 
+<a class="jxr_linenumber" name="L352" href="#L352">352</a>                 <em class="jxr_comment">// Try issuing another wrap call and see if we can get</em>
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>                 <em class="jxr_comment">// the Alert out.</em>
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>                 clientResult = engine.wrap(clientOut, cTOs);
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>                 logResult(<span class="jxr_string">"client wrap: "</span>, clientResult);
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>                 <strong class="jxr_keyword">if</strong> (clientResult.getStatus() != SSLEngineResult.Status.CLOSED) {
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Client wrap got status: "</span> +
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>                             clientResult.getStatus());
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>                 }
+<a class="jxr_linenumber" name="L360" href="#L360">360</a> 
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>                 cTOs.flip();
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>                 System.out.println(<span class="jxr_string">"----- ALERT -----\n"</span> + dumpHexBytes(cTOs));
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>                 Alert alert = <strong class="jxr_keyword">new</strong> Alert(cTOs);
+<a class="jxr_linenumber" name="L364" href="#L364">364</a>                 <strong class="jxr_keyword">if</strong> (alert.alertType != ALERT_TYPE_FATAL ||
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>                         alert.alertDesc != ALERT_DESC_ILLEGAL_PARAM) {
+<a class="jxr_linenumber" name="L366" href="#L366">366</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Unexpected alert.  "</span> +
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>                             <span class="jxr_string">"received "</span> + alert.alertType + <span class="jxr_string">" / "</span> +
+<a class="jxr_linenumber" name="L368" href="#L368">368</a>                             alert.alertDesc);
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>                 }
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>                 <strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="L371" href="#L371">371</a>             }
+<a class="jxr_linenumber" name="L372" href="#L372">372</a>         }
+<a class="jxr_linenumber" name="L373" href="#L373">373</a> 
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>         cTOs.flip();
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>         System.out.println(<span class="jxr_string">"----- REISSUED CLIENT HELLO -----\n"</span> +
+<a class="jxr_linenumber" name="L376" href="#L376">376</a>                 dumpHexBytes(cTOs));
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>         ClientHello reissuedCh = <strong class="jxr_keyword">new</strong> ClientHello(cTOs);
+<a class="jxr_linenumber" name="L378" href="#L378">378</a> 
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>         <strong class="jxr_keyword">if</strong> (!reissuedCh.keyShares.containsKey(hrrNamedGroup)) {
+<a class="jxr_linenumber" name="L380" href="#L380">380</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Missing secp384r1 key share"</span>);
+<a class="jxr_linenumber" name="L381" href="#L381">381</a>         }
+<a class="jxr_linenumber" name="L382" href="#L382">382</a>     }
+<a class="jxr_linenumber" name="L383" href="#L383">383</a> 
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> ByteBuffer buildHRRMessage(ClientHello cliHello,
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>             <strong class="jxr_keyword">int</strong> namedGroup) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>         <em class="jxr_comment">// Create a ByteBuffer that will be large enough to handle</em>
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>         <em class="jxr_comment">// the HelloRetryRequest</em>
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>         ByteBuffer hrrBuf = ByteBuffer.allocate(2048);  <em class="jxr_comment">// More than enough!</em>
+<a class="jxr_linenumber" name="L389" href="#L389">389</a> 
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>         <em class="jxr_comment">// Advance past the TLS record and handshake message headers.  We will</em>
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>         <em class="jxr_comment">// go back later and scribble in the proper lengths.  The record header</em>
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>         <em class="jxr_comment">// is 5 bytes long, the handshake header is 4.</em>
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>         hrrBuf.position(9);
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>         hrrBuf.putShort((<strong class="jxr_keyword">short</strong>)TLS_LEGACY_VER);
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>         hrrBuf.put(HRR_RANDOM);
+<a class="jxr_linenumber" name="L396" href="#L396">396</a>         hrrBuf.put((byte)cliHello.sessId.length);
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>         hrrBuf.put(cliHello.sessId);
+<a class="jxr_linenumber" name="L398" href="#L398">398</a>         hrrBuf.putShort(cliHello.cipherSuites.get(0).shortValue());
+<a class="jxr_linenumber" name="L399" href="#L399">399</a>         hrrBuf.put((byte)COMP_NONE);
+<a class="jxr_linenumber" name="L400" href="#L400">400</a> 
+<a class="jxr_linenumber" name="L401" href="#L401">401</a>         <em class="jxr_comment">// Use a separate stream for creating the extension section</em>
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>         ByteArrayOutputStream extBaos = <strong class="jxr_keyword">new</strong> ByteArrayOutputStream();
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>         DataOutputStream extStream = <strong class="jxr_keyword">new</strong> DataOutputStream(extBaos);
+<a class="jxr_linenumber" name="L404" href="#L404">404</a> 
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>         <em class="jxr_comment">// Supported version</em>
+<a class="jxr_linenumber" name="L406" href="#L406">406</a>         extStream.writeShort(HELLO_EXT_SUPP_VERS);
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>         extStream.writeShort(2);
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>         extStream.writeShort(TLS_PROT_VER_13);
+<a class="jxr_linenumber" name="L409" href="#L409">409</a> 
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>         <em class="jxr_comment">// Key share</em>
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>         extStream.writeShort(HELLO_EXT_KEY_SHARE);
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>         extStream.writeShort(2);
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>         extStream.writeShort(namedGroup);
+<a class="jxr_linenumber" name="L414" href="#L414">414</a> 
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>         <em class="jxr_comment">// Now add in the extensions into the main message</em>
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>         hrrBuf.putShort((<strong class="jxr_keyword">short</strong>)extStream.size());
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>         hrrBuf.put(extBaos.toByteArray());
+<a class="jxr_linenumber" name="L418" href="#L418">418</a> 
+<a class="jxr_linenumber" name="L419" href="#L419">419</a>         <em class="jxr_comment">// At this point we can go back and write in the TLS record and</em>
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>         <em class="jxr_comment">// handshake message headers.</em>
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>         hrrBuf.flip();
+<a class="jxr_linenumber" name="L422" href="#L422">422</a> 
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>         <em class="jxr_comment">// Write in the TLS record header</em>
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>         hrrBuf.put((byte)TLS_REC_HANDSHAKE);
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>         hrrBuf.putShort((<strong class="jxr_keyword">short</strong>)TLS_LEGACY_VER);
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>         hrrBuf.putShort((<strong class="jxr_keyword">short</strong>)(hrrBuf.limit() - 5));
+<a class="jxr_linenumber" name="L427" href="#L427">427</a> 
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>         <em class="jxr_comment">// Write the Handshake message header</em>
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>         hrrBuf.putInt((HS_MSG_SERVHELLO &lt;&lt; 24) |
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>                 ((hrrBuf.limit() - 9) &amp; 0x00FFFFFF));
+<a class="jxr_linenumber" name="L431" href="#L431">431</a> 
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>         hrrBuf.rewind();
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>         <strong class="jxr_keyword">return</strong> hrrBuf;
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>     }
+<a class="jxr_linenumber" name="L435" href="#L435">435</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

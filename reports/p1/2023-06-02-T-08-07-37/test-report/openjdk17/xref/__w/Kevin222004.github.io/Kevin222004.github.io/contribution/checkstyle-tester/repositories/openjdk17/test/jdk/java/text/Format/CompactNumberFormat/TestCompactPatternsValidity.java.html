@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>TestCompactPatternsValidity xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2018, 2020, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @bug 8177552 8217254 8251499</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> * @summary Checks the validity of compact number patterns specified through</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment"> *          CompactNumberFormat constructor</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment"> * @run testng/othervm TestCompactPatternsValidity</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> java.math.BigDecimal;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> java.math.BigInteger;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> java.text.CompactNumberFormat;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> java.text.DecimalFormatSymbols;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> java.text.ParseException;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> java.util.Locale;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> org.testng.annotations.DataProvider;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> org.testng.annotations.Test;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> TestCompactPatternsValidity {
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      <em class="jxr_comment">// Max range 10^4</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN1 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"0"</span>, <span class="jxr_string">"0"</span>, <span class="jxr_string">"0"</span>, <span class="jxr_string">"0K"</span>, <span class="jxr_string">"00K"</span>};
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <em class="jxr_comment">// Quoted special character '.' as prefix</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN2 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"0"</span>, <span class="jxr_string">"'.'K0"</span>};
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <em class="jxr_comment">// Quoted special character '.' as suffix</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN3 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"0"</span>, <span class="jxr_string">"0"</span>, <span class="jxr_string">"0"</span>, <span class="jxr_string">"0K"</span>, <span class="jxr_string">"00K'.'"</span>};
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      <em class="jxr_comment">// Containing both prefix and suffix</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN4 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"H0H"</span>, <span class="jxr_string">"0K"</span>, <span class="jxr_string">"00K"</span>, <span class="jxr_string">"H0G"</span>};
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      <em class="jxr_comment">// Differing while specifying prefix and suffix</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN5 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"0K"</span>, <span class="jxr_string">"K0"</span>};
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      <em class="jxr_comment">// Containing both prefix ('.') and suffix (K)</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN6 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"0"</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"'.'0K"</span>};
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      <em class="jxr_comment">// Quoted special character ',' as suffix</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN7 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">"0"</span>, <span class="jxr_string">"0"</span>, <span class="jxr_string">"0K','"</span>};
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      <em class="jxr_comment">// Most commonly used type of compact patterns with 15 elements</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN8 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"0K"</span>, <span class="jxr_string">"00K"</span>, <span class="jxr_string">"000K"</span>, <span class="jxr_string">"0M"</span>,
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          <span class="jxr_string">"00M"</span>, <span class="jxr_string">"000M"</span>, <span class="jxr_string">"0B"</span>, <span class="jxr_string">"00B"</span>, <span class="jxr_string">"000B"</span>, <span class="jxr_string">"0T"</span>, <span class="jxr_string">"00T"</span>, <span class="jxr_string">"000T"</span>};
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>      <em class="jxr_comment">// All empty or special patterns; checking the default formatting behaviour</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN9 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"0"</span>, <span class="jxr_string">"0"</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>};
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      <em class="jxr_comment">// Patterns beyond 10^19; divisors beyond long range</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN10 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"0K"</span>, <span class="jxr_string">"00K"</span>, <span class="jxr_string">"000K"</span>, <span class="jxr_string">"0M"</span>, <span class="jxr_string">"00M"</span>,
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <span class="jxr_string">"000M"</span>, <span class="jxr_string">"0B"</span>, <span class="jxr_string">"00B"</span>, <span class="jxr_string">"000B"</span>, <span class="jxr_string">"0T"</span>, <span class="jxr_string">"00T"</span>, <span class="jxr_string">"000T"</span>, <span class="jxr_string">"0L"</span>, <span class="jxr_string">"00L"</span>, <span class="jxr_string">"000L"</span>, <span class="jxr_string">"0XL"</span>, <span class="jxr_string">"00XL"</span>};
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      <em class="jxr_comment">// Containing positive;negative subpatterns</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN11 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"elfu 0;elfu -0"</span>, <span class="jxr_string">"elfu 00;elfu -00"</span>,
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          <span class="jxr_string">"elfu 000;elfu -000"</span>, <span class="jxr_string">"milioni 0;milioni -0"</span>, <span class="jxr_string">"milioni 00;milioni -00"</span>, <span class="jxr_string">"milioni 000;milioni -000"</span>};
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <em class="jxr_comment">// Containing both prefix and suffix and positive;negative subpatern</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN12 = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"H0H;H-0H"</span>, <span class="jxr_string">"0K;0K-"</span>, <span class="jxr_string">"00K;-00K"</span>, <span class="jxr_string">"H0G;-H0G"</span>};
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <em class="jxr_comment">// A non empty pattern containing no 0s (min integer digits)</em>
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN13 =
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"Thousand"</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"BeyondLong"</span>};
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      <em class="jxr_comment">// A non empty pattern containing no 0s (min integer digits), with plural rules</em>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String[] COMPACT_PATTERN14 =
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"{one:Kun other:0' 'Kun}"</span>}; <em class="jxr_comment">// from Somali in CLDR 38</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      @DataProvider(name = <span class="jxr_string">"invalidPatterns"</span>)
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>      Object[][] invalidCompactPatterns() {
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Object[][] {
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>              <em class="jxr_comment">// compact patterns</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>              <em class="jxr_comment">// Pattern containing unquoted special character '.'</em>
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>              {<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"0K"</span>, <span class="jxr_string">"00K."</span>}},
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>              <em class="jxr_comment">// Pattern containing invalid single quote</em>
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>              {<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"0 'do"</span>, <span class="jxr_string">"00K"</span>}},
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>              {<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"0K"</span>, <span class="jxr_string">"00 don't"</span>}},
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>              <em class="jxr_comment">// 0s (min integer digits) exceeding for the range at index 3</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>              {<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <span class="jxr_string">"0K"</span>, <span class="jxr_string">"00000K"</span>}},
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>              <em class="jxr_comment">// null as a compact pattern</em>
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              {<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">""</span>, <span class="jxr_string">""</span>, <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"00K"</span>}},
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          };
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>      }
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>      @DataProvider(name = <span class="jxr_string">"validPatternsFormat"</span>)
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>      Object[][] validPatternsFormat() {
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Object[][] {
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>              <em class="jxr_comment">// compact patterns, numbers, expected output</em>
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>              {COMPACT_PATTERN1, List.of(200, 1000, 3000, 500000), List.of(<span class="jxr_string">"200"</span>, <span class="jxr_string">"1K"</span>, <span class="jxr_string">"3K"</span>, <span class="jxr_string">"500K"</span>)},
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>              {COMPACT_PATTERN2, List.of(1, 20, 3000), List.of(<span class="jxr_string">"1"</span>, <span class="jxr_string">".K2"</span>, <span class="jxr_string">".K300"</span>)},
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              {COMPACT_PATTERN3, List.of(100.99, 1000, 30000), List.of(<span class="jxr_string">"101"</span>, <span class="jxr_string">"1K"</span>, <span class="jxr_string">"30K."</span>)},
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>             {COMPACT_PATTERN4, List.of(0.0, 500, -500, 30000, 5000000), List.of(<span class="jxr_string">"0"</span>, <span class="jxr_string">"H5H"</span>, <span class="jxr_string">"-H5H"</span>, <span class="jxr_string">"30K"</span>, <span class="jxr_string">"H50G"</span>)},
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>             {COMPACT_PATTERN5, List.of(100, 1000, 30000), List.of(<span class="jxr_string">"100"</span>, <span class="jxr_string">"1K"</span>, <span class="jxr_string">"K3"</span>)},
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>             {COMPACT_PATTERN6, List.of(20.99, 1000, 30000), List.of(<span class="jxr_string">"21"</span>, <span class="jxr_string">".1K"</span>, <span class="jxr_string">".30K"</span>)},
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>             {COMPACT_PATTERN7, List.of(100, 1000, <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"12345678987654321"</span>)), List.of(<span class="jxr_string">"100"</span>, <span class="jxr_string">"1K,"</span>, <span class="jxr_string">"12345678987654K,"</span>)},
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>             {COMPACT_PATTERN8, List.of(<strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"223565686837667632"</span>), <strong class="jxr_keyword">new</strong> BigDecimal(<span class="jxr_string">"12322456774334.89766"</span>), 30000, 3456.78),
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>                     List.of(<span class="jxr_string">"223566T"</span>, <span class="jxr_string">"12T"</span>, <span class="jxr_string">"30K"</span>, <span class="jxr_string">"3K"</span>)},
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             {COMPACT_PATTERN9, List.of(<strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"223566000000000000"</span>), <strong class="jxr_keyword">new</strong> BigDecimal(<span class="jxr_string">"12345678987654567"</span>), 30000, 3000),
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>                     List.of(<span class="jxr_string">"223,566,000,000,000,000"</span>, <span class="jxr_string">"12,345,678,987,654,567"</span>, <span class="jxr_string">"30,000"</span>, <span class="jxr_string">"3,000"</span>)},
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>             {COMPACT_PATTERN10, List.of(<strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"100000000000000000"</span>), <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"10000000000000000000"</span>), <strong class="jxr_keyword">new</strong> BigDecimal(<span class="jxr_string">"555555555555555555555.89766"</span>), 30000),
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>                     List.of(<span class="jxr_string">"100L"</span>, <span class="jxr_string">"10XL"</span>, <span class="jxr_string">"556XL"</span>, <span class="jxr_string">"30K"</span>)},
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>             {COMPACT_PATTERN11, List.of(20.99, -20.99, 1000, -1000, 30000, -30000, <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"12345678987654321"</span>), <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"-12345678987654321"</span>)),
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>                     List.of(<span class="jxr_string">"21"</span>, <span class="jxr_string">"-21"</span>, <span class="jxr_string">"elfu 1"</span>, <span class="jxr_string">"elfu -1"</span>, <span class="jxr_string">"elfu 30"</span>, <span class="jxr_string">"elfu -30"</span>, <span class="jxr_string">"milioni 12345678988"</span>, <span class="jxr_string">"milioni -12345678988"</span>)},
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>             {COMPACT_PATTERN12, List.of(0, 500, -500, 30000, -3000, 5000000), List.of(<span class="jxr_string">"0"</span>, <span class="jxr_string">"H5H"</span>, <span class="jxr_string">"H-5H"</span>, <span class="jxr_string">"30K"</span>, <span class="jxr_string">"3K-"</span>, <span class="jxr_string">"H50G"</span>)},
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>             {COMPACT_PATTERN13, List.of(1000, <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"10000000000000000000"</span>)), List.of(<span class="jxr_string">"Thousand"</span>, <span class="jxr_string">"BeyondLong"</span>)},
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         };
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>     }
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> 
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>     @DataProvider(name = <span class="jxr_string">"validPatternsParse"</span>)
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>     Object[][] validPatternsParse() {
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Object[][] {
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>             <em class="jxr_comment">// compact patterns, parse string, expected output</em>
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>             {COMPACT_PATTERN1, List.of(<span class="jxr_string">".56"</span>, <span class="jxr_string">"200"</span>, <span class="jxr_string">".1K"</span>, <span class="jxr_string">"3K"</span>, <span class="jxr_string">"500K"</span>), List.of(0.56, 200L, 100L, 3000L, 500000L)},
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>             {COMPACT_PATTERN2, List.of(<span class="jxr_string">"1"</span>, <span class="jxr_string">".K2"</span>, <span class="jxr_string">".K300"</span>), List.of(1L, 20L, 3000L)},
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>             {COMPACT_PATTERN3, List.of(<span class="jxr_string">"101"</span>, <span class="jxr_string">"1K"</span>, <span class="jxr_string">"30K."</span>), List.of(101L, 1000L, 30000L)},
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>             {COMPACT_PATTERN4, List.of(<span class="jxr_string">"0"</span>, <span class="jxr_string">"H5H"</span>, <span class="jxr_string">"-H5H"</span>, <span class="jxr_string">"30K"</span>, <span class="jxr_string">"H50G"</span>), List.of(0L, 500L, -500L, 30000L, 5000000L)},
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>             {COMPACT_PATTERN5, List.of(<span class="jxr_string">"100"</span>, <span class="jxr_string">"1K"</span>, <span class="jxr_string">"K3"</span>), List.of(100L, 1000L, 30000L)},
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>             {COMPACT_PATTERN6, List.of(<span class="jxr_string">"21"</span>, <span class="jxr_string">".1K"</span>, <span class="jxr_string">".30K"</span>), List.of(21L, 1000L, 30000L)},
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>             {COMPACT_PATTERN7, List.of(<span class="jxr_string">"100"</span>, <span class="jxr_string">"1K,"</span>, <span class="jxr_string">"12345678987654K,"</span>), List.of(100L, 1000L, 12345678987654000L)},
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>             {COMPACT_PATTERN8, List.of(<span class="jxr_string">"223566T"</span>, <span class="jxr_string">"12T"</span>, <span class="jxr_string">"30K"</span>, <span class="jxr_string">"3K"</span>), List.of(223566000000000000L, 12000000000000L, 30000L, 3000L)},
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>             {COMPACT_PATTERN10, List.of(<span class="jxr_string">"1L"</span>, <span class="jxr_string">"100L"</span>, <span class="jxr_string">"10XL"</span>, <span class="jxr_string">"556XL"</span>, <span class="jxr_string">"30K"</span>), List.of(1000000000000000L, 100000000000000000L, 1.0E19, 5.56E20, 30000L)},
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>             {COMPACT_PATTERN11, List.of(<span class="jxr_string">"21"</span>, <span class="jxr_string">"-21"</span>, <span class="jxr_string">"100.90"</span>, <span class="jxr_string">"-100.90"</span>, <span class="jxr_string">"elfu 1"</span>, <span class="jxr_string">"elfu -1"</span>, <span class="jxr_string">"elfu 30"</span>, <span class="jxr_string">"elfu -30"</span>, <span class="jxr_string">"milioni 12345678988"</span>, <span class="jxr_string">"milioni -12345678988"</span>),
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>                 List.of(21L, -21L, 100.90, -100.90, 1000L, -1000L, 30000L, -30000L, 12345678988000000L, -12345678988000000L)},
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>             {COMPACT_PATTERN12, List.of(<span class="jxr_string">"0"</span>, <span class="jxr_string">"H5H"</span>, <span class="jxr_string">"H-5H"</span>, <span class="jxr_string">"30K"</span>, <span class="jxr_string">"30K-"</span>, <span class="jxr_string">"H50G"</span>), List.of(0L, 500L, -500L, 30000L, -30000L, 5000000L)},
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>             {COMPACT_PATTERN13, List.of(<span class="jxr_string">"Thousand"</span>, <span class="jxr_string">"BeyondLong"</span>), List.of(1000L, <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"10000000000000000000"</span>))},
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>         };
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>     }
+<a class="jxr_linenumber" name="L136" href="#L136">136</a> 
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>     @DataProvider(name = <span class="jxr_string">"validPatternsFormatWithPluralRules"</span>)
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>     Object[][] validPatternsFormatWithPluralRules() {
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Object[][] {
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>             <em class="jxr_comment">// compact patterns, plural rules, numbers, expected output</em>
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>             {COMPACT_PATTERN14, <span class="jxr_string">"one:n = 1"</span>, List.of(1000, 2345), List.of(<span class="jxr_string">"Kun"</span>, <span class="jxr_string">"2 Kun"</span>)},
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>         };
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>     }
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> 
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>     @DataProvider(name = <span class="jxr_string">"validPatternsParseWithPluralRules"</span>)
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>     Object[][] validPatternsParseWithPluralRules() {
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Object[][] {
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>             <em class="jxr_comment">// compact patterns, plural rules, parse string, expected output</em>
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>             {COMPACT_PATTERN14, <span class="jxr_string">"one:n = 1"</span>, List.of(<span class="jxr_string">"Kun"</span>, <span class="jxr_string">"2 Kun"</span>), List.of(1000L, 2000L)},
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>         };
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>     }
+<a class="jxr_linenumber" name="L152" href="#L152">152</a> 
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>     @Test(dataProvider = <span class="jxr_string">"invalidPatterns"</span>,
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>             expectedExceptions = IllegalArgumentException.<strong class="jxr_keyword">class</strong>)
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testInvalidCompactPatterns(String[] compactPatterns) {
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>         <strong class="jxr_keyword">new</strong> CompactNumberFormat(<span class="jxr_string">"#,##0.0#"</span>, DecimalFormatSymbols
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>                 .getInstance(Locale.US), compactPatterns);
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>     }
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> 
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>     @Test(dataProvider = <span class="jxr_string">"validPatternsFormat"</span>)
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testValidPatternsFormat(String[] compactPatterns,
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>             List&lt;Object&gt; numbers, List&lt;String&gt; expected) {
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>         CompactNumberFormat fmt = <strong class="jxr_keyword">new</strong> CompactNumberFormat(<span class="jxr_string">"#,##0.0#"</span>,
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>                 DecimalFormatSymbols.getInstance(Locale.US), compactPatterns);
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> index = 0; index &lt; numbers.size(); index++) {
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>             CompactFormatAndParseHelper.testFormat(fmt, numbers.get(index),
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>                     expected.get(index));
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>         }
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>     }
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> 
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>     @Test(dataProvider = <span class="jxr_string">"validPatternsParse"</span>)
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testValidPatternsParse(String[] compactPatterns,
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>             List&lt;String&gt; parseString, List&lt;Number&gt; numbers) <strong class="jxr_keyword">throws</strong> ParseException {
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>         CompactNumberFormat fmt = <strong class="jxr_keyword">new</strong> CompactNumberFormat(<span class="jxr_string">"#,##0.0#"</span>,
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>                     DecimalFormatSymbols.getInstance(Locale.US), compactPatterns);
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> index = 0; index &lt; parseString.size(); index++) {
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>             CompactFormatAndParseHelper.testParse(fmt, parseString.get(index),
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>                     numbers.get(index), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>         }
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>     }
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> 
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>     @Test(dataProvider = <span class="jxr_string">"validPatternsFormatWithPluralRules"</span>)
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testValidPatternsFormatWithPluralRules(String[] compactPatterns, String pluralRules,
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>             List&lt;Object&gt; numbers, List&lt;String&gt; expected) {
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>         CompactNumberFormat fmt = <strong class="jxr_keyword">new</strong> CompactNumberFormat(<span class="jxr_string">"#,##0.0#"</span>,
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>                         DecimalFormatSymbols.getInstance(Locale.US), compactPatterns, pluralRules);
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> index = 0; index &lt; numbers.size(); index++) {
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>             CompactFormatAndParseHelper.testFormat(fmt, numbers.get(index),
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>                     expected.get(index));
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>         }
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>     }
+<a class="jxr_linenumber" name="L192" href="#L192">192</a> 
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>     @Test(dataProvider = <span class="jxr_string">"validPatternsParseWithPluralRules"</span>)
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testValidPatternsParsewithPluralRules(String[] compactPatterns, String pluralRules,
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>             List&lt;String&gt; parseString, List&lt;Number&gt; numbers) <strong class="jxr_keyword">throws</strong> ParseException {
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>         CompactNumberFormat fmt = <strong class="jxr_keyword">new</strong> CompactNumberFormat(<span class="jxr_string">"#,##0.0#"</span>,
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>                         DecimalFormatSymbols.getInstance(Locale.US), compactPatterns, pluralRules);
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> index = 0; index &lt; parseString.size(); index++) {
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>             CompactFormatAndParseHelper.testParse(fmt, parseString.get(index),
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>                     numbers.get(index), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>         }
+<a class="jxr_linenumber" name="L202" href="#L202">202</a>     }
+<a class="jxr_linenumber" name="L203" href="#L203">203</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

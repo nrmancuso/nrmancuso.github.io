@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>LambdaWithCastInReturnStatement xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">import</strong> java.io.Writer;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <strong class="jxr_keyword">import</strong> java.lang.reflect.ParameterizedType;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.lang.reflect.Type;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.util.Map;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> java.util.Set;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> Example {
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>     @FunctionalInterface
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> ObjectWriter&lt;T&gt; {
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>      <strong class="jxr_keyword">void</strong> writeObject(Writer writer, T object);
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>    }
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>    <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">abstract</strong> ObjectWriter&lt;?&gt; getWriter(Type type);
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>    <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">abstract</strong> &lt;T&gt; <strong class="jxr_keyword">void</strong> writeList(Writer out, List&lt;T&gt; list, ObjectWriter&lt;T&gt; valueWriter);
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>    <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">abstract</strong> &lt;T&gt; <strong class="jxr_keyword">void</strong> writeSet(Writer out, Set&lt;T&gt; set, ObjectWriter&lt;T&gt; valueWriter);
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>    <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">abstract</strong> &lt;K, V&gt; <strong class="jxr_keyword">void</strong> writeMap(Writer out, Map&lt;K, V&gt; map, ObjectWriter&lt;K&gt; keyWriter, ObjectWriter&lt;V&gt; valueWriter);
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>    @SuppressWarnings({<span class="jxr_string">"unchecked"</span>, <span class="jxr_string">"rawtypes"</span>})
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>    <strong class="jxr_keyword">protected</strong> ObjectWriter&lt;?&gt; getCollectionWriter(ParameterizedType parameterizedType) {
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      Type rawType = parameterizedType.getRawType();
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      <strong class="jxr_keyword">if</strong> (rawType instanceof Class) {
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>        Class clazz = (Class)rawType;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>        <strong class="jxr_keyword">if</strong> (List.<strong class="jxr_keyword">class</strong>.isAssignableFrom(clazz)) {
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>          Type elementType = parameterizedType.getActualTypeArguments()[0];
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          ObjectWriter elementWriter = getWriter(elementType);
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>          <em class="jxr_comment">//(List) is marked redundant</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          <strong class="jxr_keyword">return</strong> (writer, object) -&gt; writeList(writer, (List)object, elementWriter);
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>        } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (Set.<strong class="jxr_keyword">class</strong>.isAssignableFrom(clazz)) {
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          Type elementType = parameterizedType.getActualTypeArguments()[0];
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          ObjectWriter elementWriter = getWriter(elementType);
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          <em class="jxr_comment">//(Set) is marked redundant</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          <strong class="jxr_keyword">return</strong> (writer, object) -&gt; writeSet(writer, (Set)object, elementWriter);
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>        } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (Map.<strong class="jxr_keyword">class</strong>.isAssignableFrom(clazz)) {
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          Type keyType = parameterizedType.getActualTypeArguments()[0];
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>          ObjectWriter keyWriter = getWriter(keyType);
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          Type valueType = parameterizedType.getActualTypeArguments()[1];
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>          ObjectWriter valueWriter = getWriter(valueType);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          <em class="jxr_comment">//(Map) is marked redundant</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>          <strong class="jxr_keyword">return</strong> (writer, object) -&gt; writeMap(writer, (Map)object, keyWriter, valueWriter);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>        } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Unable to create writer for generic type: "</span> + clazz);
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>        }
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>        <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Unable to create writer for raw type: "</span> + rawType);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      }
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>    }
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  }
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> SimplifiedExample {
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>    @FunctionalInterface
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> ObjectWriter&lt;T&gt; {
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">void</strong> writeObject(T object);
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>    }
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>    <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">abstract</strong> &lt;T&gt; <strong class="jxr_keyword">void</strong> writeList(List&lt;T&gt; list);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>    @SuppressWarnings({<span class="jxr_string">"unchecked"</span>, <span class="jxr_string">"rawtypes"</span>})
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>    <strong class="jxr_keyword">protected</strong> ObjectWriter&lt;?&gt; getCollectionWriter() {
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">return</strong> (Object object) -&gt; writeList((List)object);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>    }
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

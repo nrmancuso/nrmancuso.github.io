@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>TestCgroupSubsystemFactory xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2020, Red Hat Inc.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertEquals;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertFalse;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertTrue;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertNull;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertNotNull;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> java.nio.charset.StandardCharsets;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Files;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Path;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Paths;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> java.util.Optional;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> java.util.Map;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> org.junit.After;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> org.junit.Before;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">import</strong> jdk.internal.platform.CgroupInfo;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <strong class="jxr_keyword">import</strong> jdk.internal.platform.CgroupSubsystemFactory;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">import</strong> jdk.internal.platform.CgroupSubsystemFactory.CgroupTypeResult;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <strong class="jxr_keyword">import</strong> jdk.internal.platform.CgroupV1MetricsImpl;
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <strong class="jxr_keyword">import</strong> jdk.internal.platform.cgroupv1.CgroupV1Subsystem;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <strong class="jxr_keyword">import</strong> jdk.internal.platform.Metrics;
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <strong class="jxr_keyword">import</strong> jdk.test.lib.Utils;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <strong class="jxr_keyword">import</strong> jdk.test.lib.util.FileUtils;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <em class="jxr_comment"> * @key cgroups</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_comment"> * @requires os.family == "linux"</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_comment"> * @modules java.base/jdk.internal.platform</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_comment"> *          java.base/jdk.internal.platform.cgroupv1</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_comment"> * @library /test/lib</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_comment"> * @run junit/othervm TestCgroupSubsystemFactory</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> TestCgroupSubsystemFactory {
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      <strong class="jxr_keyword">private</strong> Path existingDirectory;
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1CgroupsJoinControllers;
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1MountInfoJoinControllers;
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1CgInfoZeroHierarchy;
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1MntInfoZeroHierarchy;
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      <strong class="jxr_keyword">private</strong> Path cgroupv2CgInfoZeroHierarchy;
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">private</strong> Path cgroupv2MntInfoZeroHierarchy;
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1CgInfoNonZeroHierarchy;
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1MntInfoNonZeroHierarchy;
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1MntInfoSystemdOnly;
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1MntInfoDoubleCpusets;
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1MntInfoDoubleCpusets2;
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1SelfCgroup;
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>      <strong class="jxr_keyword">private</strong> Path cgroupv2SelfCgroup;
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1SelfCgroupJoinCtrl;
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1CgroupsOnlyCPUCtrl;
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1SelfCgroupsOnlyCPUCtrl;
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>      <strong class="jxr_keyword">private</strong> Path cgroupv1MountInfoCgroupsOnlyCPUCtrl;
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      <strong class="jxr_keyword">private</strong> String mntInfoEmpty = <span class="jxr_string">""</span>;
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      <strong class="jxr_keyword">private</strong> String cgroupsNonZeroJoinControllers =
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>              <span class="jxr_string">"#subsys_name hierarchy num_cgroups enabled\n"</span> +
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>              <span class="jxr_string">"cpuset\t3\t1\t1\n"</span> +
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>              <span class="jxr_string">"cpu\t4\t153\t1\n"</span> +
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>              <span class="jxr_string">"cpuacct\t4\t153\t1\n"</span> +
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>              <span class="jxr_string">"blkio\t7\t87\t1\n"</span> +
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>              <span class="jxr_string">"memory\t4\t153\t1\n"</span> +
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>              <span class="jxr_string">"devices\t6\t87\t1\n"</span> +
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              <span class="jxr_string">"freezer\t9\t1\t1\n"</span> +
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>              <span class="jxr_string">"net_cls\t4\t153\t1\n"</span> +
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>              <span class="jxr_string">"perf_event\t2\t1\t1\n"</span> +
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>              <span class="jxr_string">"net_prio\t4\t153\t1\n"</span> +
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>              <span class="jxr_string">"hugetlb\t4\t153\t1\n"</span> +
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>              <span class="jxr_string">"pids\t5\t95\t1\n"</span> +
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>              <span class="jxr_string">"rdma\t8\t1\t1\n"</span>;
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>      <strong class="jxr_keyword">private</strong> String cgroupsNonZeroCpuControllerOnly =
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>              <span class="jxr_string">"#subsys_name hierarchy num_cgroups enabled\n"</span> +
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>              <span class="jxr_string">"cpu\t4\t153\t1\n"</span> +
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              <span class="jxr_string">"cpuacct\t4\t153\t1\n"</span>;
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>     <strong class="jxr_keyword">private</strong> String selfCgroupNonZeroCpuControllerOnly =
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>             <span class="jxr_string">"4:cpu,cpuacct:/user.slice/user-1000.slice/session-3.scope\n"</span>;
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>     <strong class="jxr_keyword">private</strong> String selfCgroupNonZeroJoinControllers =
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>             <span class="jxr_string">"9:cpuset:/\n"</span> +
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>             <span class="jxr_string">"8:perf_event:/\n"</span> +
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>             <span class="jxr_string">"7:rdma:/\n"</span> +
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             <span class="jxr_string">"6:freezer:/\n"</span> +
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>             <span class="jxr_string">"5:blkio:/user.slice\n"</span> +
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>             <span class="jxr_string">"4:pids:/user.slice/user-1000.slice/session-3.scope\n"</span> +
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>             <span class="jxr_string">"3:devices:/user.slice\n"</span> +
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>             <span class="jxr_string">"2:cpu,cpuacct,memory,net_cls,net_prio,hugetlb:/user.slice/user-1000.slice/session-3.scope\n"</span> +
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>             <span class="jxr_string">"1:name=systemd:/user.slice/user-1000.slice/session-3.scope\n"</span> +
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>             <span class="jxr_string">"0::/user.slice/user-1000.slice/session-3.scope\n"</span>;
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>     <strong class="jxr_keyword">private</strong> String cgroupsZeroHierarchy =
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>             <span class="jxr_string">"#subsys_name hierarchy num_cgroups enabled\n"</span> +
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>             <span class="jxr_string">"cpuset 0 1 1\n"</span> +
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>             <span class="jxr_string">"cpu 0 1 1\n"</span> +
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>             <span class="jxr_string">"cpuacct 0 1 1\n"</span> +
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>             <span class="jxr_string">"memory 0 1 1\n"</span> +
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>             <span class="jxr_string">"devices 0 1 1\n"</span> +
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>             <span class="jxr_string">"freezer 0 1 1\n"</span> +
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>             <span class="jxr_string">"net_cls 0 1 1\n"</span> +
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>             <span class="jxr_string">"blkio 0 1 1\n"</span> +
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>             <span class="jxr_string">"perf_event 0 1 1 "</span>;
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>     <strong class="jxr_keyword">private</strong> String mntInfoHybrid =
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>             <span class="jxr_string">"30 23 0:26 / /sys/fs/cgroup ro,nosuid,nodev,noexec shared:4 - tmpfs tmpfs ro,seclabel,mode=755\n"</span> +
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>             <span class="jxr_string">"31 30 0:27 / /sys/fs/cgroup/unified rw,nosuid,nodev,noexec,relatime shared:5 - cgroup2 none rw,seclabel,nsdelegate\n"</span> +
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>             <span class="jxr_string">"32 30 0:28 / /sys/fs/cgroup/systemd rw,nosuid,nodev,noexec,relatime shared:6 - cgroup none rw,seclabel,xattr,name=systemd\n"</span> +
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>             <span class="jxr_string">"35 30 0:31 / /sys/fs/cgroup/memory rw,nosuid,nodev,noexec,relatime shared:7 - cgroup none rw,seclabel,memory\n"</span> +
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>             <span class="jxr_string">"36 30 0:32 / /sys/fs/cgroup/pids rw,nosuid,nodev,noexec,relatime shared:8 - cgroup none rw,seclabel,pids\n"</span> +
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>             <span class="jxr_string">"37 30 0:33 / /sys/fs/cgroup/perf_event rw,nosuid,nodev,noexec,relatime shared:9 - cgroup none rw,seclabel,perf_event\n"</span> +
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>             <span class="jxr_string">"38 30 0:34 / /sys/fs/cgroup/net_cls,net_prio rw,nosuid,nodev,noexec,relatime shared:10 - cgroup none rw,seclabel,net_cls,net_prio\n"</span> +
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>             <span class="jxr_string">"39 30 0:35 / /sys/fs/cgroup/hugetlb rw,nosuid,nodev,noexec,relatime shared:11 - cgroup none rw,seclabel,hugetlb\n"</span> +
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>             <span class="jxr_string">"40 30 0:36 / /sys/fs/cgroup/cpu,cpuacct rw,nosuid,nodev,noexec,relatime shared:12 - cgroup none rw,seclabel,cpu,cpuacct\n"</span> +
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>             <span class="jxr_string">"41 30 0:37 / /sys/fs/cgroup/devices rw,nosuid,nodev,noexec,relatime shared:13 - cgroup none rw,seclabel,devices\n"</span> +
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>             <span class="jxr_string">"42 30 0:38 / /sys/fs/cgroup/cpuset rw,nosuid,nodev,noexec,relatime shared:14 - cgroup none rw,seclabel,cpuset\n"</span> +
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>             <span class="jxr_string">"43 30 0:39 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime shared:15 - cgroup none rw,seclabel,blkio\n"</span> +
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>             <span class="jxr_string">"44 30 0:40 / /sys/fs/cgroup/freezer rw,nosuid,nodev,noexec,relatime shared:16 - cgroup none rw,seclabel,freezer\n"</span>;
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>     <strong class="jxr_keyword">private</strong> String mntInfoCpuOnly =
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>             <span class="jxr_string">"30 23 0:26 / /sys/fs/cgroup ro,nosuid,nodev,noexec shared:4 - tmpfs tmpfs ro,seclabel,mode=755\n"</span> +
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>             <span class="jxr_string">"40 30 0:36 / /sys/fs/cgroup/cpu,cpuacct rw,nosuid,nodev,noexec,relatime shared:12 - cgroup none rw,seclabel,cpu,cpuacct\n"</span>;
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>     <strong class="jxr_keyword">private</strong> String mntInfoCgroupv1JoinControllers =
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>             <span class="jxr_string">"31 22 0:26 / /sys/fs/cgroup ro,nosuid,nodev,noexec shared:9 - tmpfs tmpfs ro,mode=755\n"</span> +
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>             <span class="jxr_string">"32 31 0:27 / /sys/fs/cgroup/unified rw,nosuid,nodev,noexec,relatime shared:10 - cgroup2 cgroup2 rw,nsdelegate\n"</span> +
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>             <span class="jxr_string">"33 31 0:28 / /sys/fs/cgroup/systemd rw,nosuid,nodev,noexec,relatime shared:11 - cgroup cgroup rw,xattr,name=systemd\n"</span> +
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>             <span class="jxr_string">"36 31 0:31 / /sys/fs/cgroup/perf_event rw,nosuid,nodev,noexec,relatime shared:15 - cgroup cgroup rw,perf_event\n"</span> +
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>             <span class="jxr_string">"37 31 0:32 / /sys/fs/cgroup/cpuset rw,nosuid,nodev,noexec,relatime shared:16 - cgroup cgroup rw,cpuset\n"</span> +
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>             <span class="jxr_string">"38 31 0:33 / /sys/fs/cgroup/cpu,cpuacct,net_cls,net_prio,hugetlb,memory rw,nosuid,nodev,noexec,relatime shared:17 - cgroup cgroup rw,cpu,cpuacct,memory,net_cls,net_prio,hugetlb\n"</span> +
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>             <span class="jxr_string">"39 31 0:34 / /sys/fs/cgroup/pids rw,nosuid,nodev,noexec,relatime shared:18 - cgroup cgroup rw,pids\n"</span> +
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>             <span class="jxr_string">"40 31 0:35 / /sys/fs/cgroup/devices rw,nosuid,nodev,noexec,relatime shared:19 - cgroup cgroup rw,devices\n"</span> +
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>             <span class="jxr_string">"41 31 0:36 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime shared:20 - cgroup cgroup rw,blkio\n"</span> +
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>             <span class="jxr_string">"42 31 0:37 / /sys/fs/cgroup/rdma rw,nosuid,nodev,noexec,relatime shared:21 - cgroup cgroup rw,rdma\n"</span> +
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>             <span class="jxr_string">"43 31 0:38 / /sys/fs/cgroup/freezer rw,nosuid,nodev,noexec,relatime shared:22 - cgroup cgroup rw,freezer\n"</span>;
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>     <strong class="jxr_keyword">private</strong> String cgroupsNonZeroHierarchy =
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>             <span class="jxr_string">"#subsys_name hierarchy   num_cgroups enabled\n"</span> +
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>             <span class="jxr_string">"cpuset  9   1   1\n"</span> +
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>             <span class="jxr_string">"cpu 7   1   1\n"</span> +
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>             <span class="jxr_string">"cpuacct 7   1   1\n"</span> +
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>             <span class="jxr_string">"blkio   10  1   1\n"</span> +
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>             <span class="jxr_string">"memory  2   90  1\n"</span> +
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>             <span class="jxr_string">"devices 8   74  1\n"</span> +
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>             <span class="jxr_string">"freezer 11  1   1\n"</span> +
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>             <span class="jxr_string">"net_cls 5   1   1\n"</span> +
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>             <span class="jxr_string">"perf_event  4   1   1\n"</span> +
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>             <span class="jxr_string">"net_prio    5   1   1\n"</span> +
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>             <span class="jxr_string">"hugetlb 6   1   1\n"</span> +
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>             <span class="jxr_string">"pids    3   80  1"</span>;
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>     <strong class="jxr_keyword">private</strong> String mntInfoCgroupsV2Only =
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>             <span class="jxr_string">"28 21 0:25 / /sys/fs/cgroup rw,nosuid,nodev,noexec,relatime shared:4 - cgroup2 none rw,seclabel,nsdelegate"</span>;
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>     <strong class="jxr_keyword">private</strong> String mntInfoCgroupsV1SystemdOnly =
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>             <span class="jxr_string">"35 26 0:26 / /sys/fs/cgroup/systemd rw,nosuid,nodev,noexec,relatime - cgroup systemd rw,name=systemd\n"</span> +
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>             <span class="jxr_string">"26 18 0:19 / /sys/fs/cgroup rw,relatime - tmpfs none rw,size=4k,mode=755\n"</span>;
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>     <strong class="jxr_keyword">private</strong> String mntInfoCgroupv1MoreCpusetLine = <span class="jxr_string">"121 32 0:37 / /cpuset rw,relatime shared:69 - cgroup none rw,cpuset\n"</span>;
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>     <strong class="jxr_keyword">private</strong> String mntInfoCgroupsV1DoubleCpuset = mntInfoHybrid + mntInfoCgroupv1MoreCpusetLine;
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>     <strong class="jxr_keyword">private</strong> String mntInfoCgroupsV1DoubleCpuset2 = mntInfoCgroupv1MoreCpusetLine + mntInfoHybrid;
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>     <strong class="jxr_keyword">private</strong> String cgroupv1SelfCgroupContent = <span class="jxr_string">"11:memory:/user.slice/user-1000.slice/user@1000.service\n"</span> +
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>             <span class="jxr_string">"10:hugetlb:/\n"</span> +
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>             <span class="jxr_string">"9:cpuset:/\n"</span> +
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>             <span class="jxr_string">"8:pids:/user.slice/user-1000.slice/user@1000.service\n"</span> +
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>             <span class="jxr_string">"7:freezer:/\n"</span> +
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>             <span class="jxr_string">"6:blkio:/\n"</span> +
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>             <span class="jxr_string">"5:net_cls,net_prio:/\n"</span> +
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>             <span class="jxr_string">"4:devices:/user.slice\n"</span> +
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>             <span class="jxr_string">"3:perf_event:/\n"</span> +
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>             <span class="jxr_string">"2:cpu,cpuacct:/\n"</span> +
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>             <span class="jxr_string">"1:name=systemd:/user.slice/user-1000.slice/user@1000.service/apps.slice/apps-org.gnome.Terminal.slice/vte-spawn-3c00b338-5b65-439f-8e97-135e183d135d.scope\n"</span> +
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>             <span class="jxr_string">"0::/user.slice/user-1000.slice/user@1000.service/apps.slice/apps-org.gnome.Terminal.slice/vte-spawn-3c00b338-5b65-439f-8e97-135e183d135d.scope\n"</span>;
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>     <strong class="jxr_keyword">private</strong> String cgroupv2SelfCgroupContent = <span class="jxr_string">"0::/user.slice/user-1000.slice/session-2.scope"</span>;
+<a class="jxr_linenumber" name="L188" href="#L188">188</a> 
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>     @Before
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setup() {
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>             existingDirectory = Utils.createTempDirectory(TestCgroupSubsystemFactory.<strong class="jxr_keyword">class</strong>.getSimpleName());
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>             Path cgroupsZero = Paths.get(existingDirectory.toString(), <span class="jxr_string">"cgroups_zero"</span>);
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>             Files.writeString(cgroupsZero, cgroupsZeroHierarchy, StandardCharsets.UTF_8);
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>             cgroupv1CgInfoZeroHierarchy = cgroupsZero;
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>             cgroupv2CgInfoZeroHierarchy = cgroupsZero;
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>             cgroupv1MntInfoZeroHierarchy = Paths.get(existingDirectory.toString(), <span class="jxr_string">"mountinfo_empty"</span>);
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>             Files.writeString(cgroupv1MntInfoZeroHierarchy, mntInfoEmpty);
+<a class="jxr_linenumber" name="L199" href="#L199">199</a> 
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>             cgroupv2MntInfoZeroHierarchy = Paths.get(existingDirectory.toString(), <span class="jxr_string">"mountinfo_cgroupv2"</span>);
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>             Files.writeString(cgroupv2MntInfoZeroHierarchy, mntInfoCgroupsV2Only);
+<a class="jxr_linenumber" name="L202" href="#L202">202</a> 
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>             cgroupv1CgInfoNonZeroHierarchy = Paths.get(existingDirectory.toString(), <span class="jxr_string">"cgroups_non_zero"</span>);
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>             Files.writeString(cgroupv1CgInfoNonZeroHierarchy, cgroupsNonZeroHierarchy);
+<a class="jxr_linenumber" name="L205" href="#L205">205</a> 
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>             cgroupv1MntInfoNonZeroHierarchy = Paths.get(existingDirectory.toString(), <span class="jxr_string">"mountinfo_non_zero"</span>);
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>             Files.writeString(cgroupv1MntInfoNonZeroHierarchy, mntInfoHybrid);
+<a class="jxr_linenumber" name="L208" href="#L208">208</a> 
+<a class="jxr_linenumber" name="L209" href="#L209">209</a>             cgroupv1MntInfoSystemdOnly = Paths.get(existingDirectory.toString(), <span class="jxr_string">"mountinfo_cgroupv1_systemd_only"</span>);
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>             Files.writeString(cgroupv1MntInfoSystemdOnly, mntInfoCgroupsV1SystemdOnly);
+<a class="jxr_linenumber" name="L211" href="#L211">211</a> 
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>             cgroupv1MntInfoDoubleCpusets = Paths.get(existingDirectory.toString(), <span class="jxr_string">"mountinfo_cgroupv1_double_cpuset"</span>);
+<a class="jxr_linenumber" name="L213" href="#L213">213</a>             Files.writeString(cgroupv1MntInfoDoubleCpusets, mntInfoCgroupsV1DoubleCpuset);
+<a class="jxr_linenumber" name="L214" href="#L214">214</a> 
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>             cgroupv1MntInfoDoubleCpusets2 = Paths.get(existingDirectory.toString(), <span class="jxr_string">"mountinfo_cgroupv1_double_cpuset2"</span>);
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>             Files.writeString(cgroupv1MntInfoDoubleCpusets2, mntInfoCgroupsV1DoubleCpuset2);
+<a class="jxr_linenumber" name="L217" href="#L217">217</a> 
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>             cgroupv1CgroupsJoinControllers = Paths.get(existingDirectory.toString(), <span class="jxr_string">"cgroups_cgv1_join_controllers"</span>);
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>             Files.writeString(cgroupv1CgroupsJoinControllers, cgroupsNonZeroJoinControllers);
+<a class="jxr_linenumber" name="L220" href="#L220">220</a> 
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>             cgroupv1MountInfoJoinControllers = Paths.get(existingDirectory.toString(), <span class="jxr_string">"mntinfo_cgv1_join_controllers"</span>);
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>             Files.writeString(cgroupv1MountInfoJoinControllers, mntInfoCgroupv1JoinControllers);
+<a class="jxr_linenumber" name="L223" href="#L223">223</a> 
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>             cgroupv1SelfCgroup = Paths.get(existingDirectory.toString(), <span class="jxr_string">"self_cgroup_cgv1"</span>);
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>             Files.writeString(cgroupv1SelfCgroup, cgroupv1SelfCgroupContent);
+<a class="jxr_linenumber" name="L226" href="#L226">226</a> 
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>             cgroupv2SelfCgroup = Paths.get(existingDirectory.toString(), <span class="jxr_string">"self_cgroup_cgv2"</span>);
+<a class="jxr_linenumber" name="L228" href="#L228">228</a>             Files.writeString(cgroupv2SelfCgroup, cgroupv2SelfCgroupContent);
+<a class="jxr_linenumber" name="L229" href="#L229">229</a> 
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>             cgroupv1SelfCgroupJoinCtrl = Paths.get(existingDirectory.toString(), <span class="jxr_string">"self_cgroup_cgv1_join_controllers"</span>);
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>             Files.writeString(cgroupv1SelfCgroupJoinCtrl, selfCgroupNonZeroJoinControllers);
+<a class="jxr_linenumber" name="L232" href="#L232">232</a> 
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>             cgroupv1CgroupsOnlyCPUCtrl = Paths.get(existingDirectory.toString(), <span class="jxr_string">"cgroups_cpu_only_controller"</span>);
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>             Files.writeString(cgroupv1CgroupsOnlyCPUCtrl, cgroupsNonZeroCpuControllerOnly);
+<a class="jxr_linenumber" name="L235" href="#L235">235</a> 
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>             cgroupv1SelfCgroupsOnlyCPUCtrl = Paths.get(existingDirectory.toString(), <span class="jxr_string">"self_cgroup_cpu_only_controller"</span>);
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>             Files.writeString(cgroupv1SelfCgroupsOnlyCPUCtrl, selfCgroupNonZeroCpuControllerOnly);
+<a class="jxr_linenumber" name="L238" href="#L238">238</a> 
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>             cgroupv1MountInfoCgroupsOnlyCPUCtrl = Paths.get(existingDirectory.toString(), <span class="jxr_string">"self_mountinfo_cpu_only_controller"</span>);
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>             Files.writeString(cgroupv1MountInfoCgroupsOnlyCPUCtrl, mntInfoCpuOnly);
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(e);
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>         }
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>     }
+<a class="jxr_linenumber" name="L245" href="#L245">245</a> 
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>     @After
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> teardown() {
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>             FileUtils.deleteFileTreeWithRetry(existingDirectory);
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>             System.err.println(<span class="jxr_string">"Teardown failed. "</span> + e.getMessage());
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>         }
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>     }
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> 
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>     @Test
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCgroupv1CpuControllerOnly() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L257" href="#L257">257</a>         String cgroups = cgroupv1CgroupsOnlyCPUCtrl.toString();
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>         String mountInfo = cgroupv1MountInfoCgroupsOnlyCPUCtrl.toString();
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>         String selfCgroup = cgroupv1SelfCgroupsOnlyCPUCtrl.toString();
+<a class="jxr_linenumber" name="L260" href="#L260">260</a>         Optional&lt;CgroupTypeResult&gt; result = CgroupSubsystemFactory.determineType(mountInfo, cgroups, selfCgroup);
+<a class="jxr_linenumber" name="L261" href="#L261">261</a> 
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>         assertTrue(<span class="jxr_string">"Expected non-empty cgroup result"</span>, result.isPresent());
+<a class="jxr_linenumber" name="L263" href="#L263">263</a>         CgroupTypeResult res = result.get();
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>         assertFalse(<span class="jxr_string">"Expected cgroup v1"</span>, res.isCgroupV2());
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>         Map&lt;String, CgroupInfo&gt; infos = res.getInfos();
+<a class="jxr_linenumber" name="L266" href="#L266">266</a>         assertNull(<span class="jxr_string">"Memory controller expected null"</span>, infos.get(<span class="jxr_string">"memory"</span>));
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>         assertNotNull(<span class="jxr_string">"Cpu controller expected non-null"</span>, infos.get(<span class="jxr_string">"cpu"</span>));
+<a class="jxr_linenumber" name="L268" href="#L268">268</a> 
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>         <em class="jxr_comment">// cgroup v1 tests only as this isn't possible with unified hierarchy</em>
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>         <em class="jxr_comment">// where all controllers have the same mount point</em>
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>         CgroupV1Subsystem subsystem = CgroupV1Subsystem.getInstance(infos);
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>         <em class="jxr_comment">// This throws NPEs prior JDK-8257746</em>
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>         <strong class="jxr_keyword">long</strong> val = subsystem.getMemoryAndSwapLimit();
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>         assertEquals(<span class="jxr_string">"expected unlimited, and no NPE"</span>, -1, val);
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>         val = subsystem.getMemoryAndSwapFailCount();
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>         assertEquals(<span class="jxr_string">"expected unlimited, and no NPE"</span>, -1, val);
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>         val = subsystem.getMemoryAndSwapMaxUsage();
+<a class="jxr_linenumber" name="L278" href="#L278">278</a>         assertEquals(<span class="jxr_string">"expected unlimited, and no NPE"</span>, -1, val);
+<a class="jxr_linenumber" name="L279" href="#L279">279</a>         val = subsystem.getMemoryAndSwapUsage();
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>         assertEquals(<span class="jxr_string">"expected unlimited, and no NPE"</span>, -1, val);
+<a class="jxr_linenumber" name="L281" href="#L281">281</a>     }
+<a class="jxr_linenumber" name="L282" href="#L282">282</a> 
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>     @Test
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCgroupv1JoinControllerCombo() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>         String cgroups = cgroupv1CgroupsJoinControllers.toString();
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>         String mountInfo = cgroupv1MountInfoJoinControllers.toString();
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>         String selfCgroup = cgroupv1SelfCgroupJoinCtrl.toString();
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>         Optional&lt;CgroupTypeResult&gt; result = CgroupSubsystemFactory.determineType(mountInfo, cgroups, selfCgroup);
+<a class="jxr_linenumber" name="L289" href="#L289">289</a> 
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>         assertTrue(<span class="jxr_string">"Expected non-empty cgroup result"</span>, result.isPresent());
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>         CgroupTypeResult res = result.get();
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>         assertFalse(<span class="jxr_string">"Join controller combination expected as cgroups v1"</span>, res.isCgroupV2());
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>         CgroupInfo memoryInfo = res.getInfos().get(<span class="jxr_string">"memory"</span>);
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>         assertEquals(<span class="jxr_string">"/user.slice/user-1000.slice/session-3.scope"</span>, memoryInfo.getCgroupPath());
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>     }
+<a class="jxr_linenumber" name="L296" href="#L296">296</a> 
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>     @Test
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCgroupv1SystemdOnly() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L299" href="#L299">299</a>         String cgroups = cgroupv1CgInfoZeroHierarchy.toString();
+<a class="jxr_linenumber" name="L300" href="#L300">300</a>         String mountInfo = cgroupv1MntInfoSystemdOnly.toString();
+<a class="jxr_linenumber" name="L301" href="#L301">301</a>         String selfCgroup = cgroupv1SelfCgroup.toString(); <em class="jxr_comment">// Content doesn't matter</em>
+<a class="jxr_linenumber" name="L302" href="#L302">302</a>         Optional&lt;CgroupTypeResult&gt; result = CgroupSubsystemFactory.determineType(mountInfo, cgroups, selfCgroup);
+<a class="jxr_linenumber" name="L303" href="#L303">303</a> 
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>         assertTrue(<span class="jxr_string">"zero hierarchy ids with no *relevant* controllers mounted"</span>, result.isEmpty());
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>     }
+<a class="jxr_linenumber" name="L306" href="#L306">306</a> 
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>     @Test
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCgroupv1MultipleCpusetMounts() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>         doMultipleCpusetMountsTest(cgroupv1MntInfoDoubleCpusets);
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>         doMultipleCpusetMountsTest(cgroupv1MntInfoDoubleCpusets2);
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>     }
+<a class="jxr_linenumber" name="L312" href="#L312">312</a> 
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> doMultipleCpusetMountsTest(Path info) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>         String cgroups = cgroupv1CgInfoNonZeroHierarchy.toString();
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>         String mountInfo = info.toString();
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>         String selfCgroup = cgroupv1SelfCgroup.toString();
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>         Optional&lt;CgroupTypeResult&gt; result = CgroupSubsystemFactory.determineType(mountInfo, cgroups, selfCgroup);
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> 
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>         assertTrue(<span class="jxr_string">"Expected non-empty cgroup result"</span>, result.isPresent());
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>         CgroupTypeResult res = result.get();
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>         assertFalse(<span class="jxr_string">"Duplicate cpusets should not influence detection heuristic"</span>, res.isCgroupV2());
+<a class="jxr_linenumber" name="L322" href="#L322">322</a>         CgroupInfo cpuSetInfo = res.getInfos().get(<span class="jxr_string">"cpuset"</span>);
+<a class="jxr_linenumber" name="L323" href="#L323">323</a>         assertEquals(<span class="jxr_string">"/sys/fs/cgroup/cpuset"</span>, cpuSetInfo.getMountPoint());
+<a class="jxr_linenumber" name="L324" href="#L324">324</a>         assertEquals(<span class="jxr_string">"/"</span>, cpuSetInfo.getMountRoot());
+<a class="jxr_linenumber" name="L325" href="#L325">325</a>     }
+<a class="jxr_linenumber" name="L326" href="#L326">326</a> 
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>     @Test
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testHybridCgroupsV1() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>         String cgroups = cgroupv1CgInfoNonZeroHierarchy.toString();
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>         String mountInfo = cgroupv1MntInfoNonZeroHierarchy.toString();
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>         String selfCgroup = cgroupv1SelfCgroup.toString();
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>         Optional&lt;CgroupTypeResult&gt; result = CgroupSubsystemFactory.determineType(mountInfo, cgroups, selfCgroup);
+<a class="jxr_linenumber" name="L333" href="#L333">333</a> 
+<a class="jxr_linenumber" name="L334" href="#L334">334</a>         assertTrue(<span class="jxr_string">"Expected non-empty cgroup result"</span>, result.isPresent());
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>         CgroupTypeResult res = result.get();
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>         assertFalse(<span class="jxr_string">"hybrid hierarchy expected as cgroups v1"</span>, res.isCgroupV2());
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>         CgroupInfo memoryInfo = res.getInfos().get(<span class="jxr_string">"memory"</span>);
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>         assertEquals(<span class="jxr_string">"/user.slice/user-1000.slice/user@1000.service"</span>, memoryInfo.getCgroupPath());
+<a class="jxr_linenumber" name="L339" href="#L339">339</a>         assertEquals(<span class="jxr_string">"/"</span>, memoryInfo.getMountRoot());
+<a class="jxr_linenumber" name="L340" href="#L340">340</a>         assertEquals(<span class="jxr_string">"/sys/fs/cgroup/memory"</span>, memoryInfo.getMountPoint());
+<a class="jxr_linenumber" name="L341" href="#L341">341</a>     }
+<a class="jxr_linenumber" name="L342" href="#L342">342</a> 
+<a class="jxr_linenumber" name="L343" href="#L343">343</a>     @Test
+<a class="jxr_linenumber" name="L344" href="#L344">344</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testZeroHierarchyCgroupsV1() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L345" href="#L345">345</a>         String cgroups = cgroupv1CgInfoZeroHierarchy.toString();
+<a class="jxr_linenumber" name="L346" href="#L346">346</a>         String mountInfo = cgroupv1MntInfoZeroHierarchy.toString();
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>         String selfCgroup = cgroupv1SelfCgroup.toString(); <em class="jxr_comment">// Content doesn't matter</em>
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>         Optional&lt;CgroupTypeResult&gt; result = CgroupSubsystemFactory.determineType(mountInfo, cgroups, selfCgroup);
+<a class="jxr_linenumber" name="L349" href="#L349">349</a> 
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>         assertTrue(<span class="jxr_string">"zero hierarchy ids with no mounted controllers =&gt; empty result"</span>, result.isEmpty());
+<a class="jxr_linenumber" name="L351" href="#L351">351</a>     }
+<a class="jxr_linenumber" name="L352" href="#L352">352</a> 
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>     @Test
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testZeroHierarchyCgroupsV2() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>         String cgroups = cgroupv2CgInfoZeroHierarchy.toString();
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>         String mountInfo = cgroupv2MntInfoZeroHierarchy.toString();
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>         String selfCgroup = cgroupv2SelfCgroup.toString();
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>         Optional&lt;CgroupTypeResult&gt; result = CgroupSubsystemFactory.determineType(mountInfo, cgroups, selfCgroup);
+<a class="jxr_linenumber" name="L359" href="#L359">359</a> 
+<a class="jxr_linenumber" name="L360" href="#L360">360</a>         assertTrue(<span class="jxr_string">"Expected non-empty cgroup result"</span>, result.isPresent());
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>         CgroupTypeResult res = result.get();
+<a class="jxr_linenumber" name="L362" href="#L362">362</a> 
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>         assertTrue(<span class="jxr_string">"zero hierarchy ids with mounted controllers expected cgroups v2"</span>, res.isCgroupV2());
+<a class="jxr_linenumber" name="L364" href="#L364">364</a>         CgroupInfo memoryInfo = res.getInfos().get(<span class="jxr_string">"memory"</span>);
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>         assertEquals(<span class="jxr_string">"/user.slice/user-1000.slice/session-2.scope"</span>, memoryInfo.getCgroupPath());
+<a class="jxr_linenumber" name="L366" href="#L366">366</a>         CgroupInfo cpuInfo = res.getInfos().get(<span class="jxr_string">"cpu"</span>);
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>         assertEquals(memoryInfo.getCgroupPath(), cpuInfo.getCgroupPath());
+<a class="jxr_linenumber" name="L368" href="#L368">368</a>         assertEquals(memoryInfo.getMountPoint(), cpuInfo.getMountPoint());
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>         assertEquals(memoryInfo.getMountRoot(), cpuInfo.getMountRoot());
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>         assertEquals(<span class="jxr_string">"/sys/fs/cgroup"</span>, cpuInfo.getMountPoint());
+<a class="jxr_linenumber" name="L371" href="#L371">371</a>     }
+<a class="jxr_linenumber" name="L372" href="#L372">372</a> 
+<a class="jxr_linenumber" name="L373" href="#L373">373</a>     @Test(expected = IOException.<strong class="jxr_keyword">class</strong>)
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> mountInfoFileNotFound() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>         String cgroups = cgroupv1CgInfoZeroHierarchy.toString(); <em class="jxr_comment">// any existing file</em>
+<a class="jxr_linenumber" name="L376" href="#L376">376</a>         String selfCgroup = cgroupv1SelfCgroup.toString(); <em class="jxr_comment">// any existing file</em>
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>         String mountInfo = Paths.get(existingDirectory.toString(), <span class="jxr_string">"not-existing-mountinfo"</span>).toString();
+<a class="jxr_linenumber" name="L378" href="#L378">378</a> 
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>         CgroupSubsystemFactory.determineType(mountInfo, cgroups, selfCgroup);
+<a class="jxr_linenumber" name="L380" href="#L380">380</a>     }
+<a class="jxr_linenumber" name="L381" href="#L381">381</a> 
+<a class="jxr_linenumber" name="L382" href="#L382">382</a>     @Test(expected = IOException.<strong class="jxr_keyword">class</strong>)
+<a class="jxr_linenumber" name="L383" href="#L383">383</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> cgroupsFileNotFound() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>         String cgroups = Paths.get(existingDirectory.toString(), <span class="jxr_string">"not-existing-cgroups"</span>).toString();
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>         String mountInfo = cgroupv2MntInfoZeroHierarchy.toString(); <em class="jxr_comment">// any existing file</em>
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>         String selfCgroup = cgroupv2SelfCgroup.toString(); <em class="jxr_comment">// any existing file</em>
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>         CgroupSubsystemFactory.determineType(mountInfo, cgroups, selfCgroup);
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>     }
+<a class="jxr_linenumber" name="L389" href="#L389">389</a> 
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>     @Test(expected = IOException.<strong class="jxr_keyword">class</strong>)
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> selfCgroupsFileNotFound() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>         String cgroups = cgroupv1CgInfoZeroHierarchy.toString(); <em class="jxr_comment">// any existing file</em>
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>         String mountInfo = cgroupv2MntInfoZeroHierarchy.toString(); <em class="jxr_comment">// any existing file</em>
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>         String selfCgroup = Paths.get(existingDirectory.toString(), <span class="jxr_string">"not-existing-self-cgroups"</span>).toString();
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>         CgroupSubsystemFactory.determineType(mountInfo, cgroups, selfCgroup);
+<a class="jxr_linenumber" name="L396" href="#L396">396</a>     }
+<a class="jxr_linenumber" name="L397" href="#L397">397</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

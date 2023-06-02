@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>UsingReadOnlyInterfaces xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> UsingReadOnlyInterfaces {
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>       <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> Collections {
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>           <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> &lt;E&gt; <strong class="jxr_keyword">void</strong> useICollection(ICollection&lt;E&gt; iCollection, E elem, java.util.Collection&lt;E&gt; other) {
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>               java.util.Iterator&lt;E&gt; iter = iCollection.iterator();
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>               iCollection.addAll(other);
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>               iCollection.add(elem);
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>               iCollection.isEmpty();
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>               iCollection.clear();
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>               <em class="jxr_comment">// this is not an error when analyzing against kotlin sources (which is a bug), this inconsistency is hard to fix with the current approach</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>              <em class="jxr_comment">// KT-22594</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>              <em class="jxr_comment">// iCollection.getSize();</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>              iCollection.size();
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>          }
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>          <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> &lt;E&gt; <strong class="jxr_keyword">void</strong> useCCollection(CCollection&lt;E&gt; cCollection, E elem, java.util.Collection&lt;E&gt; other) {
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>              java.util.Iterator&lt;E&gt; iter = cCollection.iterator();
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>              cCollection.addAll(other);
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>              cCollection.add(elem);
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>              cCollection.isEmpty();
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>              cCollection.clear();
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>              cCollection.getSize();
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>              cCollection.size();
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>              cCollection.contains(elem);
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>              cCollection.contains(<span class="jxr_string">"sasd"</span>);
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>              cCollection.removeAll(other);
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>              cCollection.retainAll(other);
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>          }
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> ExtendCCollection <strong class="jxr_keyword">extends</strong> CCollection&lt;String&gt; {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>              @Override
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> clear() {}
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          }
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      }
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> Maps {
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> &lt;E, V&gt; <strong class="jxr_keyword">void</strong> useCMap(CMap&lt;E, V&gt; cMap) {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>              cMap.isEmpty();
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>              java.util.Set&lt;E&gt; s = cMap.getKeys();
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>              s = cMap.keySet();
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>              java.util.Collection&lt;V&gt; v = cMap.getValues();
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>              v = cMap.values();
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>              java.util.Set&lt;java.util.Map.Entry&lt;E, V&gt;&gt; e = cMap.entrySet();
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>              e = cMap.getEntries();
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          }
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      }
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

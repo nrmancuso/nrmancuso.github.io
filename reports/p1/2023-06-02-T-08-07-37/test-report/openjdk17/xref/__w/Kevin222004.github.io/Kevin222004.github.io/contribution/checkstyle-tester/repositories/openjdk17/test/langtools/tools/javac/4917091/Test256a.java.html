@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Test256a xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * @test /nodynamiccopyright/</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * @bug 4917091</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * @summary javac rejects array over 128 in length</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * @compile/fail/ref=Test256a.out -XDrawDiagnostics Test256a.java</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> Test256a {
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>               <em class="jxr_comment">// allocating an array with more than 255 dimensions is not allowed</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>              <strong class="jxr_keyword">static</strong> Object expected = (Object)<strong class="jxr_keyword">new</strong> Object
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>                  [1<em class="jxr_comment">/*001*/</em>][1<em class="jxr_comment">/*002*/</em>][1<em class="jxr_comment">/*003*/</em>][1<em class="jxr_comment">/*004*/</em>][1<em class="jxr_comment">/*005*/</em>]
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>                  [1<em class="jxr_comment">/*006*/</em>][1<em class="jxr_comment">/*007*/</em>][1<em class="jxr_comment">/*008*/</em>][1<em class="jxr_comment">/*009*/</em>][1<em class="jxr_comment">/*010*/</em>]
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>                  [1<em class="jxr_comment">/*011*/</em>][1<em class="jxr_comment">/*012*/</em>][1<em class="jxr_comment">/*013*/</em>][1<em class="jxr_comment">/*014*/</em>][1<em class="jxr_comment">/*015*/</em>]
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>                  [1<em class="jxr_comment">/*016*/</em>][1<em class="jxr_comment">/*017*/</em>][1<em class="jxr_comment">/*018*/</em>][1<em class="jxr_comment">/*019*/</em>][1<em class="jxr_comment">/*020*/</em>]
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>                  [1<em class="jxr_comment">/*021*/</em>][1<em class="jxr_comment">/*022*/</em>][1<em class="jxr_comment">/*023*/</em>][1<em class="jxr_comment">/*024*/</em>][1<em class="jxr_comment">/*025*/</em>]
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>                  [1<em class="jxr_comment">/*026*/</em>][1<em class="jxr_comment">/*027*/</em>][1<em class="jxr_comment">/*028*/</em>][1<em class="jxr_comment">/*029*/</em>][1<em class="jxr_comment">/*030*/</em>]
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>                  [1<em class="jxr_comment">/*031*/</em>][1<em class="jxr_comment">/*032*/</em>][1<em class="jxr_comment">/*033*/</em>][1<em class="jxr_comment">/*034*/</em>][1<em class="jxr_comment">/*035*/</em>]
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>                  [1<em class="jxr_comment">/*036*/</em>][1<em class="jxr_comment">/*037*/</em>][1<em class="jxr_comment">/*038*/</em>][1<em class="jxr_comment">/*039*/</em>][1<em class="jxr_comment">/*040*/</em>]
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>                  [1<em class="jxr_comment">/*041*/</em>][1<em class="jxr_comment">/*042*/</em>][1<em class="jxr_comment">/*043*/</em>][1<em class="jxr_comment">/*044*/</em>][1<em class="jxr_comment">/*045*/</em>]
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>                  [1<em class="jxr_comment">/*046*/</em>][1<em class="jxr_comment">/*047*/</em>][1<em class="jxr_comment">/*048*/</em>][1<em class="jxr_comment">/*049*/</em>][1<em class="jxr_comment">/*050*/</em>]
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>                  [1<em class="jxr_comment">/*051*/</em>][1<em class="jxr_comment">/*052*/</em>][1<em class="jxr_comment">/*053*/</em>][1<em class="jxr_comment">/*054*/</em>][1<em class="jxr_comment">/*055*/</em>]
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>                  [1<em class="jxr_comment">/*056*/</em>][1<em class="jxr_comment">/*057*/</em>][1<em class="jxr_comment">/*058*/</em>][1<em class="jxr_comment">/*059*/</em>][1<em class="jxr_comment">/*060*/</em>]
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>                  [1<em class="jxr_comment">/*061*/</em>][1<em class="jxr_comment">/*062*/</em>][1<em class="jxr_comment">/*063*/</em>][1<em class="jxr_comment">/*064*/</em>][1<em class="jxr_comment">/*065*/</em>]
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>                  [1<em class="jxr_comment">/*066*/</em>][1<em class="jxr_comment">/*067*/</em>][1<em class="jxr_comment">/*068*/</em>][1<em class="jxr_comment">/*069*/</em>][1<em class="jxr_comment">/*070*/</em>]
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>                  [1<em class="jxr_comment">/*071*/</em>][1<em class="jxr_comment">/*072*/</em>][1<em class="jxr_comment">/*073*/</em>][1<em class="jxr_comment">/*074*/</em>][1<em class="jxr_comment">/*075*/</em>]
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>                  [1<em class="jxr_comment">/*076*/</em>][1<em class="jxr_comment">/*077*/</em>][1<em class="jxr_comment">/*078*/</em>][1<em class="jxr_comment">/*079*/</em>][1<em class="jxr_comment">/*080*/</em>]
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>                  [1<em class="jxr_comment">/*081*/</em>][1<em class="jxr_comment">/*082*/</em>][1<em class="jxr_comment">/*083*/</em>][1<em class="jxr_comment">/*084*/</em>][1<em class="jxr_comment">/*085*/</em>]
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>                  [1<em class="jxr_comment">/*086*/</em>][1<em class="jxr_comment">/*087*/</em>][1<em class="jxr_comment">/*088*/</em>][1<em class="jxr_comment">/*089*/</em>][1<em class="jxr_comment">/*090*/</em>]
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>                  [1<em class="jxr_comment">/*091*/</em>][1<em class="jxr_comment">/*092*/</em>][1<em class="jxr_comment">/*093*/</em>][1<em class="jxr_comment">/*094*/</em>][1<em class="jxr_comment">/*095*/</em>]
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>                  [1<em class="jxr_comment">/*096*/</em>][1<em class="jxr_comment">/*097*/</em>][1<em class="jxr_comment">/*098*/</em>][1<em class="jxr_comment">/*099*/</em>][1<em class="jxr_comment">/*100*/</em>]
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>                  [1<em class="jxr_comment">/*101*/</em>][1<em class="jxr_comment">/*102*/</em>][1<em class="jxr_comment">/*103*/</em>][1<em class="jxr_comment">/*104*/</em>][1<em class="jxr_comment">/*105*/</em>]
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>                  [1<em class="jxr_comment">/*106*/</em>][1<em class="jxr_comment">/*107*/</em>][1<em class="jxr_comment">/*108*/</em>][1<em class="jxr_comment">/*109*/</em>][1<em class="jxr_comment">/*110*/</em>]
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>                  [1<em class="jxr_comment">/*111*/</em>][1<em class="jxr_comment">/*112*/</em>][1<em class="jxr_comment">/*113*/</em>][1<em class="jxr_comment">/*114*/</em>][1<em class="jxr_comment">/*115*/</em>]
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>                  [1<em class="jxr_comment">/*116*/</em>][1<em class="jxr_comment">/*117*/</em>][1<em class="jxr_comment">/*118*/</em>][1<em class="jxr_comment">/*119*/</em>][1<em class="jxr_comment">/*120*/</em>]
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>                  [1<em class="jxr_comment">/*121*/</em>][1<em class="jxr_comment">/*122*/</em>][1<em class="jxr_comment">/*123*/</em>][1<em class="jxr_comment">/*124*/</em>][1<em class="jxr_comment">/*125*/</em>]
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>                  [1<em class="jxr_comment">/*126*/</em>][1<em class="jxr_comment">/*127*/</em>][1<em class="jxr_comment">/*128*/</em>][1<em class="jxr_comment">/*129*/</em>][1<em class="jxr_comment">/*130*/</em>]
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>                  [1<em class="jxr_comment">/*131*/</em>][1<em class="jxr_comment">/*132*/</em>][1<em class="jxr_comment">/*133*/</em>][1<em class="jxr_comment">/*134*/</em>][1<em class="jxr_comment">/*135*/</em>]
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>                  [1<em class="jxr_comment">/*136*/</em>][1<em class="jxr_comment">/*137*/</em>][1<em class="jxr_comment">/*138*/</em>][1<em class="jxr_comment">/*139*/</em>][1<em class="jxr_comment">/*140*/</em>]
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>                  [1<em class="jxr_comment">/*141*/</em>][1<em class="jxr_comment">/*142*/</em>][1<em class="jxr_comment">/*143*/</em>][1<em class="jxr_comment">/*144*/</em>][1<em class="jxr_comment">/*145*/</em>]
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>                  [1<em class="jxr_comment">/*146*/</em>][1<em class="jxr_comment">/*147*/</em>][1<em class="jxr_comment">/*148*/</em>][1<em class="jxr_comment">/*149*/</em>][1<em class="jxr_comment">/*150*/</em>]
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>                  [1<em class="jxr_comment">/*151*/</em>][1<em class="jxr_comment">/*152*/</em>][1<em class="jxr_comment">/*153*/</em>][1<em class="jxr_comment">/*154*/</em>][1<em class="jxr_comment">/*155*/</em>]
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>                  [1<em class="jxr_comment">/*156*/</em>][1<em class="jxr_comment">/*157*/</em>][1<em class="jxr_comment">/*158*/</em>][1<em class="jxr_comment">/*159*/</em>][1<em class="jxr_comment">/*160*/</em>]
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>                  [1<em class="jxr_comment">/*161*/</em>][1<em class="jxr_comment">/*162*/</em>][1<em class="jxr_comment">/*163*/</em>][1<em class="jxr_comment">/*164*/</em>][1<em class="jxr_comment">/*165*/</em>]
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>                  [1<em class="jxr_comment">/*166*/</em>][1<em class="jxr_comment">/*167*/</em>][1<em class="jxr_comment">/*168*/</em>][1<em class="jxr_comment">/*169*/</em>][1<em class="jxr_comment">/*170*/</em>]
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>                  [1<em class="jxr_comment">/*171*/</em>][1<em class="jxr_comment">/*172*/</em>][1<em class="jxr_comment">/*173*/</em>][1<em class="jxr_comment">/*174*/</em>][1<em class="jxr_comment">/*175*/</em>]
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>                  [1<em class="jxr_comment">/*176*/</em>][1<em class="jxr_comment">/*177*/</em>][1<em class="jxr_comment">/*178*/</em>][1<em class="jxr_comment">/*179*/</em>][1<em class="jxr_comment">/*180*/</em>]
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>                  [1<em class="jxr_comment">/*181*/</em>][1<em class="jxr_comment">/*182*/</em>][1<em class="jxr_comment">/*183*/</em>][1<em class="jxr_comment">/*184*/</em>][1<em class="jxr_comment">/*185*/</em>]
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>                  [1<em class="jxr_comment">/*186*/</em>][1<em class="jxr_comment">/*187*/</em>][1<em class="jxr_comment">/*188*/</em>][1<em class="jxr_comment">/*189*/</em>][1<em class="jxr_comment">/*190*/</em>]
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>                  [1<em class="jxr_comment">/*191*/</em>][1<em class="jxr_comment">/*192*/</em>][1<em class="jxr_comment">/*193*/</em>][1<em class="jxr_comment">/*194*/</em>][1<em class="jxr_comment">/*195*/</em>]
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>                  [1<em class="jxr_comment">/*196*/</em>][1<em class="jxr_comment">/*197*/</em>][1<em class="jxr_comment">/*198*/</em>][1<em class="jxr_comment">/*199*/</em>][1<em class="jxr_comment">/*200*/</em>]
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>                  [1<em class="jxr_comment">/*201*/</em>][1<em class="jxr_comment">/*202*/</em>][1<em class="jxr_comment">/*203*/</em>][1<em class="jxr_comment">/*204*/</em>][1<em class="jxr_comment">/*205*/</em>]
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>                  [1<em class="jxr_comment">/*206*/</em>][1<em class="jxr_comment">/*207*/</em>][1<em class="jxr_comment">/*208*/</em>][1<em class="jxr_comment">/*209*/</em>][1<em class="jxr_comment">/*210*/</em>]
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>                  [1<em class="jxr_comment">/*211*/</em>][1<em class="jxr_comment">/*212*/</em>][1<em class="jxr_comment">/*213*/</em>][1<em class="jxr_comment">/*214*/</em>][1<em class="jxr_comment">/*215*/</em>]
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>                  [1<em class="jxr_comment">/*216*/</em>][1<em class="jxr_comment">/*217*/</em>][1<em class="jxr_comment">/*218*/</em>][1<em class="jxr_comment">/*219*/</em>][1<em class="jxr_comment">/*220*/</em>]
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>                  [1<em class="jxr_comment">/*221*/</em>][1<em class="jxr_comment">/*222*/</em>][1<em class="jxr_comment">/*223*/</em>][1<em class="jxr_comment">/*224*/</em>][1<em class="jxr_comment">/*225*/</em>]
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>                  [1<em class="jxr_comment">/*226*/</em>][1<em class="jxr_comment">/*227*/</em>][1<em class="jxr_comment">/*228*/</em>][1<em class="jxr_comment">/*229*/</em>][1<em class="jxr_comment">/*230*/</em>]
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>                  [1<em class="jxr_comment">/*231*/</em>][1<em class="jxr_comment">/*232*/</em>][1<em class="jxr_comment">/*233*/</em>][1<em class="jxr_comment">/*234*/</em>][1<em class="jxr_comment">/*235*/</em>]
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>                  [1<em class="jxr_comment">/*236*/</em>][1<em class="jxr_comment">/*237*/</em>][1<em class="jxr_comment">/*238*/</em>][1<em class="jxr_comment">/*239*/</em>][1<em class="jxr_comment">/*240*/</em>]
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>                  [1<em class="jxr_comment">/*241*/</em>][1<em class="jxr_comment">/*242*/</em>][1<em class="jxr_comment">/*243*/</em>][1<em class="jxr_comment">/*244*/</em>][1<em class="jxr_comment">/*245*/</em>]
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>                  [1<em class="jxr_comment">/*246*/</em>][1<em class="jxr_comment">/*247*/</em>][1<em class="jxr_comment">/*248*/</em>][1<em class="jxr_comment">/*249*/</em>][1<em class="jxr_comment">/*250*/</em>]
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>                  [1<em class="jxr_comment">/*251*/</em>][1<em class="jxr_comment">/*252*/</em>][1<em class="jxr_comment">/*253*/</em>][1<em class="jxr_comment">/*254*/</em>][1<em class="jxr_comment">/*255*/</em>]
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>                  [1<em class="jxr_comment">/*256*/</em>];
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

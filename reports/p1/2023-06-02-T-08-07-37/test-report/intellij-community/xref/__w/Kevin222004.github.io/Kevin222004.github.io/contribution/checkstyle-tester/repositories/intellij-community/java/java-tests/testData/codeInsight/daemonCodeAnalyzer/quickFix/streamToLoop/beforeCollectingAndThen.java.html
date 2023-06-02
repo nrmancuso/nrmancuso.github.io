@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>beforeCollectingAndThen xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">// "Fix all 'Stream API call chain can be replaced with loop' problems in file" "true"</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.util.*;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.util.function.Function;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.util.stream.Collectors;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> java.util.stream.Stream;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> Main {
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>     <strong class="jxr_keyword">void</strong> sample(List&lt;String&gt; people) {
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      List&lt;String&gt; list1 = people.stream().coll&lt;caret&gt;ect( <em class="jxr_comment">// comment</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>                                                           Collectors.collectingAndThen(Collectors.toList(),
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>                                                                                        Collections::unmodifiableList));
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>    }
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>    <strong class="jxr_keyword">void</strong> sample1(List&lt;String&gt; people) {
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>      List&lt;String&gt; listIdentity = people.stream().collect( <em class="jxr_comment">// comment</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>                                                           Collectors.collectingAndThen(Collectors.toList(),
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>                                                                                        Function.identity()));
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>    }
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>    <strong class="jxr_keyword">void</strong> sample2(List&lt;String&gt; people) {
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      Map&lt;Integer, String&gt; map = people.stream().collect( <em class="jxr_comment">// comment</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>                                                          Collectors.collectingAndThen(Collectors.toMap(String::length, Function.identity()),
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>                                                                                       Collections::unmodifiableMap));
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>    }
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>    <strong class="jxr_keyword">void</strong> sample3(List&lt;String&gt; people) {
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      List&lt;String&gt; list2 = people.stream().collect( <em class="jxr_comment">// comment</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>        Collectors.collectingAndThen(Collectors.&lt;String, List&lt;String&gt;&gt;toCollection(LinkedList::<strong class="jxr_keyword">new</strong>),
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          list -&gt; Stream.concat(list.stream(), list.stream()).collect(Collectors.toList())));
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>    }
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>    <strong class="jxr_keyword">void</strong> sample4(List&lt;String&gt; people) {
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      Map&lt;Integer, List&lt;String&gt;&gt; map = people.stream().collect(
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>        Collectors.collectingAndThen(Collectors.groupingBy(String::length),
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>                                     m -&gt; Collections.unmodifiableMap(m)));
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>    }
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>    <strong class="jxr_keyword">void</strong> incomplete(List&lt;String&gt; people) {
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      List&lt;String&gt; list1 = people.stream().collect( <em class="jxr_comment">// comment</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>                                                           Collectors.collectingAndThen(Collectors.toList()));
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>    }
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
