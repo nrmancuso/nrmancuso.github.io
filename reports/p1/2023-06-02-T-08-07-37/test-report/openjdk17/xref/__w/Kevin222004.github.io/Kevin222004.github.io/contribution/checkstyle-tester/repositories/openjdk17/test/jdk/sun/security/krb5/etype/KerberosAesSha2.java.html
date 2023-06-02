@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>KerberosAesSha2 xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2017, 2021, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @bug 8014628</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> * @library /test/lib</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment"> * @modules java.base/sun.security.util</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment"> *          java.security.jgss/sun.security.krb5.internal.crypto.dk:+open</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment"> * @summary <a href="https://tools.ietf.org/html/rfc8009" target="alexandria_uri">https://tools.ietf.org/html/rfc8009</a> Test Vectors</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> javax.crypto.Cipher;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> java.lang.reflect.Method;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> java.util.HexFormat;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> sun.security.krb5.internal.crypto.dk.AesSha2DkCrypto;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> jdk.test.lib.hexdump.HexPrinter;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> KerberosAesSha2 {
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          AesSha2DkCrypto dk128 = <strong class="jxr_keyword">new</strong> AesSha2DkCrypto(128);
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          AesSha2DkCrypto dk256 = <strong class="jxr_keyword">new</strong> AesSha2DkCrypto(256);
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          <strong class="jxr_keyword">boolean</strong> aes256ok = Cipher.getMaxAllowedKeyLength(<span class="jxr_string">"AES"</span>) &gt;= 256;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>          <em class="jxr_comment">// Sample results for string-to-key conversion:</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">char</strong>[] pass = <span class="jxr_string">"password"</span>.toCharArray();
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          byte[] salt = cat(
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>                  hex(<span class="jxr_string">"10 DF 9D D7 83 E5 BC 8A CE A1 73 0E 74 35 5F 61"</span>),
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>                  <span class="jxr_string">"ATHENA.MIT.EDUraeburn"</span>.getBytes());
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          check(stringToKey(dk128, pass, salt, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>                  hex(<span class="jxr_string">"08 9B CA 48 B1 05 EA 6E A7 7C A5 D2 F3 9D C5 E7"</span>));
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          check(stringToKey(dk256, pass, salt, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>                  hex(<span class="jxr_string">"45 BD 80 6D BF 6A 83 3A 9C FF C1 C9 45 89 A2 22\n"</span> +
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>                      <span class="jxr_string">"36 7A 79 BC 21 C4 13 71 89 06 E9 F5 78 A7 84 67"</span>));
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          <em class="jxr_comment">// Sample results for key derivation:</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          byte[] bk16 = hex(<span class="jxr_string">"37 05 D9 60 80 C1 77 28 A0 E8 00 EA B6 E0 D2 3C"</span>);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          check(deriveKey(dk128, bk16, 2, (byte) 0x99),
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>                  hex(<span class="jxr_string">"B3 1A 01 8A 48 F5 47 76 F4 03 E9 A3 96 32 5D C3"</span>));
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          check(deriveKey(dk128, bk16, 2, (byte) 0xaa),
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>                  hex(<span class="jxr_string">"9B 19 7D D1 E8 C5 60 9D 6E 67 C3 E3 7C 62 C7 2E"</span>));
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          check(deriveKey(dk128, bk16, 2, (byte) 0x55),
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>                  hex(<span class="jxr_string">"9F DA 0E 56 AB 2D 85 E1 56 9A 68 86 96 C2 6A 6C"</span>));
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          byte[] bk32 = hex(
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>                  <span class="jxr_string">"6D 40 4D 37 FA F7 9F 9D F0 D3 35 68 D3 20 66 98\n"</span> +
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>                  <span class="jxr_string">"00 EB 48 36 47 2E A8 A0 26 D1 6B 71 82 46 0C 52"</span>);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          check(deriveKey(dk256, bk32, 2, (byte) 0x99), hex(
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>                  <span class="jxr_string">"EF 57 18 BE 86 CC 84 96 3D 8B BB 50 31 E9 F5 C4\n"</span> +
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>                  <span class="jxr_string">"BA 41 F2 8F AF 69 E7 3D"</span>));
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          check(deriveKey(dk256, bk32, 2, (byte) 0xaa), hex(
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>                  <span class="jxr_string">"56 AB 22 BE E6 3D 82 D7 BC 52 27 F6 77 3F 8E A7\n"</span> +
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>                  <span class="jxr_string">"A5 EB 1C 82 51 60 C3 83 12 98 0C 44 2E 5C 7E 49"</span>));
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          check(deriveKey(dk256, bk32, 2, (byte) 0x55), hex(
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>                  <span class="jxr_string">"69 B1 65 14 E3 CD 8E 56 B8 20 10 D5 C7 30 12 B6\n"</span> +
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>                  <span class="jxr_string">"22 C4 D0 0F FC 23 ED 1F"</span>));
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          <em class="jxr_comment">// Sample encryptions (all using the default cipher state):</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          check(enc(dk128, hex(<span class="jxr_string">"7E 58 95 EA F2 67 24 35 BA D8 17 F5 45 A3 71 48"</span>),
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>                      bk16, hex(<span class="jxr_string">""</span>)),
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>                  hex(<span class="jxr_string">"EF 85 FB 89 0B B8 47 2F 4D AB 20 39 4D CA 78 1D\n"</span> +
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>                      <span class="jxr_string">"AD 87 7E DA 39 D5 0C 87 0C 0D 5A 0A 8E 48 C7 18"</span>));
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          check(enc(dk128, hex(<span class="jxr_string">"7B CA 28 5E 2F D4 13 0F B5 5B 1A 5C 83 BC 5B 24"</span>),
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>                      bk16, hex(<span class="jxr_string">"00 01 02 03 04 05"</span>)),
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>                  hex(<span class="jxr_string">"84 D7 F3 07 54 ED 98 7B AB 0B F3 50 6B EB 09 CF\n"</span> +
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>                      <span class="jxr_string">"B5 54 02 CE F7 E6 87 7C E9 9E 24 7E 52 D1 6E D4\n"</span> +
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>                      <span class="jxr_string">"42 1D FD F8 97 6C"</span>));
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>  
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>          check(enc(dk128, hex(<span class="jxr_string">"56 AB 21 71 3F F6 2C 0A 14 57 20 0F 6F A9 94 8F"</span>),
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>                     bk16, hex(<span class="jxr_string">"00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F"</span>)),
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>                 hex(<span class="jxr_string">"35 17 D6 40 F5 0D DC 8A D3 62 87 22 B3 56 9D 2A\n"</span> +
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>                     <span class="jxr_string">"E0 74 93 FA 82 63 25 40 80 EA 65 C1 00 8E 8F C2\n"</span> +
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>                     <span class="jxr_string">"95 FB 48 52 E7 D8 3E 1E 7C 48 C3 7E EB E6 B0 D3"</span>));
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> 
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         check(enc(dk128, hex(<span class="jxr_string">"A7 A4 E2 9A 47 28 CE 10 66 4F B6 4E 49 AD 3F AC"</span>),
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>                     bk16, hex(<span class="jxr_string">"00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F\n"</span> +
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>                               <span class="jxr_string">"10 11 12 13 14"</span>)),
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>                 hex(<span class="jxr_string">"72 0F 73 B1 8D 98 59 CD 6C CB 43 46 11 5C D3 36\n"</span> +
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>                     <span class="jxr_string">"C7 0F 58 ED C0 C4 43 7C 55 73 54 4C 31 C8 13 BC\n"</span> +
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>                     <span class="jxr_string">"E1 E6 D0 72 C1 86 B3 9A 41 3C 2F 92 CA 9B 83 34\n"</span> +
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>                     <span class="jxr_string">"A2 87 FF CB FC\n"</span>));
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> 
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>         <strong class="jxr_keyword">if</strong> (aes256ok) {
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>             check(enc(dk256, hex(<span class="jxr_string">"F7 64 E9 FA 15 C2 76 47 8B 2C 7D 0C 4E 5F 58 E4"</span>),
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>                         bk32, hex(<span class="jxr_string">""</span>)),
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>                     hex(<span class="jxr_string">"41 F5 3F A5 BF E7 02 6D 91 FA F9 BE 95 91 95 A0\n"</span> +
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>                         <span class="jxr_string">"58 70 72 73 A9 6A 40 F0 A0 19 60 62 1A C6 12 74\n"</span> +
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>                         <span class="jxr_string">"8B 9B BF BE 7E B4 CE 3C\n"</span>));
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> 
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>             check(enc(dk256, hex(<span class="jxr_string">"B8 0D 32 51 C1 F6 47 14 94 25 6F FE 71 2D 0B 9A"</span>),
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>                         bk32, hex(<span class="jxr_string">"00 01 02 03 04 05"</span>)),
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>                     hex(<span class="jxr_string">"4E D7 B3 7C 2B CA C8 F7 4F 23 C1 CF 07 E6 2B C7\n"</span> +
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>                         <span class="jxr_string">"B7 5F B3 F6 37 B9 F5 59 C7 F6 64 F6 9E AB 7B 60\n"</span> +
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>                         <span class="jxr_string">"92 23 75 26 EA 0D 1F 61 CB 20 D6 9D 10 F2\n"</span>));
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> 
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>             check(enc(dk256, hex(<span class="jxr_string">"53 BF 8A 0D 10 52 65 D4 E2 76 42 86 24 CE 5E 63"</span>),
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>                         bk32, hex(<span class="jxr_string">"00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F"</span>)),
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>                     hex(<span class="jxr_string">"BC 47 FF EC 79 98 EB 91 E8 11 5C F8 D1 9D AC 4B\n"</span> +
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>                         <span class="jxr_string">"BB E2 E1 63 E8 7D D3 7F 49 BE CA 92 02 77 64 F6\n"</span> +
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>                         <span class="jxr_string">"8C F5 1F 14 D7 98 C2 27 3F 35 DF 57 4D 1F 93 2E\n"</span> +
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>                         <span class="jxr_string">"40 C4 FF 25 5B 36 A2 66\n"</span>));
+<a class="jxr_linenumber" name="L132" href="#L132">132</a> 
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>             check(enc(dk256, hex(<span class="jxr_string">"76 3E 65 36 7E 86 4F 02 F5 51 53 C7 E3 B5 8A F1"</span>),
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>                         bk32, hex(<span class="jxr_string">"00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F\n"</span> +
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>                                   <span class="jxr_string">"10 11 12 13 14"</span>)),
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>                     hex(<span class="jxr_string">"40 01 3E 2D F5 8E 87 51 95 7D 28 78 BC D2 D6 FE\n"</span> +
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>                         <span class="jxr_string">"10 1C CF D5 56 CB 1E AE 79 DB 3C 3E E8 64 29 F2\n"</span> +
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>                         <span class="jxr_string">"B2 A6 02 AC 86 FE F6 EC B6 47 D6 29 5F AE 07 7A\n"</span> +
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>                         <span class="jxr_string">"1F EB 51 75 08 D2 C1 6B 41 92 E0 1F 62\n"</span>));
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>         }
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>         <em class="jxr_comment">// Sample checksums:</em>
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> 
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>         byte[] msg = hex(
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>                 <span class="jxr_string">"00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F\n"</span> +
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>                 <span class="jxr_string">"10 11 12 13 14"</span>);
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> 
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>         check(checksum(dk128, bk16, msg), hex(
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>                 <span class="jxr_string">"D7 83 67 18 66 43 D6 7B 41 1C BA 91 39 FC 1D EE"</span>));
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> 
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>         check(checksum(dk256, bk32, msg), hex(
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>                 <span class="jxr_string">"45 EE 79 15 67 EE FC A3 7F 4A C1 E0 22 2D E8 0D\n"</span> +
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>                 <span class="jxr_string">"43 C3 BF A0 66 99 67 2A"</span>));
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> 
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>         <em class="jxr_comment">// Sample pseudorandom function (PRF) invocations:</em>
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>         <em class="jxr_comment">// Java does not support PRF. Skipped.</em>
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>     }
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> 
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> byte[] stringToKey(AesSha2DkCrypto dk,
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>             <strong class="jxr_keyword">char</strong>[] pass, byte[] salt, byte[] params) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>         Method m = AesSha2DkCrypto.<strong class="jxr_keyword">class</strong>.getDeclaredMethod(<span class="jxr_string">"stringToKey"</span>,
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>                 <strong class="jxr_keyword">char</strong>[].<strong class="jxr_keyword">class</strong>, byte[].<strong class="jxr_keyword">class</strong>, byte[].<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>         m.setAccessible(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>         <strong class="jxr_keyword">return</strong> (byte[])m.invoke(dk, pass, salt, params);
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>     }
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> 
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> byte[] deriveKey(AesSha2DkCrypto dk, byte[] baseKey,
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>             <strong class="jxr_keyword">int</strong> usage, byte type) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>         Method m = AesSha2DkCrypto.<strong class="jxr_keyword">class</strong>.getDeclaredMethod(<span class="jxr_string">"deriveKey"</span>,
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>                 byte[].<strong class="jxr_keyword">class</strong>, <strong class="jxr_keyword">int</strong>.<strong class="jxr_keyword">class</strong>, byte.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>         m.setAccessible(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>         <strong class="jxr_keyword">return</strong> (byte[]) m.invoke(dk, baseKey, usage, type);
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>     }
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> byte[] cat(byte[] b1, byte[] b2) {
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>         byte[] result = Arrays.copyOf(b1, b1.length + b2.length);
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>         System.arraycopy(b2, 0, result, b1.length, b2.length);
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>         <strong class="jxr_keyword">return</strong> result;
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>     }
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> 
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> byte[] enc(AesSha2DkCrypto dk, byte[] confounder,
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>             byte[] bk, byte[] text) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>         <strong class="jxr_keyword">return</strong> dk.encryptRaw(bk, 2, <strong class="jxr_keyword">new</strong> byte[16], cat(confounder, text),
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>                 0, confounder.length + text.length);
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>     }
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> 
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> byte[] checksum(AesSha2DkCrypto dk, byte[] baseKey, byte[] text)
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>             <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>         <strong class="jxr_keyword">return</strong> dk.calculateChecksum(baseKey, 2, text, 0, text.length);
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>     }
+<a class="jxr_linenumber" name="L191" href="#L191">191</a> 
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> byte[] hex(String <strong class="jxr_keyword">var</strong>) {
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>         <strong class="jxr_keyword">var</strong> = <strong class="jxr_keyword">var</strong>.replaceAll(<span class="jxr_string">"&#92;&#92;s"</span>, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>         <strong class="jxr_keyword">return</strong> HexFormat.of().parseHex(<strong class="jxr_keyword">var</strong>);
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>     }
+<a class="jxr_linenumber" name="L196" href="#L196">196</a> 
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> check(byte[] b1, byte[] b2) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>         <strong class="jxr_keyword">if</strong> (!Arrays.equals(b1, b2)) {
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>             dump(b1); dump(b2);
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"Failure"</span>);
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>         }
+<a class="jxr_linenumber" name="L202" href="#L202">202</a>     }
+<a class="jxr_linenumber" name="L203" href="#L203">203</a> 
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> dump(byte[] data) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L205" href="#L205">205</a>         HexPrinter.simple().dest(System.err).format(data);
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>     }
+<a class="jxr_linenumber" name="L207" href="#L207">207</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>CompletionSuggestionTest xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2015, 2020, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> * @bug 8131025 8141092 8153761 8145263 8131019 8175886 8176184 8176241 8176110 8177466 8197439 8221759 8234896 8240658</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment"> * @summary Test Completion and Documentation</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment"> * @library /tools/lib</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment"> * @modules jdk.compiler/com.sun.tools.javac.api</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment"> *          jdk.compiler/com.sun.tools.javac.main</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_comment"> *          jdk.jdeps/com.sun.tools.javap</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_comment"> *          jdk.jshell/jdk.jshell:open</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_comment"> * @build toolbox.ToolBox toolbox.JarTask toolbox.JavacTask</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_comment"> * @build KullaTesting TestingInputStream Compiler</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_comment"> * @run testng CompletionSuggestionTest</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> java.lang.reflect.Field;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Files;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Path;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Paths;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <strong class="jxr_keyword">import</strong> java.util.Collections;
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <strong class="jxr_keyword">import</strong> java.util.Set;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <strong class="jxr_keyword">import</strong> java.util.HashSet;
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <strong class="jxr_keyword">import</strong> java.util.function.BiFunction;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <strong class="jxr_keyword">import</strong> java.util.function.Function;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <strong class="jxr_keyword">import</strong> java.util.jar.JarEntry;
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <strong class="jxr_keyword">import</strong> java.util.jar.JarOutputStream;
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <strong class="jxr_keyword">import</strong> jdk.jshell.Snippet;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <strong class="jxr_keyword">import</strong> org.testng.annotations.BeforeMethod;
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <strong class="jxr_keyword">import</strong> org.testng.annotations.Test;
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> jdk.jshell.Snippet.Status.VALID;
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> jdk.jshell.Snippet.Status.OVERWRITTEN;
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  @Test
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> CompletionSuggestionTest <strong class="jxr_keyword">extends</strong> KullaTesting {
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Compiler compiler = <strong class="jxr_keyword">new</strong> Compiler();
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Path outDir = Paths.get(<span class="jxr_string">"completion_suggestion_test"</span>);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testMemberExpr() {
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          assertEval(<span class="jxr_string">"class Test { static void test() { } }"</span>);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          assertCompletion(<span class="jxr_string">"Test.t|"</span>, <span class="jxr_string">"test()"</span>);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          assertEval(<span class="jxr_string">"Test ccTestInstance = new Test();"</span>);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          assertCompletion(<span class="jxr_string">"ccTestInstance.t|"</span>, <span class="jxr_string">"toString()"</span>);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          assertCompletion(<span class="jxr_string">" ccTe|"</span>, <span class="jxr_string">"ccTestInstance"</span>);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          assertCompletion(<span class="jxr_string">"String value = ccTestInstance.to|"</span>, <span class="jxr_string">"toString()"</span>);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          assertCompletion(<span class="jxr_string">"java.util.Coll|"</span>, <span class="jxr_string">"Collection"</span>, <span class="jxr_string">"Collections"</span>);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          assertCompletion(<span class="jxr_string">"String.cla|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          assertCompletion(<span class="jxr_string">"boolean.cla|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          assertCompletion(<span class="jxr_string">"byte.cla|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          assertCompletion(<span class="jxr_string">"short.cla|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          assertCompletion(<span class="jxr_string">"char.cla|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          assertCompletion(<span class="jxr_string">"int.cla|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          assertCompletion(<span class="jxr_string">"float.cla|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          assertCompletion(<span class="jxr_string">"long.cla|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          assertCompletion(<span class="jxr_string">"double.cla|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          assertCompletion(<span class="jxr_string">"void.cla|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          assertCompletion(<span class="jxr_string">"Object[].|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          assertCompletion(<span class="jxr_string">"int[].|"</span>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          assertEval(<span class="jxr_string">"Object[] ao = null;"</span>);
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          assertCompletion(<span class="jxr_string">"int i = ao.|"</span>, <span class="jxr_string">"length"</span>);
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          assertEval(<span class="jxr_string">"int[] ai = null;"</span>);
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          assertCompletion(<span class="jxr_string">"int i = ai.|"</span>, <span class="jxr_string">"length"</span>);
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          assertCompletionIncludesExcludes(<span class="jxr_string">"\&quot;\&quot;.|"</span>,
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>                  <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.emptyList()),
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>                  <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"String("</span>)));
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          assertEval(<span class="jxr_string">"double d = 0;"</span>);
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          assertEval(<span class="jxr_string">"void m() {}"</span>);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          assertCompletionIncludesExcludes(<span class="jxr_string">"d.|"</span>,
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>                  <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.emptyList()),
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>                  <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"class"</span>)));
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          assertCompletionIncludesExcludes(<span class="jxr_string">"m().|"</span>,
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>                  <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.emptyList()),
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>                  <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"class"</span>)));
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         assertEval(<span class="jxr_string">"class C {class D {} static class E {} enum F {} interface H {} void method() {} int number;}"</span>);
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"C.|"</span>,
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"D"</span>, <span class="jxr_string">"E"</span>, <span class="jxr_string">"F"</span>, <span class="jxr_string">"H"</span>, <span class="jxr_string">"class"</span>)),
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"method()"</span>, <span class="jxr_string">"number"</span>)));
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"new C().|"</span>,
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"method()"</span>, <span class="jxr_string">"number"</span>)),
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"D"</span>, <span class="jxr_string">"E"</span>, <span class="jxr_string">"F"</span>, <span class="jxr_string">"H"</span>, <span class="jxr_string">"class"</span>)));
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"new C() {}.|"</span>,
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"method()"</span>, <span class="jxr_string">"number"</span>)),
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"D"</span>, <span class="jxr_string">"E"</span>, <span class="jxr_string">"F"</span>, <span class="jxr_string">"H"</span>, <span class="jxr_string">"class"</span>)));
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>         assertCompletion(<span class="jxr_string">"\&quot;\&quot;.leng|"</span>, <span class="jxr_string">"length()"</span>);
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         assertCompletion(<span class="jxr_string">"\&quot;\&quot;\&quot;\n\&quot;\&quot;\&quot;.leng|"</span>, <span class="jxr_string">"length()"</span>);
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>     }
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> 
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testStartOfExpression() {
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         assertEval(<span class="jxr_string">"int ccTest = 0;"</span>);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         assertCompletion(<span class="jxr_string">"System.err.println(cc|"</span>, <span class="jxr_string">"ccTest"</span>);
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>         assertCompletion(<span class="jxr_string">"for (int i = cc|"</span>, <span class="jxr_string">"ccTest"</span>);
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>     }
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> 
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testParameter() {
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>         assertCompletion(<span class="jxr_string">"class C{void method(int num){num|"</span>, <span class="jxr_string">"num"</span>);
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>     }
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPrimitive() {
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>         Set&lt;String&gt; primitives = <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"boolean"</span>, <span class="jxr_string">"char"</span>, <span class="jxr_string">"byte"</span>, <span class="jxr_string">"short"</span>, <span class="jxr_string">"int"</span>, <span class="jxr_string">"long"</span>, <span class="jxr_string">"float"</span>, <span class="jxr_string">"double"</span>));
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>         Set&lt;String&gt; onlyVoid = <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.singletonList(<span class="jxr_string">"void"</span>));
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>         Set&lt;String&gt; primitivesOrVoid = <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(primitives);
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>         primitivesOrVoid.addAll(onlyVoid);
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> 
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"|"</span>,
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>                 primitivesOrVoid,
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.emptyList()));
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"int num = |"</span>,
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>                 primitivesOrVoid,
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.emptyList()));
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"num = |"</span>,
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>                 primitivesOrVoid,
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.emptyList()));
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"class C{void m() {|"</span>,
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>                 primitivesOrVoid,
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.emptyList()));
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"void method(|"</span>,
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>                 primitives,
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>                 onlyVoid);
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"void method(int num, |"</span>,
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>                 primitives,
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>                 onlyVoid);
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>         assertCompletion(<span class="jxr_string">"new java.util.ArrayList&lt;doub|"</span>);
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>         assertCompletion(<span class="jxr_string">"class A extends doubl|"</span>);
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>         assertCompletion(<span class="jxr_string">"class A implements doubl|"</span>);
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>         assertCompletion(<span class="jxr_string">"interface A extends doubl|"</span>);
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>         assertCompletion(<span class="jxr_string">"enum A implements doubl|"</span>);
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>         assertCompletion(<span class="jxr_string">"class A&lt;T extends doubl|"</span>);
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>     }
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEmpty() {
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"|"</span>,
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"Object"</span>, <span class="jxr_string">"Void"</span>)),
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"$REPL00DOESNOTMATTER"</span>)));
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"V|"</span>,
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.singletonList(<span class="jxr_string">"Void"</span>)),
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.singletonList(<span class="jxr_string">"Object"</span>)));
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"{ |"</span>,
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"Object"</span>, <span class="jxr_string">"Void"</span>)),
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"$REPL00DOESNOTMATTER"</span>)));
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>     }
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> 
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSmartCompletion() {
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>         assertEval(<span class="jxr_string">"int ccTest1 = 0;"</span>);
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>         assertEval(<span class="jxr_string">"int ccTest2 = 0;"</span>);
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>         assertEval(<span class="jxr_string">"String ccTest3 = null;"</span>);
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>         assertEval(<span class="jxr_string">"void method(int i, String str) { }"</span>);
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>         assertEval(<span class="jxr_string">"void method(String str, int i) { }"</span>);
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>         assertEval(<span class="jxr_string">"java.util.List&lt;String&gt; list = null;"</span>);
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>         assertCompletion(<span class="jxr_string">"int ccTest4 = |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>);
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>         assertCompletion(<span class="jxr_string">"ccTest2 = |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>);
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>         assertCompletion(<span class="jxr_string">"int ccTest4 = ccTe|"</span>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>, <span class="jxr_string">"ccTest3"</span>);
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>         assertCompletion(<span class="jxr_string">"int ccTest4 = ccTest3.len|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"length()"</span>);
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>         assertCompletion(<span class="jxr_string">"method(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>, <span class="jxr_string">"ccTest3"</span>);
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>         assertCompletion(<span class="jxr_string">"method(0, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest3"</span>);
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>         assertCompletion(<span class="jxr_string">"list.add(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>, <span class="jxr_string">"ccTest3"</span>);
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>         assertCompletion(<span class="jxr_string">"list.add(0, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest3"</span>);
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>         assertCompletion(<span class="jxr_string">"new String(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest3"</span>);
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>         assertCompletion(<span class="jxr_string">"new String(new char[0], |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>);
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"new jav|"</span>, <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"java."</span>, <span class="jxr_string">"javax."</span>)), Collections.emptySet());
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>         assertCompletion(<span class="jxr_string">"Class&lt;String&gt; clazz = String.c|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"class"</span>);
+<a class="jxr_linenumber" name="L187" href="#L187">187</a> 
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>         Snippet klass = classKey(assertEval(<span class="jxr_string">"class Klass {void method(int n) {} private void method(String str) {}}"</span>));
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>         assertCompletion(<span class="jxr_string">"new Klass().method(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>);
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>         Snippet klass2 = classKey(assertEval(<span class="jxr_string">"class Klass {static void method(int n) {} void method(String str) {}}"</span>,
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>                 ste(MAIN_SNIPPET, VALID, VALID, <strong class="jxr_keyword">true</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>                 ste(klass, VALID, OVERWRITTEN, false, MAIN_SNIPPET)));
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>         assertCompletion(<span class="jxr_string">"Klass.method(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>);
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>         assertEval(<span class="jxr_string">"class Klass {Klass(int n) {} private Klass(String str) {}}"</span>,
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>                 ste(MAIN_SNIPPET, VALID, VALID, <strong class="jxr_keyword">true</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>                 ste(klass2, VALID, OVERWRITTEN, false, MAIN_SNIPPET));
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>         assertCompletion(<span class="jxr_string">"new Klass(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>);
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>     }
+<a class="jxr_linenumber" name="L199" href="#L199">199</a> 
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSmartCompletionInOverriddenMethodInvocation() {
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>         assertEval(<span class="jxr_string">"int ccTest1 = 0;"</span>);
+<a class="jxr_linenumber" name="L202" href="#L202">202</a>         assertEval(<span class="jxr_string">"int ccTest2 = 0;"</span>);
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>         assertEval(<span class="jxr_string">"String ccTest3 = null;"</span>);
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>         assertCompletion(<span class="jxr_string">"\&quot;\&quot;.wait(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>);
+<a class="jxr_linenumber" name="L205" href="#L205">205</a>         assertEval(<span class="jxr_string">"class Base {void method(int n) {}}"</span>);
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>         assertEval(<span class="jxr_string">"class Extend extends Base {}"</span>);
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>         assertCompletion(<span class="jxr_string">"new Extend().method(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>);
+<a class="jxr_linenumber" name="L208" href="#L208">208</a>     }
+<a class="jxr_linenumber" name="L209" href="#L209">209</a> 
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSmartCompletionForBoxedType() {
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>         assertEval(<span class="jxr_string">"int ccTest1 = 0;"</span>);
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>         assertEval(<span class="jxr_string">"Integer ccTest2 = 0;"</span>);
+<a class="jxr_linenumber" name="L213" href="#L213">213</a>         assertEval(<span class="jxr_string">"Object ccTest3 = null;"</span>);
+<a class="jxr_linenumber" name="L214" href="#L214">214</a>         assertEval(<span class="jxr_string">"int method1(int n) {return n;}"</span>);
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>         assertEval(<span class="jxr_string">"Integer method2(Integer n) {return n;}"</span>);
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>         assertEval(<span class="jxr_string">"Object method3(Object o) {return o;}"</span>);
+<a class="jxr_linenumber" name="L217" href="#L217">217</a>         assertCompletion(<span class="jxr_string">"int ccTest4 = |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>, <span class="jxr_string">"method1("</span>, <span class="jxr_string">"method2("</span>);
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>         assertCompletion(<span class="jxr_string">"Integer ccTest4 = |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>, <span class="jxr_string">"method1("</span>, <span class="jxr_string">"method2("</span>);
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>         assertCompletion(<span class="jxr_string">"Object ccTest4 = |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>, <span class="jxr_string">"ccTest3"</span>, <span class="jxr_string">"method1("</span>, <span class="jxr_string">"method2("</span>, <span class="jxr_string">"method3("</span>);
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>         assertCompletion(<span class="jxr_string">"method1(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>, <span class="jxr_string">"method1("</span>, <span class="jxr_string">"method2("</span>);
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>         assertCompletion(<span class="jxr_string">"method2(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>, <span class="jxr_string">"method1("</span>, <span class="jxr_string">"method2("</span>);
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>         assertCompletion(<span class="jxr_string">"method3(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"ccTest1"</span>, <span class="jxr_string">"ccTest2"</span>, <span class="jxr_string">"ccTest3"</span>, <span class="jxr_string">"method1("</span>, <span class="jxr_string">"method2("</span>, <span class="jxr_string">"method3("</span>);
+<a class="jxr_linenumber" name="L223" href="#L223">223</a>     }
+<a class="jxr_linenumber" name="L224" href="#L224">224</a> 
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testNewClass() {
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>         assertCompletion(<span class="jxr_string">"String str = new Strin|"</span>, <span class="jxr_string">"String("</span>, <span class="jxr_string">"StringBuffer("</span>, <span class="jxr_string">"StringBuilder("</span>, <span class="jxr_string">"StringIndexOutOfBoundsException("</span>);
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>         assertCompletion(<span class="jxr_string">"String str = new java.lang.Strin|"</span>, <span class="jxr_string">"String("</span>, <span class="jxr_string">"StringBuffer("</span>, <span class="jxr_string">"StringBuilder("</span>, <span class="jxr_string">"StringIndexOutOfBoundsException("</span>);
+<a class="jxr_linenumber" name="L228" href="#L228">228</a>         assertCompletion(<span class="jxr_string">"String str = new |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"String("</span>);
+<a class="jxr_linenumber" name="L229" href="#L229">229</a>         assertCompletion(<span class="jxr_string">"String str = new java.lang.|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"String("</span>);
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>         assertCompletion(<span class="jxr_string">"throw new Strin|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"StringIndexOutOfBoundsException("</span>);
+<a class="jxr_linenumber" name="L231" href="#L231">231</a> 
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>         assertEval(<span class="jxr_string">"class A{class B{} class C {C(int n) {}} static class D {} interface I {}}"</span>);
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>         assertEval(<span class="jxr_string">"A a;"</span>);
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>         assertCompletion(<span class="jxr_string">"new A().new |"</span>, <span class="jxr_string">"B()"</span>, <span class="jxr_string">"C("</span>);
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>         assertCompletion(<span class="jxr_string">"a.new |"</span>, <span class="jxr_string">"B()"</span>, <span class="jxr_string">"C("</span>);
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>         assertCompletion(<span class="jxr_string">"new A.|"</span>, <span class="jxr_string">"D()"</span>);
+<a class="jxr_linenumber" name="L237" href="#L237">237</a> 
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>         assertEval(<span class="jxr_string">"enum E{; class A {}}"</span>);
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>         assertEval(<span class="jxr_string">"interface I{; class A {}}"</span>);
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>         assertCompletion(<span class="jxr_string">"new E.|"</span>, <span class="jxr_string">"A()"</span>);
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>         assertCompletion(<span class="jxr_string">"new I.|"</span>, <span class="jxr_string">"A()"</span>);
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>         assertCompletion(<span class="jxr_string">"new String(I.A|"</span>, <span class="jxr_string">"A"</span>);
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>     }
+<a class="jxr_linenumber" name="L244" href="#L244">244</a> 
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testFullyQualified() {
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>         assertCompletion(<span class="jxr_string">"Optional&lt;String&gt; opt = java.u|"</span>, <span class="jxr_string">"util."</span>);
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"Optional&lt;Strings&gt; opt = java.util.O|"</span>, <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.singletonList(<span class="jxr_string">"Optional"</span>)), Collections.emptySet());
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> 
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>         assertEval(<span class="jxr_string">"void method(java.util.Optional&lt;String&gt; opt) {}"</span>);
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>         assertCompletion(<span class="jxr_string">"method(java.u|"</span>, <span class="jxr_string">"util."</span>);
+<a class="jxr_linenumber" name="L251" href="#L251">251</a> 
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>         assertCompletion(<span class="jxr_string">"Object.notElement.|"</span>);
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>         assertCompletion(<span class="jxr_string">"Object o = com.su|"</span>, <span class="jxr_string">"sun."</span>);
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> 
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>         Path p1 = outDir.resolve(<span class="jxr_string">"dir1"</span>);
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>         compiler.compile(p1,
+<a class="jxr_linenumber" name="L257" href="#L257">257</a>                 <span class="jxr_string">"package p1.p2;\n"</span> +
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>                 <span class="jxr_string">"public class Test {\n"</span> +
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>                 <span class="jxr_string">"}"</span>,
+<a class="jxr_linenumber" name="L260" href="#L260">260</a>                 <span class="jxr_string">"package p1.p3;\n"</span> +
+<a class="jxr_linenumber" name="L261" href="#L261">261</a>                 <span class="jxr_string">"public class Test {\n"</span> +
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>                 <span class="jxr_string">"}"</span>);
+<a class="jxr_linenumber" name="L263" href="#L263">263</a>         String jarName = <span class="jxr_string">"test.jar"</span>;
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>         compiler.jar(p1, jarName, <span class="jxr_string">"p1/p2/Test.class"</span>, <span class="jxr_string">"p1/p3/Test.class"</span>);
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>         addToClasspath(compiler.getPath(p1.resolve(jarName)));
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> 
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"|"</span>, <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.singletonList(<span class="jxr_string">"p1."</span>)), Collections.emptySet());
+<a class="jxr_linenumber" name="L268" href="#L268">268</a>         assertCompletion(<span class="jxr_string">"p1.|"</span>, <span class="jxr_string">"p2."</span>, <span class="jxr_string">"p3."</span>);
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>         assertCompletion(<span class="jxr_string">"p1.p2.|"</span>, <span class="jxr_string">"Test"</span>);
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>         assertCompletion(<span class="jxr_string">"p1.p3.|"</span>, <span class="jxr_string">"Test"</span>);
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>     }
+<a class="jxr_linenumber" name="L272" href="#L272">272</a> 
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCheckAccessibility() {
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>         assertCompletion(<span class="jxr_string">"java.util.regex.Pattern.co|"</span>, <span class="jxr_string">"compile("</span>);
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>     }
+<a class="jxr_linenumber" name="L276" href="#L276">276</a> 
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCompletePackages() {
+<a class="jxr_linenumber" name="L278" href="#L278">278</a>         assertCompletion(<span class="jxr_string">"java.u|"</span>, <span class="jxr_string">"util."</span>);
+<a class="jxr_linenumber" name="L279" href="#L279">279</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"jav|"</span>, <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"java."</span>, <span class="jxr_string">"javax."</span>)), Collections.emptySet());
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>     }
+<a class="jxr_linenumber" name="L281" href="#L281">281</a> 
+<a class="jxr_linenumber" name="L282" href="#L282">282</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testImports() {
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>         assertCompletion(<span class="jxr_string">"import java.u|"</span>, <span class="jxr_string">"util."</span>);
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"import jav|"</span>, <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"java."</span>, <span class="jxr_string">"javax."</span>)), Collections.emptySet());
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>         assertCompletion(<span class="jxr_string">"import static java.u|"</span>, <span class="jxr_string">"util."</span>);
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"import static jav|"</span>, <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"java."</span>, <span class="jxr_string">"javax."</span>)), Collections.emptySet());
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>         assertCompletion(<span class="jxr_string">"import static java.lang.Boolean.g|"</span>, <span class="jxr_string">"getBoolean"</span>);
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>         assertCompletion(<span class="jxr_string">"import java.util.*|"</span>);
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"import java.lang.String.|"</span>,
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>                 Collections.emptySet(),
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"CASE_INSENSITIVE_ORDER"</span>, <span class="jxr_string">"copyValueOf"</span>, <span class="jxr_string">"format"</span>, <span class="jxr_string">"join"</span>, <span class="jxr_string">"valueOf"</span>, <span class="jxr_string">"class"</span>, <span class="jxr_string">"length"</span>)));
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"import static java.lang.String.|"</span>,
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"CASE_INSENSITIVE_ORDER"</span>, <span class="jxr_string">"copyValueOf"</span>, <span class="jxr_string">"format"</span>, <span class="jxr_string">"join"</span>, <span class="jxr_string">"valueOf"</span>)),
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"class"</span>, <span class="jxr_string">"length"</span>)));
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"import java.util.Map.|"</span>,
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"Entry"</span>)),
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>                 <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Arrays.asList(<span class="jxr_string">"class"</span>)));
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>     }
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> 
+<a class="jxr_linenumber" name="L300" href="#L300">300</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testImportStart() {
+<a class="jxr_linenumber" name="L301" href="#L301">301</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"import c|"</span>, Set.of(<span class="jxr_string">"com."</span>), Set.of());
+<a class="jxr_linenumber" name="L302" href="#L302">302</a>     }
+<a class="jxr_linenumber" name="L303" href="#L303">303</a> 
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBrokenClassFile() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>         Compiler compiler = <strong class="jxr_keyword">new</strong> Compiler();
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>         Path testOutDir = Paths.get(<span class="jxr_string">"CompletionTestBrokenClassFile"</span>);
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>         String input = <span class="jxr_string">"package test.inner; public class Test {}"</span>;
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>         compiler.compile(testOutDir, input);
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>         addToClasspath(compiler.getPath(testOutDir).resolve(<span class="jxr_string">"test"</span>));
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>         assertCompletion(<span class="jxr_string">"import inner.|"</span>);
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>     }
+<a class="jxr_linenumber" name="L312" href="#L312">312</a> 
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDocumentation() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>         dontReadParameterNamesFromClassFile();
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>         assertSignature(<span class="jxr_string">"System.getProperty(|"</span>,
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>                 <span class="jxr_string">"String System.getProperty(String key)"</span>,
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>                 <span class="jxr_string">"String System.getProperty(String key, String def)"</span>);
+<a class="jxr_linenumber" name="L318" href="#L318">318</a>         assertEval(<span class="jxr_string">"char[] chars = null;"</span>);
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>         assertSignature(<span class="jxr_string">"new String(chars, |"</span>,
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>                 <span class="jxr_string">"String(char[], int, int)"</span>);
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>         assertSignature(<span class="jxr_string">"String.format(|"</span>,
+<a class="jxr_linenumber" name="L322" href="#L322">322</a>                 <span class="jxr_string">"String String.format(String, Object...)"</span>,
+<a class="jxr_linenumber" name="L323" href="#L323">323</a>                 <span class="jxr_string">"String String.format(java.util.Locale, String, Object...)"</span>);
+<a class="jxr_linenumber" name="L324" href="#L324">324</a>         assertSignature(<span class="jxr_string">"\&quot;\&quot;.getBytes(\&quot;\&quot;|"</span>, <span class="jxr_string">"void String.getBytes(int, int, byte[], int)"</span>,
+<a class="jxr_linenumber" name="L325" href="#L325">325</a>                                                     <span class="jxr_string">"byte[] String.getBytes(String) throws java.io.UnsupportedEncodingException"</span>,
+<a class="jxr_linenumber" name="L326" href="#L326">326</a>                                                     <span class="jxr_string">"byte[] String.getBytes(java.nio.charset.Charset)"</span>);
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>         assertSignature(<span class="jxr_string">"\&quot;\&quot;.getBytes(\&quot;\&quot; |"</span>, <span class="jxr_string">"void String.getBytes(int, int, byte[], int)"</span>,
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>                                                      <span class="jxr_string">"byte[] String.getBytes(String) throws java.io.UnsupportedEncodingException"</span>,
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>                                                      <span class="jxr_string">"byte[] String.getBytes(java.nio.charset.Charset)"</span>);
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>         <em class="jxr_comment">//JDK-8221759:</em>
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>         Compiler compiler = <strong class="jxr_keyword">new</strong> Compiler();
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>         Path testOutDir = Paths.get(<span class="jxr_string">"WithPrivateField"</span>);
+<a class="jxr_linenumber" name="L333" href="#L333">333</a>         String input = <span class="jxr_string">"package field; public class FieldTest { private static String field; private static String field2; }"</span>;
+<a class="jxr_linenumber" name="L334" href="#L334">334</a>         compiler.compile(testOutDir, input);
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>         addToClasspath(compiler.getPath(testOutDir));
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>         assertSignature(<span class="jxr_string">"field.FieldTest.field|"</span>);
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>         assertSignature(<span class="jxr_string">"field.FieldTest.field2|"</span>);
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>     }
+<a class="jxr_linenumber" name="L339" href="#L339">339</a> 
+<a class="jxr_linenumber" name="L340" href="#L340">340</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testMethodsWithNoArguments() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L341" href="#L341">341</a>         dontReadParameterNamesFromClassFile();
+<a class="jxr_linenumber" name="L342" href="#L342">342</a>         assertSignature(<span class="jxr_string">"System.out.println(|"</span>,
+<a class="jxr_linenumber" name="L343" href="#L343">343</a>                 <span class="jxr_string">"void java.io.PrintStream.println()"</span>,
+<a class="jxr_linenumber" name="L344" href="#L344">344</a>                 <span class="jxr_string">"void java.io.PrintStream.println(boolean)"</span>,
+<a class="jxr_linenumber" name="L345" href="#L345">345</a>                 <span class="jxr_string">"void java.io.PrintStream.println(char)"</span>,
+<a class="jxr_linenumber" name="L346" href="#L346">346</a>                 <span class="jxr_string">"void java.io.PrintStream.println(int)"</span>,
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>                 <span class="jxr_string">"void java.io.PrintStream.println(long)"</span>,
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>                 <span class="jxr_string">"void java.io.PrintStream.println(float)"</span>,
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>                 <span class="jxr_string">"void java.io.PrintStream.println(double)"</span>,
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>                 <span class="jxr_string">"void java.io.PrintStream.println(char[])"</span>,
+<a class="jxr_linenumber" name="L351" href="#L351">351</a>                 <span class="jxr_string">"void java.io.PrintStream.println(String)"</span>,
+<a class="jxr_linenumber" name="L352" href="#L352">352</a>                 <span class="jxr_string">"void java.io.PrintStream.println(Object)"</span>);
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>     }
+<a class="jxr_linenumber" name="L354" href="#L354">354</a> 
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testErroneous() {
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>         assertCompletion(<span class="jxr_string">"Undefined.|"</span>);
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>         assertSignature(<span class="jxr_string">"does.not.exist|"</span>);
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>     }
+<a class="jxr_linenumber" name="L359" href="#L359">359</a> 
+<a class="jxr_linenumber" name="L360" href="#L360">360</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testClinit() {
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>         assertEval(<span class="jxr_string">"enum E{;}"</span>);
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>         assertEval(<span class="jxr_string">"class C{static{}}"</span>);
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"E.|"</span>, Collections.emptySet(), <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.singletonList(<span class="jxr_string">"&lt;clinit&gt;"</span>)));
+<a class="jxr_linenumber" name="L364" href="#L364">364</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"C.|"</span>, Collections.emptySet(), <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(Collections.singletonList(<span class="jxr_string">"&lt;clinit&gt;"</span>)));
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>     }
+<a class="jxr_linenumber" name="L366" href="#L366">366</a> 
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testMethodHeaderContext() {
+<a class="jxr_linenumber" name="L368" href="#L368">368</a>         assertCompletion(<span class="jxr_string">"private void f(Runn|"</span>, <span class="jxr_string">"Runnable"</span>);
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>         assertCompletion(<span class="jxr_string">"void f(Runn|"</span>, <span class="jxr_string">"Runnable"</span>);
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>         assertCompletion(<span class="jxr_string">"void f(Object o1, Runn|"</span>, <span class="jxr_string">"Runnable"</span>);
+<a class="jxr_linenumber" name="L371" href="#L371">371</a>         assertCompletion(<span class="jxr_string">"void f(Object o1) throws Num|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"NumberFormatException"</span>);
+<a class="jxr_linenumber" name="L372" href="#L372">372</a>         assertCompletion(<span class="jxr_string">"void f(Object o1) throws java.lang.Num|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"NumberFormatException"</span>);
+<a class="jxr_linenumber" name="L373" href="#L373">373</a>         assertEval(<span class="jxr_string">"class HogeHoge {static class HogeHogeException extends Exception {}}"</span>);
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>         assertCompletion(<span class="jxr_string">"void f(Object o1) throws Hoge|"</span>, <span class="jxr_string">"HogeHoge"</span>);
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>         assertCompletion(<span class="jxr_string">"void f(Object o1) throws HogeHoge.|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"HogeHogeException"</span>);
+<a class="jxr_linenumber" name="L376" href="#L376">376</a>     }
+<a class="jxr_linenumber" name="L377" href="#L377">377</a> 
+<a class="jxr_linenumber" name="L378" href="#L378">378</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testTypeVariables() {
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>         assertCompletion(<span class="jxr_string">"class A&lt;TYPE&gt; { public void test() { TY|"</span>, <span class="jxr_string">"TYPE"</span>);
+<a class="jxr_linenumber" name="L380" href="#L380">380</a>         assertCompletion(<span class="jxr_string">"class A&lt;TYPE&gt; { public static void test() { TY|"</span>);
+<a class="jxr_linenumber" name="L381" href="#L381">381</a>         assertCompletion(<span class="jxr_string">"class A&lt;TYPE&gt; { public &lt;TYPE&gt; void test() { TY|"</span>, <span class="jxr_string">"TYPE"</span>);
+<a class="jxr_linenumber" name="L382" href="#L382">382</a>         assertCompletion(<span class="jxr_string">"class A&lt;TYPE&gt; { public static &lt;TYPE&gt; void test() { TY|"</span>, <span class="jxr_string">"TYPE"</span>);
+<a class="jxr_linenumber" name="L383" href="#L383">383</a>     }
+<a class="jxr_linenumber" name="L384" href="#L384">384</a> 
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGeneric() {
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>         assertEval(<span class="jxr_string">"import java.util.concurrent.*;"</span>);
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>         assertCompletion(<span class="jxr_string">"java.util.List&lt;Integ|"</span>, <span class="jxr_string">"Integer"</span>);
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>         assertCompletion(<span class="jxr_string">"class A&lt;TYPE extends Call|"</span>, <span class="jxr_string">"Callable"</span>);
+<a class="jxr_linenumber" name="L389" href="#L389">389</a>         assertCompletion(<span class="jxr_string">"class A&lt;TYPE extends Callable&lt;TY|"</span>, <span class="jxr_string">"TYPE"</span>);
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>         assertCompletion(<span class="jxr_string">"&lt;TYPE&gt; void f(TY|"</span>, <span class="jxr_string">"TYPE"</span>);
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>         assertCompletion(<span class="jxr_string">"class A&lt;TYPE extends Callable&lt;? sup|"</span>, <span class="jxr_string">"super"</span>);
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>         assertCompletion(<span class="jxr_string">"class A&lt;TYPE extends Callable&lt;? super TY|"</span>, <span class="jxr_string">"TYPE"</span>);
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>     }
+<a class="jxr_linenumber" name="L394" href="#L394">394</a> 
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testFields() {
+<a class="jxr_linenumber" name="L396" href="#L396">396</a>         assertEval(<span class="jxr_string">"interface Interface { int field = 0; }"</span>);
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>         Snippet clazz = classKey(assertEval(<span class="jxr_string">"class Clazz {"</span> +
+<a class="jxr_linenumber" name="L398" href="#L398">398</a>                 <span class="jxr_string">"static int staticField = 0;"</span> +
+<a class="jxr_linenumber" name="L399" href="#L399">399</a>                 <span class="jxr_string">"int field = 0;"</span> +
+<a class="jxr_linenumber" name="L400" href="#L400">400</a>                 <span class="jxr_string">" }"</span>));
+<a class="jxr_linenumber" name="L401" href="#L401">401</a>         assertCompletion(<span class="jxr_string">"Interface.fiel|"</span>, <span class="jxr_string">"field"</span>);
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>         assertCompletion(<span class="jxr_string">"Clazz.staticFiel|"</span>, <span class="jxr_string">"staticField"</span>);
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>         assertCompletion(<span class="jxr_string">"new Interface() {}.fiel|"</span>);
+<a class="jxr_linenumber" name="L404" href="#L404">404</a>         assertCompletion(<span class="jxr_string">"new Clazz().staticFiel|"</span>);
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>         assertCompletion(<span class="jxr_string">"new Clazz().fiel|"</span>, <span class="jxr_string">"field"</span>);
+<a class="jxr_linenumber" name="L406" href="#L406">406</a>         assertCompletion(<span class="jxr_string">"new Clazz() {}.fiel|"</span>, <span class="jxr_string">"field"</span>);
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>         assertEval(<span class="jxr_string">"class Clazz implements Interface {}"</span>,
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>                 ste(MAIN_SNIPPET, VALID, VALID, <strong class="jxr_keyword">true</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>                 ste(clazz, VALID, OVERWRITTEN, false, MAIN_SNIPPET));
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>         assertCompletion(<span class="jxr_string">"Clazz.fiel|"</span>, <span class="jxr_string">"field"</span>);
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>         assertCompletion(<span class="jxr_string">"new Clazz().fiel|"</span>);
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>         assertCompletion(<span class="jxr_string">"new Clazz() {}.fiel|"</span>);
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>     }
+<a class="jxr_linenumber" name="L414" href="#L414">414</a> 
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testMethods() {
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>         assertEval(<span class="jxr_string">"interface Interface {"</span> +
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>                 <span class="jxr_string">"default int defaultMethod() { return 0; }"</span> +
+<a class="jxr_linenumber" name="L418" href="#L418">418</a>                 <span class="jxr_string">"static int staticMethod() { return 0; }"</span> +
+<a class="jxr_linenumber" name="L419" href="#L419">419</a>                 <span class="jxr_string">"}"</span>);
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>         Snippet clazz = classKey(assertEval(<span class="jxr_string">"class Clazz {"</span> +
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>                 <span class="jxr_string">"static int staticMethod() { return 0; }"</span> +
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>                 <span class="jxr_string">"int method() { return 0; }"</span> +
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>                 <span class="jxr_string">"}"</span>));
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>         assertCompletion(<span class="jxr_string">"Interface.staticMeth|"</span>, <span class="jxr_string">"staticMethod()"</span>);
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>         assertCompletion(<span class="jxr_string">"Clazz.staticMeth|"</span>, <span class="jxr_string">"staticMethod()"</span>);
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>         assertCompletion(<span class="jxr_string">"new Interface() {}.defaultMe||"</span>, <span class="jxr_string">"defaultMethod()"</span>);
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>         assertCompletion(<span class="jxr_string">"new Clazz().staticMeth|"</span>);
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>         assertCompletion(<span class="jxr_string">"new Clazz().meth|"</span>, <span class="jxr_string">"method()"</span>);
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>         assertEval(<span class="jxr_string">"class Clazz implements Interface {}"</span>,
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>                 ste(MAIN_SNIPPET, VALID, VALID, <strong class="jxr_keyword">true</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>                 ste(clazz, VALID, OVERWRITTEN, false, MAIN_SNIPPET));
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>         assertCompletion(<span class="jxr_string">"Clazz.staticMeth|"</span>);
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>         assertCompletion(<span class="jxr_string">"new Clazz() {}.defaultM|"</span>, <span class="jxr_string">"defaultMethod()"</span>);
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>     }
+<a class="jxr_linenumber" name="L435" href="#L435">435</a> 
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>     @Test
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testUncompletedDeclaration() {
+<a class="jxr_linenumber" name="L438" href="#L438">438</a>         assertCompletion(<span class="jxr_string">"class Clazz { Claz|"</span>, <span class="jxr_string">"Clazz"</span>);
+<a class="jxr_linenumber" name="L439" href="#L439">439</a>         assertCompletion(<span class="jxr_string">"class Clazz { class A extends Claz|"</span>, <span class="jxr_string">"Clazz"</span>);
+<a class="jxr_linenumber" name="L440" href="#L440">440</a>         assertCompletion(<span class="jxr_string">"class Clazz { Clazz clazz; Object o = claz|"</span>, <span class="jxr_string">"clazz"</span>);
+<a class="jxr_linenumber" name="L441" href="#L441">441</a>         assertCompletion(<span class="jxr_string">"class Clazz { static Clazz clazz; Object o = claz|"</span>, <span class="jxr_string">"clazz"</span>);
+<a class="jxr_linenumber" name="L442" href="#L442">442</a>         assertCompletion(<span class="jxr_string">"class Clazz { Clazz clazz; static Object o = claz|"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L443" href="#L443">443</a>         assertCompletion(<span class="jxr_string">"class Clazz { void method(Claz|"</span>, <span class="jxr_string">"Clazz"</span>);
+<a class="jxr_linenumber" name="L444" href="#L444">444</a>         assertCompletion(<span class="jxr_string">"class A { int method() { return 0; } int a = meth|"</span>, <span class="jxr_string">"method()"</span>);
+<a class="jxr_linenumber" name="L445" href="#L445">445</a>         assertCompletion(<span class="jxr_string">"class A { int field = 0; int method() { return fiel|"</span>, <span class="jxr_string">"field"</span>);
+<a class="jxr_linenumber" name="L446" href="#L446">446</a>         assertCompletion(<span class="jxr_string">"class A { static int method() { return 0; } int a = meth|"</span>, <span class="jxr_string">"method()"</span>);
+<a class="jxr_linenumber" name="L447" href="#L447">447</a>         assertCompletion(<span class="jxr_string">"class A { static int field = 0; int method() { return fiel|"</span>, <span class="jxr_string">"field"</span>);
+<a class="jxr_linenumber" name="L448" href="#L448">448</a>         assertCompletion(<span class="jxr_string">"class A { int method() { return 0; } static int a = meth|"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L449" href="#L449">449</a>         assertCompletion(<span class="jxr_string">"class A { int field = 0; static int method() { return fiel|"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L450" href="#L450">450</a>     }
+<a class="jxr_linenumber" name="L451" href="#L451">451</a> 
+<a class="jxr_linenumber" name="L452" href="#L452">452</a>     @Test
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testClassDeclaration() {
+<a class="jxr_linenumber" name="L454" href="#L454">454</a>         assertEval(<span class="jxr_string">"void ClazzM() {}"</span>);
+<a class="jxr_linenumber" name="L455" href="#L455">455</a>         assertEval(<span class="jxr_string">"void InterfaceM() {}"</span>);
+<a class="jxr_linenumber" name="L456" href="#L456">456</a>         assertEval(<span class="jxr_string">"interface Interface {}"</span>);
+<a class="jxr_linenumber" name="L457" href="#L457">457</a>         assertCompletion(<span class="jxr_string">"interface A extends Interf|"</span>, <span class="jxr_string">"Interface"</span>);
+<a class="jxr_linenumber" name="L458" href="#L458">458</a>         assertCompletion(<span class="jxr_string">"class A implements Interf|"</span>, <span class="jxr_string">"Interface"</span>);
+<a class="jxr_linenumber" name="L459" href="#L459">459</a>         assertEval(<span class="jxr_string">"class Clazz {}"</span>);
+<a class="jxr_linenumber" name="L460" href="#L460">460</a>         assertCompletion(<span class="jxr_string">"class A extends Claz|"</span>, <span class="jxr_string">"Clazz"</span>);
+<a class="jxr_linenumber" name="L461" href="#L461">461</a>         assertCompletion(<span class="jxr_string">"class A extends Clazz implements Interf|"</span>, <span class="jxr_string">"Interface"</span>);
+<a class="jxr_linenumber" name="L462" href="#L462">462</a>         assertEval(<span class="jxr_string">"interface Interface1 {}"</span>);
+<a class="jxr_linenumber" name="L463" href="#L463">463</a>         assertCompletion(<span class="jxr_string">"class A extends Clazz implements Interface, Interf|"</span>, <span class="jxr_string">"Interface"</span>, <span class="jxr_string">"Interface1"</span>);
+<a class="jxr_linenumber" name="L464" href="#L464">464</a>         assertCompletion(<span class="jxr_string">"interface A implements Claz|"</span>);
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>         assertCompletion(<span class="jxr_string">"interface A implements Inter|"</span>);
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>         assertCompletion(<span class="jxr_string">"class A implements Claz|"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L467" href="#L467">467</a>         assertCompletion(<span class="jxr_string">"class A extends Clazz implements Interface, Interf|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"Interface1"</span>);
+<a class="jxr_linenumber" name="L468" href="#L468">468</a>         assertCompletion(<span class="jxr_string">"class A extends Clazz implements Interface, Interf|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"Interface1"</span>);
+<a class="jxr_linenumber" name="L469" href="#L469">469</a>         assertEval(<span class="jxr_string">"class InterfaceClazz {}"</span>);
+<a class="jxr_linenumber" name="L470" href="#L470">470</a>         assertCompletion(<span class="jxr_string">"class A &lt;T extends Claz|"</span>, <span class="jxr_string">"Clazz"</span>);
+<a class="jxr_linenumber" name="L471" href="#L471">471</a>         assertCompletion(<span class="jxr_string">"class A &lt;T extends Interf|"</span>, <span class="jxr_string">"Interface"</span>, <span class="jxr_string">"Interface1"</span>, <span class="jxr_string">"InterfaceClazz"</span>);
+<a class="jxr_linenumber" name="L472" href="#L472">472</a>         assertCompletion(<span class="jxr_string">"class A &lt;T extends Interface &amp; Interf|"</span>, <span class="jxr_string">"Interface"</span>, <span class="jxr_string">"Interface1"</span>, <span class="jxr_string">"InterfaceClazz"</span>);
+<a class="jxr_linenumber" name="L473" href="#L473">473</a>         assertCompletion(<span class="jxr_string">"class A &lt;T extends Clazz &amp; Interf|"</span>, <span class="jxr_string">"Interface"</span>, <span class="jxr_string">"Interface1"</span>, <span class="jxr_string">"InterfaceClazz"</span>);
+<a class="jxr_linenumber" name="L474" href="#L474">474</a>         assertCompletion(<span class="jxr_string">"class A &lt;T extends Claz|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"Clazz"</span>);
+<a class="jxr_linenumber" name="L475" href="#L475">475</a>         assertCompletion(<span class="jxr_string">"class A &lt;T extends Interf|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"Interface"</span>, <span class="jxr_string">"Interface1"</span>, <span class="jxr_string">"InterfaceClazz"</span>);
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>         assertCompletion(<span class="jxr_string">"class A &lt;T extends Interface &amp; Interf|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"Interface1"</span>);
+<a class="jxr_linenumber" name="L477" href="#L477">477</a>         assertCompletion(<span class="jxr_string">"class A &lt;T extends Clazz &amp; Interf|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"Interface"</span>, <span class="jxr_string">"Interface1"</span>);
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>     }
+<a class="jxr_linenumber" name="L479" href="#L479">479</a> 
+<a class="jxr_linenumber" name="L480" href="#L480">480</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testMethodDeclaration() {
+<a class="jxr_linenumber" name="L481" href="#L481">481</a>         assertEval(<span class="jxr_string">"void ClazzM() {}"</span>);
+<a class="jxr_linenumber" name="L482" href="#L482">482</a>         assertEval(<span class="jxr_string">"void InterfaceM() {}"</span>);
+<a class="jxr_linenumber" name="L483" href="#L483">483</a>         assertEval(<span class="jxr_string">"interface Interface {}"</span>);
+<a class="jxr_linenumber" name="L484" href="#L484">484</a>         assertCompletion(<span class="jxr_string">"void m(Interf|"</span>, <span class="jxr_string">"Interface"</span>);
+<a class="jxr_linenumber" name="L485" href="#L485">485</a>         assertCompletion(<span class="jxr_string">"void m(Interface i1, Interf|"</span>, <span class="jxr_string">"Interface"</span>);
+<a class="jxr_linenumber" name="L486" href="#L486">486</a>         assertEval(<span class="jxr_string">"class InterfaceException extends Exception {}"</span>);
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>         assertCompletion(<span class="jxr_string">"void m(Interface i1) throws Interf|"</span>, <span class="jxr_string">"Interface"</span>, <span class="jxr_string">"InterfaceException"</span>);
+<a class="jxr_linenumber" name="L488" href="#L488">488</a>         assertCompletion(<span class="jxr_string">"void m(Interface i1) throws Interf|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"InterfaceException"</span>);
+<a class="jxr_linenumber" name="L489" href="#L489">489</a>     }
+<a class="jxr_linenumber" name="L490" href="#L490">490</a> 
+<a class="jxr_linenumber" name="L491" href="#L491">491</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDocumentationOfUserDefinedMethods() {
+<a class="jxr_linenumber" name="L492" href="#L492">492</a>         assertEval(<span class="jxr_string">"void f() {}"</span>);
+<a class="jxr_linenumber" name="L493" href="#L493">493</a>         assertSignature(<span class="jxr_string">"f(|"</span>, <span class="jxr_string">"void f()"</span>);
+<a class="jxr_linenumber" name="L494" href="#L494">494</a>         assertEval(<span class="jxr_string">"void f(int i) {}"</span>);
+<a class="jxr_linenumber" name="L495" href="#L495">495</a>         assertSignature(<span class="jxr_string">"f(|"</span>, <span class="jxr_string">"void f()"</span>, <span class="jxr_string">"void f(int i)"</span>);
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>         assertEval(<span class="jxr_string">"&lt;T&gt; void f(T... ts) {}"</span>, DiagCheck.DIAG_WARNING, DiagCheck.DIAG_OK);
+<a class="jxr_linenumber" name="L497" href="#L497">497</a>         assertSignature(<span class="jxr_string">"f(|"</span>, <span class="jxr_string">"void f()"</span>, <span class="jxr_string">"void f(int i)"</span>, <span class="jxr_string">"void &lt;T&gt;f(T... ts)"</span>);
+<a class="jxr_linenumber" name="L498" href="#L498">498</a>         assertEval(<span class="jxr_string">"class A {}"</span>);
+<a class="jxr_linenumber" name="L499" href="#L499">499</a>         assertEval(<span class="jxr_string">"void f(A a) {}"</span>);
+<a class="jxr_linenumber" name="L500" href="#L500">500</a>         assertSignature(<span class="jxr_string">"f(|"</span>, <span class="jxr_string">"void f()"</span>, <span class="jxr_string">"void f(int i)"</span>, <span class="jxr_string">"void &lt;T&gt;f(T... ts)"</span>, <span class="jxr_string">"void f(A a)"</span>);
+<a class="jxr_linenumber" name="L501" href="#L501">501</a>     }
+<a class="jxr_linenumber" name="L502" href="#L502">502</a> 
+<a class="jxr_linenumber" name="L503" href="#L503">503</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testClass() {
+<a class="jxr_linenumber" name="L504" href="#L504">504</a>         assertSignature(<span class="jxr_string">"String|"</span>, <span class="jxr_string">"java.lang.String"</span>);
+<a class="jxr_linenumber" name="L505" href="#L505">505</a>     }
+<a class="jxr_linenumber" name="L506" href="#L506">506</a> 
+<a class="jxr_linenumber" name="L507" href="#L507">507</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDocumentationOfUserDefinedConstructors() {
+<a class="jxr_linenumber" name="L508" href="#L508">508</a>         Snippet a = classKey(assertEval(<span class="jxr_string">"class A {}"</span>));
+<a class="jxr_linenumber" name="L509" href="#L509">509</a>         assertSignature(<span class="jxr_string">"new A(|"</span>, <span class="jxr_string">"A()"</span>);
+<a class="jxr_linenumber" name="L510" href="#L510">510</a>         Snippet a2 = classKey(assertEval(<span class="jxr_string">"class A { A() {} A(int i) {}}"</span>,
+<a class="jxr_linenumber" name="L511" href="#L511">511</a>                 ste(MAIN_SNIPPET, VALID, VALID, <strong class="jxr_keyword">true</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L512" href="#L512">512</a>                 ste(a, VALID, OVERWRITTEN, false, MAIN_SNIPPET)));
+<a class="jxr_linenumber" name="L513" href="#L513">513</a>         assertSignature(<span class="jxr_string">"new A(|"</span>, <span class="jxr_string">"A()"</span>, <span class="jxr_string">"A(int i)"</span>);
+<a class="jxr_linenumber" name="L514" href="#L514">514</a>         assertEval(<span class="jxr_string">"class A&lt;T&gt; { A(T a) {} A(int i) {} &lt;U&gt; A(T t, U u) {}}"</span>,
+<a class="jxr_linenumber" name="L515" href="#L515">515</a>                 ste(MAIN_SNIPPET, VALID, VALID, <strong class="jxr_keyword">true</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L516" href="#L516">516</a>                 ste(a2, VALID, OVERWRITTEN, false, MAIN_SNIPPET));
+<a class="jxr_linenumber" name="L517" href="#L517">517</a>         assertSignature(<span class="jxr_string">"new A(|"</span>, <span class="jxr_string">"A&lt;T&gt;(T a)"</span>, <span class="jxr_string">"A&lt;T&gt;(int i)"</span>, <span class="jxr_string">"&lt;U&gt; A&lt;T&gt;(T t, U u)"</span>);
+<a class="jxr_linenumber" name="L518" href="#L518">518</a>     }
+<a class="jxr_linenumber" name="L519" href="#L519">519</a> 
+<a class="jxr_linenumber" name="L520" href="#L520">520</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDocumentationOfOverriddenMethods() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L521" href="#L521">521</a>         dontReadParameterNamesFromClassFile();
+<a class="jxr_linenumber" name="L522" href="#L522">522</a>         assertSignature(<span class="jxr_string">"\&quot;\&quot;.wait(|"</span>,
+<a class="jxr_linenumber" name="L523" href="#L523">523</a>             <span class="jxr_string">"void Object.wait(long) throws InterruptedException"</span>,
+<a class="jxr_linenumber" name="L524" href="#L524">524</a>             <span class="jxr_string">"void Object.wait(long, int) throws InterruptedException"</span>,
+<a class="jxr_linenumber" name="L525" href="#L525">525</a>             <span class="jxr_string">"void Object.wait() throws InterruptedException"</span>);
+<a class="jxr_linenumber" name="L526" href="#L526">526</a>         assertEval(<span class="jxr_string">"class Base {void method() {}}"</span>);
+<a class="jxr_linenumber" name="L527" href="#L527">527</a>         Snippet e = classKey(assertEval(<span class="jxr_string">"class Extend extends Base {}"</span>));
+<a class="jxr_linenumber" name="L528" href="#L528">528</a>         assertSignature(<span class="jxr_string">"new Extend().method(|"</span>, <span class="jxr_string">"void Base.method()"</span>);
+<a class="jxr_linenumber" name="L529" href="#L529">529</a>         assertEval(<span class="jxr_string">"class Extend extends Base {void method() {}}"</span>,
+<a class="jxr_linenumber" name="L530" href="#L530">530</a>                 ste(MAIN_SNIPPET, VALID, VALID, <strong class="jxr_keyword">true</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L531" href="#L531">531</a>                 ste(e, VALID, OVERWRITTEN, false, MAIN_SNIPPET));
+<a class="jxr_linenumber" name="L532" href="#L532">532</a>         assertSignature(<span class="jxr_string">"new Extend().method(|"</span>, <span class="jxr_string">"void Extend.method()"</span>);
+<a class="jxr_linenumber" name="L533" href="#L533">533</a>     }
+<a class="jxr_linenumber" name="L534" href="#L534">534</a> 
+<a class="jxr_linenumber" name="L535" href="#L535">535</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDocumentationOfInvisibleMethods() {
+<a class="jxr_linenumber" name="L536" href="#L536">536</a>         assertSignature(<span class="jxr_string">"Object.wait(|"</span>);
+<a class="jxr_linenumber" name="L537" href="#L537">537</a>         assertSignature(<span class="jxr_string">"\&quot;\&quot;.indexOfSupplementary(|"</span>);
+<a class="jxr_linenumber" name="L538" href="#L538">538</a>         Snippet a = classKey(assertEval(<span class="jxr_string">"class A {void method() {}}"</span>));
+<a class="jxr_linenumber" name="L539" href="#L539">539</a>         assertSignature(<span class="jxr_string">"A.method(|"</span>);
+<a class="jxr_linenumber" name="L540" href="#L540">540</a>         assertEval(<span class="jxr_string">"class A {private void method() {}}"</span>,
+<a class="jxr_linenumber" name="L541" href="#L541">541</a>                 ste(MAIN_SNIPPET, VALID, VALID, <strong class="jxr_keyword">true</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L542" href="#L542">542</a>                 ste(a, VALID, OVERWRITTEN, false, MAIN_SNIPPET));
+<a class="jxr_linenumber" name="L543" href="#L543">543</a>         assertSignature(<span class="jxr_string">"new A().method(|"</span>);
+<a class="jxr_linenumber" name="L544" href="#L544">544</a>     }
+<a class="jxr_linenumber" name="L545" href="#L545">545</a> 
+<a class="jxr_linenumber" name="L546" href="#L546">546</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDocumentationOfInvisibleConstructors() {
+<a class="jxr_linenumber" name="L547" href="#L547">547</a>         assertSignature(<span class="jxr_string">"new Compiler(|"</span>);
+<a class="jxr_linenumber" name="L548" href="#L548">548</a>         assertEval(<span class="jxr_string">"class A { private A() {} }"</span>);
+<a class="jxr_linenumber" name="L549" href="#L549">549</a>         assertSignature(<span class="jxr_string">"new A(|"</span>);
+<a class="jxr_linenumber" name="L550" href="#L550">550</a>     }
+<a class="jxr_linenumber" name="L551" href="#L551">551</a> 
+<a class="jxr_linenumber" name="L552" href="#L552">552</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDocumentationWithBoxing() {
+<a class="jxr_linenumber" name="L553" href="#L553">553</a>         assertEval(<span class="jxr_string">"int primitive = 0;"</span>);
+<a class="jxr_linenumber" name="L554" href="#L554">554</a>         assertEval(<span class="jxr_string">"Integer boxed = 0;"</span>);
+<a class="jxr_linenumber" name="L555" href="#L555">555</a>         assertEval(<span class="jxr_string">"Object object = null;"</span>);
+<a class="jxr_linenumber" name="L556" href="#L556">556</a>         assertEval(<span class="jxr_string">"void method(int n, Object o) { }"</span>);
+<a class="jxr_linenumber" name="L557" href="#L557">557</a>         assertEval(<span class="jxr_string">"void method(Object n, int o) { }"</span>);
+<a class="jxr_linenumber" name="L558" href="#L558">558</a>         assertSignature(<span class="jxr_string">"method(primitive,|"</span>,
+<a class="jxr_linenumber" name="L559" href="#L559">559</a>                 <span class="jxr_string">"void method(int n, Object o)"</span>,
+<a class="jxr_linenumber" name="L560" href="#L560">560</a>                 <span class="jxr_string">"void method(Object n, int o)"</span>);
+<a class="jxr_linenumber" name="L561" href="#L561">561</a>         assertSignature(<span class="jxr_string">"method(boxed,|"</span>,
+<a class="jxr_linenumber" name="L562" href="#L562">562</a>                 <span class="jxr_string">"void method(int n, Object o)"</span>,
+<a class="jxr_linenumber" name="L563" href="#L563">563</a>                 <span class="jxr_string">"void method(Object n, int o)"</span>);
+<a class="jxr_linenumber" name="L564" href="#L564">564</a>         assertSignature(<span class="jxr_string">"method(object,|"</span>,
+<a class="jxr_linenumber" name="L565" href="#L565">565</a>                 <span class="jxr_string">"void method(Object n, int o)"</span>);
+<a class="jxr_linenumber" name="L566" href="#L566">566</a>     }
+<a class="jxr_linenumber" name="L567" href="#L567">567</a> 
+<a class="jxr_linenumber" name="L568" href="#L568">568</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDocumentationWithGenerics() {
+<a class="jxr_linenumber" name="L569" href="#L569">569</a>         <strong class="jxr_keyword">class</strong> TestDocumentationWithGenerics {
+<a class="jxr_linenumber" name="L570" href="#L570">570</a>             <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Function&lt;Integer, String&gt; codeFacotry;
+<a class="jxr_linenumber" name="L571" href="#L571">571</a>             <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> BiFunction&lt;String, Integer, String&gt; evalFormatter;
+<a class="jxr_linenumber" name="L572" href="#L572">572</a>             <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> BiFunction&lt;String, Integer, String&gt; docFormatter;
+<a class="jxr_linenumber" name="L573" href="#L573">573</a>             <strong class="jxr_keyword">int</strong> count;
+<a class="jxr_linenumber" name="L574" href="#L574">574</a> 
+<a class="jxr_linenumber" name="L575" href="#L575">575</a>             TestDocumentationWithGenerics(
+<a class="jxr_linenumber" name="L576" href="#L576">576</a>                     Function&lt;Integer, String&gt; codeFactory,
+<a class="jxr_linenumber" name="L577" href="#L577">577</a>                     BiFunction&lt;String, Integer, String&gt; evalFormatter,
+<a class="jxr_linenumber" name="L578" href="#L578">578</a>                     BiFunction&lt;String, Integer, String&gt; documentationFormatter) {
+<a class="jxr_linenumber" name="L579" href="#L579">579</a>                 <strong class="jxr_keyword">this</strong>.codeFacotry = codeFactory;
+<a class="jxr_linenumber" name="L580" href="#L580">580</a>                 <strong class="jxr_keyword">this</strong>.evalFormatter = evalFormatter;
+<a class="jxr_linenumber" name="L581" href="#L581">581</a>                 <strong class="jxr_keyword">this</strong>.docFormatter = documentationFormatter;
+<a class="jxr_linenumber" name="L582" href="#L582">582</a>             }
+<a class="jxr_linenumber" name="L583" href="#L583">583</a> 
+<a class="jxr_linenumber" name="L584" href="#L584">584</a>             <strong class="jxr_keyword">void</strong> assertDoc(String generics) {
+<a class="jxr_linenumber" name="L585" href="#L585">585</a>                 assertDoc(generics, generics);
+<a class="jxr_linenumber" name="L586" href="#L586">586</a>             }
+<a class="jxr_linenumber" name="L587" href="#L587">587</a> 
+<a class="jxr_linenumber" name="L588" href="#L588">588</a>             <strong class="jxr_keyword">void</strong> assertDoc(String generics, String expectedGenerics) {
+<a class="jxr_linenumber" name="L589" href="#L589">589</a>                 assertEval(evalFormatter.apply(generics, count));
+<a class="jxr_linenumber" name="L590" href="#L590">590</a>                 assertSignature(codeFacotry.apply(count), docFormatter.apply(expectedGenerics, count));
+<a class="jxr_linenumber" name="L591" href="#L591">591</a>                 count++;
+<a class="jxr_linenumber" name="L592" href="#L592">592</a>             }
+<a class="jxr_linenumber" name="L593" href="#L593">593</a>         }
+<a class="jxr_linenumber" name="L594" href="#L594">594</a> 
+<a class="jxr_linenumber" name="L595" href="#L595">595</a>         TestDocumentationWithGenerics[] tests = {
+<a class="jxr_linenumber" name="L596" href="#L596">596</a>             <strong class="jxr_keyword">new</strong> TestDocumentationWithGenerics(
+<a class="jxr_linenumber" name="L597" href="#L597">597</a>                     i -&gt; <span class="jxr_string">"f"</span> + i + <span class="jxr_string">"(|"</span>,
+<a class="jxr_linenumber" name="L598" href="#L598">598</a>                     (g, i) -&gt; <span class="jxr_string">"&lt;"</span> + g + <span class="jxr_string">"&gt; void f"</span> + i + <span class="jxr_string">"() {}"</span>,
+<a class="jxr_linenumber" name="L599" href="#L599">599</a>                     (g, i) -&gt; <span class="jxr_string">"void &lt;"</span> + g + <span class="jxr_string">"&gt;f"</span> + i + <span class="jxr_string">"()"</span>
+<a class="jxr_linenumber" name="L600" href="#L600">600</a>             ),
+<a class="jxr_linenumber" name="L601" href="#L601">601</a>             <strong class="jxr_keyword">new</strong> TestDocumentationWithGenerics(
+<a class="jxr_linenumber" name="L602" href="#L602">602</a>                     i -&gt; <span class="jxr_string">"new C"</span> + i + <span class="jxr_string">"().f(|"</span>,
+<a class="jxr_linenumber" name="L603" href="#L603">603</a>                     (g, i) -&gt; <span class="jxr_string">"class C"</span> + i + <span class="jxr_string">"&lt;"</span> + g + <span class="jxr_string">"&gt; { void f() {} }"</span>,
+<a class="jxr_linenumber" name="L604" href="#L604">604</a>                     (g, i) -&gt; <span class="jxr_string">"void C"</span> + i + <span class="jxr_string">"&lt;"</span> + g + <span class="jxr_string">"&gt;.f()"</span>
+<a class="jxr_linenumber" name="L605" href="#L605">605</a>             )
+<a class="jxr_linenumber" name="L606" href="#L606">606</a>         };
+<a class="jxr_linenumber" name="L607" href="#L607">607</a> 
+<a class="jxr_linenumber" name="L608" href="#L608">608</a>         Arrays.stream(tests).forEach(t -&gt; {
+<a class="jxr_linenumber" name="L609" href="#L609">609</a>                 t.assertDoc(<span class="jxr_string">"T"</span>);
+<a class="jxr_linenumber" name="L610" href="#L610">610</a>                 t.assertDoc(<span class="jxr_string">"T extends Object"</span>,
+<a class="jxr_linenumber" name="L611" href="#L611">611</a>                         <span class="jxr_string">"T"</span>);
+<a class="jxr_linenumber" name="L612" href="#L612">612</a>                 t.assertDoc(<span class="jxr_string">"T extends String"</span>);
+<a class="jxr_linenumber" name="L613" href="#L613">613</a>                 t.assertDoc(<span class="jxr_string">"T extends java.lang.String"</span>,
+<a class="jxr_linenumber" name="L614" href="#L614">614</a>                         <span class="jxr_string">"T extends String"</span>);
+<a class="jxr_linenumber" name="L615" href="#L615">615</a>                 t.assertDoc(<span class="jxr_string">"T extends Number &amp; Comparable&lt;T&gt;"</span>);
+<a class="jxr_linenumber" name="L616" href="#L616">616</a>                 t.assertDoc(<span class="jxr_string">"T extends java.io.Serializable &amp; CharSequence"</span>);
+<a class="jxr_linenumber" name="L617" href="#L617">617</a>                 t.assertDoc(<span class="jxr_string">"K, D, M extends java.util.Map&lt;K, D&gt;"</span>,
+<a class="jxr_linenumber" name="L618" href="#L618">618</a>                         <span class="jxr_string">"K, D, M extends java.util.Map&lt;K,D&gt;"</span>);
+<a class="jxr_linenumber" name="L619" href="#L619">619</a>         });
+<a class="jxr_linenumber" name="L620" href="#L620">620</a>     }
+<a class="jxr_linenumber" name="L621" href="#L621">621</a> 
+<a class="jxr_linenumber" name="L622" href="#L622">622</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testVarArgs() {
+<a class="jxr_linenumber" name="L623" href="#L623">623</a>         assertEval(<span class="jxr_string">"int i = 0;"</span>);
+<a class="jxr_linenumber" name="L624" href="#L624">624</a>         assertEval(<span class="jxr_string">"class Foo1 { static void m(int... i) { } } "</span>);
+<a class="jxr_linenumber" name="L625" href="#L625">625</a>         assertCompletion(<span class="jxr_string">"Foo1.m(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L626" href="#L626">626</a>         assertCompletion(<span class="jxr_string">"Foo1.m(i, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L627" href="#L627">627</a>         assertCompletion(<span class="jxr_string">"Foo1.m(i, i, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L628" href="#L628">628</a>         assertEval(<span class="jxr_string">"class Foo2 { static void m(String s, int... i) { } } "</span>);
+<a class="jxr_linenumber" name="L629" href="#L629">629</a>         assertCompletion(<span class="jxr_string">"Foo2.m(|"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L630" href="#L630">630</a>         assertCompletion(<span class="jxr_string">"Foo2.m(i, |"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L631" href="#L631">631</a>         assertCompletion(<span class="jxr_string">"Foo2.m(\&quot;\&quot;, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L632" href="#L632">632</a>         assertCompletion(<span class="jxr_string">"Foo2.m(\&quot;\&quot;, i, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L633" href="#L633">633</a>         assertCompletion(<span class="jxr_string">"Foo2.m(\&quot;\&quot;, i, i, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L634" href="#L634">634</a>         assertEval(<span class="jxr_string">"class Foo3 { Foo3(String s, int... i) { } } "</span>);
+<a class="jxr_linenumber" name="L635" href="#L635">635</a>         assertCompletion(<span class="jxr_string">"new Foo3(|"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L636" href="#L636">636</a>         assertCompletion(<span class="jxr_string">"new Foo3(i, |"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L637" href="#L637">637</a>         assertCompletion(<span class="jxr_string">"new Foo3(\&quot;\&quot;, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L638" href="#L638">638</a>         assertCompletion(<span class="jxr_string">"new Foo3(\&quot;\&quot;, i, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L639" href="#L639">639</a>         assertCompletion(<span class="jxr_string">"new Foo3(\&quot;\&quot;, i, i, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L640" href="#L640">640</a>         assertEval(<span class="jxr_string">"int[] ia = null;"</span>);
+<a class="jxr_linenumber" name="L641" href="#L641">641</a>         assertCompletion(<span class="jxr_string">"Foo1.m(ia, |"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L642" href="#L642">642</a>         assertEval(<span class="jxr_string">"class Foo4 { static void m(int... i) { } static void m(int[] ia, String str) { } } "</span>);
+<a class="jxr_linenumber" name="L643" href="#L643">643</a>         assertEval(<span class="jxr_string">"String str = null;"</span>);
+<a class="jxr_linenumber" name="L644" href="#L644">644</a>         assertCompletion(<span class="jxr_string">"Foo4.m(ia, |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"str"</span>);
+<a class="jxr_linenumber" name="L645" href="#L645">645</a>     }
+<a class="jxr_linenumber" name="L646" href="#L646">646</a> 
+<a class="jxr_linenumber" name="L647" href="#L647">647</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testConstructorAsMemberOf() {
+<a class="jxr_linenumber" name="L648" href="#L648">648</a>         assertEval(<span class="jxr_string">"class Baz&lt;X&gt; { Baz(X x) { } } "</span>);
+<a class="jxr_linenumber" name="L649" href="#L649">649</a>         assertEval(<span class="jxr_string">"String str = null;"</span>);
+<a class="jxr_linenumber" name="L650" href="#L650">650</a>         assertEval(<span class="jxr_string">"Integer i = null;"</span>);
+<a class="jxr_linenumber" name="L651" href="#L651">651</a>         assertCompletion(<span class="jxr_string">"new Baz(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"i"</span>, <span class="jxr_string">"str"</span>);
+<a class="jxr_linenumber" name="L652" href="#L652">652</a>         assertCompletion(<span class="jxr_string">"new Baz&lt;String&gt;(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"str"</span>);
+<a class="jxr_linenumber" name="L653" href="#L653">653</a>         assertCompletion(<span class="jxr_string">"Baz&lt;String&gt; bz = new Baz&lt;&gt;(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"str"</span>);
+<a class="jxr_linenumber" name="L654" href="#L654">654</a>         assertEval(<span class="jxr_string">"class Foo { static void m(String str) {} static void m(Baz&lt;String&gt; baz) {} }"</span>);
+<a class="jxr_linenumber" name="L655" href="#L655">655</a>         assertCompletion(<span class="jxr_string">"Foo.m(new Baz&lt;&gt;(|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"str"</span>);
+<a class="jxr_linenumber" name="L656" href="#L656">656</a>     }
+<a class="jxr_linenumber" name="L657" href="#L657">657</a> 
+<a class="jxr_linenumber" name="L658" href="#L658">658</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testIntersection() {
+<a class="jxr_linenumber" name="L659" href="#L659">659</a>         assertEval(<span class="jxr_string">"&lt;Z extends Runnable &amp; CharSequence&gt; Z get() { return null; }"</span>);
+<a class="jxr_linenumber" name="L660" href="#L660">660</a>         assertEval(<span class="jxr_string">"var v = get();"</span>);
+<a class="jxr_linenumber" name="L661" href="#L661">661</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"v.|"</span>, <strong class="jxr_keyword">true</strong>, Set.of(<span class="jxr_string">"run()"</span>, <span class="jxr_string">"length()"</span>), Set.of());
+<a class="jxr_linenumber" name="L662" href="#L662">662</a>         assertCompletion(<span class="jxr_string">"Runnable r = |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"get()"</span>, <span class="jxr_string">"v"</span>);
+<a class="jxr_linenumber" name="L663" href="#L663">663</a>         assertCompletion(<span class="jxr_string">"CharSequence r = |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"get()"</span>, <span class="jxr_string">"v"</span>);
+<a class="jxr_linenumber" name="L664" href="#L664">664</a>         assertCompletion(<span class="jxr_string">"Number r = |"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L665" href="#L665">665</a>     }
+<a class="jxr_linenumber" name="L666" href="#L666">666</a> 
+<a class="jxr_linenumber" name="L667" href="#L667">667</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAnonymous() {
+<a class="jxr_linenumber" name="L668" href="#L668">668</a>         assertEval(<span class="jxr_string">"var v = new Runnable() { public void run() { } public int length() { return 0; } };"</span>);
+<a class="jxr_linenumber" name="L669" href="#L669">669</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"v.|"</span>, <strong class="jxr_keyword">true</strong>, Set.of(<span class="jxr_string">"run()"</span>, <span class="jxr_string">"length()"</span>), Set.of());
+<a class="jxr_linenumber" name="L670" href="#L670">670</a>         assertCompletion(<span class="jxr_string">"Runnable r = |"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"v"</span>);
+<a class="jxr_linenumber" name="L671" href="#L671">671</a>         assertCompletion(<span class="jxr_string">"CharSequence r = |"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L672" href="#L672">672</a>     }
+<a class="jxr_linenumber" name="L673" href="#L673">673</a> 
+<a class="jxr_linenumber" name="L674" href="#L674">674</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCompletionInAnonymous() {
+<a class="jxr_linenumber" name="L675" href="#L675">675</a>         assertCompletionIncludesExcludes(<span class="jxr_string">"new Undefined() { int i = \&quot;\&quot;.l|"</span>, Set.of(<span class="jxr_string">"length()"</span>), Set.of());
+<a class="jxr_linenumber" name="L676" href="#L676">676</a>     }
+<a class="jxr_linenumber" name="L677" href="#L677">677</a> 
+<a class="jxr_linenumber" name="L678" href="#L678">678</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testMemberReferences() {
+<a class="jxr_linenumber" name="L679" href="#L679">679</a>         assertEval(<span class="jxr_string">"class C {"</span> +
+<a class="jxr_linenumber" name="L680" href="#L680">680</a>                    <span class="jxr_string">"    public static String stat() { return null; }"</span> +
+<a class="jxr_linenumber" name="L681" href="#L681">681</a>                    <span class="jxr_string">"    public static void statVoid(String s) {}"</span> +
+<a class="jxr_linenumber" name="L682" href="#L682">682</a>                    <span class="jxr_string">"    public static Integer statConvert1(String s) { return null; }"</span> +
+<a class="jxr_linenumber" name="L683" href="#L683">683</a>                    <span class="jxr_string">"    public static String statConvert2(Integer s) { return null; }"</span> +
+<a class="jxr_linenumber" name="L684" href="#L684">684</a>                    <span class="jxr_string">"    public static String statConvert3(CharSequence s) { return null; }"</span> +
+<a class="jxr_linenumber" name="L685" href="#L685">685</a>                    <span class="jxr_string">"    public String inst() { return null; }"</span> +
+<a class="jxr_linenumber" name="L686" href="#L686">686</a>                    <span class="jxr_string">"    public void instVoid(String s) { }"</span> +
+<a class="jxr_linenumber" name="L687" href="#L687">687</a>                    <span class="jxr_string">"}"</span>);
+<a class="jxr_linenumber" name="L688" href="#L688">688</a>         assertEval(<span class="jxr_string">"interface FI { public void t(String s); }"</span>);
+<a class="jxr_linenumber" name="L689" href="#L689">689</a>         assertCompletion(<span class="jxr_string">"FI fi = C::|"</span>, (Boolean) <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"stat"</span>, <span class="jxr_string">"statConvert1"</span>, <span class="jxr_string">"statConvert2"</span>, <span class="jxr_string">"statConvert3"</span>, <span class="jxr_string">"statVoid"</span>);
+<a class="jxr_linenumber" name="L690" href="#L690">690</a>         assertCompletion(<span class="jxr_string">"FI fi = C::|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"statConvert1"</span>, <span class="jxr_string">"statConvert3"</span>,<span class="jxr_string">"statVoid"</span>);
+<a class="jxr_linenumber" name="L691" href="#L691">691</a>         assertCompletion(<span class="jxr_string">"FI fi = new C()::i|"</span>, (Boolean) <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"inst"</span>, <span class="jxr_string">"instVoid"</span>);
+<a class="jxr_linenumber" name="L692" href="#L692">692</a>         assertCompletion(<span class="jxr_string">"FI fi = new C()::i|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"instVoid"</span>);
+<a class="jxr_linenumber" name="L693" href="#L693">693</a>         assertEval(<span class="jxr_string">"interface FI2&lt;R, P&gt; { public R t(P p); }"</span>);
+<a class="jxr_linenumber" name="L694" href="#L694">694</a>         assertCompletion(<span class="jxr_string">"FI2&lt;String, Integer&gt; fi = C::|"</span>, (Boolean) <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"stat"</span>, <span class="jxr_string">"statConvert1"</span>, <span class="jxr_string">"statConvert2"</span>, <span class="jxr_string">"statConvert3"</span>, <span class="jxr_string">"statVoid"</span>);
+<a class="jxr_linenumber" name="L695" href="#L695">695</a>         assertCompletion(<span class="jxr_string">"FI2&lt;String, Integer&gt; fi = C::|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"statConvert2"</span>);
+<a class="jxr_linenumber" name="L696" href="#L696">696</a>         assertCompletion(<span class="jxr_string">"FI2&lt;String, CharSequence&gt; fi = C::|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"statConvert3"</span>);
+<a class="jxr_linenumber" name="L697" href="#L697">697</a>         assertCompletion(<span class="jxr_string">"FI2&lt;String, String&gt; fi = C::|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"statConvert3"</span>);
+<a class="jxr_linenumber" name="L698" href="#L698">698</a>         assertCompletion(<span class="jxr_string">"FI2&lt;Object, String&gt; fi = C::|"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"statConvert1"</span>, <span class="jxr_string">"statConvert3"</span>);
+<a class="jxr_linenumber" name="L699" href="#L699">699</a>     }
+<a class="jxr_linenumber" name="L700" href="#L700">700</a> 
+<a class="jxr_linenumber" name="L701" href="#L701">701</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBrokenLambdaCompletion() {
+<a class="jxr_linenumber" name="L702" href="#L702">702</a>         assertEval(<span class="jxr_string">"interface Consumer&lt;T&gt; { public void consume(T t); }"</span>);
+<a class="jxr_linenumber" name="L703" href="#L703">703</a>         assertEval(<span class="jxr_string">"interface Function&lt;T, R&gt; { public R convert(T t); }"</span>);
+<a class="jxr_linenumber" name="L704" href="#L704">704</a>         assertEval(<span class="jxr_string">"&lt;T&gt; void m1(T t, Consumer&lt;T&gt; f) { }"</span>);
+<a class="jxr_linenumber" name="L705" href="#L705">705</a>         assertCompletion(<span class="jxr_string">"m1(\&quot;\&quot;, x -&gt; {x.tri|"</span>, <span class="jxr_string">"trim()"</span>);
+<a class="jxr_linenumber" name="L706" href="#L706">706</a>         assertEval(<span class="jxr_string">"&lt;T&gt; void m2(T t, Function&lt;T, String&gt; f) { }"</span>);
+<a class="jxr_linenumber" name="L707" href="#L707">707</a>         assertCompletion(<span class="jxr_string">"m2(\&quot;\&quot;, x -&gt; {x.tri|"</span>, <span class="jxr_string">"trim()"</span>);
+<a class="jxr_linenumber" name="L708" href="#L708">708</a>         assertEval(<span class="jxr_string">"&lt;T&gt; void m3(T t, Consumer&lt;T&gt; f, int i) { }"</span>);
+<a class="jxr_linenumber" name="L709" href="#L709">709</a>         assertCompletion(<span class="jxr_string">"m3(\&quot;\&quot;, x -&gt; {x.tri|"</span>, <span class="jxr_string">"trim()"</span>);
+<a class="jxr_linenumber" name="L710" href="#L710">710</a>         assertEval(<span class="jxr_string">"&lt;T&gt; void m4(T t, Function&lt;T, String&gt; f, int i) { }"</span>);
+<a class="jxr_linenumber" name="L711" href="#L711">711</a>         assertCompletion(<span class="jxr_string">"m4(\&quot;\&quot;, x -&gt; {x.tri|"</span>, <span class="jxr_string">"trim()"</span>);
+<a class="jxr_linenumber" name="L712" href="#L712">712</a>         assertEval(<span class="jxr_string">"&lt;T&gt; T m5(Consumer&lt;T&gt; f) { return null; }"</span>);
+<a class="jxr_linenumber" name="L713" href="#L713">713</a>         assertCompletion(<span class="jxr_string">"String s = m5(x -&gt; {x.tri|"</span>, <span class="jxr_string">"trim()"</span>);
+<a class="jxr_linenumber" name="L714" href="#L714">714</a>         assertEval(<span class="jxr_string">"&lt;T&gt; T m6(Function&lt;T, String&gt; f) { return null; }"</span>);
+<a class="jxr_linenumber" name="L715" href="#L715">715</a>         assertCompletion(<span class="jxr_string">"String s = m6(x -&gt; {x.tri|"</span>, <span class="jxr_string">"trim()"</span>);
+<a class="jxr_linenumber" name="L716" href="#L716">716</a>         assertEval(<span class="jxr_string">"&lt;T&gt; T m7(Consumer&lt;T&gt; f, int i) { return null; }"</span>);
+<a class="jxr_linenumber" name="L717" href="#L717">717</a>         assertCompletion(<span class="jxr_string">"String s = m7(x -&gt; {x.tri|"</span>, <span class="jxr_string">"trim()"</span>);
+<a class="jxr_linenumber" name="L718" href="#L718">718</a>         assertEval(<span class="jxr_string">"&lt;T&gt; T m8(Function&lt;T, String&gt; f, int i) { return null; }"</span>);
+<a class="jxr_linenumber" name="L719" href="#L719">719</a>         assertCompletion(<span class="jxr_string">"String s = m8(x -&gt; {x.tri|"</span>, <span class="jxr_string">"trim()"</span>);
+<a class="jxr_linenumber" name="L720" href="#L720">720</a>     }
+<a class="jxr_linenumber" name="L721" href="#L721">721</a> 
+<a class="jxr_linenumber" name="L722" href="#L722">722</a>     @BeforeMethod
+<a class="jxr_linenumber" name="L723" href="#L723">723</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setUp() {
+<a class="jxr_linenumber" name="L724" href="#L724">724</a>         <strong class="jxr_keyword">super</strong>.setUp();
+<a class="jxr_linenumber" name="L725" href="#L725">725</a> 
+<a class="jxr_linenumber" name="L726" href="#L726">726</a>         Path srcZip = Paths.get(<span class="jxr_string">"src.zip"</span>);
+<a class="jxr_linenumber" name="L727" href="#L727">727</a> 
+<a class="jxr_linenumber" name="L728" href="#L728">728</a>         <strong class="jxr_keyword">try</strong> (JarOutputStream out = <strong class="jxr_keyword">new</strong> JarOutputStream(Files.newOutputStream(srcZip))) {
+<a class="jxr_linenumber" name="L729" href="#L729">729</a>             out.putNextEntry(<strong class="jxr_keyword">new</strong> JarEntry(<span class="jxr_string">"java/lang/System.java"</span>));
+<a class="jxr_linenumber" name="L730" href="#L730">730</a>             out.write((<span class="jxr_string">"package java.lang;\n"</span> +
+<a class="jxr_linenumber" name="L731" href="#L731">731</a>                        <span class="jxr_string">"public class System {\n"</span> +
+<a class="jxr_linenumber" name="L732" href="#L732">732</a>                        <span class="jxr_string">"    public String getProperty(String key) { return null; }\n"</span> +
+<a class="jxr_linenumber" name="L733" href="#L733">733</a>                        <span class="jxr_string">"    public String getProperty(String key, String def) { return def; }\n"</span> +
+<a class="jxr_linenumber" name="L734" href="#L734">734</a>                        <span class="jxr_string">"}\n"</span>).getBytes());
+<a class="jxr_linenumber" name="L735" href="#L735">735</a>         } <strong class="jxr_keyword">catch</strong> (IOException ex) {
+<a class="jxr_linenumber" name="L736" href="#L736">736</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalStateException(ex);
+<a class="jxr_linenumber" name="L737" href="#L737">737</a>         }
+<a class="jxr_linenumber" name="L738" href="#L738">738</a> 
+<a class="jxr_linenumber" name="L739" href="#L739">739</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L740" href="#L740">740</a>             Field availableSources = getAnalysis().getClass().getDeclaredField(<span class="jxr_string">"availableSources"</span>);
+<a class="jxr_linenumber" name="L741" href="#L741">741</a>             availableSources.setAccessible(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L742" href="#L742">742</a>             availableSources.set(getAnalysis(), Arrays.asList(srcZip));
+<a class="jxr_linenumber" name="L743" href="#L743">743</a>         } <strong class="jxr_keyword">catch</strong> (NoSuchFieldException | IllegalArgumentException | IllegalAccessException ex) {
+<a class="jxr_linenumber" name="L744" href="#L744">744</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalStateException(ex);
+<a class="jxr_linenumber" name="L745" href="#L745">745</a>         }
+<a class="jxr_linenumber" name="L746" href="#L746">746</a>     }
+<a class="jxr_linenumber" name="L747" href="#L747">747</a> 
+<a class="jxr_linenumber" name="L748" href="#L748">748</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> dontReadParameterNamesFromClassFile() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L749" href="#L749">749</a>         Field keepParameterNames = getAnalysis().getClass().getDeclaredField(<span class="jxr_string">"keepParameterNames"</span>);
+<a class="jxr_linenumber" name="L750" href="#L750">750</a>         keepParameterNames.setAccessible(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L751" href="#L751">751</a>         keepParameterNames.set(getAnalysis(), <strong class="jxr_keyword">new</strong> String[0]);
+<a class="jxr_linenumber" name="L752" href="#L752">752</a>     }
+<a class="jxr_linenumber" name="L753" href="#L753">753</a> 
+<a class="jxr_linenumber" name="L754" href="#L754">754</a>     @Test(enabled = false) <em class="jxr_comment">//TODO 8171829</em>
+<a class="jxr_linenumber" name="L755" href="#L755">755</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBrokenClassFile2() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L756" href="#L756">756</a>         Path broken = outDir.resolve(<span class="jxr_string">"broken"</span>);
+<a class="jxr_linenumber" name="L757" href="#L757">757</a>         compiler.compile(broken,
+<a class="jxr_linenumber" name="L758" href="#L758">758</a>                 <span class="jxr_string">"package p;\n"</span> +
+<a class="jxr_linenumber" name="L759" href="#L759">759</a>                 <span class="jxr_string">"public class BrokenA {\n"</span> +
+<a class="jxr_linenumber" name="L760" href="#L760">760</a>                 <span class="jxr_string">"}"</span>,
+<a class="jxr_linenumber" name="L761" href="#L761">761</a>                 <span class="jxr_string">"package p.q;\n"</span> +
+<a class="jxr_linenumber" name="L762" href="#L762">762</a>                 <span class="jxr_string">"public class BrokenB {\n"</span> +
+<a class="jxr_linenumber" name="L763" href="#L763">763</a>                 <span class="jxr_string">"}"</span>,
+<a class="jxr_linenumber" name="L764" href="#L764">764</a>                 <span class="jxr_string">"package p;\n"</span> +
+<a class="jxr_linenumber" name="L765" href="#L765">765</a>                 <span class="jxr_string">"public class BrokenC {\n"</span> +
+<a class="jxr_linenumber" name="L766" href="#L766">766</a>                 <span class="jxr_string">"}"</span>);
+<a class="jxr_linenumber" name="L767" href="#L767">767</a>         Path cp = compiler.getPath(broken);
+<a class="jxr_linenumber" name="L768" href="#L768">768</a>         Path target = cp.resolve(<span class="jxr_string">"p"</span>).resolve(<span class="jxr_string">"BrokenB.class"</span>);
+<a class="jxr_linenumber" name="L769" href="#L769">769</a>         Files.deleteIfExists(target);
+<a class="jxr_linenumber" name="L770" href="#L770">770</a>         Files.move(cp.resolve(<span class="jxr_string">"p"</span>).resolve(<span class="jxr_string">"q"</span>).resolve(<span class="jxr_string">"BrokenB.class"</span>), target);
+<a class="jxr_linenumber" name="L771" href="#L771">771</a>         addToClasspath(cp);
+<a class="jxr_linenumber" name="L772" href="#L772">772</a> 
+<a class="jxr_linenumber" name="L773" href="#L773">773</a>         assertEval(<span class="jxr_string">"import p.*;"</span>);
+<a class="jxr_linenumber" name="L774" href="#L774">774</a>         assertCompletion(<span class="jxr_string">"Broke|"</span>, <span class="jxr_string">"BrokenA"</span>, <span class="jxr_string">"BrokenC"</span>);
+<a class="jxr_linenumber" name="L775" href="#L775">775</a>     }
+<a class="jxr_linenumber" name="L776" href="#L776">776</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

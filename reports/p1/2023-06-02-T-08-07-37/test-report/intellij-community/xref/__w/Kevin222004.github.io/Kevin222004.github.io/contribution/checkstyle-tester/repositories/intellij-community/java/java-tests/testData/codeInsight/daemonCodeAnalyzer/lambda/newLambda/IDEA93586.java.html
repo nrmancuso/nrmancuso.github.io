@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>IDEA93586 xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">interface</strong> Eff&lt;A, B&gt; {
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>     B f(A a);
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   }
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">class</strong> Disfunction {
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> &lt;A, B, C&gt; Eff&lt;C, B&gt; apply(<strong class="jxr_keyword">final</strong> Eff&lt;C, Eff&lt;A, B&gt;&gt; cab, <strong class="jxr_keyword">final</strong> Eff&lt;C, A&gt; ca) {
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>       <strong class="jxr_keyword">return</strong> bind(cab, f -&gt; compose(a -&gt; f.f(a), ca));
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>     }
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> &lt;A, B, C&gt; Eff&lt;C, B&gt; bind(<strong class="jxr_keyword">final</strong> Eff&lt;C, A&gt; ma, <strong class="jxr_keyword">final</strong> Eff&lt;A, Eff&lt;C, B&gt;&gt; f) {
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>      <strong class="jxr_keyword">return</strong> m -&gt; f.f(ma.f(m)).f(m);
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>    }
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> &lt;A, B, C&gt; Eff&lt;A, C&gt; compose(<strong class="jxr_keyword">final</strong> Eff&lt;B, C&gt; f, <strong class="jxr_keyword">final</strong> Eff&lt;A, B&gt; g) {
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>      <strong class="jxr_keyword">return</strong> a -&gt; f.f(g.f(a));
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>    }
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

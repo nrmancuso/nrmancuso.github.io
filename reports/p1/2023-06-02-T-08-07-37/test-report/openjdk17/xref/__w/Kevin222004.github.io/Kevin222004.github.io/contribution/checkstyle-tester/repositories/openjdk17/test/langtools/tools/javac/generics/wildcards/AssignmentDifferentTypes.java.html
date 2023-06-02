@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>AssignmentDifferentTypes xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * @test /nodynamiccopyright/</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * @summary Test subtyping for wildcards with related type bounds.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * @compile/fail/ref=AssignmentDifferentTypes.out -XDrawDiagnostics AssignmentDifferentTypes.java</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> AssignmentDifferentTypes {
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>          Ref&lt;Der&gt; derexact = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>          Ref&lt;Base&gt; baseexact = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>          Ref&lt;? <strong class="jxr_keyword">extends</strong> Der&gt; derext = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>          Ref&lt;? <strong class="jxr_keyword">extends</strong> Base&gt; baseext = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>          Ref&lt;? <strong class="jxr_keyword">super</strong> Der&gt; dersuper = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>          Ref&lt;? <strong class="jxr_keyword">super</strong> Base&gt; basesuper = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>          baseext = derext;       <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;? extends Base&gt; = &lt;? extends Der&gt;</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>          baseext = derexact;     <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;? extends Base&gt; = &lt;Der&gt;</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>          dersuper = basesuper;   <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;? super Der&gt; = &lt;? super Base&gt;</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>          dersuper = baseexact;   <em class="jxr_comment">// &lt;&lt;pass&gt;&gt; &lt;? super Der&gt; = &lt;Base&gt;</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>          derexact = baseexact;   <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;Der&gt; = &lt;Base&gt;</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          baseexact = derexact;   <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;Base&gt; = &lt;Der&gt;</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          derext = baseext;       <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;? extends Der&gt; = &lt;? extends Base&gt;</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>          derext = baseexact;     <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;? extends Der&gt; = &lt;Base&gt;</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>          derext = basesuper;     <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;? extends Der&gt; = &lt;? super Base&gt;</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>          baseext = dersuper;     <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;? extends Base&gt; = &lt;? super Der&gt;</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          basesuper = dersuper;   <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;? super Base&gt; = &lt;? super Der&gt;</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>          basesuper = derexact;   <em class="jxr_comment">// &lt;&lt;fail&gt;&gt; &lt;? super Base&gt; = &lt;Der&gt;</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      }
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  }
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">class</strong> Ref&lt;T&gt; {}
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">class</strong> Base {}
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">class</strong> Der <strong class="jxr_keyword">extends</strong> Base {}
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>LambdaWithLongChainInReturn xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.util.Optional;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.util.function.BiFunction;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.util.function.Function;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> java.util.function.UnaryOperator;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">class</strong> MySample {
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>       &lt;T&gt; MySample bar(Function&lt;String, T&gt; f) {<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;}
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>       &lt;T&gt; MySample bar(BiFunction&lt;String, String, T&gt; f) {<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;}
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> example() {
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>          update(x -&gt; x.bar(y -&gt; {
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>              <strong class="jxr_keyword">var</strong> e1 = Optional.of(y);
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>              <strong class="jxr_keyword">var</strong> e2 = Optional.of(e1.orElse(y + 1));
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>              <strong class="jxr_keyword">var</strong> e3 = Optional.of(e2.orElse(y + 1));
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>              <strong class="jxr_keyword">var</strong> e4 = Optional.of(e3.orElse(y + 1));
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>              <strong class="jxr_keyword">var</strong> e5 = Optional.of(e4.orElse(y + 1));
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>              <strong class="jxr_keyword">var</strong> e6 = Optional.of(e5.orElse(y + 1));
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>              <strong class="jxr_keyword">var</strong> e7 = Optional.of(e6.orElse(y + 1));
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>              <strong class="jxr_keyword">var</strong> e8 = Optional.of(e7.orElse(y + 1));
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>              <strong class="jxr_keyword">var</strong> e9 = Optional.of(e8.orElse(y + 1));
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>              <strong class="jxr_keyword">var</strong> e10 = Optional.of(e9.orElse(y + 1));
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>              <strong class="jxr_keyword">return</strong> Arrays.as&lt;caret&gt;List(e1, e2);
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>          }));
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      }
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      <strong class="jxr_keyword">void</strong> update(UnaryOperator&lt;MySample&gt; u) {
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      }
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

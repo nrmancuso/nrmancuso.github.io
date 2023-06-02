@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>BuypassCA xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2017, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> * @bug 8189131</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment"> * @summary Interoperability tests with Buypass Class 2 and Class 3 CA</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment"> * @build ValidatePathWithParams</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment"> * @run main/othervm/timeout=180 -Djava.security.debug=certpath BuypassCA OCSP</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment"> * @run main/othervm/timeout=180 -Djava.security.debug=certpath BuypassCA CRL</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_comment"> * Obtain test artifacts for Buypass Class 2 and Class 3 CAs from:</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_comment"> *  Class 2:</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_comment"> *      <a href="https://valid.domainplus.ca22.ssl.buypass.no/CA2Class2" target="alexandria_uri">https://valid.domainplus.ca22.ssl.buypass.no/CA2Class2</a>   (valid)</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_comment"> *      <a href="https://revoked.domainplus.ca22.ssl.buypass.no" target="alexandria_uri">https://revoked.domainplus.ca22.ssl.buypass.no</a>        (revoked)</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_comment"> *  Class3:</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_comment"> *      <a href="https://valid.business.ca23.ssl.buypass.no" target="alexandria_uri">https://valid.business.ca23.ssl.buypass.no</a>    (valid)</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_comment"> *      <a href="https://revoked.business.ca23.ssl.buypass.no" target="alexandria_uri">https://revoked.business.ca23.ssl.buypass.no</a>    (revoked)</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> BuypassCA {
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          ValidatePathWithParams pathValidator = <strong class="jxr_keyword">new</strong> ValidatePathWithParams(<strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>          <strong class="jxr_keyword">boolean</strong> ocspEnabled = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">if</strong> (args.length &gt;= 1 &amp;&amp; <span class="jxr_string">"CRL"</span>.equalsIgnoreCase(args[0])) {
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              pathValidator.enableCRLCheck();
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>              ocspEnabled = false;
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>              <em class="jxr_comment">// OCSP check by default</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>              pathValidator.enableOCSPCheck();
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          }
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          <strong class="jxr_keyword">new</strong> BuypassClass2().runTest(pathValidator);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          <strong class="jxr_keyword">new</strong> BuypassClass3().runTest(pathValidator, ocspEnabled);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>      }
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  }
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <strong class="jxr_keyword">class</strong> BuypassClass2 {
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      <em class="jxr_comment">// Owner: CN=Buypass Class 2 CA 2, O=Buypass AS-983163327, C=NO</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      <em class="jxr_comment">// Issuer: CN=Buypass Class 2 Root CA, O=Buypass AS-983163327, C=NO</em>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String INT_CLASS_2 = <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>              + <span class="jxr_string">"MIIFCzCCAvOgAwIBAgIBGDANBgkqhkiG9w0BAQsFADBOMQswCQYDVQQGEwJOTzEd\n"</span>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>              + <span class="jxr_string">"MBsGA1UECgwUQnV5cGFzcyBBUy05ODMxNjMzMjcxIDAeBgNVBAMMF0J1eXBhc3Mg\n"</span>
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>              + <span class="jxr_string">"Q2xhc3MgMiBSb290IENBMB4XDTEwMTAyNjEwMTYxN1oXDTMwMTAyNjEwMTYxN1ow\n"</span>
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>              + <span class="jxr_string">"SzELMAkGA1UEBhMCTk8xHTAbBgNVBAoMFEJ1eXBhc3MgQVMtOTgzMTYzMzI3MR0w\n"</span>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>              + <span class="jxr_string">"GwYDVQQDDBRCdXlwYXNzIENsYXNzIDIgQ0EgMjCCASIwDQYJKoZIhvcNAQEBBQAD\n"</span>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>              + <span class="jxr_string">"ggEPADCCAQoCggEBAJyrZ8aWSw0PkdLsyswzK/Ny/A5/uU6EqQ99c6omDMpI+yNo\n"</span>
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>              + <span class="jxr_string">"HjUO42ryrATs4YHla+xj+MieWyvz9HYaCnrGL0CE4oX8M7WzD+g8h6tUCS0AakJx\n"</span>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>              + <span class="jxr_string">"dC5PBocUkjQGZ5ZAoF92ms6C99qfQXhHx7lBP/AZT8sCWP0chOf9/cNxCplspYVJ\n"</span>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>              + <span class="jxr_string">"HkQjKN3VGa+JISavCcBqf33ihbPZ+RaLjOTxoaRaWTvlkFxHqsaZ3AsW71qSJwaE\n"</span>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              + <span class="jxr_string">"55l9/qH45vn5mPrHQJ8h5LjgQcN5KBmxUMoA2iT/VSLThgcgl+Iklbcv9rs6aaMC\n"</span>
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>              + <span class="jxr_string">"JH+zKbub+RyRijmyzD9YBr+ZTaowHvJs9G59uZMCAwEAAaOB9jCB8zAPBgNVHRMB\n"</span>
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>              + <span class="jxr_string">"Af8EBTADAQH/MB8GA1UdIwQYMBaAFMmAd+BikoL1RpzzuvdMw964o605MB0GA1Ud\n"</span>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>              + <span class="jxr_string">"DgQWBBSSrWWJsgAPy1ENwSPslE6PwQQ/dzAOBgNVHQ8BAf8EBAMCAQYwEQYDVR0g\n"</span>
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>              + <span class="jxr_string">"BAowCDAGBgRVHSAAMD0GA1UdHwQ2MDQwMqAwoC6GLGh0dHA6Ly9jcmwuYnV5cGFz\n"</span>
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>              + <span class="jxr_string">"cy5uby9jcmwvQlBDbGFzczJSb290Q0EuY3JsMD4GCCsGAQUFBwEBBDIwMDAuBggr\n"</span>
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>              + <span class="jxr_string">"BgEFBQcwAYYiaHR0cDovL29jc3AuYnV5cGFzcy5uby9vY3NwL0JQT2NzcDANBgkq\n"</span>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>              + <span class="jxr_string">"hkiG9w0BAQsFAAOCAgEAq8IVUouNdeHQljyp8xpa9GC7rpSRXGRRTolSXNa9TUfU\n"</span>
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>              + <span class="jxr_string">"48Z0Vj3x9jT58I+I8P7fKp+p4Wdu0kcwxOXsooP8hdGLqXY4nV9amkNRiTs99xa3\n"</span>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>              + <span class="jxr_string">"Qu/KdLeAPEeeKztxDCLXGmsC4+1G6DuDrOkwSm9Tm+HxSZRGR4Qo3mU3CCSz37us\n"</span>
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>              + <span class="jxr_string">"q7I0mnY4cCeBPQ3zW5J7k7KmMpUlxOPnLpaASY2JhoeiWIWddH6LUsMkZk1jDv+M\n"</span>
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              + <span class="jxr_string">"Hyw2JWZUEUMCZoxLZ7F+4xP7v8wcEtICFo6tZIaawq9p/S6+mJLcoQ7wdQBM0+NA\n"</span>
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>              + <span class="jxr_string">"cc1MnSbPz75WP4cFhVf1SFq5gBBMCgzYaw+A9bJxDgqV3IMG6TtWfOWz7KhMV+EL\n"</span>
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>              + <span class="jxr_string">"iVp0fXua2GITRwr+htWnID3ShbHOtCMUm9qrqC6aWNPvJqqKLdhgU9bQ/s5o05a0\n"</span>
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>              + <span class="jxr_string">"D8NFT07l8yY6+ge+PPHOidnZrTNFIF9dtEdtyXGNrcqhZF0QvqeV1yZ/Kf2+W4pa\n"</span>
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>              + <span class="jxr_string">"Wor82CuDZNfcf0lje3guk+oZexxpIO57eGJQh9iGLM5dBeEMF7+f5j/1/rGsf6vA\n"</span>
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>              + <span class="jxr_string">"KkudpjiTl1v/GoO2zMDTTQVcjEsLSYSV0+s2p5QTXuAXrL0/ER3KQRvewIAtmzFg\n"</span>
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>              + <span class="jxr_string">"IaPy7t2TV0olHISRMvaEz4Guh2biuO/N6SP3pkk3dsMxiEVw7Xc+ouCb03Rz3aA=\n"</span>
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>              + <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      <em class="jxr_comment">// Owner: CN=valid.domainplus.ca22.ssl.buypass.no</em>
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>      <em class="jxr_comment">// Issuer: CN=Buypass Class 2 CA 2, O=Buypass AS-983163327, C=NO</em>
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>     <em class="jxr_comment">// Serial number: f0673c7183c95b38c93</em>
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>     <em class="jxr_comment">// Valid from: Mon Jan 25 00:20:55 PST 2016 until: Fri Jan 25 14:59:00 PST 2019</em>
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String VALID_CLASS_2 = <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span>
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>             + <span class="jxr_string">"MIIEgzCCA2ugAwIBAgIKDwZzxxg8lbOMkzANBgkqhkiG9w0BAQsFADBLMQswCQYD\n"</span>
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>             + <span class="jxr_string">"VQQGEwJOTzEdMBsGA1UECgwUQnV5cGFzcyBBUy05ODMxNjMzMjcxHTAbBgNVBAMM\n"</span>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>             + <span class="jxr_string">"FEJ1eXBhc3MgQ2xhc3MgMiBDQSAyMB4XDTE2MDEyNTA4MjA1NVoXDTE5MDEyNTIy\n"</span>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             + <span class="jxr_string">"NTkwMFowLzEtMCsGA1UEAwwkdmFsaWQuZG9tYWlucGx1cy5jYTIyLnNzbC5idXlw\n"</span>
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>             + <span class="jxr_string">"YXNzLm5vMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwhA0eVz8ADqx\n"</span>
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>             + <span class="jxr_string">"dcrIZUzCf1n+kaBFyEF4WteUMtM4ta7szTm19f1/O4LRwr+pI5qQDgWHnHMX9sit\n"</span>
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>             + <span class="jxr_string">"rKOJPfMRgWrViaQ5y9QCZ4h2BIuDe61XVGkEcUiOoNojLRvDrbjpknI69nb1wbjn\n"</span>
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>             + <span class="jxr_string">"fpmCQVjYXoandr7RsexdWG4e+s6rk5Jk/zAUzU3Vbi0lmDJ62Dd+Dk3/IVrSebOp\n"</span>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>             + <span class="jxr_string">"eIDniRX4vjIeucnDDTQ1VqSIN+gYNR/bMxXKFbScGAG+BpgZMwetJBJhTi7zlOgR\n"</span>
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>             + <span class="jxr_string">"4zAtdvvpJNN1pmNCsmJaM25WQgH6a05cTQtgYN//MKqTDww7z+LfK37mOxh3vBTu\n"</span>
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>             + <span class="jxr_string">"TR5S6VxzQQIDAQABo4IBgzCCAX8wCQYDVR0TBAIwADAfBgNVHSMEGDAWgBSSrWWJ\n"</span>
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>             + <span class="jxr_string">"sgAPy1ENwSPslE6PwQQ/dzAdBgNVHQ4EFgQUIs9OWkfc6S1c8mbYgi6Ns1kzh0Mw\n"</span>
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>             + <span class="jxr_string">"DgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAf\n"</span>
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>             + <span class="jxr_string">"BgNVHSAEGDAWMAoGCGCEQgEaAQIEMAgGBmeBDAECATA6BgNVHR8EMzAxMC+gLaAr\n"</span>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>             + <span class="jxr_string">"hilodHRwOi8vY3JsLmJ1eXBhc3Mubm8vY3JsL0JQQ2xhc3MyQ0EyLmNybDAvBgNV\n"</span>
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>             + <span class="jxr_string">"HREEKDAmgiR2YWxpZC5kb21haW5wbHVzLmNhMjIuc3NsLmJ1eXBhc3Mubm8wdQYI\n"</span>
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>             + <span class="jxr_string">"KwYBBQUHAQEEaTBnMC4GCCsGAQUFBzABhiJodHRwOi8vb2NzcC5idXlwYXNzLm5v\n"</span>
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>             + <span class="jxr_string">"L29jc3AvQlBPY3NwMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LmJ1eXBhc3Mubm8v\n"</span>
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>             + <span class="jxr_string">"Y3J0L0JQQ2xhc3MyQ0EyLmNlcjANBgkqhkiG9w0BAQsFAAOCAQEAjDPxDQnnzH+v\n"</span>
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>             + <span class="jxr_string">"Mnj8dRM6NPBVXl4JNofWlwqzYdu+HauFeF3AOZVVyr/YbOR9/ewDrScOvrGohndV\n"</span>
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>             + <span class="jxr_string">"7Si0l5hz3fo51Ra81TyR8kWR7nJC2joidT1X4a0hF9zu8CNQNVmkOhoACgeuv42R\n"</span>
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>             + <span class="jxr_string">"NDwmj9TfpNRyC4RA7/NzXMeRJYfOrh18S9VHhCzsWScd9td3u7hrhBOPPOql9f2K\n"</span>
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>             + <span class="jxr_string">"t9Hcevo+cceE6bGYwbW6xNr3iPOh31shMxgRUMojVamtH70tYMi+0e0lrzXdxgGO\n"</span>
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>             + <span class="jxr_string">"ISnXBS2HptakUIxF3feTOjBhhh5vb9RJxfdJA///ggkR3L51MfjrusucpNoz3k3P\n"</span>
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>             + <span class="jxr_string">"f5e7ZlSJ6g==\n"</span>
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>             + <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> 
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>     <em class="jxr_comment">// Owner: CN=revoked.domainplus.ca22.ssl.buypass.no</em>
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>     <em class="jxr_comment">// Issuer: CN=Buypass Class 2 CA 2, O=Buypass AS-983163327, C=NO</em>
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>     <em class="jxr_comment">// Serial number: f07a517dfc19ea8bf8f</em>
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>     <em class="jxr_comment">// Valid from: Mon Jan 25 00:22:09 PST 2016 until: Fri Jan 25 14:59:00 PST 2019</em>
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String REVOKED_CLASS_2 = <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span>
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>             + <span class="jxr_string">"MIIEhzCCA2+gAwIBAgIKDwelF9/Bnqi/jzANBgkqhkiG9w0BAQsFADBLMQswCQYD\n"</span>
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>             + <span class="jxr_string">"VQQGEwJOTzEdMBsGA1UECgwUQnV5cGFzcyBBUy05ODMxNjMzMjcxHTAbBgNVBAMM\n"</span>
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>             + <span class="jxr_string">"FEJ1eXBhc3MgQ2xhc3MgMiBDQSAyMB4XDTE2MDEyNTA4MjIwOVoXDTE5MDEyNTIy\n"</span>
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>             + <span class="jxr_string">"NTkwMFowMTEvMC0GA1UEAwwmcmV2b2tlZC5kb21haW5wbHVzLmNhMjIuc3NsLmJ1\n"</span>
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>             + <span class="jxr_string">"eXBhc3Mubm8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDjp/5BLRjH\n"</span>
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>             + <span class="jxr_string">"03XNNT2YXqg+txclRaUu88Rjbj4oEudFbkGTl+oBhmXX4QjM4WGvgw1AHW7nePWF\n"</span>
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>             + <span class="jxr_string">"/j3aR1kWJCl/ZOe097mb0V0dIwK6u6RVx9ERd4ITa/cmUJjy1+D+vCsT0elJY1vf\n"</span>
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>             + <span class="jxr_string">"vbwCdaloS7MZDG3wmJGxrUz7fo7t/JdsW481Ymau3xVTQ+45MusPmOE8RZ6nggIQ\n"</span>
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>             + <span class="jxr_string">"dZIA00XPhlQwg5ivuPwtcNNZIkk1fkU+5J+RUOI5qHA9zH2s1Hly6PzTATCxSDSi\n"</span>
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>             + <span class="jxr_string">"zqAmBH0ehrWqCWiKH5P3J8dCRA6qa2n5pD71CweLrUsbmztkBHUlYKlZ0fP6bGiI\n"</span>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>             + <span class="jxr_string">"ZDMBLL/aFQybAgMBAAGjggGFMIIBgTAJBgNVHRMEAjAAMB8GA1UdIwQYMBaAFJKt\n"</span>
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>             + <span class="jxr_string">"ZYmyAA/LUQ3BI+yUTo/BBD93MB0GA1UdDgQWBBQZICByGObE/pJISOcMavbKRl2L\n"</span>
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>             + <span class="jxr_string">"+zAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC\n"</span>
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>             + <span class="jxr_string">"MB8GA1UdIAQYMBYwCgYIYIRCARoBAgQwCAYGZ4EMAQIBMDoGA1UdHwQzMDEwL6At\n"</span>
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>             + <span class="jxr_string">"oCuGKWh0dHA6Ly9jcmwuYnV5cGFzcy5uby9jcmwvQlBDbGFzczJDQTIuY3JsMDEG\n"</span>
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>             + <span class="jxr_string">"A1UdEQQqMCiCJnJldm9rZWQuZG9tYWlucGx1cy5jYTIyLnNzbC5idXlwYXNzLm5v\n"</span>
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>             + <span class="jxr_string">"MHUGCCsGAQUFBwEBBGkwZzAuBggrBgEFBQcwAYYiaHR0cDovL29jc3AuYnV5cGFz\n"</span>
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>             + <span class="jxr_string">"cy5uby9vY3NwL0JQT2NzcDA1BggrBgEFBQcwAoYpaHR0cDovL2NydC5idXlwYXNz\n"</span>
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>             + <span class="jxr_string">"Lm5vL2NydC9CUENsYXNzMkNBMi5jZXIwDQYJKoZIhvcNAQELBQADggEBAAdjMdlP\n"</span>
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>             + <span class="jxr_string">"qYNK+YkrqTgQV0dblIazL/cIhMPByjnEkfxew9tDxpcMWafIFKcgM/QxYJG/mzoL\n"</span>
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>             + <span class="jxr_string">"sSQ9pzzuGLQX7eAPA3rlWoQBusOeOaC3HQqy73kGStd7H8HPa3m+q47Z6JG0w+Fb\n"</span>
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>             + <span class="jxr_string">"rk8odrml+8rAEPLBlldB39xJuNVHjmlyTEDSC4azEXjfV4+kj8uE86sm+AoTt4Ba\n"</span>
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>             + <span class="jxr_string">"tEZSbKp70oH63QKBAEHORMM4gXeP+WG276p3kTcL1VUfgQw7vVmGN0C8DjhK4BAC\n"</span>
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>             + <span class="jxr_string">"0PUChr8agu0F5YcqpGxjLemMnDrqW+Bi/JYmGhEjWTiLSyYSlvJb1dAFUyPlc958\n"</span>
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>             + <span class="jxr_string">"pmOu5xTMEatiPFI=\n"</span>
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>             + <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L161" href="#L161">161</a> 
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> runTest(ValidatePathWithParams pathValidator) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>         <em class="jxr_comment">// Validate valid</em>
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>         pathValidator.validate(<strong class="jxr_keyword">new</strong> String[]{VALID_CLASS_2, INT_CLASS_2},
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>                 ValidatePathWithParams.Status.GOOD, <strong class="jxr_keyword">null</strong>, System.out);
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> 
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>         <em class="jxr_comment">// Validate Revoked</em>
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>         pathValidator.validate(<strong class="jxr_keyword">new</strong> String[]{REVOKED_CLASS_2, INT_CLASS_2},
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>                 ValidatePathWithParams.Status.REVOKED,
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>                 <span class="jxr_string">"Mon Jan 25 00:24:47 PST 2016"</span>, System.out);
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>     }
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> }
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> 
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> <strong class="jxr_keyword">class</strong> BuypassClass3 {
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>     <em class="jxr_comment">// Owner: CN=Buypass Class 3 CA 2, O=Buypass AS-983163327, C=NO</em>
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>     <em class="jxr_comment">// Issuer: CN=Buypass Class 3 Root CA, O=Buypass AS-983163327, C=NO</em>
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String INT_CLASS_3 = <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span>
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>             + <span class="jxr_string">"MIIFCzCCAvOgAwIBAgIBGDANBgkqhkiG9w0BAQsFADBOMQswCQYDVQQGEwJOTzEd\n"</span>
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>             + <span class="jxr_string">"MBsGA1UECgwUQnV5cGFzcyBBUy05ODMxNjMzMjcxIDAeBgNVBAMMF0J1eXBhc3Mg\n"</span>
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>             + <span class="jxr_string">"Q2xhc3MgMyBSb290IENBMB4XDTEwMTAyNjA5MTYxN1oXDTMwMTAyNjA5MTYxN1ow\n"</span>
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>             + <span class="jxr_string">"SzELMAkGA1UEBhMCTk8xHTAbBgNVBAoMFEJ1eXBhc3MgQVMtOTgzMTYzMzI3MR0w\n"</span>
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>             + <span class="jxr_string">"GwYDVQQDDBRCdXlwYXNzIENsYXNzIDMgQ0EgMjCCASIwDQYJKoZIhvcNAQEBBQAD\n"</span>
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>             + <span class="jxr_string">"ggEPADCCAQoCggEBAL1OFdoURRXuCuwTBJpuCKDE8Euzcg0AeCRGq3VdagbChyCE\n"</span>
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>             + <span class="jxr_string">"CQ5vYWwmpHCyFl1b+r2KyWdQBBdG+msAcIYZal5cjZzrTWvbkfiAD/OneMjhqYB0\n"</span>
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>             + <span class="jxr_string">"pTQIXbTjpPUMOjFM8waNZcqGJqC9H+Z9NkjK5THAK0oOOfKNPHg1MeImbOHVw0fR\n"</span>
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>             + <span class="jxr_string">"48WnNrPpnQDt+SbPFSvw+dACDAybx1XgjMPq7pmZDWbkajOz4yCvrgZm6jvAPeT3\n"</span>
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>             + <span class="jxr_string">"qkBFh7zOZ3IZVdfmRjVahx0iXp5TJ1SsrRr/uCiae1O+NR//XDG3dl9j17HsFlhY\n"</span>
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>             + <span class="jxr_string">"Rl6EvEfVV0OcW94Ret9uBUF73ANZl0b+gwCXnV0CAwEAAaOB9jCB8zAPBgNVHRMB\n"</span>
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>             + <span class="jxr_string">"Af8EBTADAQH/MB8GA1UdIwQYMBaAFEe4zf/lb+74suwvTg75JbCOPGvDMB0GA1Ud\n"</span>
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>             + <span class="jxr_string">"DgQWBBQiMC7S+/ZLysC4O9IExOly5pebDDAOBgNVHQ8BAf8EBAMCAQYwEQYDVR0g\n"</span>
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>             + <span class="jxr_string">"BAowCDAGBgRVHSAAMD0GA1UdHwQ2MDQwMqAwoC6GLGh0dHA6Ly9jcmwuYnV5cGFz\n"</span>
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>             + <span class="jxr_string">"cy5uby9jcmwvQlBDbGFzczNSb290Q0EuY3JsMD4GCCsGAQUFBwEBBDIwMDAuBggr\n"</span>
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>             + <span class="jxr_string">"BgEFBQcwAYYiaHR0cDovL29jc3AuYnV5cGFzcy5uby9vY3NwL0JQT2NzcDANBgkq\n"</span>
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>             + <span class="jxr_string">"hkiG9w0BAQsFAAOCAgEAaOLyxpj2t9k9Rzkxkcj/teTNOWxBLPZDi+eFx3u7laf2\n"</span>
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>             + <span class="jxr_string">"mX/ZUSSE4g7OiKnD7ozWk9Qgocn3rBWGDKsp676RwWV97Elofz73Oebei6P3Gg/9\n"</span>
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>             + <span class="jxr_string">"CD8y6rf8xHRxru5d1ZQ1NkWdPwYI38jlt3LaDjJKZjJW7pOPIMRvw1Y1AY3mYgCJ\n"</span>
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>             + <span class="jxr_string">"Qqpw8jgukHIP0454DPzkUXzg/ZVJG0swmFmjYfARleSPidcs5BJx5ngpcUS4745g\n"</span>
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>             + <span class="jxr_string">"mN9PQ578+ROIbML4Jx83myivlyTQSPdYSwzSswb1RVBJmiF9qC0B1hivCrs4BATu\n"</span>
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>             + <span class="jxr_string">"YeaPV6CiNDr0jGnbxAskz7QDNR6uJSUKX3L9iY2TB/4/5hJ9TZ/YDI6OEG/wVtBz\n"</span>
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>             + <span class="jxr_string">"5FkU0ucztyQa4UG1mXR8Zbs/zt9Fj0Xn8f5IM3dB/s/r8c1AFDIcLRUqP/LkI9Wj\n"</span>
+<a class="jxr_linenumber" name="L202" href="#L202">202</a>             + <span class="jxr_string">"XovWr79PEJcIfIln0AfzYfBBxCRE+4QHcVhci6p/mbyl2a+Rf8ZGNTiDLaWSZp5x\n"</span>
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>             + <span class="jxr_string">"jqdaq5UQaoZK8XQ+JVR0etep/KPgVMXq5Zv16YEb2vjs//RfxT8psDZLe/37+Bs4\n"</span>
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>             + <span class="jxr_string">"AG9sdT/bsH7HDQwodTon/HvMmxt4EiU/1Sjco4Fok9VmSE2UVjIghajbbTSKR3LV\n"</span>
+<a class="jxr_linenumber" name="L205" href="#L205">205</a>             + <span class="jxr_string">"UuU19x12fKp+htO8L+wVlGgxXb9WvDBNHCe6RmR4jqavmvrAyCPtrx3cXwqGmXA=\n"</span>
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>             + <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L207" href="#L207">207</a> 
+<a class="jxr_linenumber" name="L208" href="#L208">208</a>     <em class="jxr_comment">// Owner: SERIALNUMBER=983163327, CN=valid.business.ca23.ssl.buypass.no,</em>
+<a class="jxr_linenumber" name="L209" href="#L209">209</a>     <em class="jxr_comment">// O=BUYPASS AS, L=OSLO, OID.2.5.4.17=0484, C=NO</em>
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>     <em class="jxr_comment">// Issuer: CN=Buypass Class 3 CA 2, O=Buypass AS-983163327, C=NO</em>
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>     <em class="jxr_comment">// Serial number: 97631b91e98293b35c8</em>
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>     <em class="jxr_comment">// Valid from: Fri Feb 06 00:57:04 PST 2015 until: Fri Feb 09 14:59:00 PST 2018</em>
+<a class="jxr_linenumber" name="L213" href="#L213">213</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String VALID_CLASS_3 = <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span>
+<a class="jxr_linenumber" name="L214" href="#L214">214</a>             + <span class="jxr_string">"MIIE1DCCA7ygAwIBAgIKCXYxuR6YKTs1yDANBgkqhkiG9w0BAQsFADBLMQswCQYD\n"</span>
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>             + <span class="jxr_string">"VQQGEwJOTzEdMBsGA1UECgwUQnV5cGFzcyBBUy05ODMxNjMzMjcxHTAbBgNVBAMM\n"</span>
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>             + <span class="jxr_string">"FEJ1eXBhc3MgQ2xhc3MgMyBDQSAyMB4XDTE1MDIwNjA4NTcwNFoXDTE4MDIwOTIy\n"</span>
+<a class="jxr_linenumber" name="L217" href="#L217">217</a>             + <span class="jxr_string">"NTkwMFowgYExCzAJBgNVBAYTAk5PMQ0wCwYDVQQRDAQwNDg0MQ0wCwYDVQQHDARP\n"</span>
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>             + <span class="jxr_string">"U0xPMRMwEQYDVQQKDApCVVlQQVNTIEFTMSswKQYDVQQDDCJ2YWxpZC5idXNpbmVz\n"</span>
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>             + <span class="jxr_string">"cy5jYTIzLnNzbC5idXlwYXNzLm5vMRIwEAYDVQQFEwk5ODMxNjMzMjcwggEiMA0G\n"</span>
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>             + <span class="jxr_string">"CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCbahUoF2A7upqIxDQKraZ+aEOzNkHF\n"</span>
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>             + <span class="jxr_string">"1fIQEtUMQS1OTB8la7pWsBnv1gk9Ja2ifIrwdSxAjefL3SXR47h4vxUMnufMnkTk\n"</span>
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>             + <span class="jxr_string">"PERXft/XR8/jZQZRpznnN/V89ctb8qcVhHCooTIELOBzF9QAmDnawZQogwhDNLNy\n"</span>
+<a class="jxr_linenumber" name="L223" href="#L223">223</a>             + <span class="jxr_string">"kLtWsl75X547DS/Z5hsqCqXPyOiFzkHY59uamYu48TF9d7HwQ741H0YhehoxTl/O\n"</span>
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>             + <span class="jxr_string">"YqzW2wqYxqhQuCX5IuYER7G/P3G6UAm+VB9aujtWW+TBT9+iWh0aT+C7ezDtREse\n"</span>
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>             + <span class="jxr_string">"lwb44svf8S3iW18KlSF8EMT0qwqNpA8njOCQiSgluYD+Uk9E5f8505UzAgMBAAGj\n"</span>
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>             + <span class="jxr_string">"ggGBMIIBfTAJBgNVHRMEAjAAMB8GA1UdIwQYMBaAFCIwLtL79kvKwLg70gTE6XLm\n"</span>
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>             + <span class="jxr_string">"l5sMMB0GA1UdDgQWBBQncKIaP6HdQV8RIBO+dddWDSKvJjAOBgNVHQ8BAf8EBAMC\n"</span>
+<a class="jxr_linenumber" name="L228" href="#L228">228</a>             + <span class="jxr_string">"BaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMB8GA1UdIAQYMBYwCgYI\n"</span>
+<a class="jxr_linenumber" name="L229" href="#L229">229</a>             + <span class="jxr_string">"YIRCARoBAwQwCAYGZ4EMAQICMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwu\n"</span>
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>             + <span class="jxr_string">"YnV5cGFzcy5uby9jcmwvQlBDbGFzczNDQTIuY3JsMC0GA1UdEQQmMCSCInZhbGlk\n"</span>
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>             + <span class="jxr_string">"LmJ1c2luZXNzLmNhMjMuc3NsLmJ1eXBhc3Mubm8wdQYIKwYBBQUHAQEEaTBnMC4G\n"</span>
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>             + <span class="jxr_string">"CCsGAQUFBzABhiJodHRwOi8vb2NzcC5idXlwYXNzLm5vL29jc3AvQlBPY3NwMDUG\n"</span>
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>             + <span class="jxr_string">"CCsGAQUFBzAChilodHRwOi8vY3J0LmJ1eXBhc3Mubm8vY3J0L0JQQ2xhc3MzQ0Ey\n"</span>
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>             + <span class="jxr_string">"LmNlcjANBgkqhkiG9w0BAQsFAAOCAQEAqeA3IqMPn/az52twbNnimXIhIb7tWj7U\n"</span>
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>             + <span class="jxr_string">"NSBqr+httoQvNo7NbtVCgO/fM3/t0YN7rgZfP07QTn7L7CwoddrgHbnuCuFr9UhD\n"</span>
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>             + <span class="jxr_string">"df7cfY3cwDhWx+YKgXTkRZpXXrOPqeY2+9gaJlcQCnw66t5EBa4lSBnN0ZtkB4lT\n"</span>
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>             + <span class="jxr_string">"ujFP6BAyzZAjRdXWUidtErDWZri1uLmWAP0kQNez2toOcQ0XpbrbL8+nQtvOVOJv\n"</span>
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>             + <span class="jxr_string">"b/c8WoaoC14C32mAeC5bx4dQ3mpf3hQv9man1SPjY/rsDsWWjsaJAijl3YPtP2bU\n"</span>
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>             + <span class="jxr_string">"JRCCM7qfZWrY8/uBLG2llfjviKV9I6sT76w7TnawPsz+SkDXFm/nwg==\n"</span>
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>             + <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L241" href="#L241">241</a> 
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>     <em class="jxr_comment">// Owner: SERIALNUMBER=983163327, CN=revoked.business.ca23.ssl.buypass.no,</em>
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>     <em class="jxr_comment">// O=BUYPASS AS, L=OSLO, OID.2.5.4.17=0402, C=NO</em>
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>     <em class="jxr_comment">// Issuer: CN=Buypass Class 3 CA 2, O=Buypass AS-983163327, C=NO</em>
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String REVOKED_CLASS_3 = <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span>
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>             + <span class="jxr_string">"MIIE2DCCA8CgAwIBAgIKARno/wYhPtNtmjANBgkqhkiG9w0BAQsFADBLMQswCQYD\n"</span>
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>             + <span class="jxr_string">"VQQGEwJOTzEdMBsGA1UECgwUQnV5cGFzcyBBUy05ODMxNjMzMjcxHTAbBgNVBAMM\n"</span>
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>             + <span class="jxr_string">"FEJ1eXBhc3MgQ2xhc3MgMyBDQSAyMB4XDTEzMDIwMTA5MTE0NFoXDTE2MDIwMTA5\n"</span>
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>             + <span class="jxr_string">"MTE0NFowgYMxCzAJBgNVBAYTAk5PMQ0wCwYDVQQRDAQwNDAyMQ0wCwYDVQQHDARP\n"</span>
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>             + <span class="jxr_string">"U0xPMRMwEQYDVQQKDApCVVlQQVNTIEFTMS0wKwYDVQQDDCRyZXZva2VkLmJ1c2lu\n"</span>
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>             + <span class="jxr_string">"ZXNzLmNhMjMuc3NsLmJ1eXBhc3Mubm8xEjAQBgNVBAUTCTk4MzE2MzMyNzCCASIw\n"</span>
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>             + <span class="jxr_string">"DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMmBUI0wNCz4kLikR5wog4QTUEmO\n"</span>
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>             + <span class="jxr_string">"XoGgjnQv0cKfDogbewK+0ngdyyR8dZOqSauQTGLlPTpo6DEWpD3Jqrr444MV6Vc1\n"</span>
+<a class="jxr_linenumber" name="L254" href="#L254">254</a>             + <span class="jxr_string">"AGWnjk3T+KT5tKl6qJOQq17Y+HEnsTEzCo1kieVygpSu7FBa2OnhHNmLWThhGUEi\n"</span>
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>             + <span class="jxr_string">"mLqrEyfjMSb9zacvo06Zr7S8BauLRB3aM5BeMVF7Bj/9f/FvnB/y1cRDLG32WRCx\n"</span>
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>             + <span class="jxr_string">"K9IAFwCaJkfWsXx+bnaO4uEQwLFZ96p7L5mr+QNvI6QuweIY1hDM3RDM6HQkGTK9\n"</span>
+<a class="jxr_linenumber" name="L257" href="#L257">257</a>             + <span class="jxr_string">"8iHSzGBSCGwOM24Ym3XM5vTbiV5uLno+QEYlJL/+qbYvarbO2gPF+6A6M10CAwEA\n"</span>
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>             + <span class="jxr_string">"AaOCAYMwggF/MAkGA1UdEwQCMAAwHwYDVR0jBBgwFoAUIjAu0vv2S8rAuDvSBMTp\n"</span>
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>             + <span class="jxr_string">"cuaXmwwwHQYDVR0OBBYEFNI2C2XKZkNRHZrHLkBhCMeDRN0KMA4GA1UdDwEB/wQE\n"</span>
+<a class="jxr_linenumber" name="L260" href="#L260">260</a>             + <span class="jxr_string">"AwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHwYDVR0gBBgwFjAK\n"</span>
+<a class="jxr_linenumber" name="L261" href="#L261">261</a>             + <span class="jxr_string">"BghghEIBGgEDBDAIBgZngQwBAgIwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2Ny\n"</span>
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>             + <span class="jxr_string">"bC5idXlwYXNzLm5vL2NybC9CUENsYXNzM0NBMi5jcmwwLwYDVR0RBCgwJoIkcmV2\n"</span>
+<a class="jxr_linenumber" name="L263" href="#L263">263</a>             + <span class="jxr_string">"b2tlZC5idXNpbmVzcy5jYTIzLnNzbC5idXlwYXNzLm5vMHUGCCsGAQUFBwEBBGkw\n"</span>
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>             + <span class="jxr_string">"ZzAuBggrBgEFBQcwAYYiaHR0cDovL29jc3AuYnV5cGFzcy5uby9vY3NwL0JQT2Nz\n"</span>
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>             + <span class="jxr_string">"cDA1BggrBgEFBQcwAoYpaHR0cDovL2NydC5idXlwYXNzLm5vL2NydC9CUENsYXNz\n"</span>
+<a class="jxr_linenumber" name="L266" href="#L266">266</a>             + <span class="jxr_string">"M0NBMi5jZXIwDQYJKoZIhvcNAQELBQADggEBAGNQe9cgrw/mN7bChof205NRS+TH\n"</span>
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>             + <span class="jxr_string">"A8f0JcKk1KrPYYW+ilyp6j3My26Sm9a4ZyKRhAS8fCxYUXWzfNvJNFYv2ttLuegl\n"</span>
+<a class="jxr_linenumber" name="L268" href="#L268">268</a>             + <span class="jxr_string">"SFfeXjSJJZW9+wC5oRLta++62UTTxXp0Zf5UkMsHZCIjvnk0yGWZa0phyRCH89ca\n"</span>
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>             + <span class="jxr_string">"4vfRTOGNTNfX3d0jm/+fm70UNYHKZ/VcxVj0vH2Ij/kDUy7r2cw1gQ65RDUotnTu\n"</span>
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>             + <span class="jxr_string">"Yt59y3COyMZeYNMcuoss2XWnedFoD7fwCSkNqVbwjCxGVkL1+ivbWhqlCefaniZX\n"</span>
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>             + <span class="jxr_string">"Wy35oP1635RSxHbCMU9msmUO7FS8n1VH2edEC797gduK5pn2aBhy/MW0unU=\n"</span>
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>             + <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L273" href="#L273">273</a> 
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> runTest(ValidatePathWithParams pathValidator, <strong class="jxr_keyword">boolean</strong> ocspEnabled)
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>             <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>         <em class="jxr_comment">// Validate valid</em>
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>         pathValidator.validate(<strong class="jxr_keyword">new</strong> String[]{VALID_CLASS_3, INT_CLASS_3},
+<a class="jxr_linenumber" name="L278" href="#L278">278</a>                 ValidatePathWithParams.Status.GOOD, <strong class="jxr_keyword">null</strong>, System.out);
+<a class="jxr_linenumber" name="L279" href="#L279">279</a> 
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>         <strong class="jxr_keyword">if</strong> (ocspEnabled) {
+<a class="jxr_linenumber" name="L281" href="#L281">281</a>             <em class="jxr_comment">// Revoked test certificate is expired</em>
+<a class="jxr_linenumber" name="L282" href="#L282">282</a>             <em class="jxr_comment">// and backdated revocation check is only possible with OCSP</em>
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>             pathValidator.setValidationDate(<span class="jxr_string">"July 01, 2013"</span>);
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>         }
+<a class="jxr_linenumber" name="L285" href="#L285">285</a> 
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>         <em class="jxr_comment">// Validate Revoked</em>
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>         pathValidator.validate(<strong class="jxr_keyword">new</strong> String[]{REVOKED_CLASS_3, INT_CLASS_3},
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>                 ValidatePathWithParams.Status.REVOKED,
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>                 <span class="jxr_string">"Wed Feb 06 02:56:32 PST 2013"</span>, System.out);
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>     }
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

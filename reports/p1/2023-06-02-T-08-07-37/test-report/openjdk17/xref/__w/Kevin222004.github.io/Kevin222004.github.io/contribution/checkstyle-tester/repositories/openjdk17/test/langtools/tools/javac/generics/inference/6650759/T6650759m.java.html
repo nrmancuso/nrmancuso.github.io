@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>T6650759m xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * @test    /nodynamiccopyright/</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * @bug     6650759 8078024</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * @summary Inference of formal type parameter (unused in formal parameters) is not performed</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * @compile/fail/ref=T6650759m.out T6650759m.java -XDrawDiagnostics</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> java.util.*;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">class</strong> T6650759m {
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>      &lt;Z&gt; List&lt;? <strong class="jxr_keyword">super</strong> Z&gt; m(List&lt;? <strong class="jxr_keyword">extends</strong> List&lt;? <strong class="jxr_keyword">super</strong> Z&gt;&gt; ls) {
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>          <strong class="jxr_keyword">return</strong> ls.get(0);
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      }
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>      <strong class="jxr_keyword">void</strong> test() {
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>          ArrayList&lt;ArrayList&lt;Integer&gt;&gt; lli = <strong class="jxr_keyword">new</strong> ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>          ArrayList&lt;Integer&gt; li = <strong class="jxr_keyword">new</strong> ArrayList&lt;Integer&gt;();
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>          li.add(2);
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>          lli.add(li);
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>          List&lt;? <strong class="jxr_keyword">super</strong> String&gt; ls = m(lli); <em class="jxr_comment">//here</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>          ls.add(<span class="jxr_string">"crash"</span>);
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>          Integer i = li.get(1);
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      }
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

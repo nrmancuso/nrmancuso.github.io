@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>IDEA57315 xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">class</strong> A&lt;K&gt;{
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>       <strong class="jxr_keyword">void</strong> foo(A&lt;A&lt;A&lt;String&gt;&gt;&gt; b){ bar(b); }
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>       &lt;U, S <strong class="jxr_keyword">extends</strong> A&lt;U&gt;, T <strong class="jxr_keyword">extends</strong> A&lt;S&gt;&gt; <strong class="jxr_keyword">void</strong> bar(A&lt;T&gt; a){}
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   }
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">class</strong> C {
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>       <strong class="jxr_keyword">class</strong> B&lt;T&gt; {}
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>       <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> A&lt;T <strong class="jxr_keyword">extends</strong> B&lt;? <strong class="jxr_keyword">super</strong> B&lt;String&gt;&gt;&gt; {
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>           <strong class="jxr_keyword">void</strong> bar(A&lt;? <strong class="jxr_keyword">extends</strong> B&lt;? <strong class="jxr_keyword">super</strong> B&lt;String&gt;&gt;&gt; a){
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>              foo(a);
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>          }
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>          &lt;S, T <strong class="jxr_keyword">extends</strong> B&lt;? <strong class="jxr_keyword">super</strong> S&gt;&gt; T foo(A&lt;? <strong class="jxr_keyword">extends</strong> T&gt; a){
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>              <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>          }
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      }
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

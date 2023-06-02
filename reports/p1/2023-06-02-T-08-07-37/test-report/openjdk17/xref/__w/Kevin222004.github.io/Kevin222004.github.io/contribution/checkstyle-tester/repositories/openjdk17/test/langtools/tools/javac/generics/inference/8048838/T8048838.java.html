@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>T8048838 xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2015, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> * @bug 8048838</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment"> * @summary type inference performance regression</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment"> * @compile T8048838.java</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">class</strong> T8048838 {
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      &lt;T1 <strong class="jxr_keyword">extends</strong> T2, T2 <strong class="jxr_keyword">extends</strong> T3, T3 <strong class="jxr_keyword">extends</strong> T4, T4 <strong class="jxr_keyword">extends</strong> T5, T5 <strong class="jxr_keyword">extends</strong> T6, T6 <strong class="jxr_keyword">extends</strong> T7,
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>              T7 <strong class="jxr_keyword">extends</strong> T8, T8 <strong class="jxr_keyword">extends</strong> T9, T9 <strong class="jxr_keyword">extends</strong> T10, T10 <strong class="jxr_keyword">extends</strong> T11, T11 <strong class="jxr_keyword">extends</strong> T12,
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>              T12 <strong class="jxr_keyword">extends</strong> T13, T13 <strong class="jxr_keyword">extends</strong> T14, T14 <strong class="jxr_keyword">extends</strong> T15, T15 <strong class="jxr_keyword">extends</strong> T16, T16 <strong class="jxr_keyword">extends</strong> T17,
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>              T17 <strong class="jxr_keyword">extends</strong> T18, T18 <strong class="jxr_keyword">extends</strong> T19, T19 <strong class="jxr_keyword">extends</strong> T20, T20 <strong class="jxr_keyword">extends</strong> T21, T21 <strong class="jxr_keyword">extends</strong> T22,
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>              T22 <strong class="jxr_keyword">extends</strong> T23, T23 <strong class="jxr_keyword">extends</strong> T24, T24 <strong class="jxr_keyword">extends</strong> T25, T25 <strong class="jxr_keyword">extends</strong> T26, T26 <strong class="jxr_keyword">extends</strong> T27,
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>              T27 <strong class="jxr_keyword">extends</strong> T28, T28 <strong class="jxr_keyword">extends</strong> T29, T29 <strong class="jxr_keyword">extends</strong> T30, T30 <strong class="jxr_keyword">extends</strong> T31, T31 <strong class="jxr_keyword">extends</strong> T32,
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>              T32 <strong class="jxr_keyword">extends</strong> T33, T33 <strong class="jxr_keyword">extends</strong> T34, T34 <strong class="jxr_keyword">extends</strong> T35, T35 <strong class="jxr_keyword">extends</strong> T36, T36 <strong class="jxr_keyword">extends</strong> T37,
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>              T37 <strong class="jxr_keyword">extends</strong> T38, T38 <strong class="jxr_keyword">extends</strong> T39, T39 <strong class="jxr_keyword">extends</strong> T40, T40 <strong class="jxr_keyword">extends</strong> T41, T41 <strong class="jxr_keyword">extends</strong> T42,
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>              T42 <strong class="jxr_keyword">extends</strong> T43, T43 <strong class="jxr_keyword">extends</strong> T44, T44 <strong class="jxr_keyword">extends</strong> T45, T45 <strong class="jxr_keyword">extends</strong> T46, T46 <strong class="jxr_keyword">extends</strong> T47,
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>              T47 <strong class="jxr_keyword">extends</strong> T48, T48 <strong class="jxr_keyword">extends</strong> T49, T49 <strong class="jxr_keyword">extends</strong> T50, T50 <strong class="jxr_keyword">extends</strong> T51, T51 <strong class="jxr_keyword">extends</strong> T52,
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>              T52 <strong class="jxr_keyword">extends</strong> T53, T53 <strong class="jxr_keyword">extends</strong> T54, T54 <strong class="jxr_keyword">extends</strong> T55, T55 <strong class="jxr_keyword">extends</strong> T56, T56 <strong class="jxr_keyword">extends</strong> T57,
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>              T57 <strong class="jxr_keyword">extends</strong> T58, T58 <strong class="jxr_keyword">extends</strong> T59, T59 <strong class="jxr_keyword">extends</strong> T60, T60 <strong class="jxr_keyword">extends</strong> T61, T61 <strong class="jxr_keyword">extends</strong> T62,
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>              T62 <strong class="jxr_keyword">extends</strong> T63, T63 <strong class="jxr_keyword">extends</strong> T64, T64 <strong class="jxr_keyword">extends</strong> T65, T65 <strong class="jxr_keyword">extends</strong> T66, T66 <strong class="jxr_keyword">extends</strong> T67,
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>              T67 <strong class="jxr_keyword">extends</strong> T68, T68 <strong class="jxr_keyword">extends</strong> T69, T69 <strong class="jxr_keyword">extends</strong> T70, T70 <strong class="jxr_keyword">extends</strong> T71, T71 <strong class="jxr_keyword">extends</strong> T72,
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>              T72 <strong class="jxr_keyword">extends</strong> T73, T73 <strong class="jxr_keyword">extends</strong> T74, T74 <strong class="jxr_keyword">extends</strong> T75, T75 <strong class="jxr_keyword">extends</strong> T76, T76 <strong class="jxr_keyword">extends</strong> T77,
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>              T77 <strong class="jxr_keyword">extends</strong> T78, T78 <strong class="jxr_keyword">extends</strong> T79, T79 <strong class="jxr_keyword">extends</strong> T80, T80 <strong class="jxr_keyword">extends</strong> T81, T81 <strong class="jxr_keyword">extends</strong> T82,
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>              T82 <strong class="jxr_keyword">extends</strong> T83, T83 <strong class="jxr_keyword">extends</strong> T84, T84 <strong class="jxr_keyword">extends</strong> T85, T85 <strong class="jxr_keyword">extends</strong> T86, T86 <strong class="jxr_keyword">extends</strong> T87,
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>              T87 <strong class="jxr_keyword">extends</strong> T88, T88 <strong class="jxr_keyword">extends</strong> T89, T89 <strong class="jxr_keyword">extends</strong> T90, T90 <strong class="jxr_keyword">extends</strong> T91, T91 <strong class="jxr_keyword">extends</strong> T92,
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>              T92 <strong class="jxr_keyword">extends</strong> T93, T93 <strong class="jxr_keyword">extends</strong> T94, T94 <strong class="jxr_keyword">extends</strong> T95, T95 <strong class="jxr_keyword">extends</strong> T96, T96 <strong class="jxr_keyword">extends</strong> T97,
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>              T97 <strong class="jxr_keyword">extends</strong> T98, T98 <strong class="jxr_keyword">extends</strong> T99, T99 <strong class="jxr_keyword">extends</strong> T100, T100 <strong class="jxr_keyword">extends</strong> Integer&gt;
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      T1 foo(T1 x1, T2 x2, T3 x3, T4 x4, T5 x5, T6 x6, T7 x7, T8 x8, T9 x9, T10 x10, T11 x11, T12 x12,
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>             T13 x13, T14 x14, T15 x15, T16 x16, T17 x17, T18 x18, T19 x19, T20 x20, T21 x21, T22 x22,
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>             T23 x23, T24 x24, T25 x25, T26 x26, T27 x27, T28 x28, T29 x29, T30 x30, T31 x31, T32 x32,
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>             T33 x33, T34 x34, T35 x35, T36 x36, T37 x37, T38 x38, T39 x39, T40 x40, T41 x41, T42 x42,
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>             T43 x43, T44 x44, T45 x45, T46 x46, T47 x47, T48 x48, T49 x49, T50 x50, T51 x51, T52 x52,
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>             T53 x53, T54 x54, T55 x55, T56 x56, T57 x57, T58 x58, T59 x59, T60 x60, T61 x61, T62 x62,
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>             T63 x63, T64 x64, T65 x65, T66 x66, T67 x67, T68 x68, T69 x69, T70 x70, T71 x71, T72 x72,
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>             T73 x73, T74 x74, T75 x75, T76 x76, T77 x77, T78 x78, T79 x79, T80 x80, T81 x81, T82 x82,
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>             T83 x83, T84 x84, T85 x85, T86 x86, T87 x87, T88 x88, T89 x89, T90 x90, T91 x91, T92 x92,
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>             T93 x93, T94 x94, T95 x95, T96 x96, T97 x97, T98 x98, T99 x99, T100 x100) { <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>; }
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      Object test() {
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <strong class="jxr_keyword">return</strong> foo(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>                  22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42,
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>                  43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>                  64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84,
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>                  85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100); <em class="jxr_comment">// type inference expected</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      }
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

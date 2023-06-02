@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>AskScript xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/* ###</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * IP: GHIDRA</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * Licensed under the Apache License, Version 2.0 (the "License");</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * you may not use this file except in compliance with the License.</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * You may obtain a copy of the License at</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * </em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *      <a href="http://www.apache.org/licenses/LICENSE-2.0" target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.0</a></em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * </em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * Unless required by applicable law or agreed to in writing, software</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * distributed under the License is distributed on an "AS IS" BASIS,</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * See the License for the specific language governing permissions and</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> * limitations under the License.</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment">//An example of asking for user input.</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment">//Note the ability to pre-populate values for some of these variables when AskScript.properties file exists.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment">//Also notice how the previous input is saved.</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment">//@category Examples</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> java.io.File;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> ghidra.app.script.GhidraScript;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> ghidra.framework.model.DomainFile;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> ghidra.framework.model.DomainFolder;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> ghidra.program.model.address.Address;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> ghidra.program.model.lang.LanguageCompilerSpecPair;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> ghidra.program.model.listing.Program;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> ghidra.util.Msg;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> AskScript <strong class="jxr_keyword">extends</strong> GhidraScript {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  	@Override
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  		<em class="jxr_comment">// The presence of the AskScript.properties file in the same location (as AskScript.java) </em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  		<em class="jxr_comment">// allows for the following behavior:</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  		<em class="jxr_comment">//		- GUI: if applicable, auto-populates the input field with the value in the </em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  		<em class="jxr_comment">//			.properties file (the first	time that input	field appears)</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  		<em class="jxr_comment">//   	- Headless: uses the value in the .properties file for the variable assigned to the</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  		<em class="jxr_comment">//			corresponding askXxx() method in the GhidraScript.</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  		<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  			File file1 = askFile(<span class="jxr_string">"FILE"</span>, <span class="jxr_string">"Choose file:"</span>);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  			println(<span class="jxr_string">"file was: "</span> + file1);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  			File directory1 = askDirectory(<span class="jxr_string">"Directory"</span>, <span class="jxr_string">"Choose directory:"</span>);
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  			println(<span class="jxr_string">"directory was: "</span> + directory1);
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  			LanguageCompilerSpecPair lang = askLanguage(<span class="jxr_string">"Language Picker"</span>, <span class="jxr_string">"I want this one!"</span>);
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  			println(<span class="jxr_string">"language was: "</span> + lang.toString());
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  			DomainFolder domFolder = askProjectFolder(<span class="jxr_string">"Please pick a domain folder!"</span>);
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  			println(<span class="jxr_string">"domFolder was: "</span> + domFolder.getName());
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  			<strong class="jxr_keyword">int</strong> <strong class="jxr_keyword">int</strong>1 = askInt(<span class="jxr_string">"integer 1"</span>, <span class="jxr_string">"enter integer 1"</span>);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  			<strong class="jxr_keyword">int</strong> <strong class="jxr_keyword">int</strong>2 = askInt(<span class="jxr_string">"integer 2"</span>, <span class="jxr_string">"enter integer 2"</span>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  			println(<span class="jxr_string">"int1 + int2 = "</span> + (<strong class="jxr_keyword">int</strong>1 + <strong class="jxr_keyword">int</strong>2));
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  			<strong class="jxr_keyword">long</strong> <strong class="jxr_keyword">long</strong>1 = askLong(<span class="jxr_string">"long 1"</span>, <span class="jxr_string">"enter long 1"</span>);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  			<strong class="jxr_keyword">long</strong> <strong class="jxr_keyword">long</strong>2 = askLong(<span class="jxr_string">"long 2"</span>, <span class="jxr_string">"enter long 2"</span>);
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  			println(<span class="jxr_string">"long1 + long2 = "</span> + (<strong class="jxr_keyword">long</strong>1 + <strong class="jxr_keyword">long</strong>2));
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  			Address address1 = askAddress(<span class="jxr_string">"address 1"</span>, <span class="jxr_string">"enter address 1"</span>);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  			Address address2 = askAddress(<span class="jxr_string">"address 2"</span>, <span class="jxr_string">"enter address 2"</span>);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  			println(<span class="jxr_string">"address1 + address2 = "</span> + address1.add(address2.getOffset()).toString());
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  			byte[] bytes = askBytes(<span class="jxr_string">"bytes"</span>, <span class="jxr_string">"enter byte pattern"</span>);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  			<strong class="jxr_keyword">for</strong> (byte b : bytes) {
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  				println(<span class="jxr_string">"b = "</span> + (b &amp; 0xff));
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  			}
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  			Program prog = askProgram(<span class="jxr_string">"Please choose a program to open."</span>);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  			println(<span class="jxr_string">"Program picked: "</span> + prog.getName());
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  			DomainFile domFile = askDomainFile(<span class="jxr_string">"Which domain file would you like?"</span>);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  			println(<span class="jxr_string">"Domain file: "</span> + domFile.getName());
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  			<strong class="jxr_keyword">double</strong> d1 = askDouble(<span class="jxr_string">"double 1"</span>, <span class="jxr_string">"enter double 1"</span>);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  			<strong class="jxr_keyword">double</strong> d2 = askDouble(<span class="jxr_string">"double 2"</span>, <span class="jxr_string">"enter double 2"</span>);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  			println(<span class="jxr_string">"d1 + d2 = "</span> + (d1 + d2));
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  			String myStr = askString(<span class="jxr_string">"String Specification"</span>, <span class="jxr_string">"Please type a string: "</span>);
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  			String myOtherStr = askString(<span class="jxr_string">"Another String Specification"</span>,
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  				<span class="jxr_string">"Please type another string: "</span>, <span class="jxr_string">"replace me!"</span>);
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  			println(<span class="jxr_string">"You typed: "</span> + myStr + <span class="jxr_string">" and "</span> + myOtherStr);
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  			String choice = askChoice(<span class="jxr_string">"Choice"</span>, <span class="jxr_string">"Please choose one"</span>,
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  				Arrays.asList(<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"grumpy"</span>, <span class="jxr_string">"dopey"</span>, <span class="jxr_string">"sleepy"</span>, <span class="jxr_string">"doc"</span>, <span class="jxr_string">"bashful"</span> }),
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  				<span class="jxr_string">"bashful"</span>);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  			println(<span class="jxr_string">"Choice? "</span> + choice);
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  			List&lt;Integer&gt; choices1 = askChoices(<span class="jxr_string">"Choices 1"</span>, <span class="jxr_string">"Please choose one or more numbers."</span>,
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  				Arrays.asList(1, 2, 3, 4, 5, 6));
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>  			print(<span class="jxr_string">"Choices 1: "</span>);
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  			<strong class="jxr_keyword">for</strong> (Integer intChoice : choices1) {
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> 				print(intChoice + <span class="jxr_string">" "</span>);
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> 			}
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> 			println(<span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> 
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> 			<em class="jxr_comment">//@formatter:off</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> 			List&lt;Double&gt; choices2 =
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> 				askChoices(<span class="jxr_string">"Choices 2"</span>, <span class="jxr_string">"Please choose one or more of the following."</span>,
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> 					Arrays.asList( 1.1, 2.2, 3.3, 4.4, 5.5, 6.6 ), 
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> 					Arrays.asList(<span class="jxr_string">"Part 1"</span>, <span class="jxr_string">"Part 2"</span>, <span class="jxr_string">"Part 3"</span>, <span class="jxr_string">"Part 4"</span>, <span class="jxr_string">"Part 5"</span>, <span class="jxr_string">"Part 6"</span> ));
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> 			<em class="jxr_comment">//@formatter:on</em>
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> 
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> 			print(<span class="jxr_string">"Choices 2: "</span>);
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> 			<strong class="jxr_keyword">for</strong> (Double intChoice : choices2) {
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> 				print(intChoice + <span class="jxr_string">" "</span>);
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> 			}
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> 			println(<span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> 
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> 			<strong class="jxr_keyword">boolean</strong> yesOrNo = askYesNo(<span class="jxr_string">"yes or no"</span>, <span class="jxr_string">"is this a yes/no question?"</span>);
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> 			println(<span class="jxr_string">"Yes or No? "</span> + yesOrNo);
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> 
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> 		}
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> 		<strong class="jxr_keyword">catch</strong> (IllegalArgumentException iae) {
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> 			Msg.warn(<strong class="jxr_keyword">this</strong>, <span class="jxr_string">"Error during headless processing: "</span> + iae.toString());
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 		}
+<a class="jxr_linenumber" name="L124" href="#L124">124</a> 
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> 	}
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

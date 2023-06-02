@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>KT-13552 xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> SwitchDemo {
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>       <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> test(<strong class="jxr_keyword">int</strong> i) {
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>           String monthString = <span class="jxr_string">"&lt;empty&gt;"</span>;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>           <strong class="jxr_keyword">switch</strong> (i) {
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>               <strong class="jxr_keyword">case</strong> 1:  print(1);
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>               <strong class="jxr_keyword">case</strong> 2:  print(2);
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>               <strong class="jxr_keyword">case</strong> 3:  print(3);
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>               <strong class="jxr_keyword">default</strong>:
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>               <strong class="jxr_keyword">case</strong> 4:  print(4);
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>              <strong class="jxr_keyword">case</strong> 5:  print(5); <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>              <strong class="jxr_keyword">case</strong> 6:  print(6);
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>              <strong class="jxr_keyword">case</strong> 7:  print(7);
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>              <strong class="jxr_keyword">case</strong> 8:  print(8);
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>              <strong class="jxr_keyword">case</strong> 9:  print(9);
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>              <strong class="jxr_keyword">case</strong> 10: print(10);
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>              <strong class="jxr_keyword">case</strong> 11: print(11);
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>              <strong class="jxr_keyword">case</strong> 12: monthString = <span class="jxr_string">"December"</span>; <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>          }
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>          String status=<span class="jxr_string">""</span>;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>          <strong class="jxr_keyword">switch</strong> (status) {
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>              <strong class="jxr_keyword">case</strong> <span class="jxr_string">"init"</span>:
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>              <strong class="jxr_keyword">case</strong> <span class="jxr_string">"dial"</span>:
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>              <strong class="jxr_keyword">case</strong> <span class="jxr_string">"transmit"</span>:
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>                  <strong class="jxr_keyword">return</strong> 0x111111;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>              <strong class="jxr_keyword">case</strong> <span class="jxr_string">"ok"</span>:
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>                  <strong class="jxr_keyword">return</strong> 0xFF006600;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>              <strong class="jxr_keyword">case</strong> <span class="jxr_string">"cancel"</span>:
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>                  <strong class="jxr_keyword">return</strong> 0xFF666666;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>              <strong class="jxr_keyword">case</strong> <span class="jxr_string">"fail"</span>:
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>              <strong class="jxr_keyword">case</strong> <span class="jxr_string">"busy"</span>:
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>              <strong class="jxr_keyword">case</strong> <span class="jxr_string">"error"</span>:
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>              <strong class="jxr_keyword">default</strong>:
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>                  <strong class="jxr_keyword">return</strong> 0xFF660000;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          }
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      }
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

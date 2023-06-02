@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Expr xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">class</strong> Expr {
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> meth(<strong class="jxr_keyword">int</strong> p) {
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   		<strong class="jxr_keyword">int</strong> vu1 = p++;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   		<strong class="jxr_keyword">int</strong> vu2 = p--;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   		<strong class="jxr_keyword">int</strong> vu3 = ++p;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   		<strong class="jxr_keyword">int</strong> vu4 = --p;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   		<strong class="jxr_keyword">int</strong> vu5 = -p;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   		<strong class="jxr_keyword">int</strong> vu6 = +p;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   		<strong class="jxr_keyword">int</strong> vu7 = ~p;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  		<strong class="jxr_keyword">int</strong> vb1 = p * p;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  		<strong class="jxr_keyword">int</strong> vb2 = p / p;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  		<strong class="jxr_keyword">int</strong> vb3 = p % p;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  		<strong class="jxr_keyword">int</strong> vb4 = p + p;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  		<strong class="jxr_keyword">int</strong> vb5 = p - p;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  		<strong class="jxr_keyword">int</strong> vb6 = p &lt;&lt; p;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  		<strong class="jxr_keyword">int</strong> vb7 = p &gt;&gt; p;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  		<strong class="jxr_keyword">int</strong> vb8 = p &gt;&gt;&gt; p;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  		<strong class="jxr_keyword">int</strong> vb9 = p &amp; p;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  		<strong class="jxr_keyword">int</strong> vba = p ^ p;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  		<strong class="jxr_keyword">int</strong> vbb = p | p;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  		<strong class="jxr_keyword">int</strong> vn1 = 0;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  		vn1 *= p;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  		<strong class="jxr_keyword">int</strong> vn2 = 0;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  		vn2 /= p;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  		<strong class="jxr_keyword">int</strong> vn3 = 0;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  		vn3 %= p;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  		<strong class="jxr_keyword">int</strong> vn4 = 0;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  		vn4 += p;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  		<strong class="jxr_keyword">int</strong> vn5 = 0;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  		vn5 -= p;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  		<strong class="jxr_keyword">int</strong> vn6 = 0;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  		vn6 &lt;&lt;= p;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  		<strong class="jxr_keyword">int</strong> vn7 = 0;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  		vn7 &gt;&gt;= p;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  		<strong class="jxr_keyword">int</strong> vn8 = 0;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  		vn8 &gt;&gt;&gt;= p;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  		<strong class="jxr_keyword">int</strong> vn9 = 0;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  		vn9 &amp;= p;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  		<strong class="jxr_keyword">int</strong> vna = 0;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  		vna ^= p;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  		<strong class="jxr_keyword">int</strong> vnb = 0;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  		vnb |= p;
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  	}
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>ConstantMath xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> TestClass {
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> method(<strong class="jxr_keyword">int</strong> a, Integer integer, Double doubleParam) {
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>       byte b = a % 1; <em class="jxr_comment">// Noncompliant [[sc=16;ec=17]] {{Remove this computation of % 1, which always evaluates to zero.}}</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>       <strong class="jxr_keyword">double</strong> v = 7.4d;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>       <strong class="jxr_keyword">double</strong> remainder = v % 1; <em class="jxr_comment">// compliant, remainder is ~0.4</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>       b = integer % 1; <em class="jxr_comment">// Noncompliant</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>       b = doubleParam % 1; <em class="jxr_comment">// Compliant, double</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>       <strong class="jxr_keyword">int</strong> c = a % 2; <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      <strong class="jxr_keyword">int</strong> d = a % a; <em class="jxr_comment">// Compliant, currently not covered by this rule</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>      <strong class="jxr_keyword">short</strong> s;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      Math.abs((<strong class="jxr_keyword">double</strong>)' '); <em class="jxr_comment">// Noncompliant [[sc=5;ec=13]] {{Remove this silly call to "Math.abs"}}</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>      Math.abs((<strong class="jxr_keyword">float</strong>) 0); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.abs"}}</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>      Math.abs(0); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.abs"}}</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      Math.abs(0L); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.abs"}}</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>      Math.abs(a); <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>      Math.abs((<strong class="jxr_keyword">float</strong>) a); <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <em class="jxr_comment">// the following does not compile, but is checked anyway from a type perspective.</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      Math.ceil((<strong class="jxr_keyword">double</strong>) <strong class="jxr_keyword">true</strong>); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.ceil"}}</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>      Math.ceil((<strong class="jxr_keyword">double</strong>) <strong class="jxr_keyword">new</strong> Object()); <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      Math.ceil(a); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.ceil"}}</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      Math.ceil((<strong class="jxr_keyword">int</strong>) a); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.ceil"}}</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      Math.ceil((<strong class="jxr_keyword">double</strong>) b); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.ceil"}}</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      Math.ceil((<strong class="jxr_keyword">double</strong>) ' '); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.ceil"}}</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      Math.ceil((<strong class="jxr_keyword">double</strong>) 0); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.ceil"}}</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      Math.ceil((<strong class="jxr_keyword">double</strong>) 0L); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.ceil"}}</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      Math.ceil((<strong class="jxr_keyword">double</strong>) s); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.ceil"}}</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      Math.ceil((<strong class="jxr_keyword">double</strong>) 0.0f); <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      Math.ceil((<strong class="jxr_keyword">double</strong>) 0.0d); <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      Math.ceil((<strong class="jxr_keyword">float</strong>) (byte) 0); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.ceil"}}</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      Math.floor((<strong class="jxr_keyword">float</strong>) 0); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.floor"}}</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      Math.rint((<strong class="jxr_keyword">float</strong>) 0); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.rint"}}</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      Math.round((<strong class="jxr_keyword">float</strong>) 0); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.round"}}</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>      Math.ceil(((<strong class="jxr_keyword">double</strong>) ((<strong class="jxr_keyword">double</strong>) (a)))); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.ceil"}}</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      <strong class="jxr_keyword">float</strong> value;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      Math.acos(value); <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      Math.cos(value); <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      Math.acos(2.0); <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      Math.cos(1.0); <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      Math.cos(2.0); <em class="jxr_comment">// Compliant</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      Math.acos((0.0)); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.acos"}}</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      Math.acos((0.0F)); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.acos"}}</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      Math.acos((1.0)); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.acos"}}</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      Math.acos((1.0f)); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.acos"}}</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      Math.asin(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.asin"}}</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      Math.asin(1.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.asin"}}</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      Math.atan(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.atan"}}</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      Math.atan(1.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.atan"}}</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      Math.atan2(0.0D, value); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.atan2"}}</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      Math.cbrt(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.cbrt"}}</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      Math.cbrt(1.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.cbrt"}}</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      Math.cos((0.0d)); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.cos"}}</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      Math.cosh(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.cosh"}}</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>      Math.exp(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.exp"}}</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>      Math.exp(1.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.exp"}}</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>      Math.expm1(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.expm1"}}</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      Math.log(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.log"}}</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      Math.log(1.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.log"}}</em>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      Math.log10(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.log10"}}</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      Math.log10(1.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.log10"}}</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      Math.sin(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.sin"}}</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      Math.sinh(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.sinh"}}</em>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      Math.sqrt(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.sqrt"}}</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      Math.sqrt(1.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.sqrt"}}</em>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      Math.tan(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.tan"}}</em>
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      Math.tanh(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.tanh"}}</em>
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>      Math.toDegrees(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.toDegrees"}}</em>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      Math.toDegrees(1.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.toDegrees"}}</em>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>      Math.toRadians(0.0d); <em class="jxr_comment">// Noncompliant {{Remove this silly call to "Math.toRadians"}}</em>
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>    }
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
