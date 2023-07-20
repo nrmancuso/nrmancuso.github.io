@@ -15,7 +15,7 @@ jobs:
       ROOT_DIR: /__w/Kevin222004.github.io/Kevin222004.github.io
 
       ## change these for report generation
-      PATCH_BRANCH: ul1
+      PATCH_BRANCH: dtc
       PROJECTS_FILE: test-projects.properties
 
     strategy:
