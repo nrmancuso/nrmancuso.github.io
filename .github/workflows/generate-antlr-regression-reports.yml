@@ -15,14 +15,14 @@ jobs:
       ROOT_DIR: /__w/nrmancuso.github.io/nrmancuso.github.io
 
       # change for report generation
-      PATCH_BRANCH: ci-test-branch
+      PATCH_BRANCH: issue-13279
 
 
     strategy:
       matrix:
         project_name:
           # change for report generation
-          - "MaterialDesignLibrary"
+          - "checkstyle"
 
     steps:
       - name: Checkout
