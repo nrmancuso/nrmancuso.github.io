@@ -22,7 +22,7 @@ jobs:
       matrix:
         project_name:
           # change for report generation
-          - "guava"
+          - "checkstyle"
 
     steps:
       - name: Checkout
