@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>InputJava19PatternsInNullSwitch1.tree xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   com.puppycrawl.tools.checkstyle.api.CheckstyleException: IllegalStateException occurred <strong class="jxr_keyword">while</strong> parsing file /__w/nrmancuso.github.io/nrmancuso.github.io/contribution/checkstyle-tester/repositories/checkstyle-with-excludes/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/grammar/java19/InputJava19PatternsInNullSwitch1.java.
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   	at com.puppycrawl.tools.checkstyle.JavaParser.parse(JavaParser.java:105)
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   	at com.puppycrawl.tools.checkstyle.JavaParser.parseFileText(JavaParser.java:122)
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   	at com.puppycrawl.tools.checkstyle.JavaParser.parseFile(JavaParser.java:142)
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   	at com.puppycrawl.tools.checkstyle.AstTreeStringPrinter.printJavaAndJavadocTree(AstTreeStringPrinter.java:78)
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   	at com.puppycrawl.tools.checkstyle.Main.runCli(Main.java:312)
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   	at com.puppycrawl.tools.checkstyle.Main.execute(Main.java:195)
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   	at com.puppycrawl.tools.checkstyle.Main.main(Main.java:130)
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   Caused by: java.lang.IllegalStateException: 13:20: mismatched input '-&gt;' expecting '}'
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  	at com.puppycrawl.tools.checkstyle.JavaParser$CheckstyleErrorListener.syntaxError(JavaParser.java:255)
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  	at org.antlr.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:41)
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  	at org.antlr.v4.runtime.Parser.notifyErrorListeners(Parser.java:544)
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  	at org.antlr.v4.runtime.DefaultErrorStrategy.reportInputMismatch(DefaultErrorStrategy.java:327)
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  	at org.antlr.v4.runtime.DefaultErrorStrategy.reportError(DefaultErrorStrategy.java:139)
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  	at com.puppycrawl.tools.checkstyle.CheckstyleParserErrorStrategy.recoverInline(CheckstyleParserErrorStrategy.java:38)
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  	at org.antlr.v4.runtime.Parser.match(Parser.java:208)
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.switchExpressionOrStatement(JavaLanguageParser.java:7101)
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.primary(JavaLanguageParser.java:10302)
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.expr(JavaLanguageParser.java:9221)
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.expression(JavaLanguageParser.java:8787)
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.statement(JavaLanguageParser.java:6959)
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.blockStatement(JavaLanguageParser.java:6195)
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.block(JavaLanguageParser.java:6098)
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.methodBody(JavaLanguageParser.java:2937)
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.methodDeclaration(JavaLanguageParser.java:2895)
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.memberDeclaration(JavaLanguageParser.java:2742)
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.classBodyDeclaration(JavaLanguageParser.java:2668)
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.classBody(JavaLanguageParser.java:2474)
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.classDeclaration(JavaLanguageParser.java:1093)
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.types(JavaLanguageParser.java:750)
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.typeDeclaration(JavaLanguageParser.java:664)
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  	at com.puppycrawl.tools.checkstyle.grammar.java.JavaLanguageParser.compilationUnit(JavaLanguageParser.java:411)
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  	at com.puppycrawl.tools.checkstyle.JavaParser.parse(JavaParser.java:99)
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  	... 6 more
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  Caused by: org.antlr.v4.runtime.InputMismatchException
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  	... 25 more
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  Checkstyle ends with 1 errors.
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

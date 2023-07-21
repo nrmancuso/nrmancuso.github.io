@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>part3.html xref</title>
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   &lt;?xml version="1.0"?&gt;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   &lt;!DOCTYPE module PUBLIC
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>             "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>             "https://checkstyle.org/dtds/configuration_1_3.dtd"&gt;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   &lt;module name = "Checker"&gt;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>       &lt;property name="charset" value="UTF-8"/&gt;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>       &lt;!-- do not change severity to 'error', as that will hide errors caused by exceptions --&gt;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      &lt;property name="severity" value="warning"/&gt;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>      &lt;!-- haltOnException is required for exception fixes and reporting of all exceptions --&gt;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      &lt;property name="haltOnException" value="false"/&gt;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>      &lt;!-- BeforeExecutionFileFilters is required for sources of java9 --&gt;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      &lt;module name="BeforeExecutionExclusionFileFilter"&gt;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>          &lt;property name="fileNamePattern" value="module\-info\.java$" /&gt;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>      &lt;/module&gt;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      &lt;module name="TreeWalker"&gt;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>   &lt;!-- Coding --&gt;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>          &lt;module name="ArrayTrailingComma"/&gt;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>          &lt;module name="AvoidDoubleBraceInitialization"/&gt;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          &lt;module name="AvoidInlineConditionals"/&gt;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          &lt;module name="AvoidNoArgumentSuperConstructorCall"/&gt;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>          &lt;module name="CovariantEquals"/&gt;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>          &lt;module name="DeclarationOrder"/&gt;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>          &lt;module name="DefaultComesLast"/&gt;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          &lt;module name="EmptyStatement"/&gt;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>          &lt;module name="EqualsAvoidNull"/&gt;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          &lt;module name="EqualsHashCode"/&gt;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          &lt;module name="ExplicitInitialization"/&gt;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          &lt;module name="FallThrough"/&gt;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          &lt;module name="FinalLocalVariable"/&gt;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          &lt;module name="HiddenField"&gt;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>              &lt;property name="ignoreConstructorParameter" value="true"/&gt;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>              &lt;property name="ignoreSetter" value="true"/&gt;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>              &lt;property name="setterCanReturnItsClass" value="true"/&gt;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          &lt;module name="IllegalCatch"&gt;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>              &lt;property name="illegalClassNames"
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>                        value="java.lang.Exception,
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>                           java.lang.Throwable,
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>                           java.lang.RuntimeException,
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>                           java.lang.NullPointerException"/&gt;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          &lt;module name="IllegalInstantiation"&gt;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>              &lt;property name="classes"
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>                        value="org.xml.sax.SAXException, org.xml.sax.SAXParseException,
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>                           org.apache.commons.beanutils.ConversionException,
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>                           org.antlr.v4.runtime.misc.ParseCancellationException,
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>                           antlr.RecognitionException, antlr.TokenStreamException,
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>                           antlr.TokenStreamRecognitionException, antlr.ANTLRException,
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>                           java.lang.StringBuffer"/&gt;
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          &lt;module name="IllegalThrows"/&gt;
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          &lt;module name="IllegalToken"&gt;
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>              &lt;property name="tokens" value="LABELED_STAT"/&gt;
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>              &lt;property name="tokens" value="LITERAL_NATIVE"/&gt;
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>              &lt;property name="tokens" value="LITERAL_VOLATILE"/&gt;
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>              &lt;property name="tokens" value="LITERAL_ASSERT"/&gt;
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          &lt;module name="IllegalTokenText"&gt;
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>              &lt;property name="tokens" value="STRING_LITERAL"/&gt;
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>              &lt;property name="format" value="^(US-ASCII|ISO-8859-1|UTF-8|UTF-16BE|UTF-16LE|UTF-16)$"/&gt;
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>              &lt;property name="ignoreCase" value="true"/&gt;
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          &lt;module name="IllegalType"&gt;
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>              &lt;property name="illegalClassNames"
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>                        value="java.util.HashSet, HashSet, java.util.LinkedHashMap, LinkedHashMap,
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>                         java.util.TreeMap, TreeMap, java.util.HashMap, HashMap,
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>                         java.util.LinkedHashSet, LinkedHashSet, java.util.TreeSet, TreeSet,
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>                         java.lang.StringBuffer, StringBuffer"/&gt;
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          &lt;module name="InnerAssignment"/&gt;
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          &lt;module name="MagicNumber"/&gt;
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          &lt;module name="MissingCtor"&gt;
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              &lt;!--
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>                we will not use that fanatic validation, extra code is not good
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>                But this Check will exists as it was created by community demand.
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>              --&gt;
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>              &lt;property name="severity" value="ignore"/&gt;
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          &lt;module name="MissingSwitchDefault"/&gt;
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          &lt;module name="ModifiedControlVariable"/&gt;
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          &lt;module name="MultipleStringLiterals"/&gt;
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          &lt;module name="MultipleVariableDeclarations"/&gt;
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          &lt;module name="NestedForDepth"&gt;
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              &lt;property name="max" value="2"/&gt;
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          &lt;module name="NestedIfDepth"&gt;
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>              &lt;property name="max" value="3"/&gt;
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          &lt;module name="NestedTryDepth"/&gt;
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          &lt;module name="NoArrayTrailingComma"&gt;
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>              &lt;!-- This Check is conflicting with ArrayTrailingComma --&gt;
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>              &lt;property name="severity" value="ignore"/&gt;
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>          &lt;module name="NoClone"/&gt;
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         &lt;module name="NoEnumTrailingComma"&gt;
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>             &lt;!-- This Check is conflicting with our vision of code
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>                  to be same as ArrayTrailingComma requires it --&gt;
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>             &lt;property name="severity" value="ignore"/&gt;
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>         &lt;/module&gt;
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         &lt;module name="NoFinalizer"/&gt;
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>         &lt;module name="OneStatementPerLine"/&gt;
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         &lt;module name="OverloadMethodsDeclarationOrder"/&gt;
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>         &lt;module name="PackageDeclaration"/&gt;
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         &lt;module name="ParameterAssignment"/&gt;
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>         &lt;module name="RequireThis"/&gt;
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         &lt;module name="ReturnCount"&gt;
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>             &lt;property name="max" value="1"/&gt;
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>             &lt;property name="maxForVoid" value="0"/&gt;
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         &lt;/module&gt;
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         &lt;module name="SimplifyBooleanExpression"/&gt;
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         &lt;module name="SimplifyBooleanReturn"/&gt;
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>         &lt;module name="StringLiteralEquality"/&gt;
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>         &lt;module name="SuperClone"/&gt;
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>         &lt;module name="SuperFinalize"/&gt;
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>         &lt;module name="UnnecessaryParentheses"/&gt;
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>         &lt;module name="UnnecessarySemicolonAfterOuterTypeDeclaration"/&gt;
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>         &lt;module name="UnnecessarySemicolonAfterTypeMemberDeclaration"/&gt;
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>         &lt;module name="UnnecessarySemicolonInEnumeration"/&gt;
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>         &lt;module name="UnnecessarySemicolonInTryWithResources"/&gt;
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>         &lt;module name="VariableDeclarationUsageDistance"/&gt;
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>          &lt;!-- usuppress javadoc parsing errors, as we test Check not a parser --&gt;
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>          &lt;module name="SuppressionXpathSingleFilter"&gt;
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>             &lt;property name="message" value="Javadoc comment at column \d+ has parse error"/&gt;
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>          &lt;/module&gt;
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> 
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>     &lt;!-- as we run on regression even on non-compiled files we need to skip exceptions on them --&gt;
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>     &lt;module name="SuppressionSingleFilter"&gt;
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>       &lt;property name="message" value="Exception occurred while parsing"/&gt;
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>       &lt;property name="checks" value="Checker"/&gt;
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L137" href="#L137">137</a> &lt;/module&gt;
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
