@@ -33,7 +33,7 @@ jobs:
           echo "REPORT_DIR=$REPORT_DIR" >> $GITHUB_OUTPUT
           echo "REPORT_PR_BRANCH_NAME=${{ inputs.patch-branch }}-$DATE" >> $GITHUB_OUTPUT
           mkdir -p $REPORT_DIR
-          cp -r temp-reports/* $REPORT_DIR
+          cp -r temp-reports/* $REPORT_DIR || true
           rm -rf temp-reports
           echo "LS -R:" && ls -R $REPORT_DIR
 
