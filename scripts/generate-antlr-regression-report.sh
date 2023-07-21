@@ -4,15 +4,15 @@ set -e
 
 cd contribution/checkstyle-tester || exit 1
 
-if [ ! -d "$ROOT_DIR" ]; then
+if [ -z "$ROOT_DIR" ]; then
   echo "'ROOT_DIR' variable must be set."
 fi
 
-if [ ! -d "$PROJECT" ]; then
+if [ -z "$PROJECT" ]; then
   echo "'PROJECT' variable must be set."
 fi
 
-if [ ! -d "$PATCH_BRANCH" ]; then
+if [ -z "$PATCH_BRANCH" ]; then
   echo "'PATCH_BRANCH' variable must be set."
 fi
 

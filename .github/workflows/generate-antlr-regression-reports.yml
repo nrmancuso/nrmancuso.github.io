@@ -22,7 +22,7 @@ jobs:
       matrix:
         project_name:
           # change for report generation
-          - "checkstyle"
+          - "guava"
 
     steps:
       - name: Checkout
@@ -50,11 +50,18 @@ jobs:
 
       - name: Set up local checkstyle repo
         run: |
+          echo "PATCH_BRANCH: $PATCH_BRANCH"
+          echo "ROOT_DIR: $ROOT_DIR"
+          echo "PROJECT: $PROJECT"
+          
           cd "${ROOT_DIR}/checkstyle"
           git remote add upstream https://github.com/checkstyle/checkstyle
           git fetch --all
           git checkout master
           git reset --hard upstream/master
+          echo "git log:"
+          echo "$(git log -n 1 | cat)"
+          
           git checkout $PATCH_BRANCH
 
       - name: Generate report
