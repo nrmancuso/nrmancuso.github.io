@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>checks-only-javadoc-error.html xref</title>
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   &lt;?xml version="1.0"?&gt;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   &lt;!DOCTYPE module PUBLIC
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>             "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>             "https://checkstyle.org/dtds/configuration_1_3.dtd"&gt;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   &lt;module name="Checker"&gt;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>     &lt;property name="charset" value="UTF-8"/&gt;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>     
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>     &lt;!-- do not change severity to 'error', as that will hide errors caused by exceptions --&gt;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>    &lt;property name="severity" value="warning"/&gt;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>      &lt;!-- haltOnException is required for exception fixes and reporting of all exceptions --&gt;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>    &lt;property name="haltOnException" value="false"/&gt;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>    &lt;!-- BeforeExecutionFileFilters is required for sources of java9 --&gt;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>    &lt;module name="BeforeExecutionExclusionFileFilter"&gt;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>        &lt;property name="fileNamePattern" value="module\-info\.java$" /&gt;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>    &lt;module name="TreeWalker"&gt;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      &lt;property name="tabWidth" value="4"/&gt;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>      &lt;!-- All AbstractJavadocCheck children --&gt;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      &lt;module name="AtclauseOrder"/&gt;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      &lt;module name="JavadocBlockTagLocation"/&gt;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      &lt;module name="JavadocContentLocation"/&gt;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      &lt;module name="JavadocMissingWhitespaceAfterAsterisk"/&gt;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      &lt;module name="JavadocParagraph"/&gt;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      &lt;module name="JavadocTagContinuationIndentation"/&gt;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      &lt;module name="MissingDeprecated"/&gt;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      &lt;module name="NonEmptyAtclauseDescription"/&gt;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      &lt;module name="SingleLineJavadoc"/&gt;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      &lt;module name="SummaryJavadoc"/&gt;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  &lt;/module&gt;
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
