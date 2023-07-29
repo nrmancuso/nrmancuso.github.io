@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>checks-nonjavadoc-error.html xref</title>
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   &lt;?xml version="1.0"?&gt;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   &lt;!DOCTYPE module PUBLIC
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>             "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>             "https://checkstyle.org/dtds/configuration_1_3.dtd"&gt;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   &lt;module name="Checker"&gt;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>     &lt;!--
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>         this config is a copy of
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>         https://github.com/checkstyle/checkstyle/blob/master/config/checkstyle_checks.xml
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>        with update to global severity=ignore to catch only exceptions.
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>        Some other checks are commented out to speed up execution time.
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>    --&gt;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>    &lt;!-- haltOnException is required for exception fixes and reporting of all exceptions --&gt;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>    &lt;property name="haltOnException" value="false"/&gt;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>    &lt;metadata name="com.atlas-sw.eclipse" value="I like Sydney"/&gt;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>    &lt;property name="severity" value="ignore"/&gt;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>    &lt;property name="fileExtensions" value="java, properties, xml, vm, g, g4, dtd"/&gt;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>    &lt;!-- BeforeExecutionFileFilters is required for sources that are based on java9 --&gt;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>    &lt;module name="BeforeExecutionExclusionFileFilter"&gt;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      &lt;property name="fileNamePattern" value="module\-info\.java$"/&gt;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>    &lt;!-- Filters --&gt;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>    &lt;module name="SeverityMatchFilter"&gt;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      &lt;!-- report all violations except ignore --&gt;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      &lt;property name="severity" value="ignore"/&gt;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      &lt;property name="acceptOnMatch" value="false"/&gt;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>    &lt;!--     require separate config file
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>    &lt;module name="SuppressionFilter"&gt;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>      &lt;property name="file" value="${checkstyle.suppressions.file}"/&gt;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>    --&gt;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>    &lt;module name="SuppressWarningsFilter"/&gt;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>    &lt;!-- Headers --&gt;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>    &lt;module name="Header"&gt;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      &lt;!-- require separate config file, so we use default
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      &lt;property name="headerFile" value="${checkstyle.header.file}"/&gt;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      &lt;property name="fileExtensions" value="java"/&gt;
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      &lt;property name="id" value="header"/&gt;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      --&gt;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>    &lt;module name="RegexpHeader"&gt;
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      &lt;!-- require separate config file, so we use default
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      &lt;property name="headerFile" value="${checkstyle.regexp.header.file}"/&gt;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      &lt;property name="fileExtensions" value="java"/&gt;
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      --&gt;
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>    &lt;!-- Javadoc Comments --&gt;
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>    &lt;module name="JavadocPackage"&gt;
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>      &lt;property name="allowLegacy" value="false"/&gt;
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>    &lt;!-- Miscellaneous --&gt;
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>    &lt;module name="NewlineAtEndOfFile"/&gt;
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>    &lt;module name="Translation"&gt;
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      &lt;property name="requiredTranslations" value="de, fr, fi, es, pt, ja, tr, zh"/&gt;
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>    &lt;module name="UniqueProperties"/&gt;
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>    &lt;module name="OrderedProperties"/&gt;
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>    &lt;!-- Regexp --&gt;
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>    &lt;!-- we need only one instance of Check
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>    &lt;module name="RegexpMultiline"/&gt;
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>    --&gt;
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>    &lt;module name="RegexpMultiline"&gt;
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>      &lt;property name="format" value="\r?\n[\t ]*\r?\n[\t ]*\r?\n"/&gt;
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      &lt;property name="fileExtensions" value="java,xml,properties"/&gt;
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      &lt;property name="message" value="Unnecessary consecutive lines"/&gt;
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>    &lt;!-- we need only one instance of Check
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>    &lt;module name="RegexpMultiline"&gt;
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>        &lt;property name="format" value="/\*\*\W+\* +\p{javaLowerCase}"/&gt;
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>        &lt;property name="fileExtensions" value="java"/&gt;
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>        &lt;property name="message" value="First sentence in a comment should start with a capital letter"/&gt;
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>    --&gt;
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>    &lt;module name="RegexpSingleline"&gt;
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      &lt;property name="format" value="\s+$"/&gt;
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>      &lt;property name="minimum" value="0"/&gt;
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>      &lt;property name="maximum" value="0"/&gt;
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>    &lt;!-- we need only one instance of Check
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>    &lt;module name="RegexpSingleline"&gt;
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>        &lt;property name="format" value="/\*\* +\p{javaLowerCase}"/&gt;
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>        &lt;property name="fileExtensions" value="java"/&gt;
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>        &lt;property name="message" value="First sentence in a comment should start with a capital letter"/&gt;
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>    &lt;/module&gt;
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>    &lt;module name="RegexpSingleline"&gt;
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      &lt;property name="format" value="^(?!(.*http|import)).{101,}$"/&gt;
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>      &lt;property name="fileExtensions" value="g, g4"/&gt;
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>     &lt;property name="message" value="Line should not be longer then 100 symbols"/&gt;
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>   &lt;/module&gt;
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>   --&gt;
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>   &lt;module name="RegexpOnFilename"/&gt;
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>   &lt;!-- we need only one instance of Check
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>   &lt;module name="RegexpOnFilename"&gt;
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>       &lt;property name="folderPattern" value="[&#92;&#92;/]src[&#92;&#92;/]\w+[&#92;&#92;/]java[&#92;&#92;/]"/&gt;
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>       &lt;property name="fileNamePattern" value="\.java$"/&gt;
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>       &lt;property name="match" value="false"/&gt;
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>       &lt;message key="regexp.filepath.mismatch" value="Only java files should be located in the ''src/*/java'' folders."/&gt;
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>   &lt;/module&gt;
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>   &lt;module name="RegexpOnFilename"&gt;
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>       &lt;property name="folderPattern" value="[&#92;&#92;/]src[&#92;&#92;/]xdocs[&#92;&#92;/]"/&gt;
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>       &lt;property name="fileNamePattern" value="\.(xml)|(vm)$"/&gt;
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>       &lt;property name="match" value="false"/&gt;
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>       &lt;message key="regexp.filepath.mismatch" value="All files in the ''src/xdocs'' folder should have the ''xml'' or ''vm'' extension."/&gt;
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>   &lt;/module&gt;
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>   &lt;module name="RegexpOnFilename"&gt;
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>       &lt;property name="folderPattern" value="[&#92;&#92;/]src[&#92;&#92;/]it[&#92;&#92;/]java[&#92;&#92;/]"/&gt;
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>       &lt;property name="fileNamePattern" value="^((\w+Test)|(Base\w+))\.java$"/&gt;
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>       &lt;property name="match" value="false"/&gt;
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>       &lt;message key="regexp.filepath.mismatch" value="All files in the ''src/it/java'' folder should be named ''*Test.java'' or ''Base*.java''."/&gt;
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>   &lt;/module&gt;
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>   --&gt;
+<a class="jxr_linenumber" name="L124" href="#L124">124</a> 
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>   &lt;!-- Size Violations --&gt;
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>   &lt;module name="FileLength"&gt;
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>     &lt;property name="fileExtensions" value="java"/&gt;
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>   &lt;/module&gt;
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>   &lt;module name="LineLength"&gt;
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>     &lt;property name="fileExtensions" value="java"/&gt;
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>     &lt;property name="max" value="100"/&gt;
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>     &lt;property name="ignorePattern" value="^ *\* *[^ ]+$"/&gt;
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>   &lt;/module&gt;
+<a class="jxr_linenumber" name="L134" href="#L134">134</a> 
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>   &lt;!-- Whitespace --&gt;
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>   &lt;module name="FileTabCharacter"&gt;
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>     &lt;property name="eachLine" value="false"/&gt;
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>   &lt;/module&gt;
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> 
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>   &lt;module name="TreeWalker"&gt;
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>     &lt;property name="tabWidth" value="4"/&gt;
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> 
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>     &lt;!-- Miscellaneous --&gt;
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>     &lt;module name="NoCodeInFile"/&gt;
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> 
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>     &lt;!-- Annotations --&gt;
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>     &lt;module name="AnnotationLocation"&gt;
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>       &lt;property name="tokens" value="CLASS_DEF"/&gt;
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>       &lt;property name="tokens" value="INTERFACE_DEF"/&gt;
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>       &lt;property name="tokens" value="PACKAGE_DEF"/&gt;
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>       &lt;property name="tokens" value="ENUM_CONSTANT_DEF"/&gt;
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>       &lt;property name="tokens" value="ENUM_DEF"/&gt;
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>       &lt;property name="tokens" value="METHOD_DEF"/&gt;
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>       &lt;property name="tokens" value="CTOR_DEF"/&gt;
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>       &lt;property name="tokens" value="VARIABLE_DEF"/&gt;
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>       &lt;property name="tokens" value="ANNOTATION_DEF"/&gt;
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>       &lt;property name="tokens" value="ANNOTATION_FIELD_DEF"/&gt;
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>       &lt;property name="allowSamelineSingleParameterlessAnnotation" value="false"/&gt;
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>     &lt;module name="AnnotationLocation"&gt;
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>       &lt;property name="tokens" value="CLASS_DEF"/&gt;
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>       &lt;property name="tokens" value="INTERFACE_DEF"/&gt;
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>       &lt;property name="tokens" value="PACKAGE_DEF"/&gt;
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>       &lt;property name="tokens" value="ENUM_CONSTANT_DEF"/&gt;
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>       &lt;property name="tokens" value="ENUM_DEF"/&gt;
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>       &lt;property name="tokens" value="METHOD_DEF"/&gt;
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>       &lt;property name="tokens" value="CTOR_DEF"/&gt;
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>       &lt;property name="tokens" value="VARIABLE_DEF"/&gt;
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>       &lt;property name="tokens" value="ANNOTATION_DEF"/&gt;
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>       &lt;property name="tokens" value="ANNOTATION_FIELD_DEF"/&gt;
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>       &lt;property name="allowSamelineMultipleAnnotations" value="true"/&gt;
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>     &lt;module name="AnnotationOnSameLine"&gt;
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>       &lt;property name="tokens" value="METHOD_DEF"/&gt;
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>       &lt;property name="tokens" value="CTOR_DEF"/&gt;
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>       &lt;property name="tokens" value="TYPECAST"/&gt;
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>       &lt;property name="tokens" value="DOT"/&gt;
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>       &lt;property name="tokens" value="CLASS_DEF"/&gt;
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>       &lt;property name="tokens" value="ENUM_DEF"/&gt;
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>       &lt;property name="tokens" value="INTERFACE_DEF"/&gt;
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>       &lt;property name="tokens" value="TYPE_ARGUMENT"/&gt;
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>       &lt;property name="tokens" value="ANNOTATION_DEF"/&gt;
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>       &lt;property name="tokens" value="LITERAL_NEW"/&gt;
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>       &lt;property name="tokens" value="LITERAL_THROWS"/&gt;
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>       &lt;property name="tokens" value="VARIABLE_DEF"/&gt;
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>       &lt;property name="tokens" value="PARAMETER_DEF"/&gt;
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>       &lt;property name="tokens" value="IMPLEMENTS_CLAUSE"/&gt;
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>       &lt;property name="tokens" value="ANNOTATION_FIELD_DEF"/&gt;
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>     &lt;module name="AnnotationUseStyle"/&gt;
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>     &lt;module name="MissingOverride"&gt;
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>       &lt;property name="javaFiveCompatibility" value="true"/&gt;
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>     &lt;module name="PackageAnnotation"/&gt;
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>     &lt;module name="SuppressWarnings"&gt;
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>       &lt;property name="format" value="^((?!unchecked|deprecation|rawtypes).)*$"/&gt;
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>       &lt;message key="suppressed.warning.not.allowed"
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>                value="The warning ''{0}'' cannot be suppressed at this location. Only few javac warnings are allowed to suppress. If try to suppress checkstyle/pmd/..... violation please do this in their config file. If you try to suppress IntelliJ IDEA inspection, please use javadoc block tag @noinspection"
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>       /&gt;
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>     &lt;module name="SuppressWarningsHolder"/&gt;
+<a class="jxr_linenumber" name="L202" href="#L202">202</a> 
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>     &lt;!-- Block Checks --&gt;
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>     &lt;module name="AvoidNestedBlocks"&gt;
+<a class="jxr_linenumber" name="L205" href="#L205">205</a>       &lt;property name="allowInSwitchCase" value="true"/&gt;
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>     &lt;module name="EmptyBlock"&gt;
+<a class="jxr_linenumber" name="L208" href="#L208">208</a>       &lt;property name="tokens" value="LITERAL_CATCH"/&gt;
+<a class="jxr_linenumber" name="L209" href="#L209">209</a>       &lt;property name="tokens" value="ARRAY_INIT"/&gt;
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>       &lt;property name="tokens" value="LITERAL_DEFAULT"/&gt;
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>       &lt;property name="tokens" value="LITERAL_CASE"/&gt;
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>       &lt;property name="tokens" value="INSTANCE_INIT"/&gt;
+<a class="jxr_linenumber" name="L213" href="#L213">213</a>       &lt;property name="tokens" value="LITERAL_DO"/&gt;
+<a class="jxr_linenumber" name="L214" href="#L214">214</a>       &lt;property name="tokens" value="LITERAL_ELSE"/&gt;
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>       &lt;property name="tokens" value="LITERAL_FINALLY"/&gt;
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>       &lt;property name="tokens" value="LITERAL_FOR"/&gt;
+<a class="jxr_linenumber" name="L217" href="#L217">217</a>       &lt;property name="tokens" value="LITERAL_IF"/&gt;
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>       &lt;property name="tokens" value="LITERAL_SWITCH"/&gt;
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>       &lt;property name="tokens" value="LITERAL_SYNCHRONIZED"/&gt;
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>       &lt;property name="tokens" value="LITERAL_TRY"/&gt;
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>       &lt;property name="tokens" value="LITERAL_WHILE"/&gt;
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>       &lt;property name="tokens" value="STATIC_INIT"/&gt;
+<a class="jxr_linenumber" name="L223" href="#L223">223</a>       &lt;property name="option" value="text"/&gt;
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>     &lt;module name="EmptyCatchBlock"/&gt;
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>     &lt;module name="LeftCurly"/&gt;
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>     &lt;module name="NeedBraces"/&gt;
+<a class="jxr_linenumber" name="L228" href="#L228">228</a>     &lt;module name="NeedBraces"&gt;
+<a class="jxr_linenumber" name="L229" href="#L229">229</a>       &lt;property name="tokens" value="LAMBDA"/&gt;
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>       &lt;property name="allowSingleLineStatement" value="true"/&gt;
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>     &lt;module name="RightCurly"&gt;
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>       &lt;property name="tokens" value="METHOD_DEF"/&gt;
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>       &lt;property name="tokens" value="CTOR_DEF"/&gt;
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>       &lt;property name="tokens" value="CLASS_DEF"/&gt;
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>       &lt;property name="tokens" value="INSTANCE_INIT"/&gt;
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>       &lt;property name="tokens" value="LITERAL_FOR"/&gt;
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>       &lt;property name="tokens" value="STATIC_INIT"/&gt;
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>       &lt;property name="tokens" value="LITERAL_WHILE"/&gt;
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>       &lt;property name="tokens" value="LITERAL_CATCH"/&gt;
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>       &lt;property name="tokens" value="LITERAL_ELSE"/&gt;
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>       &lt;property name="tokens" value="LITERAL_FINALLY"/&gt;
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>       &lt;property name="tokens" value="LITERAL_IF"/&gt;
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>       &lt;property name="tokens" value="LITERAL_TRY"/&gt;
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>       &lt;property name="option" value="alone"/&gt;
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>     &lt;module name="RightCurly"&gt;
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>       &lt;property name="tokens" value="LITERAL_DO"/&gt;
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>       &lt;property name="option" value="same"/&gt;
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L251" href="#L251">251</a> 
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>     &lt;!-- Class Design --&gt;
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>     &lt;module name="DesignForExtension"&gt;
+<a class="jxr_linenumber" name="L254" href="#L254">254</a>       &lt;property name="ignoredAnnotations" value="Override, Test, Before, After, BeforeClass, AfterClass"/&gt;
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>     &lt;module name="FinalClass"/&gt;
+<a class="jxr_linenumber" name="L257" href="#L257">257</a>     &lt;module name="HideUtilityClassConstructor"/&gt;
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>     &lt;module name="InnerTypeLast"/&gt;
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>     &lt;module name="InterfaceIsType"/&gt;
+<a class="jxr_linenumber" name="L260" href="#L260">260</a>     &lt;module name="MutableException"/&gt;
+<a class="jxr_linenumber" name="L261" href="#L261">261</a>     &lt;module name="OneTopLevelClass"/&gt;
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>     &lt;module name="ThrowsCount"&gt;
+<a class="jxr_linenumber" name="L263" href="#L263">263</a>       &lt;property name="max" value="2"/&gt;
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>     &lt;module name="VisibilityModifier"/&gt;
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> 
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>     &lt;!-- Coding --&gt;
+<a class="jxr_linenumber" name="L268" href="#L268">268</a>     &lt;module name="ArrayTrailingComma"/&gt;
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>     &lt;module name="AvoidDoubleBraceInitialization"/&gt;
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>     &lt;module name="AvoidInlineConditionals"/&gt;
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>     &lt;module name="AvoidNoArgumentSuperConstructorCall"/&gt;
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>     &lt;module name="CovariantEquals"/&gt;
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>     &lt;module name="DeclarationOrder"/&gt;
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>     &lt;module name="DefaultComesLast"/&gt;
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>     &lt;module name="EmptyStatement"/&gt;
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>     &lt;module name="EqualsAvoidNull"/&gt;
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>     &lt;module name="EqualsHashCode"/&gt;
+<a class="jxr_linenumber" name="L278" href="#L278">278</a>     &lt;module name="ExplicitInitialization"/&gt;
+<a class="jxr_linenumber" name="L279" href="#L279">279</a>     &lt;module name="FallThrough"/&gt;
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>     &lt;module name="FinalLocalVariable"/&gt;
+<a class="jxr_linenumber" name="L281" href="#L281">281</a>     &lt;module name="HiddenField"&gt;
+<a class="jxr_linenumber" name="L282" href="#L282">282</a>       &lt;property name="ignoreConstructorParameter" value="true"/&gt;
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>       &lt;property name="ignoreSetter" value="true"/&gt;
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>       &lt;property name="setterCanReturnItsClass" value="true"/&gt;
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>     &lt;module name="IllegalCatch"&gt;
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>       &lt;property name="illegalClassNames"
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>                 value="java.lang.Exception, java.lang.Throwable, java.lang.RuntimeException, java.lang.NullPointerException"/&gt;
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>     &lt;module name="IllegalInstantiation"&gt;
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>       &lt;property name="classes" value="org.xml.sax.SAXException, org.xml.sax.SAXParseException, org.apache.commons.beanutils.ConversionException,
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>             org.antlr.v4.runtime.misc.ParseCancellationException, antlr.RecognitionException, antlr.TokenStreamException, antlr.TokenStreamRecognitionException, antlr.ANTLRException"/&gt;
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>     &lt;module name="IllegalThrows"/&gt;
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>     &lt;module name="IllegalToken"&gt;
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>       &lt;property name="tokens" value="LABELED_STAT"/&gt;
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>       &lt;property name="tokens" value="LITERAL_NATIVE"/&gt;
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>       &lt;property name="tokens" value="LITERAL_VOLATILE"/&gt;
+<a class="jxr_linenumber" name="L299" href="#L299">299</a>       &lt;property name="tokens" value="LITERAL_ASSERT"/&gt;
+<a class="jxr_linenumber" name="L300" href="#L300">300</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L301" href="#L301">301</a>     &lt;module name="IllegalTokenText"/&gt;
+<a class="jxr_linenumber" name="L302" href="#L302">302</a>     &lt;module name="IllegalType"/&gt;
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>     &lt;module name="InnerAssignment"/&gt;
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>     &lt;module name="MagicNumber"/&gt;
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>     &lt;module name="MissingCtor"/&gt;
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>     &lt;module name="MissingSwitchDefault"/&gt;
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>     &lt;module name="ModifiedControlVariable"/&gt;
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>     &lt;module name="MultipleStringLiterals"/&gt;
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>     &lt;module name="MultipleVariableDeclarations"/&gt;
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>     &lt;module name="NestedForDepth"&gt;
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>       &lt;property name="max" value="2"/&gt;
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>     &lt;module name="NestedIfDepth"&gt;
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>       &lt;property name="max" value="3"/&gt;
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>     &lt;module name="NestedTryDepth"/&gt;
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>     &lt;module name="NoClone"/&gt;
+<a class="jxr_linenumber" name="L318" href="#L318">318</a>     &lt;module name="NoEnumTrailingComma"/&gt;
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>     &lt;module name="NoArrayTrailingComma"/&gt;
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>     &lt;module name="NoFinalizer"/&gt;
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>     &lt;module name="OneStatementPerLine"/&gt;
+<a class="jxr_linenumber" name="L322" href="#L322">322</a>     &lt;module name="OverloadMethodsDeclarationOrder"/&gt;
+<a class="jxr_linenumber" name="L323" href="#L323">323</a>     &lt;module name="PackageDeclaration"/&gt;
+<a class="jxr_linenumber" name="L324" href="#L324">324</a>     &lt;module name="ParameterAssignment"/&gt;
+<a class="jxr_linenumber" name="L325" href="#L325">325</a>     &lt;module name="RequireThis"/&gt;
+<a class="jxr_linenumber" name="L326" href="#L326">326</a>     &lt;!-- extra config for RequireThis module base of missed regression --&gt;
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>     &lt;module name="RequireThis"&gt;
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>       &lt;property name="validateOnlyOverlapping" value="false"/&gt;
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>     &lt;module name="ReturnCount"&gt;
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>       &lt;property name="maxForVoid" value="0"/&gt;
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L333" href="#L333">333</a>     &lt;module name="ReturnCount"&gt;
+<a class="jxr_linenumber" name="L334" href="#L334">334</a>       &lt;property name="id" value="returnCountMaxOne"/&gt;
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>       &lt;property name="max" value="1"/&gt;
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>     &lt;module name="SimplifyBooleanExpression"/&gt;
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>     &lt;module name="SimplifyBooleanReturn"/&gt;
+<a class="jxr_linenumber" name="L339" href="#L339">339</a>     &lt;module name="StringLiteralEquality"/&gt;
+<a class="jxr_linenumber" name="L340" href="#L340">340</a>     &lt;module name="SuperClone"/&gt;
+<a class="jxr_linenumber" name="L341" href="#L341">341</a>     &lt;module name="SuperFinalize"/&gt;
+<a class="jxr_linenumber" name="L342" href="#L342">342</a>     &lt;module name="UnnecessaryParentheses"/&gt;
+<a class="jxr_linenumber" name="L343" href="#L343">343</a>     &lt;module name="UnnecessarySemicolonAfterOuterTypeDeclaration"/&gt;
+<a class="jxr_linenumber" name="L344" href="#L344">344</a>     &lt;module name="UnnecessarySemicolonAfterTypeMemberDeclaration"/&gt;
+<a class="jxr_linenumber" name="L345" href="#L345">345</a>     &lt;module name="UnnecessarySemicolonInEnumeration"/&gt;
+<a class="jxr_linenumber" name="L346" href="#L346">346</a>     &lt;module name="UnnecessarySemicolonInTryWithResources"/&gt;
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>     &lt;module name="VariableDeclarationUsageDistance"/&gt;
+<a class="jxr_linenumber" name="L348" href="#L348">348</a> 
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>     &lt;!-- Filters--&gt;
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>     &lt;module name="SuppressionCommentFilter"&gt;
+<a class="jxr_linenumber" name="L351" href="#L351">351</a>       &lt;!--
+<a class="jxr_linenumber" name="L352" href="#L352">352</a>         Use suppressions.xml for suppressions, this is only example.
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>         checkFormat will prevent suppression comments from being valid.
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>       --&gt;
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>       &lt;property name="checkFormat" value="IGNORETHIS"/&gt;
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>       &lt;property name="offCommentFormat" value="CSOFF\: .*"/&gt;
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>       &lt;property name="onCommentFormat" value="CSON\: .*"/&gt;
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>     &lt;module name="SuppressWithNearbyCommentFilter"&gt;
+<a class="jxr_linenumber" name="L360" href="#L360">360</a>       &lt;property name="commentFormat" value="-@cs\[(\w{8,}(\|\w{8,})*)\] \w[\(\)\-\.\'\`\,\:\;\w ]{10,}"/&gt;
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>       &lt;property name="checkFormat" value="$1"/&gt;
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>       &lt;property name="influenceFormat" value="3"/&gt;
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L364" href="#L364">364</a> 
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>     &lt;!-- Imports --&gt;
+<a class="jxr_linenumber" name="L366" href="#L366">366</a>     &lt;module name="AvoidStarImport"/&gt;
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>     &lt;module name="AvoidStaticImport"/&gt;
+<a class="jxr_linenumber" name="L368" href="#L368">368</a>     &lt;module name="CustomImportOrder"&gt;
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>       &lt;property name="customImportOrderRules" value="STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS"/&gt;
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>       &lt;property name="specialImportsRegExp" value="^org\."/&gt;
+<a class="jxr_linenumber" name="L371" href="#L371">371</a>       &lt;property name="sortImportsInGroupAlphabetically" value="true"/&gt;
+<a class="jxr_linenumber" name="L372" href="#L372">372</a>       &lt;property name="separateLineBetweenGroups" value="true"/&gt;
+<a class="jxr_linenumber" name="L373" href="#L373">373</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>     &lt;module name="IllegalImport"/&gt;
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>     &lt;!-- require separate config file
+<a class="jxr_linenumber" name="L376" href="#L376">376</a>     &lt;module name="ImportControl"&gt;
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>       &lt;property name="file" value="${checkstyle.importcontrol.file}"/&gt;
+<a class="jxr_linenumber" name="L378" href="#L378">378</a>       &lt;property name="path" value="^.*[&#92;&#92;/]src[&#92;&#92;/]main[&#92;&#92;/].*$"/&gt;
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L380" href="#L380">380</a>     --&gt;
+<a class="jxr_linenumber" name="L381" href="#L381">381</a>     &lt;module name="ImportOrder"&gt;
+<a class="jxr_linenumber" name="L382" href="#L382">382</a>       &lt;property name="groups" value="/^java\./,javax,org"/&gt;
+<a class="jxr_linenumber" name="L383" href="#L383">383</a>       &lt;property name="ordered" value="true"/&gt;
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>       &lt;property name="separated" value="true"/&gt;
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>       &lt;property name="option" value="top"/&gt;
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>       &lt;property name="sortStaticImportsAlphabetically" value="true"/&gt;
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>     &lt;module name="RedundantImport"/&gt;
+<a class="jxr_linenumber" name="L389" href="#L389">389</a>     &lt;module name="UnusedImports"/&gt;
+<a class="jxr_linenumber" name="L390" href="#L390">390</a> 
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>     &lt;!-- Javadoc Comments --&gt;
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>     &lt;!-- JavadocAST Checks - disabled due to performance problem
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>     &lt;module name="AtclauseOrder"/&gt;
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>     --&gt;
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>     &lt;module name="InvalidJavadocPosition"/&gt;
+<a class="jxr_linenumber" name="L396" href="#L396">396</a>     &lt;module name="JavadocMethod"&gt;
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>       &lt;property name="validateThrows" value="true"/&gt;
+<a class="jxr_linenumber" name="L398" href="#L398">398</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L399" href="#L399">399</a>     &lt;!-- JavadocAST Checks - disabled due to performance problem
+<a class="jxr_linenumber" name="L400" href="#L400">400</a>     &lt;module name="JavadocParagraph"/&gt;
+<a class="jxr_linenumber" name="L401" href="#L401">401</a>     --&gt;
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>     &lt;module name="JavadocStyle"&gt;
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>       &lt;property name="scope" value="public"/&gt;
+<a class="jxr_linenumber" name="L404" href="#L404">404</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>     &lt;!-- JavadocAST Checks - disabled due to performance problem
+<a class="jxr_linenumber" name="L406" href="#L406">406</a>     &lt;module name="JavadocTagContinuationIndentation"/&gt;
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>     --&gt;
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>     &lt;module name="JavadocType"&gt;
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>       &lt;property name="authorFormat" value="\S"/&gt;
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>       &lt;property name="allowUnknownTags" value="true"/&gt;
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>     &lt;module name="JavadocVariable"/&gt;
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>     &lt;!-- JavadocAST Checks - disabled due to performance problem
+<a class="jxr_linenumber" name="L414" href="#L414">414</a>     &lt;module name="NonEmptyAtclauseDescription"/&gt;
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>     &lt;module name="SingleLineJavadoc"/&gt;
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>     &lt;module name="SummaryJavadoc"/&gt;
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>     --&gt;
+<a class="jxr_linenumber" name="L418" href="#L418">418</a>     &lt;module name="MissingJavadocMethod"/&gt;
+<a class="jxr_linenumber" name="L419" href="#L419">419</a>     &lt;module name="MissingJavadocPackage"/&gt;
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>     &lt;module name="MissingJavadocType"/&gt;
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>     &lt;module name="WriteTag"/&gt;
+<a class="jxr_linenumber" name="L422" href="#L422">422</a> 
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>     &lt;!-- Metrics --&gt;
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>     &lt;module name="BooleanExpressionComplexity"&gt;
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>       &lt;property name="max" value="7"/&gt;
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>     &lt;module name="ClassDataAbstractionCoupling"&gt;
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>       &lt;!-- Default classes are also listed--&gt;
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>       &lt;property name="excludedClasses" value="boolean, byte, char, double, float, int, long, short, void, Boolean, Byte, Character, Double, Float, Integer, Long, Short, Void, Object, Class, String, StringBuffer, StringBuilder, ArrayIndexOutOfBoundsException, Exception, RuntimeException, IllegalArgumentException, IllegalStateException, IndexOutOfBoundsException, NullPointerException, Throwable, SecurityException, UnsupportedOperationException, List, ArrayList, Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map, HashMap, SortedMap, TreeMap,
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>             DetailsAST, CheckstyleException, UnsupportedEncodingException, BuildException, ConversionException, FileNotFoundException, TestException"/&gt;
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>     &lt;module name="ClassFanOutComplexity"&gt;
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>       &lt;property name="max" value="25"/&gt;
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>       &lt;!-- Default classes are also listed--&gt;
+<a class="jxr_linenumber" name="L435" href="#L435">435</a>       &lt;property name="excludedClasses"
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>                 value="boolean, byte, char, double, float, int, long, short,  void, Boolean, Byte, Character, Double, Float, Integer, Long, Short, Void, Object, Class, String, StringBuffer, StringBuilder, ArrayIndexOutOfBoundsException, Exception, RuntimeException, IllegalArgumentException, IllegalStateException, IndexOutOfBoundsException, NullPointerException, Throwable, SecurityException, UnsupportedOperationException, List, ArrayList, Deque, Queue, LinkedList, Set, HashSet, SortedSet, TreeSet, Map, HashMap, SortedMap, TreeMap, DetailsAST, CheckstyleException, UnsupportedEncodingException, BuildException, ConversionException, FileNotFoundException, TestException, Log, Sets, Multimap, TokenStreamRecognitionException, RecognitionException, TokenStreamException, IOException"/&gt;
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L438" href="#L438">438</a>     &lt;module name="CyclomaticComplexity"&gt;
+<a class="jxr_linenumber" name="L439" href="#L439">439</a>       &lt;property name="switchBlockAsSingleDecisionPoint" value="true"/&gt;
+<a class="jxr_linenumber" name="L440" href="#L440">440</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L441" href="#L441">441</a>     &lt;module name="JavaNCSS"/&gt;
+<a class="jxr_linenumber" name="L442" href="#L442">442</a>     &lt;module name="NPathComplexity"/&gt;
+<a class="jxr_linenumber" name="L443" href="#L443">443</a> 
+<a class="jxr_linenumber" name="L444" href="#L444">444</a>     &lt;!-- Misc --&gt;
+<a class="jxr_linenumber" name="L445" href="#L445">445</a>     &lt;module name="ArrayTypeStyle"/&gt;
+<a class="jxr_linenumber" name="L446" href="#L446">446</a>     &lt;module name="AvoidEscapedUnicodeCharacters"&gt;
+<a class="jxr_linenumber" name="L447" href="#L447">447</a>       &lt;property name="allowIfAllCharactersEscaped" value="true"/&gt;
+<a class="jxr_linenumber" name="L448" href="#L448">448</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L449" href="#L449">449</a>     &lt;module name="CommentsIndentation"/&gt;
+<a class="jxr_linenumber" name="L450" href="#L450">450</a>     &lt;module name="DescendantToken"/&gt;
+<a class="jxr_linenumber" name="L451" href="#L451">451</a>     &lt;module name="FinalParameters"/&gt;
+<a class="jxr_linenumber" name="L452" href="#L452">452</a>     &lt;module name="Indentation"&gt;
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>       &lt;property name="basicOffset" value="4"/&gt;
+<a class="jxr_linenumber" name="L454" href="#L454">454</a>       &lt;property name="braceAdjustment" value="0"/&gt;
+<a class="jxr_linenumber" name="L455" href="#L455">455</a>       &lt;property name="caseIndent" value="4"/&gt;
+<a class="jxr_linenumber" name="L456" href="#L456">456</a>       &lt;property name="throwsIndent" value="8"/&gt;
+<a class="jxr_linenumber" name="L457" href="#L457">457</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L458" href="#L458">458</a>     &lt;module name="OuterTypeFilename"/&gt;
+<a class="jxr_linenumber" name="L459" href="#L459">459</a>     &lt;module name="TodoComment"&gt;
+<a class="jxr_linenumber" name="L460" href="#L460">460</a>       &lt;property name="format" value="(TODO)|(FIXME)"/&gt;
+<a class="jxr_linenumber" name="L461" href="#L461">461</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L462" href="#L462">462</a>     &lt;module name="TrailingComment"/&gt;
+<a class="jxr_linenumber" name="L463" href="#L463">463</a>     &lt;module name="UncommentedMain"&gt;
+<a class="jxr_linenumber" name="L464" href="#L464">464</a>       &lt;property name="excludedClasses" value="\.Main$"/&gt;
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>     &lt;module name="UpperEll"/&gt;
+<a class="jxr_linenumber" name="L467" href="#L467">467</a> 
+<a class="jxr_linenumber" name="L468" href="#L468">468</a>     &lt;!-- Modifiers --&gt;
+<a class="jxr_linenumber" name="L469" href="#L469">469</a>     &lt;module name="ClassMemberImpliedModifier"/&gt;
+<a class="jxr_linenumber" name="L470" href="#L470">470</a>     &lt;module name="ModifierOrder"/&gt;
+<a class="jxr_linenumber" name="L471" href="#L471">471</a>     &lt;module name="RedundantModifier"/&gt;
+<a class="jxr_linenumber" name="L472" href="#L472">472</a>     &lt;module name="InterfaceMemberImpliedModifier"/&gt;
+<a class="jxr_linenumber" name="L473" href="#L473">473</a> 
+<a class="jxr_linenumber" name="L474" href="#L474">474</a>     &lt;!-- Naming Conventions --&gt;
+<a class="jxr_linenumber" name="L475" href="#L475">475</a>     &lt;module name="AbbreviationAsWordInName"&gt;
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>       &lt;property name="ignoreFinal" value="false"/&gt;
+<a class="jxr_linenumber" name="L477" href="#L477">477</a>       &lt;property name="allowedAbbreviationLength" value="0"/&gt;
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>       &lt;property name="allowedAbbreviations" value="AST"/&gt;
+<a class="jxr_linenumber" name="L479" href="#L479">479</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L480" href="#L480">480</a>     &lt;module name="AbstractClassName"/&gt;
+<a class="jxr_linenumber" name="L481" href="#L481">481</a>     &lt;module name="ClassTypeParameterName"/&gt;
+<a class="jxr_linenumber" name="L482" href="#L482">482</a>     &lt;module name="ConstantName"/&gt;
+<a class="jxr_linenumber" name="L483" href="#L483">483</a>     &lt;module name="InterfaceTypeParameterName"/&gt;
+<a class="jxr_linenumber" name="L484" href="#L484">484</a>     &lt;module name="LocalFinalVariableName"/&gt;
+<a class="jxr_linenumber" name="L485" href="#L485">485</a>     &lt;module name="LocalVariableName"&gt;
+<a class="jxr_linenumber" name="L486" href="#L486">486</a>       &lt;property name="format" value="^(id)|([a-z][a-z0-9][a-zA-Z0-9]+)$"/&gt;
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>       &lt;property name="allowOneCharVarInForLoop" value="true"/&gt;
+<a class="jxr_linenumber" name="L488" href="#L488">488</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L489" href="#L489">489</a>     &lt;module name="MemberName"&gt;
+<a class="jxr_linenumber" name="L490" href="#L490">490</a>       &lt;property name="format" value="^(id)|([a-z][a-z0-9][a-zA-Z0-9]+)$"/&gt;
+<a class="jxr_linenumber" name="L491" href="#L491">491</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L492" href="#L492">492</a>     &lt;module name="MethodName"/&gt;
+<a class="jxr_linenumber" name="L493" href="#L493">493</a>     &lt;module name="MethodTypeParameterName"/&gt;
+<a class="jxr_linenumber" name="L494" href="#L494">494</a>     &lt;module name="PackageName"/&gt;
+<a class="jxr_linenumber" name="L495" href="#L495">495</a>     &lt;module name="ParameterName"&gt;
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>       &lt;property name="format" value="^(id)|([a-z][a-z0-9][a-zA-Z0-9]+)$"/&gt;
+<a class="jxr_linenumber" name="L497" href="#L497">497</a>       &lt;property name="ignoreOverridden" value="true"/&gt;
+<a class="jxr_linenumber" name="L498" href="#L498">498</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L499" href="#L499">499</a>     &lt;module name="LambdaParameterName"&gt;
+<a class="jxr_linenumber" name="L500" href="#L500">500</a>       &lt;property name="format" value="^(id)|([a-z][a-z0-9][a-zA-Z0-9]+)$"/&gt;
+<a class="jxr_linenumber" name="L501" href="#L501">501</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L502" href="#L502">502</a>     &lt;module name="CatchParameterName"&gt;
+<a class="jxr_linenumber" name="L503" href="#L503">503</a>       &lt;property name="format" value="^(ex|[a-z][a-z][a-zA-Z]+)$"/&gt;
+<a class="jxr_linenumber" name="L504" href="#L504">504</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L505" href="#L505">505</a>     &lt;module name="StaticVariableName"&gt;
+<a class="jxr_linenumber" name="L506" href="#L506">506</a>       &lt;property name="format" value="^(id)|([a-z][a-z0-9][a-zA-Z0-9]+)$"/&gt;
+<a class="jxr_linenumber" name="L507" href="#L507">507</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L508" href="#L508">508</a>     &lt;module name="TypeName"/&gt;
+<a class="jxr_linenumber" name="L509" href="#L509">509</a> 
+<a class="jxr_linenumber" name="L510" href="#L510">510</a>     &lt;!-- Regexp --&gt;
+<a class="jxr_linenumber" name="L511" href="#L511">511</a>     &lt;module name="Regexp"/&gt;
+<a class="jxr_linenumber" name="L512" href="#L512">512</a>     &lt;!-- we need only one instance of Check
+<a class="jxr_linenumber" name="L513" href="#L513">513</a>     &lt;module name="RegexpSinglelineJava"/&gt;
+<a class="jxr_linenumber" name="L514" href="#L514">514</a>     --&gt;
+<a class="jxr_linenumber" name="L515" href="#L515">515</a>     &lt;module name="RegexpSinglelineJava"&gt;
+<a class="jxr_linenumber" name="L516" href="#L516">516</a>       &lt;property name="format" value="[^\p{ASCII}]"/&gt;
+<a class="jxr_linenumber" name="L517" href="#L517">517</a>       &lt;property name="ignoreComments" value="true"/&gt;
+<a class="jxr_linenumber" name="L518" href="#L518">518</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L519" href="#L519">519</a> 
+<a class="jxr_linenumber" name="L520" href="#L520">520</a>     &lt;!-- Size Violations --&gt;
+<a class="jxr_linenumber" name="L521" href="#L521">521</a>     &lt;module name="AnonInnerLength"/&gt;
+<a class="jxr_linenumber" name="L522" href="#L522">522</a>     &lt;module name="ExecutableStatementCount"&gt;
+<a class="jxr_linenumber" name="L523" href="#L523">523</a>       &lt;property name="max" value="30"/&gt;
+<a class="jxr_linenumber" name="L524" href="#L524">524</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L525" href="#L525">525</a>     &lt;module name="MethodCount"&gt;
+<a class="jxr_linenumber" name="L526" href="#L526">526</a>       &lt;property name="maxTotal" value="35"/&gt;
+<a class="jxr_linenumber" name="L527" href="#L527">527</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L528" href="#L528">528</a>     &lt;module name="MethodLength"/&gt;
+<a class="jxr_linenumber" name="L529" href="#L529">529</a>     &lt;module name="OuterTypeNumber"/&gt;
+<a class="jxr_linenumber" name="L530" href="#L530">530</a>     &lt;module name="ParameterNumber"/&gt;
+<a class="jxr_linenumber" name="L531" href="#L531">531</a> 
+<a class="jxr_linenumber" name="L532" href="#L532">532</a>     &lt;!-- Whitespace --&gt;
+<a class="jxr_linenumber" name="L533" href="#L533">533</a>     &lt;module name="EmptyForInitializerPad"/&gt;
+<a class="jxr_linenumber" name="L534" href="#L534">534</a>     &lt;module name="EmptyForIteratorPad"/&gt;
+<a class="jxr_linenumber" name="L535" href="#L535">535</a>     &lt;module name="EmptyLineSeparator"&gt;
+<a class="jxr_linenumber" name="L536" href="#L536">536</a>       &lt;property name="allowNoEmptyLineBetweenFields" value="true"/&gt;
+<a class="jxr_linenumber" name="L537" href="#L537">537</a>       &lt;property name="allowMultipleEmptyLinesInsideClassMembers" value="false"/&gt;
+<a class="jxr_linenumber" name="L538" href="#L538">538</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L539" href="#L539">539</a>     &lt;module name="GenericWhitespace"/&gt;
+<a class="jxr_linenumber" name="L540" href="#L540">540</a>     &lt;module name="MethodParamPad"/&gt;
+<a class="jxr_linenumber" name="L541" href="#L541">541</a>     &lt;module name="NoLineWrap"/&gt;
+<a class="jxr_linenumber" name="L542" href="#L542">542</a>     &lt;module name="NoWhitespaceAfter"&gt;
+<a class="jxr_linenumber" name="L543" href="#L543">543</a>       &lt;property name="tokens" value="ARRAY_INIT"/&gt;
+<a class="jxr_linenumber" name="L544" href="#L544">544</a>       &lt;property name="tokens" value="BNOT"/&gt;
+<a class="jxr_linenumber" name="L545" href="#L545">545</a>       &lt;property name="tokens" value="DEC"/&gt;
+<a class="jxr_linenumber" name="L546" href="#L546">546</a>       &lt;property name="tokens" value="DOT"/&gt;
+<a class="jxr_linenumber" name="L547" href="#L547">547</a>       &lt;property name="tokens" value="INC"/&gt;
+<a class="jxr_linenumber" name="L548" href="#L548">548</a>       &lt;property name="tokens" value="LNOT"/&gt;
+<a class="jxr_linenumber" name="L549" href="#L549">549</a>       &lt;property name="tokens" value="UNARY_MINUS"/&gt;
+<a class="jxr_linenumber" name="L550" href="#L550">550</a>       &lt;property name="tokens" value="UNARY_PLUS"/&gt;
+<a class="jxr_linenumber" name="L551" href="#L551">551</a>       &lt;property name="tokens" value="ARRAY_DECLARATOR"/&gt;
+<a class="jxr_linenumber" name="L552" href="#L552">552</a>       &lt;property name="tokens" value="INDEX_OP"/&gt;
+<a class="jxr_linenumber" name="L553" href="#L553">553</a>       &lt;property name="tokens" value="METHOD_REF"/&gt;
+<a class="jxr_linenumber" name="L554" href="#L554">554</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L555" href="#L555">555</a>     &lt;module name="NoWhitespaceBefore"/&gt;
+<a class="jxr_linenumber" name="L556" href="#L556">556</a>     &lt;module name="NoWhitespaceBefore"&gt;
+<a class="jxr_linenumber" name="L557" href="#L557">557</a>       &lt;property name="tokens" value="DOT"/&gt;
+<a class="jxr_linenumber" name="L558" href="#L558">558</a>       &lt;property name="tokens" value="METHOD_REF"/&gt;
+<a class="jxr_linenumber" name="L559" href="#L559">559</a>       &lt;property name="allowLineBreaks" value="true"/&gt;
+<a class="jxr_linenumber" name="L560" href="#L560">560</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L561" href="#L561">561</a>     &lt;module name="OperatorWrap"&gt;
+<a class="jxr_linenumber" name="L562" href="#L562">562</a>       &lt;property name="tokens" value="QUESTION"/&gt;
+<a class="jxr_linenumber" name="L563" href="#L563">563</a>       &lt;property name="tokens" value="COLON"/&gt;
+<a class="jxr_linenumber" name="L564" href="#L564">564</a>       &lt;property name="tokens" value="EQUAL"/&gt;
+<a class="jxr_linenumber" name="L565" href="#L565">565</a>       &lt;property name="tokens" value="NOT_EQUAL"/&gt;
+<a class="jxr_linenumber" name="L566" href="#L566">566</a>       &lt;property name="tokens" value="DIV"/&gt;
+<a class="jxr_linenumber" name="L567" href="#L567">567</a>       &lt;property name="tokens" value="PLUS"/&gt;
+<a class="jxr_linenumber" name="L568" href="#L568">568</a>       &lt;property name="tokens" value="MINUS"/&gt;
+<a class="jxr_linenumber" name="L569" href="#L569">569</a>       &lt;property name="tokens" value="STAR"/&gt;
+<a class="jxr_linenumber" name="L570" href="#L570">570</a>       &lt;property name="tokens" value="MOD"/&gt;
+<a class="jxr_linenumber" name="L571" href="#L571">571</a>       &lt;property name="tokens" value="SR"/&gt;
+<a class="jxr_linenumber" name="L572" href="#L572">572</a>       &lt;property name="tokens" value="BSR"/&gt;
+<a class="jxr_linenumber" name="L573" href="#L573">573</a>       &lt;property name="tokens" value="GE"/&gt;
+<a class="jxr_linenumber" name="L574" href="#L574">574</a>       &lt;property name="tokens" value="GT"/&gt;
+<a class="jxr_linenumber" name="L575" href="#L575">575</a>       &lt;property name="tokens" value="SL"/&gt;
+<a class="jxr_linenumber" name="L576" href="#L576">576</a>       &lt;property name="tokens" value="LE"/&gt;
+<a class="jxr_linenumber" name="L577" href="#L577">577</a>       &lt;property name="tokens" value="LT"/&gt;
+<a class="jxr_linenumber" name="L578" href="#L578">578</a>       &lt;property name="tokens" value="BXOR"/&gt;
+<a class="jxr_linenumber" name="L579" href="#L579">579</a>       &lt;property name="tokens" value="BOR"/&gt;
+<a class="jxr_linenumber" name="L580" href="#L580">580</a>       &lt;property name="tokens" value="LOR"/&gt;
+<a class="jxr_linenumber" name="L581" href="#L581">581</a>       &lt;property name="tokens" value="BAND"/&gt;
+<a class="jxr_linenumber" name="L582" href="#L582">582</a>       &lt;property name="tokens" value="LAND"/&gt;
+<a class="jxr_linenumber" name="L583" href="#L583">583</a>       &lt;property name="tokens" value="TYPE_EXTENSION_AND"/&gt;
+<a class="jxr_linenumber" name="L584" href="#L584">584</a>       &lt;property name="tokens" value="LITERAL_INSTANCEOF"/&gt;
+<a class="jxr_linenumber" name="L585" href="#L585">585</a>       &lt;property name="tokens" value="METHOD_REF"/&gt;
+<a class="jxr_linenumber" name="L586" href="#L586">586</a>       &lt;property name="option" value="nl"/&gt;
+<a class="jxr_linenumber" name="L587" href="#L587">587</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L588" href="#L588">588</a>     &lt;module name="OperatorWrap"&gt;
+<a class="jxr_linenumber" name="L589" href="#L589">589</a>       &lt;property name="tokens" value="ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L590" href="#L590">590</a>       &lt;property name="tokens" value="DIV_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L591" href="#L591">591</a>       &lt;property name="tokens" value="PLUS_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L592" href="#L592">592</a>       &lt;property name="tokens" value="MINUS_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L593" href="#L593">593</a>       &lt;property name="tokens" value="STAR_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L594" href="#L594">594</a>       &lt;property name="tokens" value="MOD_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L595" href="#L595">595</a>       &lt;property name="tokens" value="SR_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L596" href="#L596">596</a>       &lt;property name="tokens" value="BSR_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L597" href="#L597">597</a>       &lt;property name="tokens" value="SL_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L598" href="#L598">598</a>       &lt;property name="tokens" value="BXOR_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L599" href="#L599">599</a>       &lt;property name="tokens" value="BOR_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L600" href="#L600">600</a>       &lt;property name="tokens" value="BAND_ASSIGN"/&gt;
+<a class="jxr_linenumber" name="L601" href="#L601">601</a>       &lt;property name="option" value="eol"/&gt;
+<a class="jxr_linenumber" name="L602" href="#L602">602</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L603" href="#L603">603</a>     &lt;module name="ParenPad"/&gt;
+<a class="jxr_linenumber" name="L604" href="#L604">604</a>     &lt;module name="SeparatorWrap"&gt;
+<a class="jxr_linenumber" name="L605" href="#L605">605</a>       &lt;property name="tokens" value="DOT"/&gt;
+<a class="jxr_linenumber" name="L606" href="#L606">606</a>       &lt;property name="tokens" value="AT"/&gt;
+<a class="jxr_linenumber" name="L607" href="#L607">607</a>       &lt;property name="tokens" value="METHOD_REF"/&gt;
+<a class="jxr_linenumber" name="L608" href="#L608">608</a>       &lt;property name="option" value="nl"/&gt;
+<a class="jxr_linenumber" name="L609" href="#L609">609</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L610" href="#L610">610</a>     &lt;module name="SeparatorWrap"&gt;
+<a class="jxr_linenumber" name="L611" href="#L611">611</a>       &lt;property name="tokens" value="COMMA"/&gt;
+<a class="jxr_linenumber" name="L612" href="#L612">612</a>       &lt;property name="tokens" value="RBRACK"/&gt;
+<a class="jxr_linenumber" name="L613" href="#L613">613</a>       &lt;property name="tokens" value="ARRAY_DECLARATOR"/&gt;
+<a class="jxr_linenumber" name="L614" href="#L614">614</a>       &lt;property name="tokens" value="ELLIPSIS"/&gt;
+<a class="jxr_linenumber" name="L615" href="#L615">615</a>       &lt;property name="tokens" value="SEMI"/&gt;
+<a class="jxr_linenumber" name="L616" href="#L616">616</a>       &lt;property name="option" value="EOL"/&gt;
+<a class="jxr_linenumber" name="L617" href="#L617">617</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L618" href="#L618">618</a>     &lt;module name="SingleSpaceSeparator"&gt;
+<a class="jxr_linenumber" name="L619" href="#L619">619</a>       &lt;property name="validateComments" value="false"/&gt;
+<a class="jxr_linenumber" name="L620" href="#L620">620</a>     &lt;/module&gt;
+<a class="jxr_linenumber" name="L621" href="#L621">621</a>     &lt;module name="TypecastParenPad"/&gt;
+<a class="jxr_linenumber" name="L622" href="#L622">622</a>     &lt;module name="WhitespaceAfter"/&gt;
+<a class="jxr_linenumber" name="L623" href="#L623">623</a>     &lt;module name="WhitespaceAround"/&gt;
+<a class="jxr_linenumber" name="L624" href="#L624">624</a> 
+<a class="jxr_linenumber" name="L625" href="#L625">625</a>   &lt;/module&gt;
+<a class="jxr_linenumber" name="L626" href="#L626">626</a> 
+<a class="jxr_linenumber" name="L627" href="#L627">627</a> &lt;/module&gt;
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
