@@ -1,0 +1,1330 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css");</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2><a name="Configuration" href="#Configuration">Checkstyle configuration report</a></h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">IllegalCatch</td>
+										
+										<td class="c">
+											
+												illegalClassNames
+												
+													<li>java.lang.Exception,                          java.lang.Throwable,                          java.lang.RuntimeException,                          java.lang.NullPointerException</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												illegalClassNames
+												
+													<li>java.lang.Exception,                          java.lang.Throwable,                          java.lang.RuntimeException,                          java.lang.NullPointerException</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">IllegalInstantiation</td>
+										
+										<td class="c">
+											
+												classes
+												
+													<li>org.xml.sax.SAXException, org.xml.sax.SAXParseException,                          org.apache.commons.beanutils.ConversionException,                          org.antlr.v4.runtime.misc.ParseCancellationException,                          antlr.RecognitionException, antlr.TokenStreamException,                          antlr.TokenStreamRecognitionException, antlr.ANTLRException,                          java.lang.StringBuffer</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												classes
+												
+													<li>org.xml.sax.SAXException, org.xml.sax.SAXParseException,                          org.apache.commons.beanutils.ConversionException,                          org.antlr.v4.runtime.misc.ParseCancellationException,                          antlr.RecognitionException, antlr.TokenStreamException,                          antlr.TokenStreamRecognitionException, antlr.ANTLRException,                          java.lang.StringBuffer</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">InnerAssignment</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">MagicNumber</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionCommentFilter</td>
+										
+										<td class="c">
+											
+												checkFormat
+												
+													<li>IGNORETHIS</li>
+												
+												<br/>
+											
+												onCommentFormat
+												
+													<li>CSON\: .*</li>
+												
+												<br/>
+											
+												offCommentFormat
+												
+													<li>CSOFF\: .*</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checkFormat
+												
+													<li>IGNORETHIS</li>
+												
+												<br/>
+											
+												onCommentFormat
+												
+													<li>CSON\: .*</li>
+												
+												<br/>
+											
+												offCommentFormat
+												
+													<li>CSOFF\: .*</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>IllegalCatch</li>
+												
+												<br/>
+											
+												files
+												
+													<li>[\\/]internal[\\/].*[\\/]\w+Util\.java</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>IllegalCatch</li>
+												
+												<br/>
+											
+												files
+												
+													<li>[\\/]internal[\\/].*[\\/]\w+Util\.java</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>EmptyBlock</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/]test[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>EmptyBlock</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/]test[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>JavadocVariable</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>JavadocVariable</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>JavadocType</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>JavadocType</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>MagicNumber</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>MagicNumber</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>AvoidStaticImport</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>AvoidStaticImport</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>WriteTag</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>WriteTag</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>MethodCount</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>MethodCount</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>MultipleStringLiterals</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>MultipleStringLiterals</li>
+												
+												<br/>
+											
+												files
+												
+													<li>.*[\\/]src[\\/](test|it)[\\/]</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressWithNearbyCommentFilter</td>
+										
+										<td class="c">
+											
+												checkFormat
+												
+													<li>$1</li>
+												
+												<br/>
+											
+												commentFormat
+												
+													<li>-@cs\[(\w{8,}(\|\w{8,})*)\] \w[\(\)\-\.\&#39;\`\,\:\;\w ]{10,}</li>
+												
+												<br/>
+											
+												influenceFormat
+												
+													<li>3</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checkFormat
+												
+													<li>$1</li>
+												
+												<br/>
+											
+												commentFormat
+												
+													<li>-@cs\[(\w{8,}(\|\w{8,})*)\] \w[\(\)\-\.\&#39;\`\,\:\;\w ]{10,}</li>
+												
+												<br/>
+											
+												influenceFormat
+												
+													<li>3</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">AvoidStarImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">AvoidStaticImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">CustomImportOrder</td>
+										
+										<td class="c">
+											
+												thirdPartyPackageRegExp
+												
+													<li>^org\.</li>
+												
+												<br/>
+											
+												separateLineBetweenGroups
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortImportsInGroupAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												specialImportsRegExp
+												
+													<li>^javax\.</li>
+												
+												<br/>
+											
+												customImportOrderRules
+												
+													<li>STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE</li>
+												
+												<br/>
+											
+												standardPackageRegExp
+												
+													<li>^java\.</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												thirdPartyPackageRegExp
+												
+													<li>^org\.</li>
+												
+												<br/>
+											
+												separateLineBetweenGroups
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortImportsInGroupAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												specialImportsRegExp
+												
+													<li>^javax\.</li>
+												
+												<br/>
+											
+												customImportOrderRules
+												
+													<li>STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE</li>
+												
+												<br/>
+											
+												standardPackageRegExp
+												
+													<li>^java\.</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">IllegalImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">ImportOrder</td>
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>/^java\./,javax,org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ordered
+												
+													<li>true</li>
+												
+												<br/>
+											
+												sortStaticImportsAlphabetically
+												
+													<li>true</li>
+												
+												<br/>
+											
+												groups
+												
+													<li>/^java\./,javax,org</li>
+												
+												<br/>
+											
+												separated
+												
+													<li>true</li>
+												
+												<br/>
+											
+												option
+												
+													<li>top</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">RedundantImport</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UnusedImports</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2><a name="Summary" href="#Summary">Summary:</a></h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+								<th>Severity-error</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">4225</td>
+							<td id="totalBase">5772</td>
+							
+								<td id="warningSeverityNumBase">5771</td>
+							
+								<td id="errorSeverityNumBase">1</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">4225</td>
+							<td id="totalPatch">5772 (1 removed, 1 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">5771</td>
+							
+								<td id="errorSeverityStatisticsPatch">1 (1 removed, 1 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">1 file with differences</td>
+							<td id="totalDiff">2 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">0 changes in violations</td>
+							
+								<td id="errorSeverityNumDiff">2 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.Checker</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.coding.IllegalInstantiationCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.coding.IllegalCatchCheck</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleNumBase">46</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleNumBase">960</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheckModuleNumBase">493</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleNumBase">1482</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleNumBase">1</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheckModuleNumBase">18</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheckModuleNumBase">252</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheckModuleNumBase">148</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.IllegalInstantiationCheckModuleNumBase">4</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheckModuleNumBase">1550</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.IllegalCatchCheckModuleNumBase">686</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheckModuleNumBase">132</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleStatisticsPatch">46</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleStatisticsPatch">960</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheckModuleStatisticsPatch">493</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleStatisticsPatch">1482</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleStatisticsPatch">1 (1 removed, 1 added)</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheckModuleStatisticsPatch">18</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheckModuleStatisticsPatch">252</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheckModuleStatisticsPatch">148</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.IllegalInstantiationCheckModuleStatisticsPatch">4</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheckModuleStatisticsPatch">1550</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.IllegalCatchCheckModuleStatisticsPatch">686</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheckModuleStatisticsPatch">132</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleNumDiff">2</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.IllegalInstantiationCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.IllegalCatchCheckModuleNumDiff">0</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheckModuleNumDiff">0</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">1</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">1</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2><a name="Violations" href="#Violations">Violations:</a></h2>
+				<div class="section">
+					<h3>/__w/Kevin222004.github.io/Kevin222004.github.io/contribution/checkstyle-tester/repositories/checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/unusedimports/InputUnusedImportsSingleWordPackage.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="b">
+								
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>error</td>
+								<td>Checker</td>
+								<td>Got an exception - java.lang.StringIndexOutOfBoundsException: begin 0, end -1, length 6<br />
+#x9;at java.base/java.lang.String.checkBoundsBeginEnd(String.java:3319)<br />
+#x9;at java.base/java.lang.String.substring(String.java:1874)<br />
+#x9;at com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck.isFromPackage(RedundantImportCheck.java:165)<br />
+#x9;at com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck.visitToken(RedundantImportCheck.java:127)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.notifyVisit(TreeWalker.java:335)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.processIter(TreeWalker.java:406)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.walk(TreeWalker.java:273)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.processFiltered(TreeWalker.java:154)<br />
+#x9;at com.puppycrawl.tools.checkstyle.api.AbstractFileSetCheck.process(AbstractFileSetCheck.java:101)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.processFile(Checker.java:337)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.processFiles(Checker.java:296)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.process(Checker.java:226)<br />
+#x9;at org.apache.maven.plugins.checkstyle.exec.DefaultCheckstyleExecutor.executeCheckstyle(DefaultCheckstyleExecutor.java:202)<br />
+#x9;at org.apache.maven.plugins.checkstyle.AbstractCheckstyleReport.executeReport(AbstractCheckstyleReport.java:533)<br />
+#x9;at org.apache.maven.plugins.checkstyle.CheckstyleReport.executeReport(CheckstyleReport.java:57)<br />
+#x9;at org.apache.maven.reporting.AbstractMavenReport.generate(AbstractMavenReport.java:255)<br />
+#x9;at org.apache.maven.plugins.site.ReportDocumentRenderer.renderDocument(ReportDocumentRenderer.java:219)<br />
+#x9;at org.apache.maven.doxia.siterenderer.DefaultSiteRenderer.renderModule(DefaultSiteRenderer.java:319)<br />
+#x9;at org.apache.maven.doxia.siterenderer.DefaultSiteRenderer.render(DefaultSiteRenderer.java:135)<br />
+#x9;at org.apache.maven.plugins.site.SiteMojo.renderLocale(SiteMojo.java:175)<br />
+#x9;at org.apache.maven.plugins.site.SiteMojo.execute(SiteMojo.java:138)<br />
+#x9;at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:210)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:156)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)<br />
+#x9;at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)<br />
+#x9;at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)<br />
+#x9;at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)<br />
+#x9;at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)<br />
+#x9;at org.apache.maven.cli.MavenCli.execute(MavenCli.java:957)<br />
+#x9;at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:289)<br />
+#x9;at org.apache.maven.cli.MavenCli.main(MavenCli.java:193)<br />
+#x9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+#x9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+#x9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+#x9;at java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:282)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:225)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)<br />
+</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/__w/Kevin222004.github.io/Kevin222004.github.io/contribution/checkstyle-tester/repositories/checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/unusedimports/InputUnusedImportsSingleWordPackage.java.html#L1">1</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>error</td>
+								<td>Checker</td>
+								<td>Got an exception - java.lang.StringIndexOutOfBoundsException: begin 0, end -1, length 6<br />
+#x9;at java.base/java.lang.String.checkBoundsBeginEnd(String.java:3319)<br />
+#x9;at java.base/java.lang.String.substring(String.java:1874)<br />
+#x9;at com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck.isFromPackage(RedundantImportCheck.java:185)<br />
+#x9;at com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck.visitToken(RedundantImportCheck.java:147)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.notifyVisit(TreeWalker.java:335)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.processIter(TreeWalker.java:406)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.walk(TreeWalker.java:273)<br />
+#x9;at com.puppycrawl.tools.checkstyle.TreeWalker.processFiltered(TreeWalker.java:154)<br />
+#x9;at com.puppycrawl.tools.checkstyle.api.AbstractFileSetCheck.process(AbstractFileSetCheck.java:98)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.processFile(Checker.java:334)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.processFiles(Checker.java:293)<br />
+#x9;at com.puppycrawl.tools.checkstyle.Checker.process(Checker.java:223)<br />
+#x9;at org.apache.maven.plugins.checkstyle.exec.DefaultCheckstyleExecutor.executeCheckstyle(DefaultCheckstyleExecutor.java:202)<br />
+#x9;at org.apache.maven.plugins.checkstyle.AbstractCheckstyleReport.executeReport(AbstractCheckstyleReport.java:533)<br />
+#x9;at org.apache.maven.plugins.checkstyle.CheckstyleReport.executeReport(CheckstyleReport.java:57)<br />
+#x9;at org.apache.maven.reporting.AbstractMavenReport.generate(AbstractMavenReport.java:255)<br />
+#x9;at org.apache.maven.plugins.site.ReportDocumentRenderer.renderDocument(ReportDocumentRenderer.java:219)<br />
+#x9;at org.apache.maven.doxia.siterenderer.DefaultSiteRenderer.renderModule(DefaultSiteRenderer.java:319)<br />
+#x9;at org.apache.maven.doxia.siterenderer.DefaultSiteRenderer.render(DefaultSiteRenderer.java:135)<br />
+#x9;at org.apache.maven.plugins.site.SiteMojo.renderLocale(SiteMojo.java:175)<br />
+#x9;at org.apache.maven.plugins.site.SiteMojo.execute(SiteMojo.java:138)<br />
+#x9;at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:210)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:156)<br />
+#x9;at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)<br />
+#x9;at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)<br />
+#x9;at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)<br />
+#x9;at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)<br />
+#x9;at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)<br />
+#x9;at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)<br />
+#x9;at org.apache.maven.cli.MavenCli.execute(MavenCli.java:957)<br />
+#x9;at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:289)<br />
+#x9;at org.apache.maven.cli.MavenCli.main(MavenCli.java:193)<br />
+#x9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+#x9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+#x9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+#x9;at java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:282)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:225)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406)<br />
+#x9;at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)<br />
+</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/__w/Kevin222004.github.io/Kevin222004.github.io/contribution/checkstyle-tester/repositories/checkstyle/src/test/resources-noncompilable/com/puppycrawl/tools/checkstyle/checks/imports/unusedimports/InputUnusedImportsSingleWordPackage.java.html#L1">1</a></td>
+								
+								
+									<td class="keepWidth"> </td>
+									
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
