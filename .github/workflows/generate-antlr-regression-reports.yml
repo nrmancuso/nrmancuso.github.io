@@ -15,7 +15,7 @@ jobs:
       ROOT_DIR: /__w/Kevin222004.github.io/Kevin222004.github.io
 
       # change for report generation
-      PATCH_BRANCH: dtc
+      PATCH_BRANCH: ut4
 
 
     strategy:

@@ -18,7 +18,7 @@ jobs:
     uses: ./.github/workflows/commit-reports.yml
     with:
       # change this for report generation
-      patch-branch: dtc
+      patch-branch: ut4
     needs: [
       run-generate-antlr-regression-report,
       run-generate-check-regression-report
