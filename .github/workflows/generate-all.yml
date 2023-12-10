@@ -4,22 +4,26 @@ on:
   workflow_dispatch:
     inputs:
       project-names:
-        description: 'The comma separated list of projects to generate ANTLR reports for'
+        description: 'Json array of project names for ANTLR diff report generation'
         required: true
         type: string
         default: '[ "MaterialDesignLibrary" ]'
+        options:
+          - '[ "MaterialDesignLibrary" ]'
+          - '[ "checkstyle" ]'
+          - '[ "openjdk21" ]'
       patch-branch:
-        description: 'The branch to generate the report for'
+        description: 'The checkstyle patch branch'
         required: true
         type: string
         default: 'ci-test-branch'
       projects-file:
-        description: 'The file containing the list of projects to generate reports on'
+        description: 'Filename of projects file'
         required: true
         type: string
         default: 'test-projects.properties'
       configs:
-        description: 'The config(s) to generate the report with'
+        description: 'Json array of config names (no .xml extension) for check regression report'
         default: '[ "test" ]'
         type: choice
         required: true
