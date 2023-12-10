@@ -16,7 +16,7 @@ jobs:
 
       ## change these for report generation
       PATCH_BRANCH: issue-13830
-      PROJECTS_FILE: projects-to-test-on.properties
+      PROJECTS_FILE: openjdk-21-project.properties
 
     strategy:
       matrix:
