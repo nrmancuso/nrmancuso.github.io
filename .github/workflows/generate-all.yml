@@ -21,7 +21,7 @@ on:
       projects-file:
         description: 'Json array of project file names for check regression report'
         required: true
-        type: string
+        type: choice
         default: '[ "test-projects.properties" ]'
         options:
           - '[ "test-projects.properties" ]'
