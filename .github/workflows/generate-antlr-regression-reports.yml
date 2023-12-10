@@ -4,11 +4,11 @@ on:
   workflow_call:
     inputs:
       patch-branch:
-        description: 'The branch to generate the report for'
+        description: 'The checkstyle patch branch'
         required: true
         type: string
       project-names:
-        description: 'The comma separated list of projects to generate ANTLR reports fo'
+        description: 'Json array of project names for ANTLR diff report generation'
         required: true
         type: string
 
@@ -24,7 +24,6 @@ jobs:
 
       # change for report generation
       PATCH_BRANCH: ${{ inputs.patch-branch }}
-
 
     strategy:
       matrix:

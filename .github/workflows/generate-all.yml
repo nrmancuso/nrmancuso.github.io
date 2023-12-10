@@ -12,16 +12,24 @@ on:
           - '[ "MaterialDesignLibrary" ]'
           - '[ "checkstyle" ]'
           - '[ "openjdk21" ]'
+          - '[ "openjdk21", "checkstyle" ]'
       patch-branch:
         description: 'The checkstyle patch branch'
         required: true
         type: string
         default: 'ci-test-branch'
       projects-file:
-        description: 'Filename of projects file'
+        description: 'Json array of project file names for check regression report'
         required: true
         type: string
-        default: 'test-projects.properties'
+        default: '[ "test-projects.properties" ]'
+        options:
+          - '[ "test-projects.properties" ]'
+          - '[ "projects-to-test-on.properties" ]'
+          - '[ "projects-to-test-on.properties", "openjdk-21-project.properties" ]'
+          - '[ "projects-to-test-on.properties", "openjdk-21-project.properties",
+              "github-action-projects1.properties", "github-action-projects2.properties"
+              ]'
       configs:
         description: 'Json array of config names (no .xml extension) for check regression report'
         default: '[ "test" ]'
