@@ -8,11 +8,11 @@ on:
         required: true
         type: string
       projects-file:
-        description: 'The file containing the projects to generate the report for'
+        description: 'Json array of project file names for check regression report'
         required: true
         type: string
       configs:
-        description: 'The config(s) to generate the report with'
+        description: 'Json array of config names (no .xml extension) for check regression report'
         type: string
         required: true
 
@@ -27,13 +27,13 @@ jobs:
       ROOT_DIR: /__w/nrmancuso.github.io/nrmancuso.github.io
 
       PATCH_BRANCH: ${{ inputs.patch-branch }}
-      PROJECTS_FILE: ${{ inputs.projects-file }}
+      PROJECTS_FILE: ${{ matrix.projects_filename }}
 
     strategy:
       matrix:
-        # use config name with no '.xml' extension
         # generate list with: 'for f in $(find configs -name '*.xml'); do echo " - \"$(echo $f | cut -d '/' -f 2 | cut -d '.' -f 1)\""; done'
         config_name: ${{ fromJson(inputs.configs) }}
+        projects_filename: ${{ fromJson(inputs.projects-file) }}
 
     steps:
       - name: Checkout
