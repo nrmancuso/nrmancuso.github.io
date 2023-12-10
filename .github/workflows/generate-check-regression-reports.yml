@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     container: checkstyle/jdk-11-groovy-git-mvn:11.0.13__3.0.9__2.25.1__3.6.3
     env:
-      MAVEN_OPTS: -Xmx4096m
-      JAVA_OPTS: -Xmx4096m
+      MAVEN_OPTS: -Xmx5g
+      JAVA_OPTS: -Xmx5g
       CHECKSTYLE_DIRECTORY: checkstyle
       ROOT_DIR: /__w/nrmancuso.github.io/nrmancuso.github.io
 
       ## change these for report generation
-      PATCH_BRANCH: ci-test-branch
-      PROJECTS_FILE: test-projects.properties
+      PATCH_BRANCH: issue-13830
+      PROJECTS_FILE: projects-to-test-on.properties
 
     strategy:
       matrix:
@@ -24,14 +24,14 @@ jobs:
         # generate list with: 'for f in $(find configs -name '*.xml'); do echo " - \"$(echo $f | cut -d '/' -f 2 | cut -d '.' -f 1)\""; done'
         config_name:
           - "test"
-#          - "part1"
-#          - "part2"
-#          - "part3"
-#          - "part4"
-#          - "part5"
-#          - "part6"
-#          - "sevntu-check-regression_part_1"
-#          - "sevntu-check-regression_part_2"
+          - "part1"
+          - "part2"
+          - "part3"
+          - "part4"
+          - "part5"
+          - "part6"
+          - "sevntu-check-regression_part_1"
+          - "sevntu-check-regression_part_2"
 
     steps:
       - name: Checkout
