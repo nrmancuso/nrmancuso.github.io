@@ -6,7 +6,7 @@ on:
       project-names:
         description: 'Json array of project names for ANTLR diff report generation'
         required: true
-        type: string
+        type: choice
         default: '[ "MaterialDesignLibrary" ]'
         options:
           - '[ "MaterialDesignLibrary" ]'
