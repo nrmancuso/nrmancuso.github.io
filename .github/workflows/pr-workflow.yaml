@@ -21,7 +21,7 @@ jobs:
     uses: ./.github/workflows/generate-check-regression-reports.yml
     with:
       patch-branch: 'ci-test-branch'
-      projects-file: 'test-projects.properties'
+      projects-file: '[ "test-projects.properties" ]'
       configs: '[ "test" ]'
   run-commit-reports:
     uses: ./.github/workflows/commit-reports.yml
