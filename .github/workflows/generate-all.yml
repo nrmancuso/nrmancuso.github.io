@@ -35,7 +35,7 @@ jobs:
     uses: ./.github/workflows/generate-antlr-regression-reports.yml
     with:
       patch-branch: ${{ github.event.inputs.patch-branch }}
-      project_names: ${{ github.event.inputs.project-names }}
+      project-names: ${{ github.event.inputs.project-names }}
 
   run-generate-check-regression-report:
     uses: ./.github/workflows/generate-check-regression-reports.yml
