@@ -1,28 +1,34 @@
 name: Generate ANTLR Regression Reports
 
 on:
-  - workflow_call
-  - workflow_dispatch
+  workflow_call:
+    inputs:
+      patch-branch:
+        description: 'The branch to generate the report for'
+        required: true
+        type: string
+      project-names:
+        description: 'The comma separated list of projects to generate ANTLR reports fo'
+        required: true
+        type: string
 
 jobs:
   generate_antlr_regression_report:
     runs-on: ubuntu-latest
     container: checkstyle/jdk-11-groovy-git-mvn:11.0.13__3.0.9__2.25.1__3.6.3
     env:
-      MAVEN_OPTS: -Xmx4096m
-      JAVA_OPTS: -Xmx4096m
+      MAVEN_OPTS: -Xmx5g
+      JAVA_OPTS: -Xmx5g
       CHECKSTYLE_DIRECTORY: checkstyle
       ROOT_DIR: /__w/nrmancuso.github.io/nrmancuso.github.io
 
       # change for report generation
-      PATCH_BRANCH: ci-test-branch
+      PATCH_BRANCH: ${{ inputs.patch-branch }}
 
 
     strategy:
       matrix:
-        project_name:
-          # change for report generation
-          - "MaterialDesignLibrary"
+        project_name: ${{ fromJson(inputs.project-names) }}
 
     steps:
       - name: Checkout
