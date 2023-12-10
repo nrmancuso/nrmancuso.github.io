@@ -1,24 +1,54 @@
-name: Generate all reports (ANTLR and check regression)
+name: Generate reports
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches: '*'
+  workflow_dispatch:
+    inputs:
+      project-names:
+        description: 'The comma separated list of projects to generate ANTLR reports for'
+        required: true
+        type: string
+        default: '[ "MaterialDesignLibrary" ]'
+      patch-branch:
+        description: 'The branch to generate the report for'
+        required: true
+        type: string
+        default: 'ci-test-branch'
+      projects-file:
+        description: 'The file containing the list of projects to generate reports on'
+        required: true
+        type: string
+        default: 'test-projects.properties'
+      configs:
+        description: 'The config(s) to generate the report with'
+        default: '[ "test" ]'
+        type: choice
+        required: true
+        options:
+          - '[ "test" ]'
+          - '[
+              "part1", "part2", "part3", "part4", "part5", "part6",
+              "sevntu-check-regression_part_1", "sevntu-check-regression_part_2"
+             ]'
 
 jobs:
   run-generate-antlr-regression-report:
     uses: ./.github/workflows/generate-antlr-regression-reports.yml
+    with:
+      patch-branch: ${{ github.event.inputs.patch-branch }}
+      project_names: ${{ github.event.inputs.project-names }}
 
   run-generate-check-regression-report:
     uses: ./.github/workflows/generate-check-regression-reports.yml
+    with:
+      patch-branch: ${{ github.event.inputs.patch-branch }}
+      projects-file: ${{ github.event.inputs.projects-file }}
+      configs: ${{ github.event.inputs.configs }}
+
 
   run-commit-reports:
     uses: ./.github/workflows/commit-reports.yml
     with:
-      # change this for report generation
-      patch-branch: ci-test-branch
+      patch-branch: ${{ github.event.inputs.patch-branch }}
     needs: [
       run-generate-antlr-regression-report,
       run-generate-check-regression-report
