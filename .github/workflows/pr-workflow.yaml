@@ -23,11 +23,3 @@ jobs:
       patch-branch: 'ci-test-branch'
       projects-file: '[ "test-projects.properties" ]'
       configs: '[ "test" ]'
-  run-commit-reports:
-    uses: ./.github/workflows/commit-reports.yml
-    with:
-      patch-branch: 'ci-test-branch'
-    needs: [
-      run-generate-antlr-regression-report,
-      run-generate-check-regression-report
-    ]

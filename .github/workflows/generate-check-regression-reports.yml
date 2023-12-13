@@ -68,14 +68,9 @@ jobs:
           CONFIG_FILE: ${{ matrix.config_name }}.xml
         run: main/scripts/generate-check-regression-report.sh
 
-      - name: Get basename of projects file and put into GitHub context
-        id: get-projects-file-basename
-        run: |
-          echo "PROJECTS_FILE_BASENAME=$(basename ${{ matrix.projects_filename }} .properties)" >> $GITHUB_ENV
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.get-projects-file-basename.output.PROJECTS_FILE_BASENAME }}-${{ matrix.config_name }}-report
+          name: ${{ matrix.projects_filename }}-${{ matrix.config_name }}-report
           path: contribution/checkstyle-tester/reports/diff
           retention-days: 60
