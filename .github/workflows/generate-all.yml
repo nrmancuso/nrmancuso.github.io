@@ -19,17 +19,16 @@ on:
         type: string
         default: 'ci-test-branch'
       projects-file:
-        description: 'Json array of project file names for check regression report'
+        description: 'project file for check regression report'
         required: true
         type: choice
-        default: '[ "test-projects.properties" ]'
+        default: "test-projects.properties"
         options:
-          - '[ "test-projects.properties" ]'
-          - '[ "projects-to-test-on.properties" ]'
-          - '[ "projects-to-test-on.properties", "openjdk-21-project.properties" ]'
-          - '[ "projects-to-test-on.properties", "openjdk-21-project.properties",
-              "github-action-projects1.properties", "github-action-projects2.properties"
-              ]'
+          - "test-projects.properties"
+          - "projects-to-test-on.properties"
+          - "openjdk-21-project.properties"
+          - "github-action-projects1.properties"
+          - "github-action-projects2.properties"
       configs:
         description: 'Json array of config names (no .xml extension) for check regression report'
         default: '[ "test" ]'
@@ -64,12 +63,12 @@ jobs:
       projects-file: ${{ github.event.inputs.projects-file }}
       configs: ${{ github.event.inputs.configs }}
 
-
   run-commit-reports:
     if: ${{ github.event.inputs.send-pr == 'true' }}
     uses: ./.github/workflows/commit-reports.yml
     with:
       patch-branch: ${{ github.event.inputs.patch-branch }}
+      projects-file: ${{ github.event.inputs.projects-file }}
     needs: [
       run-generate-antlr-regression-report,
       run-generate-check-regression-report
