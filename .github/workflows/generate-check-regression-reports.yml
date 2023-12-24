@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       projects-file:
-        description: 'Json array of project file names for check regression report'
+        description: 'project file name for check regression report'
         required: true
         type: string
       configs:
@@ -33,7 +33,6 @@ jobs:
       matrix:
         # generate list with: 'for f in $(find configs -name '*.xml'); do echo " - \"$(echo $f | cut -d '/' -f 2 | cut -d '.' -f 1)\""; done'
         config_name: ${{ fromJson(inputs.configs) }}
-        projects_filename: ${{ fromJson(inputs.projects-file) }}
 
     steps:
       - name: Checkout
@@ -66,11 +65,12 @@ jobs:
       - name: Generate report
         env:
           CONFIG_FILE: ${{ matrix.config_name }}.xml
+          PROJECTS_FILE: ${{ inputs.projects-file }}
         run: main/scripts/generate-check-regression-report.sh
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ matrix.projects_filename }}-${{ matrix.config_name }}-report
+          name: ${{ matrix.config_name }}
           path: contribution/checkstyle-tester/reports/diff
           retention-days: 60

@@ -7,7 +7,10 @@ on:
         description: 'The branch to generate the report for'
         required: true
         type: string
-
+      projects-file:
+        description: 'project file name for check regression report'
+        required: true
+        type: string
 jobs:
   download-and-commit-reports:
     runs-on: ubuntu-latest
@@ -41,6 +44,9 @@ jobs:
         id: build-pr-body
         run: |
           echo "REPORT_LINKS<<EOF" >> $GITHUB_OUTPUT
+          
+          # put projects file name in body
+          echo "Projects file: ${{ inputs.projects-file }}" >> $GITHUB_OUTPUT
           
           for f in $(find ${{ steps.setup-reports.outputs.REPORT_DIR }} -maxdepth 2 -type f -name 'index.html'); do
             echo "https://nrmancuso.github.io/$f" >> $GITHUB_OUTPUT
