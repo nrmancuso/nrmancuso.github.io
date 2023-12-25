@@ -31,7 +31,7 @@ jobs:
       - name: Setup reports to be committed
         id: setup-reports
         run: |
-          DATE=$(date +'%Y-%m-%d-T-%H-%M-%S')
+          DATE=$(date +'%m%d-%H%M')
           REPORT_DIR="reports/${{ inputs.patch-branch }}/$DATE"
           echo "REPORT_DIR=$REPORT_DIR" >> $GITHUB_OUTPUT
           echo "REPORT_PR_BRANCH_NAME=${{ inputs.patch-branch }}-$DATE" >> $GITHUB_OUTPUT
@@ -39,6 +39,10 @@ jobs:
           cp -r temp-reports/* $REPORT_DIR
           rm -rf temp-reports
           echo "LS -R:" && ls -R $REPORT_DIR
+          
+          # set permissions so that github pages can access
+          cd $REPORT_DIR
+          chmod -R 777 .
 
       - name: Build body of PR request with links to reports
         id: build-pr-body
