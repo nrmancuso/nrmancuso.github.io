@@ -40,14 +40,6 @@ on:
               "part1", "part2", "part3", "part4", "part5", "part6",
               "sevntu-check-regression_part_1", "sevntu-check-regression_part_2"
              ]'
-      send-pr:
-        description: 'Send PR with reports so they can be viewed on github.io'
-        default: false
-        type: boolean
-        required: true
-        options:
-          - 'true'
-          - 'false'
 
 jobs:
   run-generate-antlr-regression-report:
@@ -65,7 +57,6 @@ jobs:
 
   run-upload-reports:
     uses: ./.github/workflows/upload-reports.yml
-    if: ${{ github.event.inputs.send-pr == 'true' }}
     secrets: inherit
     with:
       patch-branch: ${{ github.event.inputs.patch-branch }}
