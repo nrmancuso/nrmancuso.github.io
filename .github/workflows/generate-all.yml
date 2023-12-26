@@ -63,9 +63,10 @@ jobs:
       projects-file: ${{ github.event.inputs.projects-file }}
       configs: ${{ github.event.inputs.configs }}
 
-  run-commit-reports:
+  run-upload-reports:
+    uses: ./.github/workflows/upload-reports.yml
     if: ${{ github.event.inputs.send-pr == 'true' }}
-    uses: ./.github/workflows/commit-reports.yml
+    secrets: inherit
     with:
       patch-branch: ${{ github.event.inputs.patch-branch }}
       projects-file: ${{ github.event.inputs.projects-file }}
