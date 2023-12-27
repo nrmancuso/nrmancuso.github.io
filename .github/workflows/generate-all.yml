@@ -1,4 +1,4 @@
-name: Generate reports
+name: Generate reports for ${{ github.event.inputs.patch-branch }}
 
 on:
   workflow_dispatch:
