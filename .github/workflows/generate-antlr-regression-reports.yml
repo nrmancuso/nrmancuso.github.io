@@ -70,6 +70,6 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: antlr-report
+          name: antlr-report-${{ matrix.project_name }}
           path: contribution/checkstyle-tester/reports/diff
           retention-days: 60
