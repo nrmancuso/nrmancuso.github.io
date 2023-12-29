@@ -34,6 +34,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: main
+      - name: Cache local Maven repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
 
       - name: Checkout Checkstyle
         uses: actions/checkout@v3
@@ -65,11 +72,13 @@ jobs:
       - name: Generate report
         env:
           PROJECT: ${{ matrix.project_name }}
+          REPORT_REPO_DIR: ${{ env.ROOT_DIR }}/main
         run: ./main/scripts/generate-antlr-regression-report.sh
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: antlr-report-${{ matrix.project_name }}
           path: contribution/checkstyle-tester/reports/diff
           retention-days: 60
+          if-no-files-found: error
