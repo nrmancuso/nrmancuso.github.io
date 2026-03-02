@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nick Mancuso</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Rajdhani:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:         #0d0010;
+            --surface:    #150018;
+            --surface2:   #1e0028;
+            --border:     #3d0055;
+            --purple:     #7b00ff;
+            --magenta:    #ff00c8;
+            --orange:     #ff6b2b;
+            --coral:      #ff3d6e;
+            --gold:       #ffb347;
+            --text:       #f5e6ff;
+            --muted:      #9a7fb0;
+            --glow-p:     rgba(123,0,255,0.35);
+            --glow-m:     rgba(255,0,200,0.35);
+            --glow-o:     rgba(255,107,43,0.35);
+            --mono:       'Space Mono', monospace;
+            --display:    'VT323', monospace;
+            --sans:       'Rajdhani', sans-serif;
+            --sunset: linear-gradient(135deg, #ff6b2b 0%, #ff3d6e 35%, #c800ff 70%, #7b00ff 100%);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scanline overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0,0,0,0.08) 2px,
+                    rgba(0,0,0,0.08) 4px
+            );
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Grid */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                    linear-gradient(rgba(123,0,255,0.07) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(123,0,255,0.07) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 3rem;
+            border-bottom: 1px solid var(--border);
+            background: rgba(13,0,16,0.88);
+            backdrop-filter: blur(14px);
+        }
+
+        .nav-logo {
+            font-family: var(--display);
+            font-size: 1.4rem;
+            background: var(--sunset);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--magenta); }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 3rem 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--display);
+            font-size: 1.4rem;
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px var(--glow-o);
+        }
+
+        .hero-name {
+            font-family: var(--display);
+            font-size: clamp(5rem, 12vw, 10rem);
+            line-height: 0.9;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.25rem;
+            background: var(--sunset);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(255,61,110,0.4));
+        }
+
+        .hero-sub {
+            font-family: var(--display);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--purple);
+            letter-spacing: 0.08em;
+            margin-bottom: 2.5rem;
+            text-shadow: 0 0 30px var(--glow-p);
+        }
+
+        .hero-desc {
+            font-family: var(--mono);
+            font-size: 0.82rem;
+            color: var(--muted);
+            max-width: 500px;
+            line-height: 1.85;
+            margin-bottom: 3rem;
+            border-left: 2px solid var(--border);
+            padding-left: 1.25rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .tag {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            background: var(--surface);
+            transition: all 0.2s;
+            cursor: default;
+        }
+
+        .tag:hover {
+            border-color: var(--magenta);
+            color: var(--magenta);
+            background: rgba(255,0,200,0.08);
+            box-shadow: 0 0 12px rgba(255,0,200,0.2);
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.7rem 1.4rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-primary {
+            background: var(--sunset);
+            color: #0d0010;
+            font-weight: 700;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.15);
+            box-shadow: 0 0 24px var(--glow-m);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+            box-shadow: 0 0 12px var(--glow-p);
+        }
+
+        /* SECTIONS */
+        section {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 6rem 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            font-family: var(--display);
+            font-size: 1.6rem;
+            background: var(--sunset);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title {
+            font-family: var(--display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: 0.06em;
+            color: var(--text);
+            text-shadow: 0 0 20px var(--glow-p);
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: start;
+            max-width: 680px;
+        }
+
+        .about-text p {
+            font-family: var(--mono);
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 1.25rem;
+        }
+
+        .about-text p strong { color: var(--text); }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .stat {
+            background: var(--surface);
+            padding: 1.5rem;
+            transition: background 0.2s;
+        }
+
+        .stat:hover { background: var(--surface2); }
+
+        .stat-value {
+            font-family: var(--display);
+            font-size: 2.5rem;
+            background: var(--sunset);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .project-card {
+            background: var(--surface);
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.2s;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--sunset);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover { background: var(--surface2); }
+        .project-card:hover::before { transform: scaleX(1); }
+
+        .project-type {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            color: var(--magenta);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 0 10px var(--glow-m);
+        }
+
+        .project-name {
+            font-family: var(--display);
+            font-size: 1.8rem;
+            letter-spacing: 0.04em;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-desc {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tech-tag {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.06em;
+            padding: 0.2rem 0.5rem;
+            background: rgba(123,0,255,0.15);
+            color: var(--purple);
+            border: 1px solid rgba(123,0,255,0.3);
+            text-transform: uppercase;
+        }
+
+        .project-arrow {
+            position: absolute;
+            top: 1.75rem; right: 1.75rem;
+            font-family: var(--display);
+            font-size: 1.4rem;
+            color: var(--border);
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .project-card:hover .project-arrow {
+            color: var(--coral);
+            transform: translate(3px, -3px);
+            text-shadow: 0 0 10px var(--glow-o);
+        }
+
+        /* FOOTER */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 2rem 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer span {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--muted);
+        }
+
+        footer .footer-made {
+            font-family: var(--display);
+            font-size: 1rem;
+            background: var(--sunset);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            92%       { opacity: 1; }
+            93%       { opacity: 0.85; }
+            94%       { opacity: 1; }
+            96%       { opacity: 0.9; }
+            97%       { opacity: 1; }
+        }
+
+        .hero-eyebrow { animation: fadeUp 0.5s ease both 0.1s; }
+        .hero-name    { animation: fadeUp 0.5s ease both 0.2s, flicker 8s infinite 2s; }
+        .hero-sub     { animation: fadeUp 0.5s ease both 0.3s; }
+        .hero-desc    { animation: fadeUp 0.5s ease both 0.45s; }
+        .hero-tags    { animation: fadeUp 0.5s ease both 0.55s; }
+        .hero-links   { animation: fadeUp 0.5s ease both 0.65s; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { gap: 1.5rem; }
+            .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="nav-logo">NM://DEV</a>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="https://linkedin.com/in/nick-mancuso-dev" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/nrmancuso" target="_blank">GitHub</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <p class="hero-eyebrow">// SOFTWARE ENGINEER</p>
+    <h1 class="hero-name">NICK</h1>
+    <p class="hero-sub">MANCUSO.</p>
+    <p class="hero-desc">
+        I build platform infrastructure, distributed systems,<br>
+        and developer tooling at scale.<br>
+        Open source contributor; GSoC org admin.
+    </p>
+    <div class="hero-tags">
+        <span class="tag">Platform Engineering</span>
+        <span class="tag">Distributed Systems</span>
+        <span class="tag">API Design</span>
+        <span class="tag">Java</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">OpenSearch</span>
+        <span class="tag">ANTLR4</span>
+        <span class="tag">Open Source</span>
+    </div>
+    <div class="hero-links">
+        <a href="https://linkedin.com/in/nick-mancuso-dev" target="_blank" class="btn btn-primary">LinkedIn ↗</a>
+        <a href="https://github.com/nrmancuso" target="_blank" class="btn btn-secondary">GitHub ↗</a>
+
+    </div>
+</div>
+
+<section id="about">
+    <div class="section-header">
+        <span class="section-number">01_</span>
+        <h2 class="section-title">ABOUT</h2>
+    </div>
+    <div class="about-grid">
+        <div class="about-text">
+            <p>
+                Software engineer with a deep interest in <strong>platform and core engineering</strong>,
+                distributed systems, and search infrastructure. I gravitate toward hard problems
+                in system design, API design, and developer tooling.
+            </p>
+            <p>
+                I'm an active open source contributor across several projects including
+                <strong>Checkstyle</strong>, <strong>Kill Bill</strong>, <strong>JabRef</strong>,
+                and <strong>Orekit</strong>. I've spent five years in <strong>Google Summer of Code</strong>
+                — contributor, mentor, and eventually organization administrator for Checkstyle.
+                I also maintain open-source parsing tools built on ANTLR4.
+            </p>
+            <p>
+                My technical interests include <strong>ElasticSearch/OpenSearch</strong>,
+                event-driven architecture, Kubernetes, and AI-assisted developer tooling.
+            </p>
+            <p>
+                BS in Computer Science, University of Delaware. \
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="projects">
+    <div class="section-header">
+        <span class="section-number">02_</span>
+        <h2 class="section-title">PROJECTS</h2>
+    </div>
+    <div class="projects-grid">
+
+        <a href="https://github.com/nrmancuso/parseva-math" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// Open Source</p>
+            <h3 class="project-name">parseva-math</h3>
+            <p class="project-desc">
+                A Java math expression parser and AST builder. Parses and evaluates
+                mathematical expressions using a hand-rolled grammar and visitor pattern.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">ANTLR4</span>
+                <span class="tech-tag">AST</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/nrmancuso/parseva" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// Open Source</p>
+            <h3 class="project-name">parseva</h3>
+            <p class="project-desc">
+                Core parser library and grammar tooling. Foundations for building
+                expression evaluators and compiler front-ends in Java.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">ANTLR4</span>
+                <span class="tech-tag">Parser Design</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/checkstyle/checkstyle" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// Open Source Contributor</p>
+            <h3 class="project-name">Checkstyle</h3>
+            <p class="project-desc">
+                Core contributor to Checkstyle's Java grammar. Added Java 14 records,
+                switch expressions, and Java 21 string templates via ANTLR4 grammar
+                modifications. Original GSoC project: ANTLR2 to ANTLR4 migration.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">ANTLR4</span>
+                <span class="tech-tag">GSoC</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/nrmancuso/big-bang" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// Academic Project</p>
+            <h3 class="project-name">big-bang</h3>
+            <p class="project-desc">
+                N-body gravitational simulation of the Milky Way and Andromeda galaxy
+                collision, modeled from real astronomical data. Parallelized with CUDA and OpenMP.
+                Includes a rendered animation of the full collision sequence.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">CUDA</span>
+                <span class="tech-tag">OpenMP</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Parallel Computing</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/nrmancuso/java-cryptogram-solver" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// Personal Project</p>
+            <h3 class="project-name">java-cryptogram-solver</h3>
+            <p class="project-desc">
+                A substitution cipher solver written in Java. Uses a dictionary-based
+                approach to crack simple substitution ciphers automatically.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Algorithms</span>
+                <span class="tech-tag">Cryptography</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/nrmancuso/checkstyle-diff-report-generator" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// Open Source Tooling</p>
+            <h3 class="project-name">checkstyle-diff-report-generator</h3>
+            <p class="project-desc">
+                GitHub Actions-based regression testing tool for Checkstyle grammar contributions.
+                Runs diff reports across hundreds of open source Java projects to validate
+                that grammar changes introduce no regressions before merging.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">GitHub Actions</span>
+                <span class="tech-tag">CI/CD</span>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">ANTLR4</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/JabRef/jabref" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// Open Source Contributor</p>
+            <h3 class="project-name">JabRef</h3>
+            <p class="project-desc">
+                Feature contributor to JabRef, the open-source bibliography reference manager.
+                JabRef is a widely used academic tool built on Java with a large contributor community.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">JavaFX</span>
+                <span class="tech-tag">Open Source</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/CS-SI/Orekit" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// Open Source Contributor</p>
+            <h3 class="project-name">Orekit</h3>
+            <p class="project-desc">
+                Bug fix contributor to Orekit, a low-level space dynamics library developed
+                by CS Group and used in real aerospace applications for orbit propagation,
+                attitude control, and mission analysis.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Aerospace</span>
+                <span class="tech-tag">Open Source</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/nrmancuso" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// AI Tooling</p>
+            <h3 class="project-name">AI-Assisted Developer Tooling</h3>
+            <p class="project-desc">
+                Built a suite of AI-powered development agents from scratch; including automated
+                code review, API contract checking, migration analysis, test adequacy analysis,
+                and dependency auditing. Integrated across multiple codebases with onboarding
+                documentation and RAG pipelines for codebase context.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">AI Agents</span>
+                <span class="tech-tag">RAG</span>
+                <span class="tech-tag">Developer Tooling</span>
+                <span class="tech-tag">MCP</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<footer>
+    <span class="footer-made">NICK MANCUSO // 2026</span>
+</footer>
+
+</body>
+</html>

@@ -1,1 +1,0 @@
-# checkstyle-diff-report-generator
