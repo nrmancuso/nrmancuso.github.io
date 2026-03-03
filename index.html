@@ -290,41 +290,6 @@
 
         .about-text p strong { color: var(--text); }
 
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
-        }
-
-        .stat {
-            background: var(--surface);
-            padding: 1.5rem;
-            transition: background 0.2s;
-        }
-
-        .stat:hover { background: var(--surface2); }
-
-        .stat-value {
-            font-family: var(--display);
-            font-size: 2.5rem;
-            background: var(--sunset);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 0.3rem;
-        }
-
-        .stat-label {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            color: var(--muted);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
         /* PROJECTS */
         .projects-grid {
             display: grid;
@@ -426,14 +391,8 @@
             max-width: 1100px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-        }
-
-        footer span {
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            color: var(--muted);
         }
 
         footer .footer-made {
@@ -494,9 +453,7 @@
     <h1 class="hero-name">NICK</h1>
     <p class="hero-sub">MANCUSO.</p>
     <p class="hero-desc">
-        I build platform infrastructure, distributed systems,<br>
-        and developer tooling at scale.<br>
-        Open source contributor; GSoC org admin.
+        I design billing systems and high-throughput platforms by day; build parsers and simulate colliding galaxies by night. Really into distributed systems, search infrastructure, elegant APIs, and computational mathematics. ANTLR enthusiast; GSoC org admin; forever debugging complexity.
     </p>
     <div class="hero-tags">
         <span class="tag">Platform Engineering</span>
@@ -505,13 +462,12 @@
         <span class="tag">Java</span>
         <span class="tag">Kubernetes</span>
         <span class="tag">OpenSearch</span>
-        <span class="tag">ANTLR4</span>
+        <span class="tag">ANTLR4 Expert</span>
         <span class="tag">Open Source</span>
     </div>
     <div class="hero-links">
         <a href="https://linkedin.com/in/nick-mancuso-dev" target="_blank" class="btn btn-primary">LinkedIn ↗</a>
         <a href="https://github.com/nrmancuso" target="_blank" class="btn btn-secondary">GitHub ↗</a>
-
     </div>
 </div>
 
@@ -523,26 +479,25 @@
     <div class="about-grid">
         <div class="about-text">
             <p>
-                Software engineer with a deep interest in <strong>platform and core engineering</strong>,
-                distributed systems, and search infrastructure. I gravitate toward hard problems
-                in system design, API design, and developer tooling.
+                Software engineer interested in <strong>platform and core engineering</strong>,
+                distributed systems, and search infrastructure. <strong>ANTLR4 expert</strong>;
+                I've built parsers and contributed extensively to grammar work across open source.
             </p>
             <p>
-                I'm an active open source contributor across several projects including
-                <strong>Checkstyle</strong>, <strong>Kill Bill</strong>, <strong>JabRef</strong>,
-                and <strong>Orekit</strong>. I've spent five years in <strong>Google Summer of Code</strong>
-                — contributor, mentor, and eventually organization administrator for Checkstyle.
-                I also maintain open-source parsing tools built on ANTLR4.
+                Active open source contributor to <strong>Checkstyle</strong>, <strong>Kill Bill</strong>,
+                <strong>JabRef</strong>, and <strong>Orekit</strong>. Five years in <strong>Google Summer of Code</strong>
+                as contributor, mentor, and organization administrator for Checkstyle.
             </p>
             <p>
-                My technical interests include <strong>ElasticSearch/OpenSearch</strong>,
-                event-driven architecture, Kubernetes, and AI-assisted developer tooling.
+                Deeply interested in ElasticSearch/OpenSearch, event-driven architecture,
+                Kubernetes, and AI-assisted developer tooling. I've spent time building observability
+                systems, working with search clusters at scale, and designing APIs that serve large
+                developer communities.
             </p>
             <p>
-                BS in Computer Science, University of Delaware. \
+                BS Computer Science, University of Delaware (Cum Laude); previously Delaware Tech (Summa Cum Laude).
             </p>
         </div>
-
     </div>
 </section>
 
@@ -553,13 +508,61 @@
     </div>
     <div class="projects-grid">
 
+        <a href="https://summerofcode.withgoogle.com/archive/2020/organizations/4788704964509696" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// GSoC 2020 · Checkstyle</p>
+            <h3 class="project-name">Java 14 Language Features</h3>
+            <p class="project-desc">
+                Extended Checkstyle's grammar to support Java 14 language features
+                including records and switch expressions via ANTLR4.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">ANTLR4</span>
+                <span class="tech-tag">GSoC</span>
+                <span class="tech-tag">Compiler Theory</span>
+            </div>
+        </a>
+
+        <a href="https://summerofcode.withgoogle.com/archive/2021/organizations/4766383010742272" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// GSoC 2021 · Checkstyle</p>
+            <h3 class="project-name">The Great Grammar Migration</h3>
+            <p class="project-desc">
+                Led migration of Checkstyle's parser from ANTLR2 to ANTLR4; modernized
+                grammar architecture and enabled support for newer Java language constructs.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">ANTLR4</span>
+                <span class="tech-tag">GSoC</span>
+                <span class="tech-tag">Parser Migration</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/checkstyle/checkstyle/pulls?q=is%3Apr+author%3Anrmancuso" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// Open Source Contributor</p>
+            <h3 class="project-name">Checkstyle Core</h3>
+            <p class="project-desc">
+                Ongoing contributor to Checkstyle's parser and grammar infrastructure;
+                responsible for adding support for Java 14 records, Java 21 string templates,
+                and other language feature additions.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">ANTLR4</span>
+                <span class="tech-tag">Open Source</span>
+            </div>
+        </a>
+
         <a href="https://github.com/nrmancuso/parseva-math" target="_blank" class="project-card">
             <span class="project-arrow">↗</span>
             <p class="project-type">// Open Source</p>
-            <h3 class="project-name">parseva-math</h3>
+            <h3 class="project-name">Math Expression Parser</h3>
             <p class="project-desc">
-                A Java math expression parser and AST builder. Parses and evaluates
-                mathematical expressions using a hand-rolled grammar and visitor pattern.
+                A Java parser and evaluator for mathematical expressions; demonstrates
+                grammar design and visitor pattern implementation with ANTLR4.
             </p>
             <div class="project-tech">
                 <span class="tech-tag">Java</span>
@@ -571,10 +574,10 @@
         <a href="https://github.com/nrmancuso/parseva" target="_blank" class="project-card">
             <span class="project-arrow">↗</span>
             <p class="project-type">// Open Source</p>
-            <h3 class="project-name">parseva</h3>
+            <h3 class="project-name">Parser Framework</h3>
             <p class="project-desc">
-                Core parser library and grammar tooling. Foundations for building
-                expression evaluators and compiler front-ends in Java.
+                Core parser library and grammar framework for building expression evaluators
+                and compiler front-ends in Java; foundational for other parsing projects.
             </p>
             <div class="project-tech">
                 <span class="tech-tag">Java</span>
@@ -583,78 +586,13 @@
             </div>
         </a>
 
-        <a href="https://github.com/checkstyle/checkstyle" target="_blank" class="project-card">
-            <span class="project-arrow">↗</span>
-            <p class="project-type">// Open Source Contributor</p>
-            <h3 class="project-name">Checkstyle</h3>
-            <p class="project-desc">
-                Core contributor to Checkstyle's Java grammar. Added Java 14 records,
-                switch expressions, and Java 21 string templates via ANTLR4 grammar
-                modifications. Original GSoC project: ANTLR2 to ANTLR4 migration.
-            </p>
-            <div class="project-tech">
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">ANTLR4</span>
-                <span class="tech-tag">GSoC</span>
-            </div>
-        </a>
-
-        <a href="https://github.com/nrmancuso/big-bang" target="_blank" class="project-card">
-            <span class="project-arrow">↗</span>
-            <p class="project-type">// Academic Project</p>
-            <h3 class="project-name">big-bang</h3>
-            <p class="project-desc">
-                N-body gravitational simulation of the Milky Way and Andromeda galaxy
-                collision, modeled from real astronomical data. Parallelized with CUDA and OpenMP.
-                Includes a rendered animation of the full collision sequence.
-            </p>
-            <div class="project-tech">
-                <span class="tech-tag">CUDA</span>
-                <span class="tech-tag">OpenMP</span>
-                <span class="tech-tag">C++</span>
-                <span class="tech-tag">Parallel Computing</span>
-            </div>
-        </a>
-
-        <a href="https://github.com/nrmancuso/java-cryptogram-solver" target="_blank" class="project-card">
-            <span class="project-arrow">↗</span>
-            <p class="project-type">// Personal Project</p>
-            <h3 class="project-name">java-cryptogram-solver</h3>
-            <p class="project-desc">
-                A substitution cipher solver written in Java. Uses a dictionary-based
-                approach to crack simple substitution ciphers automatically.
-            </p>
-            <div class="project-tech">
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">Algorithms</span>
-                <span class="tech-tag">Cryptography</span>
-            </div>
-        </a>
-
-        <a href="https://github.com/nrmancuso/checkstyle-diff-report-generator" target="_blank" class="project-card">
-            <span class="project-arrow">↗</span>
-            <p class="project-type">// Open Source Tooling</p>
-            <h3 class="project-name">checkstyle-diff-report-generator</h3>
-            <p class="project-desc">
-                GitHub Actions-based regression testing tool for Checkstyle grammar contributions.
-                Runs diff reports across hundreds of open source Java projects to validate
-                that grammar changes introduce no regressions before merging.
-            </p>
-            <div class="project-tech">
-                <span class="tech-tag">GitHub Actions</span>
-                <span class="tech-tag">CI/CD</span>
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">ANTLR4</span>
-            </div>
-        </a>
-
-        <a href="https://github.com/JabRef/jabref" target="_blank" class="project-card">
+        <a href="https://github.com/JabRef/jabref/pulls?q=is%3Apr+author%3Anrmancuso" target="_blank" class="project-card">
             <span class="project-arrow">↗</span>
             <p class="project-type">// Open Source Contributor</p>
             <h3 class="project-name">JabRef</h3>
             <p class="project-desc">
-                Feature contributor to JabRef, the open-source bibliography reference manager.
-                JabRef is a widely used academic tool built on Java with a large contributor community.
+                Feature contributor to JabRef, the open-source bibliography reference manager
+                used by academics worldwide. Built on Java and JavaFX.
             </p>
             <div class="project-tech">
                 <span class="tech-tag">Java</span>
@@ -663,14 +601,13 @@
             </div>
         </a>
 
-        <a href="https://github.com/CS-SI/Orekit" target="_blank" class="project-card">
+        <a href="https://github.com/CS-SI/Orekit/pulls?q=is%3Apr+author%3Anrmancuso" target="_blank" class="project-card">
             <span class="project-arrow">↗</span>
             <p class="project-type">// Open Source Contributor</p>
             <h3 class="project-name">Orekit</h3>
             <p class="project-desc">
                 Bug fix contributor to Orekit, a low-level space dynamics library developed
-                by CS Group and used in real aerospace applications for orbit propagation,
-                attitude control, and mission analysis.
+                by CS Group and used in aerospace applications for orbit propagation and mission analysis.
             </p>
             <div class="project-tech">
                 <span class="tech-tag">Java</span>
@@ -679,21 +616,34 @@
             </div>
         </a>
 
-        <a href="https://github.com/nrmancuso" target="_blank" class="project-card">
+        <a href="https://github.com/nrmancuso/astronomy-journal" target="_blank" class="project-card">
             <span class="project-arrow">↗</span>
-            <p class="project-type">// AI Tooling</p>
-            <h3 class="project-name">AI-Assisted Developer Tooling</h3>
+            <p class="project-type">// Personal Project</p>
+            <h3 class="project-name">Observational Astronomy Journal</h3>
             <p class="project-desc">
-                Built a suite of AI-powered development agents from scratch; including automated
-                code review, API contract checking, migration analysis, test adequacy analysis,
-                and dependency auditing. Integrated across multiple codebases with onboarding
-                documentation and RAG pipelines for codebase context.
+                A Python-based tool for logging and analyzing observational astronomy data;
+                includes image processing and data visualization for visual astronomy logs.
             </p>
             <div class="project-tech">
-                <span class="tech-tag">AI Agents</span>
-                <span class="tech-tag">RAG</span>
-                <span class="tech-tag">Developer Tooling</span>
-                <span class="tech-tag">MCP</span>
+                <span class="tech-tag">Astronomy</span>
+                <span class="tech-tag">Image Processing</span>
+                <span class="tech-tag">Python</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/nrmancuso/big-bang" target="_blank" class="project-card">
+            <span class="project-arrow">↗</span>
+            <p class="project-type">// Academic Project</p>
+            <h3 class="project-name">Galaxy Collision Simulator</h3>
+            <p class="project-desc">
+                N-body gravitational simulation of the Milky Way and Andromeda galaxy
+                collision using real astronomical data; parallelized with CUDA and OpenMP.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">CUDA</span>
+                <span class="tech-tag">OpenMP</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Parallel Computing</span>
             </div>
         </a>
 
